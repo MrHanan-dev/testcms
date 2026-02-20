@@ -1,131 +1,145 @@
 "use client";
 
 import Link from 'next/link';
-import { ArrowRight, CheckCircle, PlayCircle, BarChart4 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { ArrowRight, Play } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-hero-gradient">
-      {/* Background Decorative Elements */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-radial from-blue-50 to-transparent opacity-60 mix-blend-multiply pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-1/2 h-full bg-gradient-radial from-orange-50 to-transparent opacity-60 mix-blend-multiply pointer-events-none" />
+    <section className="relative min-h-screen flex items-center pt-24 pb-20 overflow-hidden bg-mesh">
+      {/* Background orbs */}
+      <div className="absolute top-20 right-[10%] w-[500px] h-[500px] bg-accent/5 rounded-full blur-[100px]" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px]" />
 
       <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-          {/* Content Column */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="flex flex-col items-start max-w-2xl"
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/5 text-primary text-sm font-semibold mb-6 border border-primary/10">
-              <CheckCircle size={14} className="text-accent" />
-              <span>PMP Certification | PM Consulting | Cost Advisory</span>
-            </div>
-
-            <h1 className="h1">
-              Empowering Professionals in <span className="text-accent relative inline-block">
-                Project Leadership
-                <svg className="absolute w-full h-3 -bottom-1 left-0 text-accent/20" viewBox="0 0 100 10" preserveAspectRatio="none">
-                  <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="8" fill="none" />
-                </svg>
+          {/* Left — Typography */}
+          <div className="max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <span className="inline-block label-tag mb-8 px-5 py-2.5 bg-accent/8 rounded-full border border-accent/20">
+                PMI Authorized Training Partner
               </span>
-            </h1>
 
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed max-w-lg">
-              Bridging Project Management, Cost Estimation & Career Growth with Global PMP Training and Expert Cost Management Services.
-            </p>
+              <h1 className="h1 mb-8">
+                Build projects that{' '}
+                <span className="relative inline-block">
+                  <span className="relative z-10">deliver.</span>
+                  <span className="absolute bottom-2 left-0 right-0 h-3 bg-accent/20 -z-0 rounded-sm" />
+                </span>
+              </h1>
 
-            <div className="flex flex-wrap gap-4 w-full sm:w-auto">
-              <Link href="#services" className="btn btn-accent shadow-lg shadow-accent/20">
-                Explore Our Services
-              </Link>
-              <Link href="#contact" className="btn btn-outline">
-                Contact Consulting <ArrowRight size={18} />
-              </Link>
-            </div>
+              <p className="text-lg md:text-xl text-foreground/70 mb-10 leading-relaxed font-medium max-w-xl mx-auto lg:mx-0">
+                TotalPMP unifies expert training, precision cost estimation, and strategic consulting under one roof — powering projects from blueprint to delivery.
+              </p>
 
-            <div className="mt-12 pt-8 border-t border-gray-100 w-full flex gap-8 sm:gap-12">
-              {[
-                { label: 'Pass Rate', value: '98%' },
-                { label: 'Projects Optimized', value: '500+' },
-                { label: 'Industry Experience', value: '15y' },
-              ].map((stat, i) => (
-                <div key={i} className="flex flex-col">
-                  <span className="text-3xl font-bold text-primary">{stat.value}</span>
-                  <span className="text-sm text-gray-500 font-medium">{stat.label}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Visual Column */}
-          <div className="relative lg:h-[600px] w-full flex items-center justify-center lg:justify-end">
-            <div className="relative w-full max-w-lg aspect-square lg:aspect-auto h-full">
-              {/* Main Background Blob */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-primary rounded-full opacity-10 blur-3xl animate-pulse" />
-
-              {/* Floating Cards */}
-              <motion.div
-                animate={{ y: [0, -15, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-10 right-4 lg:right-0 glass-card p-5 w-64 z-20 border-l-4 border-l-accent"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-accent text-white flex items-center justify-center shadow-lg shadow-accent/20">
-                    <BarChart4 size={20} />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-primary text-sm">AI Cost Advisory</h4>
-                    <span className="text-[10px] bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">
-                      +24% Efficiency
-                    </span>
-                  </div>
-                </div>
-                <div className="space-y-3">
-                  <div className="flex justify-between text-[10px] font-bold text-gray-400 uppercase tracking-widest">
-                    <span>Precision Level</span>
-                    <span className="text-accent">99.2%</span>
-                  </div>
-                  <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      animate={{ width: "95%" }}
-                      transition={{ duration: 1.5, delay: 0.5 }}
-                      className="h-full bg-accent rounded-full"
-                    />
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                animate={{ y: [0, 15, 0] }}
-                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute bottom-20 left-4 lg:left-10 glass-card p-5 z-20 flex items-center gap-4 border-r-4 border-r-primary"
-              >
-                <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white shadow-lg shadow-primary/20">
-                  <CheckCircle size={24} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-primary text-sm whitespace-nowrap">PMP Certified</h4>
-                  <p className="text-xs text-gray-500 font-medium whitespace-nowrap">Global Success Verified</p>
-                </div>
-              </motion.div>
-
-              {/* Central Abstract Shape/Image Placeholder */}
-              <div className="absolute inset-0 m-auto w-4/5 h-4/5 bg-gradient-to-tr from-primary to-primary-light rounded-[2rem] shadow-2xl overflow-hidden flex items-center justify-center z-10 group rotate-3 hover:rotate-0 transition-transform duration-500">
-                <div className="absolute inset-0 bg-[url('/images/totalpmp_hero_main_1771222013046.png')] bg-cover bg-center opacity-80 mix-blend-normal hover:opacity-100 transition-opacity" />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
-                <h3 className="relative text-white font-bold text-4xl text-center px-4 leading-tight">
-                  Pass with <br /> TotalPMP.
-                </h3>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Link
+                  href="#contact"
+                  className="btn-primary px-10 py-5 rounded-full text-base font-black tracking-wide"
+                >
+                  Get Started <ArrowRight size={18} className="ml-1" />
+                </Link>
+                <Link
+                  href="#services"
+                  className="btn-outline px-10 py-5 rounded-full text-base font-bold tracking-wide"
+                >
+                  <Play size={16} className="mr-1" /> See How It Works
+                </Link>
               </div>
-            </div>
+            </motion.div>
           </div>
 
+          {/* Right — Visual Dashboard */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, x: 30 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="hidden lg:block relative"
+          >
+            <div className="relative">
+              {/* Main visual card */}
+              <div className="rounded-bento bg-primary p-8 shadow-premium overflow-hidden relative">
+                <div className="absolute top-0 right-0 w-40 h-40 bg-accent/10 rounded-full blur-[60px]" />
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/5 rounded-full blur-[40px]" />
+
+                {/* Dashboard mockup */}
+                <div className="relative z-10">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-3 h-3 rounded-full bg-accent" />
+                    <div className="w-3 h-3 rounded-full bg-white/20" />
+                    <div className="w-3 h-3 rounded-full bg-white/20" />
+                    <span className="ml-auto text-[11px] text-white/40 font-mono">dashboard.totalpmp.com</span>
+                  </div>
+
+                  {/* Stats row */}
+                  <div className="grid grid-cols-3 gap-4 mb-6">
+                    {[
+                      { label: 'Projects', value: '524', change: '+12%' },
+                      { label: 'Trained', value: '2.1k', change: '+28%' },
+                      { label: 'Savings', value: '$52M', change: '+8%' },
+                    ].map((stat) => (
+                      <div key={stat.label} className="bg-white/5 rounded-2xl p-4 border border-white/5">
+                        <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest mb-1">{stat.label}</p>
+                        <p className="text-white text-2xl font-black tracking-tight">{stat.value}</p>
+                        <p className="text-accent text-[11px] font-bold mt-1">{stat.change}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Chart placeholder */}
+                  <div className="bg-white/5 rounded-2xl p-5 border border-white/5">
+                    <div className="flex items-end justify-between h-32 gap-2">
+                      {[40, 65, 45, 80, 55, 90, 70, 95, 60, 85, 75, 100].map((h, i) => (
+                        <motion.div
+                          key={i}
+                          initial={{ height: 0 }}
+                          animate={{ height: `${h}%` }}
+                          transition={{ duration: 0.8, delay: 0.5 + i * 0.05 }}
+                          className={`flex-1 rounded-t-lg ${i === 11 ? 'bg-accent' : 'bg-white/10'}`}
+                        />
+                      ))}
+                    </div>
+                    <div className="flex justify-between mt-3">
+                      <span className="text-white/30 text-[10px] font-mono">Jan</span>
+                      <span className="text-white/30 text-[10px] font-mono">Dec</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating badge — bottom left */}
+              <motion.div
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -bottom-6 -left-6 p-5 bg-white rounded-bento shadow-tactile border border-slate-100 z-20"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center">
+                    <span className="text-accent text-lg">✓</span>
+                  </div>
+                  <div>
+                    <p className="text-primary font-black text-sm">100% Pass Rate</p>
+                    <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest">First Attempt</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Floating badge — top right */}
+              <motion.div
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="absolute -top-4 -right-4 p-4 bg-accent rounded-2xl shadow-gold z-20"
+              >
+                <p className="text-primary font-black text-lg">17+</p>
+                <p className="text-primary/70 text-[9px] font-bold uppercase tracking-widest">Years</p>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
