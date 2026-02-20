@@ -6,89 +6,72 @@ const features = [
   {
     icon: <ShieldCheck size={28} />,
     title: "Global Accreditation",
-    description: "Our programs are recognized by international project management bodies, ensuring your certification holds weight in any market, from New York to Singapore."
+    description: "Our programs follow PMI® international standards, ensuring your certification holds weight in any market, from Auckland to London."
   },
   {
     icon: <Zap size={28} />,
-    title: "AI-Powered Decision Support",
-    description: "Go beyond simple estimation. Our AI provides real-time decision support, identifying cost-saving opportunities and predicting supply chain disruptions."
+    title: "Industrial Situation Focus",
+    description: "Go beyond theory. Our training is rooted in actual industrial situations, providing practical solutions to real-world challenges."
   },
   {
     icon: <TrendingUp size={28} />,
-    title: "Proven ROI for Billion-Dollar Projects",
-    description: "TotalPMP strategies have been battle-tested on major infrastructure projects, delivering an average cost reduction of 15% through precision management."
+    title: "Proven Project Success",
+    description: "Our consultancy strategies have been battle-tested on major NZ infrastructure projects, ensuring success from masterplanning to delivery."
   },
   {
     icon: <Users size={28} />,
-    title: "Dedicated Corporate Support",
-    description: "We don't just train; we partner. Our dedicated account managers work with your leadership to ensure PMP methodologies are fully integrated into your culture."
+    title: "Independent Client Advisory",
+    description: "We provide high-fidelity development and commercial advice, acting as an independent partner focused solely on your project's success."
   }
 ];
 
 export default function Features() {
   return (
-    <section id="services" className="section bg-gray-50">
+    <section id="features" className="section bg-white overflow-hidden">
       <div className="container-custom">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
 
           {/* Content */}
-          <div>
-            <div className="inline-block px-3 py-1 bg-accent/10 rounded-full text-accent text-sm font-semibold mb-6">
-              Why Choose Us
-            </div>
-            <h2 className="h2 mb-6">
-              Why Choose <span className="text-primary">TotalPMP</span>?
+          <div className="order-last lg:order-first">
+            <span className="text-accent font-extrabold tracking-[0.2em] uppercase text-[10px] mb-6 block">The Advantage</span>
+            <h2 className="h2 mb-10 leading-tight">
+              Why choose <span className="text-accent">TotalPMP</span>?
             </h2>
-            <p className="text-xl text-gray-600 mb-10 leading-relaxed">
-              We combine traditional project management rigor with modern AI innovation to deliver superior results that drive your business forward.
+            <p className="text-xl text-slate-500 mb-12 leading-relaxed font-medium opacity-80 max-w-xl">
+              We impart knowledge based on actual industrial situations, combining pedagogical expertise with deep-rooted project leadership.
             </p>
 
             <div className="grid sm:grid-cols-2 gap-6">
               {features.map((feature, index) => (
                 <div
                   key={index}
-                  className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300"
+                  className="group p-8 rounded-[30px] bg-slate-50/50 hover:glass-crystal hover:shadow-premium transition-all duration-500 border border-transparent"
                 >
-                  <div className="w-12 h-12 bg-primary/5 rounded-lg flex items-center justify-center text-accent mb-4">
+                  <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary mb-6 shadow-soft group-hover:bg-primary group-hover:text-white transition-all duration-500">
                     {feature.icon}
                   </div>
-                  <h4 className="text-lg font-bold text-primary mb-2">{feature.title}</h4>
-                  <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+                  <h4 className="text-lg font-extrabold text-primary mb-3 tracking-tight">{feature.title}</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed font-medium opacity-80">{feature.description}</p>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Visual/Image Side */}
-          <div className="order-first lg:order-last">
-            <div className="relative h-[500px] w-full bg-gradient-to-br from-primary to-primary-light rounded-2xl overflow-hidden shadow-2xl group">
-              {/* Abstract Background */}
-              <div className="absolute inset-0 bg-[url('/images/totalpmp_ai_estimation_1771222114549.png')] bg-cover bg-center opacity-40 mix-blend-overlay transition-transform duration-700 group-hover:scale-105" />
+          <div className="relative">
+            <div className="absolute -inset-4 bg-accent/10 rounded-[60px] blur-2xl rotate-3"></div>
+            <div className="relative h-[600px] w-full rounded-[50px] overflow-hidden border border-slate-100 shadow-premium">
+              <img
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80"
+                alt="TotalPMP Excellence"
+                className="w-full h-full object-cover grayscale-[10%] hover:grayscale-0 transition-all duration-1000"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-transparent"></div>
 
-              {/* Dashboard Mockup */}
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90%] h-[70%] bg-white rounded-t-xl shadow-2xl p-4 flex flex-col transition-transform duration-500 group-hover:translate-y-2">
-                {/* Mockup Header */}
-                <div className="flex gap-2 mb-4 bg-gray-50 p-2 rounded-lg items-center">
-                  <div className="w-3 h-3 rounded-full bg-red-400" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                  <div className="w-3 h-3 rounded-full bg-green-400" />
-                  <div className="ml-4 h-2 w-32 bg-gray-200 rounded-full" />
-                </div>
-
-                {/* Mockup Content - Charts */}
-                <div className="flex-1 grid grid-cols-3 gap-4 items-end px-4 pb-4">
-                  <div className="h-[40%] bg-gray-100 rounded-md relative group-hover:h-[45%] transition-all duration-500">
-                    <div className="absolute -top-6 left-0 right-0 text-center text-xs text-gray-400">wk1</div>
-                  </div>
-                  <div className="h-[60%] bg-gray-100 rounded-md relative group-hover:h-[65%] transition-all duration-500 delay-100">
-                    <div className="absolute -top-6 left-0 right-0 text-center text-xs text-gray-400">wk2</div>
-                  </div>
-                  <div className="h-[85%] bg-accent/90 rounded-md relative shadow-lg shadow-accent/20 group-hover:h-[90%] transition-all duration-500 delay-200">
-                    <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-primary text-white text-xs px-2 py-1 rounded">
-                      +15%
-                    </div>
-                  </div>
-                </div>
+              {/* Floating Stat Card */}
+              <div className="absolute bottom-10 left-10 p-8 glass-crystal rounded-[30px] shadow-premium max-w-[240px]">
+                <div className="text-4xl font-extrabold text-primary mb-2">100%</div>
+                <div className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.2em] leading-tight">Exam Success Rate on First Attempt</div>
               </div>
             </div>
           </div>

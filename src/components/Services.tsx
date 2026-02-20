@@ -1,79 +1,64 @@
 "use client";
 
-
-
 import { GraduationCap, Calculator, Briefcase, ChevronRight, Users, BarChart4 } from 'lucide-react';
 import Link from 'next/link';
 
 const services = [
   {
-    icon: <GraduationCap size={32} />,
-    title: "PMP Certification Mastery",
-    description: "Our world-class PMP training in Precision Project Management is designed for 100% exam success. Master the PMBOK Guide, agile methodologies, leadership skills, and risk management with expert TotalPMP instructors. We offer tailored mentorship and high-yield study resources.",
-    link: "#pmp",
-    bgImage: "/images/totalpmp_pmp_training_1771222055265.png"
+    icon: <GraduationCap size={28} />,
+    title: "PMP® Certification",
+    description: "Comprehensive, expert-led training covering all knowledge areas of the PMBOK® Guide, taught by certified PMP® professionals.",
+    link: "#training",
   },
   {
-    icon: <Calculator size={32} />,
-    title: "AI-Powered Cost Estimation",
-    description: "Eliminate budget uncertainty with TotalPMP's proprietary AI algorithms. We provide high-precision construction cost estimation, sensitivity analysis, and predictive analytics for infra projects. Our data-driven approach minimizes variance and optimizes resource allocation.",
-    link: "#estimation",
-    bgImage: "/images/totalpmp_ai_estimation_1771222114549.png"
+    icon: <BarChart4 size={28} />,
+    title: "CAPM® Foundation",
+    description: "A strong foundation in project management core principles to build confidence and develop essential leadership skills.",
+    link: "#capm",
   },
   {
-    icon: <Briefcase size={32} />,
-    title: "Strategic PMO Consulting",
-    description: "TotalPMP offers strategic project management consulting to optimize your PMO. We align technical execution with business strategy to ensure every project delivers maximum ROI. We focus on workflow efficiency, bottleneck identification, and stakeholders management.",
-    link: "#consulting",
-    bgImage: "/images/totalpmp_consulting_1771222157225.png"
+    icon: <Briefcase size={28} />,
+    title: "Consultancy Services",
+    description: "From feasibility studies and masterplanning to design management and construction oversight.",
+    link: "#consultancy",
   },
   {
-    icon: <Users size={32} />,
-    title: "Corporate Workforce Training",
-    description: "Scale your organization's project maturity with custom-tailored workforce development. We train entire departments in lean PM, agile workflows, and collaborative leadership to ensure consistent project delivery standards and a shared language of success.",
-    link: "#workforce",
-    bgImage: "/images/totalpmp_pmp_training_1771222055265.png"
-  },
-  {
-    icon: <BarChart4 size={32} />,
-    title: "Advanced Data Analytics",
-    description: "Go beyond spreadsheets with advanced project analytics. We provide deep-dive insights into project velocity, burning rates, and resource utilization using modern BI tools integrated with your existing project management ecosystem for real-time visibility.",
-    link: "#analytics",
-    bgImage: "/images/totalpmp_ai_estimation_1771222114549.png"
+    icon: <Users size={28} />,
+    title: "Force Development",
+    description: "Empowering your organization through unravelling complexities, streamlining processes, and unlocking potential.",
+    link: "#force",
   }
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="section bg-white">
+    <section id="services" className="section bg-slate-50/50">
       <div className="container-custom">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="h2 mb-4">Our Expertise</h2>
-          <p className="text-xl text-gray-600">Delivering precision and excellence across three core pillars.</p>
+        <div className="max-w-3xl mb-20">
+          <span className="text-accent font-extrabold tracking-[0.2em] uppercase text-[10px] mb-6 block">Our Expertise</span>
+          <h2 className="h2 max-w-2xl">Transforming project management into a strategic advantage.</h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {services.map((service, index) => (
             <div
               key={index}
-              className="group relative p-8 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-xl hover:border-primary/10 transition-all duration-500 overflow-hidden"
+              className="group p-8 md:p-10 rounded-[40px] bg-white border border-slate-100 hover:border-accent/30 hover:shadow-2xl hover:shadow-accent/5 transition-all duration-700 flex flex-col items-start h-full relative overflow-hidden"
             >
-              {/* Background Image on Hover */}
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 bg-cover bg-center -z-10"
-                style={{ backgroundImage: `url(${service.bgImage})` }}
-              />
+              <div className="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-bl-full translate-x-8 -translate-y-8 group-hover:bg-accent/10 transition-all duration-700" />
 
-              <div className="w-16 h-16 bg-primary/5 rounded-2xl flex items-center justify-center text-accent mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-14 h-14 md:w-16 md:h-16 bg-accent rounded-2xl flex items-center justify-center text-white mb-8 shadow-premium group-hover:scale-110 transition-all duration-500">
                 {service.icon}
               </div>
-              <h3 className="text-xl font-bold text-primary mb-4">{service.title}</h3>
-              <p className="text-gray-600 mb-6 leading-relaxed min-h-[100px]">{service.description}</p>
+              <h3 className="text-xl md:text-2xl font-bold text-primary mb-4 tracking-tight leading-tight uppercase">{service.title}</h3>
+              <p className="text-slate-500 mb-8 leading-relaxed text-[15px] font-medium opacity-80 flex-grow">
+                {service.description}
+              </p>
               <Link
                 href={service.link}
-                className="inline-flex items-center text-primary font-semibold hover:text-accent transition-colors group-hover:translate-x-1 duration-300"
+                className="inline-flex items-center text-accent text-xs font-bold uppercase tracking-[0.2em] group-hover:text-primary transition-all duration-500"
               >
-                Learn More <ChevronRight size={16} className="ml-1" />
+                Learn More <ChevronRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           ))}

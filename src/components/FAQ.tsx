@@ -6,24 +6,24 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const faqs = [
     {
-        question: "What is the pass rate for TotalPMP's certification courses?",
-        answer: "TotalPMP maintains a 98% first-attempt pass rate for our PMP certification training. Our curriculum is strictly aligned with the latest PMBOK Guide and includes comprehensive mock exams."
+        question: "What is the exam success rate for TotalPMP's students?",
+        answer: "We are proud to maintain a 100% first-attempt pass rate for our PMP® certification training. Our curriculum is tailored based on actual industrial situations and includes comprehensive mock testing."
     },
     {
-        question: "How accurate is the AI-driven construction cost estimation?",
-        answer: "Our proprietary AI models achieve up to 99% accuracy by analyzing historical data, market trends, and specific architectural variables, significantly reducing the risk of budget overruns."
+        question: "Do you offer tailored project management consulting for enterprises?",
+        answer: "Yes, TotalPMP specializes in bespoke consultancy for high-stakes projects. From masterplanning to sustainability advice, we help organizations navigate complex delivery hurdles."
     },
     {
-        question: "Do you offer tailored project management consulting for large enterprises?",
-        answer: "Yes, TotalPMP specializes in enterprise-level consulting. We help organizations establish robust Project Management Offices (PMO) and optimize complex cross-departmental workflows."
+        question: "Is the training available globally or only in New Zealand?",
+        answer: "While we have deep roots in New Zealand, we offer both on-site and highly interactive online certifications that follow international standards, accessible to professionals worldwide."
     },
     {
-        question: "Is TotalPMP training available globally?",
-        answer: "We offer both on-site training and highly interactive online certifications, making TotalPMP courses accessible to professionals and teams worldwide."
+        question: "How does the consultancy approach differ from others?",
+        answer: "Our approach is independent and expert-led, focusing on providing high-fidelity development and commercial advice that ensures project success from inception to delivery."
     },
     {
-        question: "What industries do you specialize in for cost estimation?",
-        answer: "While our methodology is versatile, we have deep expertise in infrastructure, commercial real estate, and industrial construction projects."
+        question: "What industries do your consultancy services cover?",
+        answer: "We have extensive experience in large-scale infrastructure, commercial developments, and industrial construction projects across diverse sectors."
     }
 ];
 
@@ -31,29 +31,27 @@ export default function FAQ() {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     return (
-        <section className="section bg-white">
+        <section className="section bg-white border-t border-slate-100">
             <div className="container-custom">
-                <div className="text-center max-w-3xl mx-auto mb-16">
-                    <h2 className="h2 mb-4">Frequently Asked Questions</h2>
-                    <p className="text-xl text-gray-600">Your guide to project management excellence and data precision.</p>
+                <div className="max-w-3xl mb-20">
+                    <span className="text-accent font-extrabold tracking-[0.2em] uppercase text-[10px] mb-6 block">Common Queries</span>
+                    <h2 className="h2 max-w-2xl">Answers to fuel your project journey.</h2>
                 </div>
 
-                <div className="max-w-3xl mx-auto space-y-4">
+                <div className="max-w-4xl space-y-4">
                     {faqs.map((faq, index) => (
                         <div
                             key={index}
-                            className="border border-gray-100 rounded-2xl overflow-hidden bg-gray-50/50"
+                            className={`rounded-[32px] overflow-hidden transition-all duration-700 ${openIndex === index ? 'glass-crystal shadow-premium border-accent/20' : 'bg-slate-50/50 hover:bg-slate-50 border border-transparent'}`}
                         >
                             <button
                                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                                className="w-full flex items-center justify-between p-6 text-left hover:bg-white transition-colors duration-300"
+                                className="w-full flex items-center justify-between p-8 text-left transition-all duration-500"
                             >
-                                <span className="font-bold text-primary">{faq.question}</span>
-                                {openIndex === index ? (
-                                    <ChevronUp className="text-accent" />
-                                ) : (
-                                    <ChevronDown className="text-gray-400" />
-                                )}
+                                <span className={`font-bold text-lg tracking-tight ${openIndex === index ? 'text-accent' : 'text-primary'}`}>{faq.question}</span>
+                                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-500 ${openIndex === index ? 'bg-accent text-white rotate-180' : 'bg-primary/5 text-primary'}`}>
+                                    <ChevronUp size={18} />
+                                </div>
                             </button>
                             <AnimatePresence>
                                 {openIndex === index && (
@@ -61,9 +59,9 @@ export default function FAQ() {
                                         initial={{ height: 0, opacity: 0 }}
                                         animate={{ height: 'auto', opacity: 1 }}
                                         exit={{ height: 0, opacity: 0 }}
-                                        transition={{ duration: 0.3 }}
+                                        transition={{ duration: 0.4 }}
                                     >
-                                        <div className="px-6 pb-6 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4">
+                                        <div className="px-8 pb-8 text-slate-500 text-[15px] leading-relaxed font-medium opacity-80 pt-2">
                                             {faq.answer}
                                         </div>
                                     </motion.div>
