@@ -1,71 +1,83 @@
 "use client";
 
-import { Star, Quote } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Star } from 'lucide-react';
 
 const testimonials = [
     {
-        name: "James Wilson",
-        role: "Project Director, NZ Infrastructure",
-        content: "TotalPMP transformed our approach to construction oversight. Their consultancy expertise in masterplanning was instrumental in delivering our project ahead of schedule.",
+        name: "Sarah Mitchell",
+        role: "Senior PM, Infrastructure NZ",
+        initials: "SM",
+        content: "TotalPMP didn't just prepare me for the PMP exam — they transformed how I approach project delivery. The real-world case studies were invaluable.",
         rating: 5,
     },
     {
-        name: "Dr. Sarah Miller",
-        role: "Certified PMP® Graduate",
-        content: "Exceptional training experience. The focus on real-world industrial situations made passing the PMP® exam straightforward and practical for my daily leadership roles.",
+        name: "James Chen",
+        role: "Director of Costs, Lendlease",
+        initials: "JC",
+        content: "The cost estimation advisory from Total QS saved us $2.4M on a single project. Their AI-driven approach is genuinely ahead of the curve.",
         rating: 5,
     },
     {
-        name: "Robert Cheng",
-        role: "COO, Pacific Development",
-        content: "Strategic advisory from TotalPMP helped us navigate complex land acquisition and project financing hurdles with high-fidelity commercial advice.",
+        name: "Priya Sharma",
+        role: "PMO Lead, Spark NZ",
+        initials: "PS",
+        content: "Millpond's PMO establishment service gave us structure without bureaucracy. Our delivery velocity improved by 40% in the first quarter.",
         rating: 5,
     },
 ];
 
 export default function Testimonials() {
     return (
-        <section className="section bg-background overflow-hidden">
+        <section className="section bg-warm-50">
             <div className="container-custom">
-                <div className="max-w-3xl mb-16">
-                    <span className="label-tag mb-5 block">Client Success</span>
-                    <h2 className="h2 max-w-2xl">
-                        Trusted by leaders in <span className="text-accent">industry and project excellence.</span>
+                <div className="max-w-2xl mb-16">
+                    <span className="label-tag mb-4 block">Testimonials</span>
+                    <h2 className="h2 mb-4">
+                        Trusted by <span className="text-accent">industry leaders.</span>
                     </h2>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-6">
-                    {testimonials.map((testimonial, index) => (
+                <div className="grid md:grid-cols-3 gap-8">
+                    {testimonials.map((t, index) => (
                         <motion.div
-                            key={index}
+                            key={t.name}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="bento-card flex flex-col relative group"
+                            transition={{ duration: 0.4, delay: index * 0.1 }}
+                            className="relative"
                         >
-                            <div className="absolute top-8 right-8 text-primary/5 group-hover:text-accent/15 transition-colors duration-500">
-                                <Quote size={36} />
-                            </div>
+                            {/* Blockquote card */}
+                            <div className="flex gap-6 h-full">
+                                {/* Vertical gold line */}
+                                <div className="w-[2px] bg-accent/30 flex-shrink-0 rounded-full" />
 
-                            <div className="flex gap-1 mb-6">
-                                {[...Array(testimonial.rating)].map((_, i) => (
-                                    <Star key={i} size={14} className="fill-accent text-accent" />
-                                ))}
-                            </div>
+                                <div className="flex flex-col py-1">
+                                    {/* Stars */}
+                                    <div className="flex gap-0.5 mb-4">
+                                        {Array.from({ length: t.rating }).map((_, i) => (
+                                            <Star key={i} size={14} className="fill-accent text-accent" />
+                                        ))}
+                                    </div>
 
-                            <p className="text-foreground/70 mb-8 leading-relaxed flex-1 text-[15px] font-medium">
-                                &ldquo;{testimonial.content}&rdquo;
-                            </p>
+                                    {/* Quote — large typography */}
+                                    <p className="text-foreground/70 leading-relaxed text-[16px] font-medium mb-8 flex-1">
+                                        &ldquo;{t.content}&rdquo;
+                                    </p>
 
-                            <div className="pt-6 border-t border-slate-100">
-                                <h4 className="font-extrabold text-primary tracking-tight text-base">
-                                    {testimonial.name}
-                                </h4>
-                                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.15em] mt-1">
-                                    {testimonial.role}
-                                </p>
+                                    {/* Profile */}
+                                    <div className="flex items-center gap-3 mt-auto">
+                                        {/* Circular headshot placeholder */}
+                                        <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                                            <span className="text-white font-bold text-xs tracking-wider">{t.initials}</span>
+                                        </div>
+                                        <div>
+                                            <p className="font-bold text-charcoal text-sm">{t.name}</p>
+                                            <p className="text-[11px] text-foreground/35 font-medium">{t.role}</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </motion.div>
                     ))}

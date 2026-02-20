@@ -1,45 +1,40 @@
 "use client";
 
-const partners = [
-    'PMI Authorized',
-    'PMBOK® Guide',
-    'Agile Alliance',
-    'RICS',
-    'ICE',
-    'NZIQS',
-    'IPENZ',
-    'Build NZ',
+const logos = [
+    { name: "PMI", abbrev: "PMI" },
+    { name: "NZIQSI", abbrev: "NZIQSI" },
+    { name: "RICS", abbrev: "RICS" },
+    { name: "APM", abbrev: "APM" },
+    { name: "CIOB", abbrev: "CIOB" },
+    { name: "Axelos", abbrev: "AXELOS" },
+    { name: "IPMA", abbrev: "IPMA" },
+    { name: "Scrum.org", abbrev: "SCRUM" },
 ];
 
 export default function Partners() {
+    const doubled = [...logos, ...logos];
     return (
-        <section className="py-14 bg-white border-y border-slate-100 overflow-hidden">
-            <div className="container-custom mb-8">
-                <div className="flex flex-col items-center">
-                    <span className="text-[10px] uppercase font-black tracking-[0.3em] text-slate-400 mb-1">
-                        Trusted By Industry Leaders
-                    </span>
-                    <div className="h-[2px] w-8 bg-accent rounded-full mt-3" />
-                </div>
+        <section className="py-12 bg-white/60 border-y border-slate-200/40 overflow-hidden">
+            <div className="container-custom mb-6">
+                <p className="text-center text-[10px] font-black uppercase tracking-[0.3em] text-foreground/25">
+                    Trusted by industry leaders worldwide
+                </p>
             </div>
-
-            {/* Marquee */}
-            <div className="marquee-mask relative">
-                <div className="flex animate-marquee whitespace-nowrap">
-                    {/* Duplicate for seamless loop */}
-                    {[...partners, ...partners].map((name, i) => (
+            <div className="marquee-mask">
+                <div className="flex animate-marquee w-max">
+                    {doubled.map((logo, i) => (
                         <div
-                            key={`${name}-${i}`}
-                            className="inline-flex items-center mx-8 md:mx-12"
+                            key={`${logo.name}-${i}`}
+                            className="flex items-center justify-center mx-10 md:mx-14 flex-shrink-0"
                         >
-                            <div className="flex items-center gap-3 opacity-40 hover:opacity-100 transition-opacity duration-500 grayscale hover:grayscale-0">
-                                <div className="w-10 h-10 bg-primary/5 rounded-xl flex items-center justify-center">
-                                    <span className="text-primary font-black text-sm">
-                                        {name.split(' ').map(w => w[0]).join('')}
+                            <div className="flex items-center gap-3 group cursor-default select-none">
+                                <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center border border-slate-200/60 group-hover:border-accent/30 transition-colors duration-300">
+                                    <span className="text-[9px] font-black text-primary/30 tracking-widest group-hover:text-accent transition-colors duration-300">
+                                        {logo.abbrev.slice(0, 2)}
                                     </span>
                                 </div>
-                                <span className="text-sm font-bold text-primary tracking-tight whitespace-nowrap">
-                                    {name}
+                                <span className="text-sm font-bold text-foreground/20 group-hover:text-foreground/50 transition-colors duration-300 tracking-wide">
+                                    {logo.name}
                                 </span>
                             </div>
                         </div>
