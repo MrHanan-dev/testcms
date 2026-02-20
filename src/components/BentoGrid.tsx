@@ -1,98 +1,80 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { GraduationCap, Calculator, Briefcase, ArrowUpRight } from 'lucide-react';
+import { GraduationCap, Calculator, Briefcase, Target, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
-const cards = [
+const services = [
     {
-        tag: "The Agile Nest",
-        title: "Training & Certifications",
-        description: "World-class PMP®, CAPM®, and Agile training programs rooted in real industrial situations. 100% first-attempt pass rate with PMI-accredited curriculum.",
         icon: GraduationCap,
-        highlights: ["PMP® Certification", "CAPM® Foundation", "Agile / ACP®", "Corporate Workshops"],
-        color: "accent",
+        title: "Professional Training",
+        description: "PMI-accredited PMP®, CAPM®, and Agile certification programs with a 100% first-attempt pass rate.",
         href: "#training",
     },
     {
-        tag: "Total QS",
-        title: "Quantity Surveying & Cost Advisory",
-        description: "Precision AI-driven cost estimation and quantity surveying for construction, software, and infrastructure projects. From feasibility to final account.",
         icon: Calculator,
-        highlights: ["Construction Estimating", "Life Cycle Costing", "Risk & Contingency", "AI Cost Analytics"],
-        color: "primary",
+        title: "Cost Estimation & QS",
+        description: "AI-driven quantity surveying and cost advisory for construction, infrastructure, and technology projects.",
         href: "#estimation",
     },
     {
-        tag: "Millpond",
-        title: "Strategic Consulting & Delivery",
-        description: "End-to-end project advisory — from masterplanning and PMO establishment to agile transformation and independent project audit.",
         icon: Briefcase,
-        highlights: ["PMO Establishment", "Agile Transformation", "Project Audit", "Strategic Advisory"],
-        color: "accent",
+        title: "Strategic Consulting",
+        description: "End-to-end project delivery advisory — from PMO establishment to agile transformation and audit.",
         href: "#consultancy",
+    },
+    {
+        icon: Target,
+        title: "Programme Delivery",
+        description: "Hands-on programme management for complex multi-stakeholder infrastructure and commercial builds.",
+        href: "#delivery",
     },
 ];
 
 export default function BentoGrid() {
     return (
-        <section id="services" className="section bg-background">
+        <section id="services" className="section bg-white">
             <div className="container-custom">
-                <div className="max-w-3xl mb-16">
-                    <span className="label-tag mb-5 block">The Trinity</span>
-                    <h2 className="h2 mb-6">
-                        Three pillars. <span className="text-accent">One mission.</span>
+                <div className="max-w-2xl mb-16">
+                    <span className="label-tag mb-4 block">What We Do</span>
+                    <h2 className="h2 mb-4">
+                        Services built for{' '}
+                        <span className="text-accent">results.</span>
                     </h2>
-                    <p className="text-lg text-foreground/60 font-medium leading-relaxed max-w-2xl">
-                        TotalPMP brings together training, cost intelligence, and strategic consulting to deliver complete project excellence.
+                    <p className="subheader">
+                        Four pillars of expertise — unified under one mission.
                     </p>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-6">
-                    {cards.map((card, index) => (
+                <div className="grid md:grid-cols-2 gap-px bg-slate-200/60 border border-slate-200/60 rounded-lg overflow-hidden">
+                    {services.map((service, index) => (
                         <motion.div
-                            key={card.tag}
-                            initial={{ opacity: 0, y: 24 }}
+                            key={service.title}
+                            initial={{ opacity: 0, y: 16 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            transition={{ duration: 0.4, delay: index * 0.08 }}
                         >
-                            <Link href={card.href} className="bento-card flex flex-col h-full group cursor-pointer">
-                                {/* Tag + Icon */}
-                                <div className="flex items-center justify-between mb-6">
-                                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-accent bg-accent/8 px-3 py-1.5 rounded-full">
-                                        {card.tag}
-                                    </span>
-                                    <div className="w-10 h-10 rounded-xl bg-primary/5 flex items-center justify-center text-primary group-hover:bg-accent group-hover:text-primary transition-all duration-500">
-                                        <card.icon size={20} />
+                            <Link href={service.href} className="block h-full">
+                                <div className="service-card bg-white h-full flex flex-col group">
+                                    {/* Icon — line-art gold, moves up 5px on hover */}
+                                    <div className="service-icon w-14 h-14 border border-accent/20 rounded-lg flex items-center justify-center mb-6 transition-all duration-500">
+                                        <service.icon size={26} className="text-accent" strokeWidth={1.5} />
                                     </div>
-                                </div>
 
-                                {/* Title */}
-                                <h3 className="text-xl md:text-2xl font-extrabold text-primary mb-3 tracking-tight leading-tight group-hover:text-accent transition-colors duration-300">
-                                    {card.title}
-                                </h3>
+                                    {/* Title */}
+                                    <h3 className="h3 mb-3">{service.title}</h3>
 
-                                {/* Description */}
-                                <p className="text-sm text-foreground/60 leading-relaxed font-medium mb-6 flex-1">
-                                    {card.description}
-                                </p>
+                                    {/* Description */}
+                                    <p className="text-foreground/50 leading-relaxed text-[15px] mb-6 flex-1">
+                                        {service.description}
+                                    </p>
 
-                                {/* Highlights */}
-                                <div className="flex flex-wrap gap-2 mb-6">
-                                    {card.highlights.map((h) => (
-                                        <span
-                                            key={h}
-                                            className="text-[10px] font-bold text-foreground/50 bg-slate-50 px-3 py-1.5 rounded-full border border-slate-100"
-                                        >
-                                            {h}
-                                        </span>
-                                    ))}
-                                </div>
-
-                                {/* Link */}
-                                <div className="flex items-center text-accent text-[12px] font-black uppercase tracking-[0.15em] group-hover:gap-3 gap-2 transition-all duration-300 mt-auto">
-                                    Explore <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+                                    {/* CTA — "Learn More →" with arrow hover */}
+                                    <div className="flex items-center text-charcoal text-sm font-bold gap-2 group-hover:text-accent transition-colors duration-300 mt-auto">
+                                        Learn More
+                                        <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-300" />
+                                    </div>
                                 </div>
                             </Link>
                         </motion.div>

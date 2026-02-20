@@ -1,108 +1,122 @@
 "use client";
 
 import Link from 'next/link';
-import { Linkedin, Twitter, Mail, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
+
+const footerLinks = {
+  services: [
+    { label: "PMP® Training", href: "#training" },
+    { label: "CAPM® Foundation", href: "#capm" },
+    { label: "Cost Estimation", href: "#estimation" },
+    { label: "Strategic Consulting", href: "#consultancy" },
+    { label: "Programme Delivery", href: "#delivery" },
+  ],
+  company: [
+    { label: "About Us", href: "#about" },
+    { label: "Our Team", href: "#team" },
+    { label: "Case Studies", href: "#insights" },
+    { label: "Careers", href: "#careers" },
+  ],
+  contact: [
+    { icon: Mail, label: "info@totalpmp.com", href: "mailto:info@totalpmp.com" },
+    { icon: Phone, label: "+64 21 123 4567", href: "tel:+64211234567" },
+    { icon: MapPin, label: "Auckland, New Zealand", href: "#" },
+  ],
+};
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-white pt-24 pb-12">
+    <footer className="bg-primary pt-20 pb-10">
       <div className="container-custom">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20 gap-x-16">
+        {/* 4-column grid */}
+        <div className="grid md:grid-cols-4 gap-12 mb-16">
 
-          {/* Brand Column */}
-          <div className="col-span-1 md:col-span-2 lg:col-span-1">
-            <Link href="/" className="inline-block mb-8">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-accent rounded-xl flex items-center justify-center text-primary font-black text-lg">
-                  T
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-xl font-black tracking-tight text-white leading-none">
-                    TotalPMP
-                  </span>
-                  <span className="text-[8px] uppercase font-bold tracking-[0.2em] text-accent mt-0.5">
-                    PMI Authorized Partner
-                  </span>
-                </div>
-              </div>
-            </Link>
-            <p className="text-white/40 text-[15px] leading-relaxed mb-8 max-w-xs font-medium">
-              Authorized PMI Training Partner providing immersive project management training and consultancy across New Zealand.
-            </p>
-            <div className="flex gap-3">
-              {[Linkedin, Twitter].map((Icon, i) => (
-                <Link
-                  key={i}
-                  href="#"
-                  className="w-10 h-10 rounded-xl border border-white/10 flex items-center justify-center hover:bg-accent hover:border-accent hover:text-primary transition-all duration-300"
-                >
-                  <Icon size={16} />
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Services */}
+          {/* Col 1: Services */}
           <div>
-            <h4 className="text-[11px] font-black uppercase tracking-[0.2em] mb-8 text-accent">
+            <h4 className="text-[11px] font-black uppercase tracking-[0.2em] text-accent mb-6">
               Services
             </h4>
-            <ul className="space-y-4">
-              {['PMP Training', 'Cost Estimation', 'PMO Consulting', 'Workforce Training'].map((item) => (
-                <li key={item}>
-                  <Link href="#" className="text-white/40 hover:text-accent transition-colors text-[14px] font-medium">
-                    {item}
+            <ul className="space-y-3">
+              {footerLinks.services.map((link) => (
+                <li key={link.label}>
+                  <Link href={link.href} className="text-white/40 text-sm font-medium hover:text-white transition-colors duration-300">
+                    {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Company */}
+          {/* Col 2: Company */}
           <div>
-            <h4 className="text-[11px] font-black uppercase tracking-[0.2em] mb-8 text-accent">
+            <h4 className="text-[11px] font-black uppercase tracking-[0.2em] text-accent mb-6">
               Company
             </h4>
-            <ul className="space-y-4">
-              {['About Us', 'Case Studies', 'Insights', 'Contact'].map((item) => (
-                <li key={item}>
-                  <Link href="#" className="text-white/40 hover:text-accent transition-colors text-[14px] font-medium">
-                    {item}
+            <ul className="space-y-3">
+              {footerLinks.company.map((link) => (
+                <li key={link.label}>
+                  <Link href={link.href} className="text-white/40 text-sm font-medium hover:text-white transition-colors duration-300">
+                    {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Col 3: Contact */}
           <div>
-            <h4 className="text-[11px] font-black uppercase tracking-[0.2em] mb-8 text-accent">
-              Get in touch
+            <h4 className="text-[11px] font-black uppercase tracking-[0.2em] text-accent mb-6">
+              Contact
             </h4>
-            <ul className="space-y-6">
-              <li className="flex items-start gap-4 text-white/40 text-[14px]">
-                <MapPin size={18} className="text-accent shrink-0 mt-0.5" />
-                <span className="font-medium">
-                  Global HQ, Business Hub<br />New Zealand
-                </span>
-              </li>
-              <li className="flex items-center gap-4 text-white/40 text-[14px]">
-                <Mail size={18} className="text-accent shrink-0" />
-                <Link href="mailto:info@totalpmp.com" className="hover:text-white transition-colors font-medium">
-                  info@totalpmp.com
-                </Link>
-              </li>
+            <ul className="space-y-3">
+              {footerLinks.contact.map((link) => (
+                <li key={link.label}>
+                  <a href={link.href} className="flex items-center gap-2 text-white/40 text-sm font-medium hover:text-white transition-colors duration-300">
+                    <link.icon size={14} className="text-accent/50" />
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
+          {/* Col 4: Newsletter */}
+          <div>
+            <h4 className="text-[11px] font-black uppercase tracking-[0.2em] text-accent mb-6">
+              Newsletter
+            </h4>
+            <p className="text-white/30 text-sm leading-relaxed mb-4">
+              Get the latest insights on project management and cost estimation.
+            </p>
+            <form className="flex flex-col gap-3" onSubmit={(e) => e.preventDefault()}>
+              <input
+                type="email"
+                placeholder="Your email"
+                className="w-full bg-white/5 border border-white/10 text-white placeholder:text-white/20 px-4 py-3 text-sm font-medium focus:outline-none focus:border-accent/40 transition-colors"
+                style={{ borderRadius: '4px' }}
+              />
+              <button
+                type="submit"
+                className="bg-accent text-primary px-4 py-3 text-sm font-bold hover:bg-accent-hover transition-colors"
+                style={{ borderRadius: '4px' }}
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>
         </div>
 
-        <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-[12px] text-white/30">
-          <p>&copy; {new Date().getFullYear()} TotalPMP Ltd. All rights reserved.</p>
-          <div className="flex gap-8">
-            <Link href="#" className="hover:text-accent transition-colors font-medium">Privacy</Link>
-            <Link href="#" className="hover:text-accent transition-colors font-medium">Terms</Link>
+        {/* Bottom bar */}
+        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 bg-accent rounded flex items-center justify-center text-primary font-black text-sm">
+              T
+            </div>
+            <span className="text-white/50 text-sm font-bold">TotalPMP</span>
           </div>
+          <p className="text-white/20 text-xs font-medium">
+            © {new Date().getFullYear()} TotalPMP. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

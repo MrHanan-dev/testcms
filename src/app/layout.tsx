@@ -1,9 +1,20 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google"; // Using Inter for clean, professional look
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import JsonLd from "@/components/JsonLd";
 
-const inter = Inter({ subsets: ["latin"], weight: ['400', '500', '600', '700'], variable: '--font-inter' });
+const inter = Inter({
+    subsets: ["latin"],
+    weight: ['400', '500', '600', '700', '800', '900'],
+    variable: '--font-inter'
+});
+
+const playfair = Playfair_Display({
+    subsets: ["latin"],
+    weight: ['400', '500', '600', '700', '800', '900'],
+    variable: '--font-serif',
+    style: ['normal', 'italic'],
+});
 
 export const metadata: Metadata = {
     title: {
@@ -33,7 +44,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${inter.variable} antialiased`}>
+            <body className={`${inter.variable} ${playfair.variable} antialiased`}>
                 <JsonLd />
                 {children}
             </body>
