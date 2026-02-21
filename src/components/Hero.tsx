@@ -1,142 +1,216 @@
 "use client";
 
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
+import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+
+const slides = [
+  {
+    src: "https://www.theagilenest.com/wp-content/uploads/2025/10/ag1-3.jpg",
+    alt: "Professional training session backdrop from AgileNest",
+    tag: "Professional Training",
+    headline: "Hands-On Training.\nReal Results. Certified Success.",
+    description: "Gain practical, hands-on experience with AgileNest’s expert-led project management courses. Our proven methods ensure you not only pass your exams but also excel in real-world projects.",
+  },
+  {
+    src: "https://www.theagilenest.com/wp-content/uploads/2025/10/ag2-3.jpg",
+    alt: "Second training backdrop from AgileNest",
+    tag: "Cost Estimation & QS",
+    headline: "Precision cost intelligence\nfor every build.",
+    description: "Quantity surveying and cost advisory trusted on $52M+ in projects. From feasibility to final account — accurate, every time.",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1460472178825-e5240623afd5?w=1920&h=1080&fit=crop&q=80",
+    alt: "Aerial view of a major infrastructure project and highway",
+    tag: "Strategic Consulting",
+    headline: "From blueprint\nto delivery.",
+    description: "PMO setup, agile transformation, and independent project audits. Strategic advisory for complex programmes that need to deliver.",
+  },
+];
+
+// Stagger children with clip-path reveal
+const containerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    },
+  },
+  exit: {
+    transition: {
+      staggerChildren: 0.05,
+      staggerDirection: -1,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+  },
+  exit: {
+    opacity: 0,
+    y: -10,
+    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
+  },
+};
 
 export default function Hero() {
+  const [current, setCurrent] = useState(0);
+
+  const next = useCallback(() => {
+    setCurrent((prev) => (prev + 1) % slides.length);
+  }, []);
+
+  const prev = useCallback(() => {
+    setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(next, 6000);
+    return () => clearInterval(timer);
+  }, [next]);
+
+  const slide = slides[current];
+
   return (
-    <section className="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden bg-white">
-      {/* Subtle gradient accent */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/3 rounded-full blur-[150px]" />
+    <section className="relative w-full h-[100svh] min-h-[600px] max-h-[960px] overflow-hidden bg-primary">
 
-      <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      {/* Full-bleed image with Ken Burns effect */}
+      <AnimatePresence mode="popLayout">
+        <motion.div
+          key={current}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.2, ease: "easeInOut" }}
+          className="absolute inset-0"
+        >
+          <motion.div
+            initial={{ scale: 1.08 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 8, ease: "linear" }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={slide.src}
+              alt={slide.alt}
+              fill
+              className="object-cover"
+              sizes="100vw"
+              priority={current === 0}
+              unoptimized
+            />
+          </motion.div>
+        </motion.div>
+      </AnimatePresence>
 
-          {/* Left — Trust-First Typography */}
-          <div className="max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
+      {/* Gradient overlays */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0B1D35]/90 via-[#0B1D35]/55 to-[#0B1D35]/20 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0B1D35]/50 via-transparent to-[#0B1D35]/30 z-10" />
+
+      {/* Content */}
+      <div className="relative z-20 h-full flex items-center">
+        <div className="container-custom">
+          <AnimatePresence mode="wait">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              key={current}
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              className="max-w-2xl"
             >
-              <span className="inline-block label-tag mb-8 px-5 py-2.5 bg-accent/8 rounded-sm border border-accent/20">
-                PMI Authorized Training Partner
-              </span>
+              {/* Tag */}
+              <motion.span
+                variants={itemVariants}
+                className="inline-block text-[11px] font-semibold uppercase tracking-[0.25em] text-accent/90 mb-6"
+              >
+                {slide.tag}
+              </motion.span>
 
-              <h1 className="h1 mb-6">
-                Powering your{' '}
-                <span className="text-accent">project.</span>
-              </h1>
+              {/* Headline */}
+              <motion.h1
+                variants={itemVariants}
+                className="text-[clamp(32px,5.5vw,64px)] font-bold leading-[1.06] tracking-[-0.03em] text-white mb-6 whitespace-pre-line"
+              >
+                {slide.headline}
+              </motion.h1>
 
-              <p className="subheader mb-10 max-w-lg mx-auto lg:mx-0">
-                Expert training, precision cost estimation, and strategic consulting — from blueprint to delivery.
-              </p>
+              {/* Description */}
+              <motion.p
+                variants={itemVariants}
+                className="text-white/55 text-[clamp(15px,1.2vw,18px)] leading-[1.75] mb-10 max-w-lg"
+              >
+                {slide.description}
+              </motion.p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              {/* CTA Buttons */}
+              <motion.div variants={itemVariants} className="flex flex-wrap gap-3">
                 <Link
                   href="#contact"
-                  className="btn-accent px-10 py-5 text-base"
+                  className="group inline-flex items-center gap-2 px-7 py-3.5 bg-accent text-primary text-[14px] font-semibold rounded-md hover:bg-accent/90 transition-all duration-300"
                 >
-                  Get Started <ArrowRight size={18} className="ml-1" />
+                  Get Started
+                  <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform duration-300" />
                 </Link>
                 <Link
                   href="#services"
-                  className="btn-outline px-10 py-5 text-base"
+                  className="inline-flex items-center px-7 py-3.5 bg-white/[0.08] backdrop-blur-sm border border-white/[0.12] text-white/80 text-[14px] font-medium rounded-md hover:bg-white/[0.14] hover:text-white transition-all duration-300"
                 >
                   Our Services
                 </Link>
-              </div>
-
-              {/* Trust badges inline */}
-              <div className="flex items-center gap-6 mt-12 justify-center lg:justify-start">
-                {[
-                  { value: '500+', label: 'Projects' },
-                  { value: '2,000+', label: 'Trained' },
-                  { value: '17+', label: 'Years' },
-                ].map((stat) => (
-                  <div key={stat.label} className="text-center lg:text-left">
-                    <p className="text-2xl font-black text-charcoal tracking-dense">{stat.value}</p>
-                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/30 mt-0.5">{stat.label}</p>
-                  </div>
-                ))}
-              </div>
+              </motion.div>
             </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
+
+      {/* Bottom bar with counter + controls */}
+      <div className="absolute bottom-0 left-0 right-0 z-20">
+        <div className="container-custom flex items-center justify-between pb-8 md:pb-10">
+          {/* Slide counter */}
+          <div className="flex items-center gap-3">
+            <span className="text-white/60 text-[13px] font-mono tabular-nums tracking-wider">
+              0{current + 1}
+            </span>
+            <div className="w-12 h-px bg-white/20 relative overflow-hidden">
+              <motion.div
+                key={current}
+                initial={{ x: "-100%" }}
+                animate={{ x: "0%" }}
+                transition={{ duration: 6, ease: "linear" }}
+                className="absolute inset-0 bg-accent"
+              />
+            </div>
+            <span className="text-white/25 text-[13px] font-mono tabular-nums tracking-wider">
+              0{slides.length}
+            </span>
           </div>
 
-          {/* Right — Dashboard Visual */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, x: 30 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="hidden lg:block relative"
-          >
-            <div className="relative">
-              {/* Main visual card */}
-              <div className="rounded-lg bg-primary p-8 shadow-premium overflow-hidden relative">
-                <div className="absolute top-0 right-0 w-40 h-40 bg-accent/10 rounded-full blur-[60px]" />
-                <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/5 rounded-full blur-[40px]" />
-
-                <div className="relative z-10">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-3 h-3 rounded-full bg-accent" />
-                    <div className="w-3 h-3 rounded-full bg-white/20" />
-                    <div className="w-3 h-3 rounded-full bg-white/20" />
-                    <span className="ml-auto text-[11px] text-white/40 font-mono">dashboard.totalpmp.com</span>
-                  </div>
-
-                  <div className="grid grid-cols-3 gap-4 mb-6">
-                    {[
-                      { label: 'Projects', value: '524', change: '+12%' },
-                      { label: 'Trained', value: '2.1k', change: '+28%' },
-                      { label: 'Savings', value: '$52M', change: '+8%' },
-                    ].map((stat) => (
-                      <div key={stat.label} className="bg-white/5 rounded-lg p-4 border border-white/5">
-                        <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest mb-1">{stat.label}</p>
-                        <p className="text-white text-2xl font-black tracking-tight">{stat.value}</p>
-                        <p className="text-accent text-[11px] font-bold mt-1">{stat.change}</p>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="bg-white/5 rounded-lg p-5 border border-white/5">
-                    <div className="flex items-end justify-between h-32 gap-2">
-                      {[40, 65, 45, 80, 55, 90, 70, 95, 60, 85, 75, 100].map((h, i) => (
-                        <motion.div
-                          key={i}
-                          initial={{ height: 0 }}
-                          animate={{ height: `${h}%` }}
-                          transition={{ duration: 0.8, delay: 0.5 + i * 0.05 }}
-                          className={`flex-1 rounded-t ${i === 11 ? 'bg-accent' : 'bg-white/10'}`}
-                        />
-                      ))}
-                    </div>
-                    <div className="flex justify-between mt-3">
-                      <span className="text-white/30 text-[10px] font-mono">Jan</span>
-                      <span className="text-white/30 text-[10px] font-mono">Dec</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating badge */}
-              <motion.div
-                animate={{ y: [0, -6, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-6 -left-6 p-5 bg-white rounded-lg shadow-tactile border border-slate-100 z-20"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center">
-                    <span className="text-accent text-lg">✓</span>
-                  </div>
-                  <div>
-                    <p className="text-charcoal font-black text-sm">100% Pass Rate</p>
-                    <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest">First Attempt</p>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
+          {/* Controls */}
+          <div className="flex items-center gap-2">
+            <button
+              onClick={prev}
+              className="w-10 h-10 rounded-full border border-white/[0.1] flex items-center justify-center text-white/50 hover:text-white hover:border-white/25 transition-all duration-300"
+              aria-label="Previous slide"
+            >
+              <ChevronLeft size={16} />
+            </button>
+            <button
+              onClick={next}
+              className="w-10 h-10 rounded-full border border-white/[0.1] flex items-center justify-center text-white/50 hover:text-white hover:border-white/25 transition-all duration-300"
+              aria-label="Next slide"
+            >
+              <ChevronRight size={16} />
+            </button>
+          </div>
         </div>
       </div>
     </section>

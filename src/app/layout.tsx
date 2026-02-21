@@ -1,19 +1,18 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Open_Sans, Nunito_Sans } from "next/font/google";
 import "./globals.css";
 import JsonLd from "@/components/JsonLd";
 
-const inter = Inter({
+const openSans = Open_Sans({
     subsets: ["latin"],
-    weight: ['400', '500', '600', '700', '800', '900'],
-    variable: '--font-inter'
+    weight: ['400', '500', '600', '700', '800'],
+    variable: '--font-open-sans'
 });
 
-const playfair = Playfair_Display({
+const nunitoSans = Nunito_Sans({
     subsets: ["latin"],
     weight: ['400', '500', '600', '700', '800', '900'],
-    variable: '--font-serif',
-    style: ['normal', 'italic'],
+    variable: '--font-nunito-sans',
 });
 
 export const metadata: Metadata = {
@@ -44,7 +43,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${inter.variable} ${playfair.variable} antialiased`}>
+            <body className={`${openSans.variable} ${nunitoSans.variable} antialiased`}>
                 <JsonLd />
                 {children}
             </body>
