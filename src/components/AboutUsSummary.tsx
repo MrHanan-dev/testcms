@@ -40,7 +40,7 @@ export default function AboutUsSummary() {
                             <Rocket className="text-blue-500" /> Our Mission
                         </h3>
                         <p className="text-xl md:text-2xl text-slate-600 italic leading-relaxed font-medium">
-                            "At TotalPMPro, we deliver immersive training and consultancy that transforms project management into a strategic advantage for teams and leaders."
+                            "At TotalPMP, we deliver immersive training and consultancy that transforms project management into a strategic advantage for teams and leaders."
                         </p>
                     </div>
                 </div>
@@ -49,7 +49,7 @@ export default function AboutUsSummary() {
                 <div className="grid lg:grid-cols-2 gap-16 lg:gap-32 mb-32 items-center">
                     <div>
                         <h3 className="text-3xl md:text-5xl font-black text-primary mb-8 tracking-tighter">
-                            Why Choose TotalPMPro
+                            Why Choose TotalPMP
                         </h3>
                         <p className="text-xl text-slate-500 leading-relaxed mb-10 font-medium">
                             We don't just teach project management — we transform professionals into confident leaders ready to deliver high-stakes results in complex environments.
@@ -68,7 +68,7 @@ export default function AboutUsSummary() {
 
                     <div className="space-y-10 bg-slate-50/50 p-10 md:p-14 rounded-[50px] border border-slate-100">
                         <h3 className="text-2xl font-black text-primary mb-4">
-                            The TotalPMPro Edge
+                            The TotalPMP Edge
                         </h3>
                         <div className="space-y-10">
                             {differentiators.map((item) => (

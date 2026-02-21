@@ -2,9 +2,9 @@ export default function JsonLd() {
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
-        "name": "TotalPMPro",
-        "url": "https://totalpmpro.com",
-        "logo": "https://totalpmpro.com/logo.png",
+        "name": "TotalPMP",
+        "url": "https://TotalPMP.com",
+        "logo": "https://TotalPMP.com/logo.png",
         "description": "Premium PMP certification training and AI-driven construction cost estimation services.",
         "address": {
             "@type": "PostalAddress",
@@ -20,9 +20,9 @@ export default function JsonLd() {
             "contactType": "customer service"
         },
         "sameAs": [
-            "https://www.linkedin.com/company/totalpmpro",
-            "https://twitter.com/totalpmpro",
-            "https://facebook.com/totalpmpro"
+            "https://www.linkedin.com/company/TotalPMP",
+            "https://twitter.com/TotalPMP",
+            "https://facebook.com/TotalPMP"
         ],
         "offers": [
             {

@@ -6,7 +6,7 @@ import { Check, Users, Target, Briefcase, BarChart3, ShieldCheck, Network, Layou
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Project Management Services | TotalPMPro",
+    title: "Project Management Services | TotalPMP",
     description: "Expert project delivery professionals and customized project management solutions to help your organization achieve business outcomes.",
 };
 
@@ -157,12 +157,12 @@ export default function ProjectManagementPage() {
                     </div>
                 </section>
 
-                {/* Why TotalPMPro Section */}
+                {/* Why TotalPMP Section */}
                 <section className="py-32 bg-white">
                     <div className="container-custom">
                         <div className="grid lg:grid-cols-5 gap-16 items-start">
                             <div className="lg:col-span-2 space-y-8">
-                                <span className="label-tag">Why TotalPMPro</span>
+                                <span className="label-tag">Why TotalPMP</span>
                                 <h2 className="text-4xl md:text-5xl font-black text-primary leading-[1.1] tracking-tight">
                                     Proven expertise.<br />We love what we do
                                 </h2>
@@ -170,7 +170,7 @@ export default function ProjectManagementPage() {
                                     With decades of collective project experience and a reputation for delivering outcomes, we’ve built a legacy that’s only growing.
                                 </p>
                                 <p className="text-slate-500 text-lg leading-relaxed">
-                                    Some of the largest and most successful organisations use TotalPMPro because we offer a safe pair of hands and a people-centric culture.
+                                    Some of the largest and most successful organisations use TotalPMP because we offer a safe pair of hands and a people-centric culture.
                                 </p>
                                 <button className="text-blue-600 font-black text-lg flex items-center gap-3 hover:gap-5 transition-all">
                                     Learn more about us <Target size={24} />

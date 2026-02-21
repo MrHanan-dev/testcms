@@ -72,10 +72,11 @@ export default function Header() {
 
         {/* Logo */}
         <Link href="/" className="relative z-50 flex items-center">
-          <span className={`text-[22px] font-bold tracking-[-0.04em] transition-colors duration-500 ${isScrolled ? 'text-primary' : 'text-white'
-            }`}>
-            TotalPMP
-          </span>
+          <img
+            src="/images/1Linkedin.png"
+            alt="TotalPMP"
+            className="h-28 w-auto object-contain transition-all duration-500"
+          />
         </Link>
 
         {/* Desktop Navigation */}

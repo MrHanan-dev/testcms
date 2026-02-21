@@ -88,19 +88,22 @@ export default function Footer() {
             {/* Left Column (Logo & Intro) */}
             <div className="lg:col-span-4 flex flex-col gap-6 pr-4">
               <p className="text-white/90 text-[14px] leading-relaxed">
-                At Agile Nest, we're passionate about projects. We provide the full range of project services and training to increase your team's skills and capabilities to help you achieve your business outcomes.
+                At TotalPMP, we're passionate about projects. We provide the full range of project services and training to increase your team's skills and capabilities to help you achieve your business outcomes.
+              </p>
+              <p className="text-white/90 text-[14px] font-bold leading-relaxed uppercase tracking-wider text-accent">
+                FAST ACCURATE ESTIMATING FOR CONSTRUCTION PROJECT
               </p>
               <p className="text-white/90 text-[14px] leading-relaxed">
                 By creating calm across your projects, no matter the breadth and complexity, we help create the momentum you need to move your organisation forward.
               </p>
 
-              {/* PMI Authorized Training Partner Logo Placeholder */}
+              {/* PMI Authorized Training Partner Logo */}
               <div className="mt-8">
-                <div className="w-40 h-40 bg-white rounded-full flex flex-col items-center justify-center p-4 text-center border-8 border-black">
-                  <span className="text-[10px] font-bold">PROJECT MANAGEMENT INSTITUTE</span>
-                  <span className="text-3xl font-black text-blue-600 my-1">PMI</span>
-                  <span className="text-[10px] font-bold">Premier Authorized Training Partner</span>
-                </div>
+                <img
+                  src="/images/pmi_atp_atp_white_rgb_1.svg"
+                  alt="PMI Authorized Training Partner"
+                  className="w-40 h-40"
+                />
               </div>
             </div>
 
@@ -148,17 +151,22 @@ export default function Footer() {
                 <h4 className="text-white font-bold mb-6 text-[15px]">Contact</h4>
                 <ul className="space-y-3">
                   <li className="text-white/80 text-[13px] leading-relaxed">
-                    Melbourne, Australia<br />
+                    Auckland, New Zealand<br />
                     Christchurch, New Zealand
                   </li>
                   <li>
-                    <a href="tel:+6433664383" className="text-white/80 hover:text-white text-[13px] transition-colors">
-                      +64 3 366 4383
-                    </a>
+                    <div className="text-white/80 text-[13px] transition-colors">
+                      Ph: 09 620 7678
+                    </div>
                   </li>
                   <li>
-                    <a href="mailto:info@agilenest.com" className="text-white/80 hover:text-white text-[13px] break-all transition-colors">
-                      info@agilenest.com
+                    <div className="text-white/80 text-[13px] transition-colors">
+                      Cell: 027 353 7774
+                    </div>
+                  </li>
+                  <li>
+                    <a href="mailto:syed.iqbal@totalqs.co.nz" className="text-white/80 hover:text-white text-[13px] break-all transition-colors">
+                      syed.iqbal@totalqs.co.nz
                     </a>
                   </li>
                 </ul>
