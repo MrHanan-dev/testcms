@@ -1,45 +1,60 @@
 "use client";
 
-const logos = [
-    { name: "PMI", abbrev: "PMI" },
-    { name: "NZIQSI", abbrev: "NZIQSI" },
-    { name: "RICS", abbrev: "RICS" },
-    { name: "APM", abbrev: "APM" },
-    { name: "CIOB", abbrev: "CIOB" },
-    { name: "Axelos", abbrev: "AXELOS" },
-    { name: "IPMA", abbrev: "IPMA" },
-    { name: "Scrum.org", abbrev: "SCRUM" },
+import { motion } from 'framer-motion';
+
+const partners = [
+    { name: "Business Canterbury", color: "text-blue-600" },
+    { name: "intent Group", color: "text-orange-600" },
+    { name: "LUMIFY", color: "text-teal-600" },
+    { name: "PMI Adelaide", color: "text-purple-600" },
+    { name: "PMI Canberra", color: "text-indigo-600" },
+    { name: "PMI Melbourne", color: "text-pink-600" }
 ];
 
 export default function Partners() {
-    const doubled = [...logos, ...logos];
+    // Duplicate the partners list so the marquee scroll perfectly loops without gaps
+    const duplicatedPartners = [...partners, ...partners, ...partners];
+
     return (
-        <section className="py-12 bg-white/60 border-y border-slate-200/40 overflow-hidden">
-            <div className="container-custom mb-6">
-                <p className="text-center text-[10px] font-black uppercase tracking-[0.3em] text-foreground/25">
-                    Trusted by industry leaders worldwide
-                </p>
+        <section className="py-20 md:py-32 bg-slate-50 overflow-hidden relative border-y border-slate-100">
+            <div className="container-custom mb-16">
+                <div className="flex flex-col items-center text-center">
+                    <span className="text-accent font-extrabold tracking-[0.2em] uppercase text-[10px] mb-4 block">
+                        Our Partners
+                    </span>
+                    <h2 className="text-3xl md:text-5xl font-bold text-primary leading-tight max-w-2xl">
+                        We work with the best organizations
+                    </h2>
+                </div>
             </div>
-            <div className="marquee-mask">
-                <div className="flex animate-marquee w-max">
-                    {doubled.map((logo, i) => (
+
+            {/* Marquee Container */}
+            <div className="flex overflow-hidden relative w-full group py-8">
+                {/* Left and Right Fade Gradients */}
+                <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none" />
+                <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none" />
+
+                <motion.div
+                    className="flex whitespace-nowrap items-center gap-16 md:gap-24 px-8"
+                    animate={{
+                        x: ['0%', '-33.333%'] // Scroll by exactly one set of the 3 duplicated arrays
+                    }}
+                    transition={{
+                        ease: "linear",
+                        duration: 30, // Adjust speed up or down
+                        repeat: Infinity,
+                    }}
+                >
+                    {duplicatedPartners.map((partner, index) => (
                         <div
-                            key={`${logo.name}-${i}`}
-                            className="flex items-center justify-center mx-10 md:mx-14 flex-shrink-0"
+                            key={index}
+                            className={`flex-shrink-0 text-2xl md:text-3xl font-extrabold tracking-tight opacity-70 hover:opacity-100 transition-opacity duration-300 ${partner.color}`}
                         >
-                            <div className="flex items-center gap-3 group cursor-default select-none">
-                                <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center border border-slate-200/60 group-hover:border-accent/30 transition-colors duration-300">
-                                    <span className="text-[9px] font-black text-primary/30 tracking-widest group-hover:text-accent transition-colors duration-300">
-                                        {logo.abbrev.slice(0, 2)}
-                                    </span>
-                                </div>
-                                <span className="text-sm font-bold text-foreground/20 group-hover:text-foreground/50 transition-colors duration-300 tracking-wide">
-                                    {logo.name}
-                                </span>
-                            </div>
+                            {/* In a real app, map real SVGs or Images here. Using formatted text for now */}
+                            {partner.name}
                         </div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

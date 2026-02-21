@@ -1,85 +1,100 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { GraduationCap, Calculator, Briefcase, Target, ArrowRight } from 'lucide-react';
+import { Network, MonitorPlay, Briefcase } from 'lucide-react';
 import Link from 'next/link';
 
 const services = [
     {
-        icon: GraduationCap,
-        title: "Professional Training",
-        description: "PMI-accredited PMP®, CAPM®, and Agile certification programs with a 100% first-attempt pass rate.",
-        href: "#training",
+        icon: Network,
+        title: "Project Management",
+        description: "Providing a wide range of experienced project delivery personnel to help achieve business outcomes.",
+        href: "#consultancy",
+        bgColor: "bg-[#dcf2fd]",
+        textColor: "text-[#333333]",
     },
     {
-        icon: Calculator,
-        title: "Cost Estimation & QS",
-        description: "AI-driven quantity surveying and cost advisory for construction, infrastructure, and technology projects.",
-        href: "#estimation",
+        icon: MonitorPlay,
+        title: "Training",
+        description: "Equipping organisations and individuals with the skills to achieve project outcomes, through bespoke, public or global certification training.",
+        href: "#training",
+        bgColor: "bg-[#31acee]",
+        textColor: "text-white",
     },
     {
         icon: Briefcase,
-        title: "Strategic Consulting",
-        description: "End-to-end project delivery advisory — from PMO establishment to agile transformation and audit.",
-        href: "#consultancy",
-    },
-    {
-        icon: Target,
-        title: "Programme Delivery",
-        description: "Hands-on programme management for complex multi-stakeholder infrastructure and commercial builds.",
-        href: "#delivery",
+        title: "Consulting",
+        description: "Improving client project management maturity through consulting to create appropriate structure around project delivery, governance, process and tools.",
+        href: "#consulting",
+        bgColor: "bg-[#dcf2fd]",
+        textColor: "text-[#333333]",
     },
 ];
 
 export default function BentoGrid() {
     return (
-        <section id="services" className="section bg-white">
+        <section id="services" className="section bg-white bg-opacity-50">
             <div className="container-custom">
-                <div className="max-w-2xl mb-16">
-                    <span className="label-tag mb-4 block">What We Do</span>
-                    <h2 className="h2 mb-4">
-                        Services built for{' '}
-                        <span className="text-accent">results.</span>
+                {/* Header */}
+                <div className="mb-16 md:mb-24 px-4 md:px-0">
+                    <span className="label-tag mb-4 block">Our services</span>
+                    <h2 className="text-[clamp(32px,5vw,56px)] font-bold leading-[1.1] tracking-dense text-primary">
+                        Power your<br />project
                     </h2>
-                    <p className="subheader">
-                        Four pillars of expertise — unified under one mission.
-                    </p>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-px bg-slate-200/60 border border-slate-200/60 rounded-lg overflow-hidden">
+                <motion.div
+                    variants={{
+                        hidden: { opacity: 0 },
+                        visible: {
+                            opacity: 1,
+                            transition: {
+                                staggerChildren: 0.1,
+                                delayChildren: 0.1
+                            }
+                        }
+                    }}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    className="flex flex-wrap justify-center lg:justify-start gap-8 px-4 md:px-0"
+                >
                     {services.map((service, index) => (
                         <motion.div
                             key={service.title}
-                            initial={{ opacity: 0, y: 16 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.4, delay: index * 0.08 }}
+                            variants={{
+                                hidden: { opacity: 0, y: 30 },
+                                visible: {
+                                    opacity: 1,
+                                    y: 0,
+                                    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+                                }
+                            }}
+                            className={`w-full sm:w-[calc(50%-16px)] lg:w-[350px] min-h-[400px] p-10 flex flex-col justify-start box-border text-left rounded-tl-[60px] rounded-br-[60px] ${service.bgColor} ${service.textColor} transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-900/10`}
                         >
-                            <Link href={service.href} className="block h-full">
-                                <div className="service-card bg-white h-full flex flex-col group">
-                                    {/* Icon — line-art gold, moves up 5px on hover */}
-                                    <div className="service-icon w-14 h-14 border border-accent/20 rounded-lg flex items-center justify-center mb-6 transition-all duration-500">
-                                        <service.icon size={26} className="text-accent" strokeWidth={1.5} />
-                                    </div>
+                            <Link href={service.href} className="flex flex-col h-full focus:outline-none">
+                                {/* Icon Container */}
+                                <div className="mb-10">
+                                    <service.icon size={48} strokeWidth={1.5} />
+                                </div>
 
-                                    {/* Title */}
-                                    <h3 className="h3 mb-3">{service.title}</h3>
+                                {/* Content Container */}
+                                <h3 className={`text-[24px] font-medium mb-4 tracking-tight ${service.textColor}`}>
+                                    {service.title}
+                                </h3>
 
-                                    {/* Description */}
-                                    <p className="text-foreground/50 leading-relaxed text-[15px] mb-6 flex-1">
-                                        {service.description}
-                                    </p>
+                                <p className={`text-[16px] leading-[1.6] mb-10 flex-grow ${service.textColor} opacity-90`}>
+                                    {service.description}
+                                </p>
 
-                                    {/* CTA — "Learn More →" with arrow hover */}
-                                    <div className="flex items-center text-charcoal text-sm font-bold gap-2 group-hover:text-accent transition-colors duration-300 mt-auto">
-                                        Learn More
-                                        <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-300" />
-                                    </div>
+                                {/* Action link */}
+                                <div className="inline-block w-fit px-8 py-3.5 bg-white text-[#333] font-medium transition-transform duration-300 hover:scale-105 rounded-tl-[15px] rounded-tr-[15px] rounded-br-[50px] rounded-bl-[15px] shadow-sm">
+                                    Learn More
                                 </div>
                             </Link>
                         </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

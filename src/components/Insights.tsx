@@ -1,94 +1,115 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 const insights = [
     {
         tag: "Training",
-        title: "Why 97% of PMP Candidates Fail — And How to Beat the Odds",
-        snippet: "Our data-driven approach to PMP prep has maintained a 100% first-attempt pass rate for three consecutive years.",
+        title: "How to maintain a 100% first-attempt PMP® pass rate.",
+        snippet: "A breakdown of our data-driven 준비 curriculum designed by industry practitioners for busy professionals.",
         date: "Feb 2026",
-        color: "bg-accent/5",
+        image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&h=600&fit=crop&q=80"
     },
     {
         tag: "Cost Advisory",
-        title: "AI in Construction Estimation: A $50M Case Study",
-        snippet: "How Total QS leveraged machine learning to reduce cost variance from 12% to under 3% on a major infrastructure project.",
+        title: "Precision in construction: The role of AI in QS.",
+        snippet: "Leveraging machine learning to reduce cost variance from 12% to under 3% on complex builds.",
         date: "Jan 2026",
-        color: "bg-primary/5",
+        image: "https://images.unsplash.com/photo-1541888946425-d81bb19480c5?w=800&h=600&fit=crop&q=80"
     },
     {
-        tag: "Consulting",
-        title: "Building a PMO From Zero: The Spark NZ Playbook",
-        snippet: "A step-by-step breakdown of how we established a high-performing PMO that improved delivery velocity by 40%.",
+        tag: "Strategy",
+        title: "From zero to delivery: The high-speed PMO playbook.",
+        snippet: "Strategic lessons from establishing PMOs that drive 40% improvements in delivery velocity.",
         date: "Dec 2025",
-        color: "bg-accent/5",
+        image: "https://images.apache.org/photo-1454165833767-1314389c0b21?w=800&h=600&fit=crop&q=80"
     },
 ];
 
 export default function Insights() {
     return (
-        <section className="section bg-white">
+        <section className="section bg-white overflow-hidden">
             <div className="container-custom">
-                <div className="flex items-end justify-between mb-16">
-                    <div>
+                <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                    <div className="max-w-xl">
                         <span className="label-tag mb-4 block">Latest Insights</span>
-                        <h2 className="h2">
-                            Ideas that <span className="text-accent">move projects.</span>
+                        <h2 className="text-[32px] md:text-[40px] font-bold tracking-tight leading-tight text-foreground">
+                            Ideas that move projects forward.
                         </h2>
                     </div>
                     <Link
                         href="#insights"
-                        className="hidden md:flex items-center gap-2 text-sm font-bold text-charcoal hover:text-accent transition-colors"
+                        className="inline-flex items-center gap-2 group text-[13px] font-bold uppercase tracking-widest text-primary/40 hover:text-primary transition-all duration-300"
                     >
-                        View All <ArrowUpRight size={14} />
+                        View Publication <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                     </Link>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-6">
-                    {insights.map((item, index) => (
+                <motion.div
+                    variants={{
+                        hidden: {},
+                        visible: {
+                            transition: {
+                                staggerChildren: 0.12
+                            }
+                        }
+                    }}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    className="grid md:grid-cols-3 gap-10 lg:gap-14"
+                >
+                    {insights.map((item) => (
                         <motion.div
                             key={item.title}
-                            initial={{ opacity: 0, y: 16 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.4, delay: index * 0.08 }}
+                            variants={{
+                                hidden: { opacity: 0, y: 20 },
+                                visible: {
+                                    opacity: 1,
+                                    y: 0,
+                                    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+                                }
+                            }}
                         >
                             <Link href="#" className="block group h-full">
-                                <div className="flex flex-col h-full border border-slate-200/60 rounded-lg overflow-hidden hover:shadow-bento-hover transition-all duration-500">
-                                    {/* Cover image placeholder */}
-                                    <div className={`h-48 ${item.color} relative overflow-hidden`}>
-                                        <div className="absolute inset-0 flex items-center justify-center">
-                                            <span className="text-6xl font-black text-charcoal/[0.03] tracking-tighter select-none">
-                                                {item.tag}
-                                            </span>
-                                        </div>
-                                        <div className="absolute top-4 left-4">
-                                            <span className="text-[9px] font-black uppercase tracking-[0.2em] text-accent bg-white px-3 py-1.5 rounded-sm">
+                                <div className="flex flex-col h-full bg-white transition-all duration-500">
+                                    {/* Cover */}
+                                    <div className="aspect-[4/3] bg-surface rounded-xl mb-8 relative overflow-hidden shadow-subtle group-hover:shadow-card-hover transition-all duration-500">
+                                        <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
+                                        <img
+                                            src={item.image || "https://images.unsplash.com/photo-1454165833767-1314389c0b21?w=800&h=600&fit=crop&q=80"}
+                                            alt={item.title}
+                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                        />
+                                        <div className="absolute top-5 left-5 z-20">
+                                            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary bg-accent px-3 py-1.5 rounded-md shadow-sm">
                                                 {item.tag}
                                             </span>
                                         </div>
                                     </div>
 
                                     {/* Content */}
-                                    <div className="p-6 flex flex-col flex-1">
-                                        <h3 className="text-lg font-bold text-charcoal tracking-dense leading-tight mb-3 group-hover:text-accent transition-colors duration-300">
-                                            {item.title}
-                                        </h3>
-                                        <p className="text-foreground/45 text-sm leading-relaxed mb-4 flex-1">
-                                            {item.snippet}
-                                        </p>
-                                        <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/25 mt-auto">
+                                    <h3 className="text-[20px] font-bold text-foreground tracking-tight leading-[1.3] mb-4 group-hover:text-primary transition-colors duration-300">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-foreground/50 text-[15px] leading-relaxed mb-6 flex-1">
+                                        {item.snippet}
+                                    </p>
+                                    <div className="flex items-center justify-between pt-6 border-t border-border mt-auto">
+                                        <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-foreground/30">
                                             {item.date}
-                                        </p>
+                                        </span>
+                                        <span className="text-[12px] font-bold text-accent opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300">
+                                            Read More →
+                                        </span>
                                     </div>
                                 </div>
                             </Link>
                         </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

@@ -9,8 +9,10 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
-    "framer-motion": "^12.34.0",
+    "framer-motion": "^11.18.2",
     "lucide-react": "^0.564.0",
+    "motion-dom": "^12.34.3",
+    "motion-utils": "^12.29.2",
     "next": "16.1.6",
     "react": "19.2.3",
     "react-dom": "19.2.3",
