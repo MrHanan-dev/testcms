@@ -33,6 +33,11 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         title: 'TotalPMP',
         description: 'Premier PMP Training and AI Construction Estimation by TotalPMP.',
+    },
+    icons: {
+        icon: '/favicon.png',
+        shortcut: '/favicon.png',
+        apple: '/favicon.png',
     }
 };
 

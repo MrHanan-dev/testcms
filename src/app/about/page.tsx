@@ -6,7 +6,7 @@ import EvolutionTimeline from '@/components/EvolutionTimeline';
 import { Target, Award, Users, BookOpen, Globe, ShieldCheck, Briefcase } from 'lucide-react';
 
 export const metadata = {
-    title: "About Us | TotalPMPro",
+    title: "About Us | TotalPMP",
     description: "Our 17-year journey in Project Management excellence, from foundational PMBOK standards to modern AI-driven ecosystems.",
 };
 
@@ -15,7 +15,7 @@ export default function AboutPage() {
         {
             icon: Target,
             title: "Expertise You Can Trust",
-            desc: "Led by Engr. Syed, an global expert with 17+ years of delivery experience in high-stakes construction and infrastructure."
+            desc: "Led by Engr. Sayed Iqbal (PMP, PMI-CP), a global expert and PMI Authorised trainer with 17+ years of delivery experience in construction and infrastructure."
         },
         {
             icon: Globe,
@@ -59,13 +59,19 @@ export default function AboutPage() {
                                 </h2>
                                 <div className="space-y-6 text-slate-600 text-lg leading-relaxed">
                                     <p>
-                                        With over 17 years of professional experience in construction and project management, <strong>Engr. Syed Amjad Iqbal</strong> is a passionate leader, educator, and industry expert.
+                                        With over 17 years of professional experience in construction and project management, <strong>Engr. Sayed Iqbal (PMP, PMI-CP)</strong> is a passionate leader, educator, and <strong>PMI Authorised trainer</strong>.
                                     </p>
                                     <p>
-                                        His journey spanned from earning his Master's at <strong>KTH Royal Institute of Technology (Sweden)</strong> to mastering Construction Management at Massey University in New Zealand. This academic foundation, combined with roles as CEO, consultant, and certified trainer, shaped TotalPMPro.
+                                        His extensive academic journey includes:
                                     </p>
-                                    <p className="font-bold text-primary italic border-l-4 border-accent pl-6 bg-slate-50 py-6 rounded-r-3xl">
-                                        "Our mission is to transfer practical experience and global standards to individuals seeking project excellence with confidence."
+                                    <ul className="list-disc pl-6 space-y-2 text-slate-600">
+                                        <li><strong>Master’s in Construction Management</strong> — Massey University, New Zealand</li>
+                                        <li><strong>Master’s in Project Management & Operational Development</strong> — KTH Royal Institute of Technology, Sweden</li>
+                                        <li><strong>Master’s in Engineering</strong> — Blekinge Institute of Technology (BTH), Sweden</li>
+                                        <li><strong>Bachelor’s in Engineering</strong></li>
+                                    </ul>
+                                    <p>
+                                        This deep technical and academic foundation, combined with his role as a certified professional trainer, ensures that TotalPMP delivers world-class project intelligence.
                                     </p>
                                 </div>
                             </div>
@@ -73,14 +79,14 @@ export default function AboutPage() {
                                 <div className="aspect-[4/5] bg-slate-100 rounded-[60px] overflow-hidden shadow-2xl relative group">
                                     <Image
                                         src="/images/founder_amjad.webp"
-                                        alt="Engr. Syed Amjad Iqbal - CEO & Founder"
+                                        alt="Engr. Sayed Iqbal - PMI Authorised Trainer"
                                         fill
                                         className="object-cover group-hover:scale-105 transition-transform duration-700"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                                     <div className="absolute bottom-10 left-10 text-white">
-                                        <div className="text-2xl font-black">Engr. Syed Amjad Iqbal</div>
-                                        <div className="text-blue-200 font-bold">CEO & Founder</div>
+                                        <div className="text-2xl font-black">Engr. Sayed Iqbal</div>
+                                        <div className="text-blue-200 font-bold">PMI Authorised Trainer</div>
                                     </div>
                                 </div>
                             </div>

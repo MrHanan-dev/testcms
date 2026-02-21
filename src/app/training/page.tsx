@@ -7,7 +7,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-    title: "Professional Training Services | TotalPMPro",
+    title: "Professional Training Services | TotalPMP",
     description: "Equipping organizations and individuals with the skills to achieve project outcomes through certification and bespoke training.",
 };
 
@@ -58,7 +58,7 @@ export default function TrainingPage() {
                             Build Your Team's<br />Project Capability
                         </h2>
                         <p className="text-slate-600 text-xl leading-relaxed font-medium">
-                            At TotalPMPro, we’re passionate about projects. We provide the full range of project services and training to increase your team’s skills and capabilities to help you achieve your business outcomes.
+                            At TotalPMP, we’re passionate about projects. We provide the full range of project services and training to increase your team’s skills and capabilities to help you achieve your business outcomes.
                         </p>
                     </div>
                 </section>
