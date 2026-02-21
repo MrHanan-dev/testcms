@@ -21,7 +21,7 @@ export default function PmiCpPage() {
                     subtitle="PMI Construction Professional"
                     description="Validate your ability to plan, manage, and deliver complex construction projects using industry-best practices."
                     prev={{ name: "PMP", href: "/pmp" }}
-                    next={{ name: "PfMP", href: "/pfmp" }}
+                    next={{ name: "CAPM", href: "/capm" }}
                     gradientClass="from-amber-700 to-amber-900"
                     buttonColorText="text-amber-800"
                     badgeImage="/certifications/pmi-cp.webp"

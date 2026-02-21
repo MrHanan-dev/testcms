@@ -39,26 +39,28 @@ export default function Services() {
           <h2 className="h2 max-w-2xl">Transforming project management into a strategic advantage.</h2>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
           {services.map((service, index) => (
             <div
               key={index}
-              className="group p-8 md:p-10 rounded-[40px] bg-white border border-slate-100 hover:border-accent/30 hover:shadow-2xl hover:shadow-accent/5 transition-all duration-700 flex flex-col items-start h-full relative overflow-hidden"
+              className="group p-10 md:p-12 rounded-[48px] bg-white border border-slate-100 hover:border-accent/30 hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] hover:shadow-accent/5 transition-all duration-700 flex flex-col items-start h-full relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-bl-full translate-x-8 -translate-y-8 group-hover:bg-accent/10 transition-all duration-700" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-bl-full translate-x-8 -translate-y-8 group-hover:bg-accent/10 transition-all duration-700 pointer-events-none" />
 
-              <div className="w-14 h-14 md:w-16 md:h-16 bg-accent rounded-2xl flex items-center justify-center text-white mb-8 shadow-premium group-hover:scale-110 transition-all duration-500">
+              <div className="w-16 h-16 md:w-20 md:h-20 bg-accent rounded-[24px] flex items-center justify-center text-white mb-10 shadow-premium group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
                 {service.icon}
               </div>
-              <h3 className="text-xl md:text-2xl font-bold text-primary mb-4 tracking-tight leading-tight uppercase">{service.title}</h3>
-              <p className="text-slate-500 mb-8 leading-relaxed text-[15px] font-medium opacity-80 flex-grow">
+              <h3 className="text-2xl md:text-3xl font-black text-primary mb-4 tracking-tight leading-tight uppercase group-hover:text-accent transition-colors duration-300">
+                {service.title}
+              </h3>
+              <p className="text-slate-500 mb-10 leading-relaxed text-base md:text-lg font-medium opacity-80 flex-grow">
                 {service.description}
               </p>
               <Link
                 href={service.link}
-                className="inline-flex items-center text-accent text-xs font-bold uppercase tracking-[0.2em] group-hover:text-primary transition-all duration-500"
+                className="inline-flex items-center text-accent text-sm font-bold uppercase tracking-[0.2em] group-hover:text-primary transition-all duration-500"
               >
-                Learn More <ChevronRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                Learn More <ChevronRight size={16} className="ml-2 group-hover:translate-x-1.5 transition-transform" />
               </Link>
             </div>
           ))}

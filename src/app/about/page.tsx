@@ -2,70 +2,147 @@ import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import MobileNav from '@/components/MobileNav';
+import EvolutionTimeline from '@/components/EvolutionTimeline';
+import { Target, Award, Users, BookOpen, Globe, ShieldCheck, Briefcase } from 'lucide-react';
 
 export const metadata = {
-    title: "About Us - Agile Nest",
-    description: "Learn more about Engr. Syed and the mission behind Agile Nest.",
+    title: "About Us | TotalPMPro",
+    description: "Our 17-year journey in Project Management excellence, from foundational PMBOK standards to modern AI-driven ecosystems.",
 };
 
 export default function AboutPage() {
+    const differentiators = [
+        {
+            icon: Target,
+            title: "Expertise You Can Trust",
+            desc: "Led by Engr. Syed, an global expert with 17+ years of delivery experience in high-stakes construction and infrastructure."
+        },
+        {
+            icon: Globe,
+            title: "Global Standards",
+            desc: "Authorized Training Partner pathways aligned with PMI, ensuring your skills are recognized in every corner of the world."
+        },
+        {
+            icon: BookOpen,
+            title: "Practical Outcomes",
+            desc: "We skip pure theory. Our courses and consulting are built on real projects, real challenges, and field-tested solutions."
+        }
+    ];
+
     return (
         <>
             <Header />
-            <main className="pt-32 pb-24 min-h-screen bg-white">
-                <div className="container-custom">
+            <main className="min-h-screen bg-slate-50">
+                {/* Hero section specifically for About page */}
+                <section className="pt-40 pb-20 bg-[#0b3b5c] text-white relative overflow-hidden">
+                    <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10" />
+                    <div className="container-custom relative z-10">
+                        <div className="max-w-4xl">
+                            <h1 className="text-5xl md:text-7xl font-black mb-8 tracking-tighter">
+                                Where Knowledge Meets Experience
+                            </h1>
+                            <p className="text-xl md:text-2xl text-blue-100 leading-relaxed font-medium">
+                                Transforming project management into a strategic advantage for teams and leaders worldwide.
+                            </p>
+                        </div>
+                    </div>
+                </section>
 
-                    <div className="max-w-4xl mx-auto">
-                        <h1 className="text-4xl md:text-5xl font-bold text-primary border-b border-gray-200 pb-6 mb-12">
-                            About US
-                        </h1>
-
-                        <div className="grid md:grid-cols-12 gap-12 items-start">
-                            {/* Content */}
-                            <div className="md:col-span-7 lg:col-span-8 space-y-6 text-gray-700 leading-relaxed text-lg">
-                                <p>
-                                    With over 17 years of professional experience in construction and project management, Engr. Syed is a passionate leader, educator, and industry expert. His unwavering dedication to empowering the next generation of project professionals is a source of inspiration and motivation for all who work with him. After earning his Bachelor's in Engineering in 2003, Syed began his career in the construction industry, successfully delivering major infrastructure and commercial projects.
-                                </p>
-
-                                <p>
-                                    In 2008, he completed his Master's in Engineering. He pursued a Master's in Project Management and Operational Management from KTH Royal Institute of Technology, Sweden, one of Europe's top universities and a Nobel Prize institution. His academic journey, combined with hands-on industry experience, shaped a unique blend of practical and theoretical expertise. He later completed a Master's in Construction Management at Massey University in New Zealand.
-                                </p>
-
-                                <p>
-                                    He achieved the PMI-CP (Construction Professional), a globally recognised credential from the Project Management Institute (PMI), a prestigious certification focused on construction. As a CEO, consultant, and certified trainer, Syed has mentored hundreds of professionals worldwide in Project Management, Construction Management, and Agile practices. His commitment to continuous learning, which keeps him up to date with the latest industry standards, inspired the creation of Agile Nest.
-                                </p>
-
-                                <p>
-                                    This institute is to transfer knowledge, practical experience, and global standards to individuals and organisations seeking to manage projects with excellence and confidence.
-                                </p>
-                            </div>
-
-                            {/* Sidebar / Image */}
-                            <div className="md:col-span-5 lg:col-span-4 flex flex-col items-center">
-                                <div className="w-full aspect-[4/5] bg-gray-100 rounded-xl overflow-hidden shadow-lg border border-gray-200 mb-6 flex flex-col items-center justify-center text-gray-400 relative">
-                                    {/* Placeholder for actual image */}
-                                    {/* <Image src="/images/syed.jpg" alt="Engr. Syed Amjad Iqbal" fill className="object-cover" /> */}
-                                    <span className="text-sm px-4 text-center">Waiting for image asset...</span>
+                {/* Main Story Section */}
+                <section className="py-24 bg-white">
+                    <div className="container-custom">
+                        <div className="grid lg:grid-cols-2 gap-20 items-start">
+                            <div className="space-y-8">
+                                <span className="label-tag">Our Founder's Story</span>
+                                <h2 className="text-4xl md:text-5xl font-black text-primary leading-tight">
+                                    Passion, Purpose, and 17 Years of Delivery
+                                </h2>
+                                <div className="space-y-6 text-slate-600 text-lg leading-relaxed">
+                                    <p>
+                                        With over 17 years of professional experience in construction and project management, <strong>Engr. Syed Amjad Iqbal</strong> is a passionate leader, educator, and industry expert.
+                                    </p>
+                                    <p>
+                                        His journey spanned from earning his Master's at <strong>KTH Royal Institute of Technology (Sweden)</strong> to mastering Construction Management at Massey University in New Zealand. This academic foundation, combined with roles as CEO, consultant, and certified trainer, shaped TotalPMPro.
+                                    </p>
+                                    <p className="font-bold text-primary italic border-l-4 border-accent pl-6 bg-slate-50 py-6 rounded-r-3xl">
+                                        "Our mission is to transfer practical experience and global standards to individuals seeking project excellence with confidence."
+                                    </p>
                                 </div>
-                                <h3 className="text-xl font-bold text-primary text-center">
-                                    Engr. Syed Amjad Iqbal
-                                </h3>
+                            </div>
+                            <div className="relative">
+                                <div className="aspect-[4/5] bg-slate-100 rounded-[60px] overflow-hidden shadow-2xl relative group">
+                                    <Image
+                                        src="/images/founder_amjad.webp"
+                                        alt="Engr. Syed Amjad Iqbal - CEO & Founder"
+                                        fill
+                                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                                    <div className="absolute bottom-10 left-10 text-white">
+                                        <div className="text-2xl font-black">Engr. Syed Amjad Iqbal</div>
+                                        <div className="text-blue-200 font-bold">CEO & Founder</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                </section>
 
-                        {/* Why Choose Agile Nest Section */}
-                        <div className="mt-20 pt-16 border-t border-gray-200">
-                            <h2 className="text-3xl font-bold text-primary mb-6">
-                                Why Choose Agile Nest
+                {/* TotalQS Technical Depth Integration */}
+                <section className="py-24 bg-slate-50">
+                    <div className="container-custom">
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl md:text-5xl font-black text-primary mb-6">Built on Technical Excellence</h2>
+                            <p className="text-slate-500 text-lg max-w-3xl mx-auto font-medium">
+                                Beyond training, our DNA includes the precision of <strong>TotalQS</strong>—expert quantity surveying and commercial consultation for the construction sector.
+                            </p>
+                        </div>
+                        <div className="grid md:grid-cols-3 gap-8">
+                            {[
+                                { title: "Cost Management", icon: ShieldCheck, desc: "Rigorous budget control and resource allocation to maximize project value." },
+                                { title: "Quantity Surveying", icon: Briefcase, desc: "Precision estimation using 3D models and field-tested commercial strategies." },
+                                { title: "Contract Admin", icon: Award, desc: "Expert oversight of specifications, tenders, and vendor engagements." }
+                            ].map((item, i) => (
+                                <div key={i} className="bg-white p-10 rounded-[40px] shadow-sm hover:shadow-xl transition-all group">
+                                    <div className="w-14 h-14 bg-slate-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                                        <item.icon size={28} />
+                                    </div>
+                                    <h4 className="text-xl font-black text-primary mb-3">{item.title}</h4>
+                                    <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* Evolution Section */}
+                <section className="py-32 bg-white">
+                    <div className="container-custom">
+                        <div className="text-center mb-20 max-w-4xl mx-auto space-y-6">
+                            <span className="label-tag mx-auto">Our Evolution</span>
+                            <h2 className="text-4xl md:text-6xl font-black text-primary tracking-tight">
+                                A 17-Year Journey in Project Management
                             </h2>
-                            <p className="text-xl text-gray-700 leading-relaxed max-w-2xl border-l-4 border-blue-500 pl-6 italic bg-gray-50 py-4 rounded-r-lg">
-                                At Agile Nest, we don't just teach project management — we transform professionals into confident, agile leaders ready to deliver real results.
+                            <p className="text-slate-500 text-xl font-medium">
+                                From PMBOK 3rd to 8th Edition — Embracing Passion, Purpose, and Technology.
                             </p>
                         </div>
 
+                        <EvolutionTimeline />
+
+                        {/* High Fidelity Graphic Callout */}
+                        <div className="mt-32 max-w-5xl mx-auto rounded-[60px] overflow-hidden shadow-2xl border-8 border-white bg-white">
+                            <Image
+                                src="/images/pmbok_evolution_pro.png"
+                                alt="Professional PMBOK Evolution Infographic"
+                                width={1200}
+                                height={800}
+                                className="w-full h-auto"
+                            />
+                        </div>
                     </div>
-                </div>
-            </main>
+                </section>
+            </main >
             <Footer />
             <MobileNav />
         </>
