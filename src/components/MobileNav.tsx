@@ -6,16 +6,16 @@ import { GraduationCap, Calculator, Briefcase, Menu, X, Phone, Mail, ArrowRight 
 import Link from 'next/link';
 
 const tabs = [
-    { label: "Training", icon: GraduationCap, href: "#training" },
-    { label: "Costs", icon: Calculator, href: "#estimation" },
-    { label: "Consult", icon: Briefcase, href: "#consultancy" },
+    { label: "Training", icon: GraduationCap, href: "/training" },
+    { label: "Costs", icon: Calculator, href: "/consulting" },
+    { label: "Consult", icon: Briefcase, href: "/consulting" },
 ];
 
 const menuLinks = [
-    { label: "PMP® Training", href: "#training", desc: "PMI-accredited certification programs" },
-    { label: "Cost Estimation", href: "#estimation", desc: "Precision QS and cost advisory" },
-    { label: "Book an Audit", href: "#consultancy", desc: "Independent project & PMO review" },
-    { label: "About TotalPMP", href: "#about", desc: "Our story and mission" },
+    { label: "PMP® Training", href: "/pmp", desc: "PMI-accredited certification programs" },
+    { label: "Project Delivery", href: "/project-management", desc: "Expert Project & Change Management" },
+    { label: "Consulting", href: "/consulting", desc: "Advisory & PMO establishment" },
+    { label: "About TotalPMPro", href: "/about", desc: "Our story and mission" },
 ];
 
 export default function MobileNav() {

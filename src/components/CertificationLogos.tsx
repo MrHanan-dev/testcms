@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Award, Briefcase, TrendingUp, Presentation, HardHat } from 'lucide-react';
+import { Award, Briefcase, HardHat } from 'lucide-react';
 
 const certifications = [
     {
@@ -11,22 +11,6 @@ const certifications = [
         shadowHover: "hover:shadow-blue-500/25",
         icon: Briefcase,
         image: "/certifications/pmp.webp"
-    },
-    {
-        name: "PfMP\u00ae",
-        title: "Portfolio Management Professional",
-        href: "/pfmp",
-        color: "from-orange-500 to-orange-700",
-        shadowHover: "hover:shadow-orange-500/25",
-        icon: TrendingUp
-    },
-    {
-        name: "PgMP\u00ae",
-        title: "Program Management Professional",
-        href: "/pgmp",
-        color: "from-red-500 to-red-700",
-        shadowHover: "hover:shadow-red-500/25",
-        icon: Presentation
     },
     {
         name: "CAPM\u00ae",
@@ -68,19 +52,19 @@ export default function CertificationLogos() {
                     </p>
                 </div>
 
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 md:gap-8 justify-center">
+                <div className="grid md:grid-cols-3 gap-8 lg:gap-12 justify-center max-w-6xl mx-auto">
                     {certifications.map((cert) => (
                         <Link
                             key={cert.name}
                             href={cert.href}
-                            className={`group relative flex flex-col bg-white rounded-3xl p-8 border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-500 ease-out hover:-translate-y-2 hover:border-transparent ${cert.shadowHover} hover:shadow-2xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-accent`}
+                            className={`group relative flex flex-col bg-white rounded-[40px] p-10 md:p-12 border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-500 ease-out hover:-translate-y-2 hover:border-transparent ${cert.shadowHover} hover:shadow-2xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-accent`}
                         >
                             {/* Hover background effect */}
                             <div className={`absolute inset-0 bg-gradient-to-br ${cert.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
 
                             {/* Icon / Image Container */}
                             {cert.image ? (
-                                <div className="w-20 h-20 mb-8 relative group-hover:scale-110 transition-transform duration-500 ease-out drop-shadow-md">
+                                <div className="w-32 h-32 mb-10 relative group-hover:scale-110 transition-transform duration-500 ease-out drop-shadow-xl mx-auto sm:mx-0">
                                     <Image
                                         src={cert.image}
                                         alt={`${cert.name} Badge`}
@@ -89,24 +73,24 @@ export default function CertificationLogos() {
                                     />
                                 </div>
                             ) : (
-                                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center bg-gradient-to-br ${cert.color} text-white shadow-lg mb-8 group-hover:scale-110 transition-transform duration-500 ease-out`}>
-                                    <cert.icon size={32} strokeWidth={1.5} />
+                                <div className={`w-20 h-20 rounded-3xl flex items-center justify-center bg-gradient-to-br ${cert.color} text-white shadow-lg mb-10 group-hover:scale-110 transition-transform duration-500 ease-out mx-auto sm:mx-0`}>
+                                    <cert.icon size={40} strokeWidth={1.5} />
                                 </div>
                             )}
 
                             <div className="flex-grow">
-                                <h3 className="text-3xl font-bold text-primary mb-2 group-hover:text-accent transition-colors duration-300">
+                                <h3 className="text-4xl font-black text-primary mb-3 group-hover:text-accent transition-colors duration-300">
                                     {cert.name}
                                 </h3>
-                                <div className="text-sm font-medium text-slate-500 leading-relaxed">
+                                <div className="text-base md:text-lg font-semibold text-slate-500 leading-relaxed">
                                     {cert.title}
                                 </div>
                             </div>
 
-                            <div className="mt-8 flex items-center text-sm font-bold text-accent tracking-wider uppercase opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-out">
+                            <div className="mt-10 flex items-center text-sm font-bold text-accent tracking-widest uppercase opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-out">
                                 View Details
-                                <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                                 </svg>
                             </div>
                         </Link>

@@ -22,7 +22,7 @@ export default function CapmPage() {
                     title="CAPM Training"
                     subtitle="Certified Associate in Project Management"
                     description="Kickstart your career by validating your understanding of the fundamental knowledge, terminology, and processes of effective project management."
-                    prev={{ name: "PgMP", href: "/pgmp" }}
+                    prev={{ name: "PMI-CP", href: "/pmicp" }}
                     next={{ name: "PMP", href: "/pmp" }}
                     gradientClass="from-[#006666] to-[#009999]"
                     buttonColorText="text-teal-700"

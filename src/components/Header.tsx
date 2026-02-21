@@ -12,32 +12,30 @@ import { motion, AnimatePresence } from 'framer-motion';
 const navCategories = [
   {
     title: 'Training',
-    href: '#training',
+    href: '/training',
     items: [
-      { name: 'PMP® Certification', desc: 'Expert-led preparation for the PMP exam.', icon: GraduationCap, href: '#training' },
-      { name: 'CAPM® Foundation', desc: 'Core principles for aspiring PMs.', icon: ShieldCheck, href: '#capm' },
-      { name: 'Agile/ACP® Prep', desc: 'Modern agile methodologies training.', icon: Layers, href: '#agile' },
-      { name: 'Corporate Workshops', desc: 'Customized training for organizations.', icon: Users, href: '#corporate' },
+      { name: 'PMP® Certification', desc: 'Expert-led preparation for the PMP exam.', icon: GraduationCap, href: '/pmp' },
+      { name: 'CAPM® Foundation', desc: 'Core principles for aspiring PMs.', icon: ShieldCheck, href: '/capm' },
+      { name: 'PMI-CP® Construction', desc: 'Specialized construction professional training.', icon: Building2, href: '/pmicp' },
+      { name: 'Corporate Workshops', desc: 'Customized training for organizations.', icon: Users, href: '/training' },
     ]
   },
   {
     title: 'Consultancy',
-    href: '#consultancy',
+    href: '/consulting',
     items: [
-      { name: 'Strategic Management', desc: 'High-level project roadmap and strategy.', icon: Briefcase, href: '#strategy' },
-      { name: 'PMO Establishment', desc: 'Setting up and scaling your PMO.', icon: Settings, href: '#pmo' },
-      { name: 'Agile Transformation', desc: 'Migrate to modern agile workflows.', icon: Target, href: '#agile-transform' },
-      { name: 'Independent Project Audit', desc: 'Evaluating health & performance.', icon: FileSearch, href: '#audit' },
+      { name: 'Project Management', desc: 'Expert delivery and recovery services.', icon: Target, href: '/project-management' },
+      { name: 'Strategic Consulting', desc: 'PMO scale and maturity advisory.', icon: Briefcase, href: '/consulting' },
+      { name: 'Commercial Advice', desc: 'Independent project & commercial audit.', icon: FileSearch, href: '/consulting' },
+      { name: 'Agile Transformation', desc: 'Migrate to modern agile workflows.', icon: Layers, href: '/consulting' },
     ]
   },
   {
-    title: 'Cost Estimation',
-    href: '#estimation',
+    title: 'About',
+    href: '/about',
     items: [
-      { name: 'Construction Estimating', desc: 'Precise budget forecasting for infra.', icon: Building2, href: '#construction' },
-      { name: 'Software Development Cost', desc: 'Tech stack and resource scaling.', icon: Calculator, href: '#software' },
-      { name: 'Life Cycle Costing', desc: 'Long-term financial planning.', icon: LineChart, href: '#lifecycle' },
-      { name: 'Risk & Contingency', desc: 'Mitigating financial uncertainties.', icon: ShieldAlert, href: '#risk' },
+      { name: 'Our Story', desc: '17 years of passion and purpose.', icon: Users, href: '/about' },
+      { name: 'Our Evolution', desc: 'From PMBOK 3rd to 8th Edition.', icon: Target, href: '/about#evolution' },
     ]
   }
 ];
@@ -66,8 +64,8 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${isScrolled
-          ? 'bg-white shadow-[0_1px_0_rgba(0,0,0,0.06)] py-3'
-          : 'bg-transparent py-5'
+        ? 'bg-white shadow-[0_1px_0_rgba(0,0,0,0.06)] py-3'
+        : 'bg-transparent py-5'
         }`}
     >
       <div className="container-custom flex items-center justify-between">
@@ -91,12 +89,12 @@ export default function Header() {
             >
               <button
                 className={`flex items-center gap-1 px-4 py-2 text-[14px] font-medium transition-all duration-300 rounded-md ${isScrolled
-                    ? activeDropdown === category.title
-                      ? 'text-primary bg-surface'
-                      : 'text-foreground/60 hover:text-primary'
-                    : activeDropdown === category.title
-                      ? 'text-white bg-white/10'
-                      : 'text-white/70 hover:text-white'
+                  ? activeDropdown === category.title
+                    ? 'text-primary bg-surface'
+                    : 'text-foreground/60 hover:text-primary'
+                  : activeDropdown === category.title
+                    ? 'text-white bg-white/10'
+                    : 'text-white/70 hover:text-white'
                   }`}
               >
                 {category.title}
@@ -147,8 +145,8 @@ export default function Header() {
             <Link
               href="#contact"
               className={`inline-flex items-center px-5 py-2 text-[13px] font-semibold rounded-md transition-all duration-300 ${isScrolled
-                  ? 'bg-primary text-white hover:bg-primary/90'
-                  : 'bg-white text-primary hover:bg-white/90'
+                ? 'bg-primary text-white hover:bg-primary/90'
+                : 'bg-white text-primary hover:bg-white/90'
                 }`}
             >
               Contact Us
