@@ -69,7 +69,7 @@ export default function BentoGrid() {
             <div className="container-custom relative z-10">
                 {/* Header */}
                 <div className="mb-16 md:mb-24 px-4 md:px-0 max-w-3xl">
-                    <span className="label-tag mb-4 block text-accent font-bold">Our services</span>
+                    <span className="label-tag mb-4 block">Our services</span>
                     <h2 className="text-[clamp(32px,5vw,56px)] font-black leading-[1.1] tracking-tighter text-primary">
                         Power Your <span className="text-slate-400">Project Strategy</span>
                     </h2>

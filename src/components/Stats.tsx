@@ -43,7 +43,7 @@ function Counter({ value, prefix = '', suffix = '' }: { value: number; prefix?: 
                 initial={{ y: "100%" }}
                 animate={isInView ? { y: 0 } : { y: "100%" }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="block text-6xl md:text-7xl lg:text-8xl font-bold text-white tracking-[-0.04em] leading-none"
+                className="block text-6xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter leading-none"
             >
                 {prefix}{count.toLocaleString()}{suffix}
             </motion.span>
@@ -64,7 +64,7 @@ export default function Stats() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                                className="text-[12px] font-bold uppercase tracking-[0.3em] text-accent/80 mt-6"
+                                className="label-tag mt-6"
                             >
                                 {stat.label}
                             </motion.p>

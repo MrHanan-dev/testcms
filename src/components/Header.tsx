@@ -148,7 +148,7 @@ export default function Header() {
           <img
             src="/images/1Linkedin.png"
             alt="TotalPMP"
-            className={`transition-all duration-500 object-contain ${isScrolled ? 'h-20' : 'h-24'}`}
+            className={`transition-all duration-500 object-contain ${isScrolled ? 'h-20' : 'h-40 brightness-0 invert'}`}
           />
         </Link>
 

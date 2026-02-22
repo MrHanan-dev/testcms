@@ -29,28 +29,27 @@ body {
 
   /* ── Typography — Millpond ── */
   .h1 {
-    @apply font-display text-5xl md:text-6xl font-extrabold leading-[1.1];
-    /* lowercase intentional */
+    @apply font-display text-5xl md:text-7xl font-black leading-[1.05] tracking-tight;
   }
 
   .h2 {
-    @apply font-display text-4xl font-bold leading-[1.15];
+    @apply font-display text-4xl md:text-5xl font-extrabold leading-[1.1] tracking-tight;
   }
 
   .h3 {
-    @apply font-display text-3xl font-bold leading-[1.2];
+    @apply font-display text-3xl font-bold leading-[1.2] tracking-tight;
   }
 
   .h4 {
-    @apply font-display text-2xl font-bold leading-[1.3];
+    @apply font-display text-2xl font-bold leading-[1.3] tracking-tight;
   }
 
   .body-text {
-    @apply text-gray-600 text-base leading-[1.6] font-normal;
+    @apply text-slate-600 text-base leading-relaxed font-normal;
   }
 
   .label-tag {
-    @apply text-xl font-bold uppercase tracking-wide text-accent;
+    @apply text-xs font-black uppercase tracking-[0.2em] text-accent;
   }
 
   /* ── Buttons — Millpond ── */
