@@ -1,18 +1,16 @@
 import type { Metadata } from "next";
-import { Open_Sans, Nunito_Sans } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import JsonLd from "@/components/JsonLd";
 
-const openSans = Open_Sans({
+const inter = Inter({
     subsets: ["latin"],
-    weight: ['400', '500', '600', '700', '800'],
-    variable: '--font-open-sans'
+    variable: '--font-inter'
 });
 
-const nunitoSans = Nunito_Sans({
+const outfit = Outfit({
     subsets: ["latin"],
-    weight: ['400', '500', '600', '700', '800', '900'],
-    variable: '--font-nunito-sans',
+    variable: '--font-outfit',
 });
 
 export const metadata: Metadata = {
@@ -48,7 +46,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${openSans.variable} ${nunitoSans.variable} antialiased`}>
+            <body className={`${inter.variable} ${outfit.variable} antialiased`}>
                 <JsonLd />
                 {children}
             </body>

@@ -75,8 +75,8 @@ export default function Footer() {
         <div className="container-custom">
           <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div className="text-center lg:text-left relative z-10 hidden md:block">
-              <span className="inline-block px-4 py-1.5 bg-accent/10 text-accent rounded-full text-sm font-bold uppercase tracking-wider mb-6">Join our community</span>
-              <h3 className="text-4xl lg:text-5xl font-black text-primary mb-6 leading-tight tracking-tighter">Let's keep in<br />touch.</h3>
+              <span className="label-tag mb-6 block">Join our community</span>
+              <h3 className="h2 text-primary mb-6">Let's keep in<br />touch.</h3>
               <p className="text-slate-600 text-lg md:text-xl leading-relaxed max-w-md mx-auto lg:mx-0 font-medium">Get the latest insights, training updates, and agile strategies in project management.</p>
             </div>
             <NewsletterForm />
@@ -94,7 +94,7 @@ export default function Footer() {
                 <p className="text-[15px] leading-relaxed font-medium">
                   At TotalPMP, we're passionate about projects. We provide the full range of project services and training to increase your team's skills and capabilities.
                 </p>
-                <p className="text-accent text-[14px] font-black leading-relaxed uppercase tracking-widest bg-accent/5 p-4 rounded-xl border border-accent/10">
+                <p className="text-accent text-xs font-black leading-relaxed uppercase tracking-[0.2em] bg-accent/5 p-4 rounded-xl border border-accent/10">
                   FAST ACCURATE ESTIMATING FOR CONSTRUCTION PROJECT
                 </p>
                 <p className="text-[15px] leading-relaxed font-medium opacity-80">
@@ -105,9 +105,9 @@ export default function Footer() {
               {/* PMI Logo Container */}
               <div className="mt-4 p-6 bg-white/5 rounded-3xl border border-white/10 w-fit group">
                 <img
-                  src="/images/pmi_atp_atp_white_rgb_1.svg"
+                  src="/images/pmi_atp_atp_white_rgb.svg"
                   alt="PMI Authorized Training Partner"
-                  className="h-24 w-auto grayscale brightness-200 group-hover:grayscale-0 transition-all duration-500"
+                  className="h-48 w-auto transition-all duration-500 group-hover:scale-105"
                 />
               </div>
             </div>

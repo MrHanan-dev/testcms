@@ -61,7 +61,7 @@ export default function AboutUsSummary() {
                     variants={FADE_IN_UP}
                     className="max-w-4xl mx-auto text-center mb-24"
                 >
-                    <span className="label-tag mx-auto text-accent font-bold">Who We Are</span>
+                    <span className="label-tag mx-auto block">Who We Are</span>
                     <h2 className="text-4xl md:text-6xl font-black text-primary mt-6 mb-8 tracking-tighter leading-tight">
                         Transforming Knowledge Into <span className="text-slate-400">Project Excellence</span>
                     </h2>
@@ -141,7 +141,7 @@ export default function AboutUsSummary() {
                 >
                     <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5" />
                     <div className="relative z-10 text-center mb-16">
-                        <span className="inline-block px-4 py-1.5 bg-accent/20 text-accent rounded-full text-sm font-bold tracking-wider uppercase mb-6">
+                        <span className="label-tag mb-6 block">
                             Our Heritage
                         </span>
                         <h3 className="text-4xl md:text-6xl font-black text-white mb-8 tracking-tighter">

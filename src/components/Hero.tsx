@@ -130,7 +130,7 @@ export default function Hero() {
               {/* Tag */}
               <motion.span
                 variants={itemVariants}
-                className="inline-block text-[11px] font-semibold uppercase tracking-[0.25em] text-accent/90 mb-6"
+                className="label-tag mb-6 block"
               >
                 {slide.tag}
               </motion.span>
@@ -138,7 +138,7 @@ export default function Hero() {
               {/* Headline */}
               <motion.h1
                 variants={itemVariants}
-                className="text-[clamp(32px,5.5vw,64px)] font-bold leading-[1.06] tracking-[-0.03em] text-white mb-6 whitespace-pre-line"
+                className="text-[clamp(32px,5.5vw,64px)] font-black leading-[1.06] tracking-tighter text-white mb-6 whitespace-pre-line"
               >
                 {slide.headline}
               </motion.h1>

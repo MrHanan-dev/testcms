@@ -36,8 +36,8 @@ module.exports = {
                 background: '#F4F7FA',
             },
             fontFamily: {
-                sans: ['var(--font-open-sans)', 'system-ui', 'sans-serif'],
-                display: ['var(--font-nunito-sans)', 'system-ui', 'sans-serif'],
+                sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+                display: ['var(--font-outfit)', 'system-ui', 'sans-serif'],
             },
             spacing: {
                 'section': '100px',
