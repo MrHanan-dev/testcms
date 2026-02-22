@@ -1,0 +1,18 @@
+# TotalPMPro Agent/LLM Rules
+
+All AI agents and developers using this project should follow these strict architectural and aesthetic rules.
+
+## Design Identity
+- **Premium Corporate Tech**: The project must look expensive, professional, and modern.
+- **Animation**: Use Framer Motion for subtle entry animations and hover states.
+- **Color Consistency**: Only use the primary/accent shades defined in `tailwind.config.js`. Never use generic "blue" or "orange".
+
+## Technical Guidelines
+- **Framework**: Next.js App Router (Standard).
+- **Styling**: Tailwind CSS ONLY. Avoid inline styles or raw CSS files except for `globals.css`.
+- **Performance**: Use dynamic imports for heavy components.
+- **A11y**: Ensure all interactive elements have ARIA labels and focus states.
+
+## Change Process
+- **Planning First**: ALWAYS create an `implementation_plan.md` before making structural changes.
+- **Verification**: Run `npm run dev` and check for hydration errors or console warnings after UI changes.

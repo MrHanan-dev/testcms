@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --background: #FFFFFF;
-  --foreground: #1a1a2e;
-  --primary: #1a5aa8;
-  --accent: #f59e0b;
+  --background: #F4F7FA;
+  --foreground: #0F172A;
+  --primary: #0B3C5D;
+  --accent: #C6A75E;
 }
 
 body {
@@ -50,20 +50,20 @@ body {
   }
 
   .label-tag {
-    @apply text-xl font-normal uppercase tracking-wide text-accent-500;
+    @apply text-xl font-bold uppercase tracking-wide text-accent;
   }
 
   /* ── Buttons — Millpond ── */
   .btn-primary {
-    @apply inline-flex items-center justify-center px-6 py-3 bg-accent-500 text-white text-base font-semibold rounded-full shadow-sm hover:shadow-md transition-all duration-200 hover:bg-accent-400 hover:scale-[1.02] cursor-pointer;
+    @apply inline-flex items-center justify-center px-6 py-3 bg-accent text-primary text-base font-bold rounded-full shadow-sm hover:shadow-md transition-all duration-200 hover:opacity-90 hover:scale-[1.02] cursor-pointer;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-6 py-3 bg-primary-500 text-white text-base font-semibold rounded-full shadow-sm hover:shadow-md transition-all duration-200 hover:bg-primary-600 hover:scale-[1.02] cursor-pointer;
+    @apply inline-flex items-center justify-center px-6 py-3 bg-primary text-white text-base font-bold rounded-full shadow-sm hover:shadow-md transition-all duration-200 hover:bg-primary-700 hover:scale-[1.02] cursor-pointer;
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center px-6 py-3 bg-transparent border-2 border-primary-500 text-primary-500 text-base font-semibold rounded-full transition-all duration-200 hover:bg-primary-500 hover:text-white cursor-pointer;
+    @apply inline-flex items-center justify-center px-6 py-3 bg-transparent border-2 border-primary text-primary text-base font-bold rounded-full transition-all duration-200 hover:bg-primary hover:text-white cursor-pointer;
   }
 
   /* ── Marquee mask for partner logos ── */
