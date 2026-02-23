@@ -36,8 +36,9 @@ const navCategories = [
     href: '/consulting',
     items: [
       { name: 'Project Management', desc: 'Expert delivery & recovery services.', icon: Target, href: '/project-management' },
-      { name: 'Strategic Consulting', desc: 'PMO scale & maturity advisory.', icon: Briefcase, href: '/consulting' },
-      { name: 'Commercial Advice', desc: 'Independent & commercial audit.', icon: FileSearch, href: '/consulting' },
+      { name: 'Cost Estimation & QS', desc: 'Fast accurate estimating for projects.', icon: Briefcase, href: '/cost-estimation' },
+      { name: 'Construction Contract', desc: 'Contract management services.', icon: FileSearch, href: '/contract-management' },
+      { name: 'Commercial Advice', desc: 'Independent & commercial audit.', icon: Layers, href: '/consulting' },
       { name: 'Agile Transformation', desc: 'Modern agile workflows.', icon: Layers, href: '/consulting' },
     ]
   },
