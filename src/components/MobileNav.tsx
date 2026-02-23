@@ -14,7 +14,9 @@ const tabs = [
 const menuLinks = [
     { label: "PMP® Training", href: "/pmp", desc: "PMI-accredited certification programs" },
     { label: "Project Delivery", href: "/project-management", desc: "Expert Project & Change Management" },
-    { label: "Consulting", href: "/consulting", desc: "Advisory & PMO establishment" },
+    { label: "Cost Estimation & QS", href: "/cost-estimation", desc: "Fast accurate estimating for projects" },
+    { label: "Construction Contract", href: "/contract-management", desc: "Contract management services" },
+    { label: "Advisory & PMO", href: "/consulting", desc: "Strategic PMO & Consulting" },
     { label: "About TotalPMP", href: "/about", desc: "Our story and mission" },
 ];
 

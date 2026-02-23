@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { Network, MonitorPlay, Briefcase } from 'lucide-react';
+import { Network, MonitorPlay, Briefcase, FileSearch } from 'lucide-react';
 import Link from 'next/link';
 
 // Constants for Clean Code
@@ -55,6 +55,15 @@ const services = [
         textColor: "text-slate-900",
         borderColor: "border-slate-200",
     },
+    {
+        icon: FileSearch,
+        title: "Contract Management",
+        description: "Expert contract formulation, administration, and dispute resolution to safeguard your commercial interests.",
+        href: "/contract-management",
+        bgColor: "bg-white",
+        textColor: "text-slate-900",
+        borderColor: "border-slate-200",
+    },
 ];
 
 export default function BentoGrid() {
@@ -82,35 +91,47 @@ export default function BentoGrid() {
                     viewport={{ once: true, margin: "-100px" }}
                     className="flex flex-wrap justify-center lg:justify-start gap-8 px-4 md:px-0"
                 >
-                    {services.map((service) => (
-                        <motion.div
-                            key={service.title}
-                            variants={CARD_VARIANTS}
-                            className={`w-full lg:w-[calc(33.333%-22px)] min-h-[520px] p-10 md:p-12 flex flex-col justify-start box-border text-left rounded-tl-[80px] rounded-br-[80px] lg:rounded-tl-[100px] lg:rounded-br-[100px] ${service.bgColor} border ${service.borderColor} shadow-sm backdrop-blur-sm transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 group/card`}
-                        >
-                            <Link href={service.href} className="flex flex-col h-full focus:outline-none">
-                                {/* Icon Container */}
-                                <div className={`mb-10 w-20 h-20 rounded-2xl flex items-center justify-center transition-all duration-500 ${service.title === "Training" ? 'bg-white/10' : 'bg-primary/5'} group-hover/card:scale-110 group-hover/card:rotate-3`}>
-                                    <service.icon size={40} className={service.title === "Training" ? 'text-white' : 'text-primary'} strokeWidth={1.5} />
-                                </div>
+                    {services.map((service, index) => {
+                        // Create a true "Bento" alternating layout for 4 items:
+                        // Large screens: Row 1 = 60%/40%, Row 2 = 40%/60%
+                        // Medium screens: 50% each (2x2)
+                        // Small screens: 100% (stack)
+                        let widthClass = "w-full"; // mobile default
+                        if (index === 0) widthClass = "w-full md:w-[calc(50%-16px)] lg:w-[calc(60%-16px)]";
+                        if (index === 1) widthClass = "w-full md:w-[calc(50%-16px)] lg:w-[calc(40%-16px)]";
+                        if (index === 2) widthClass = "w-full md:w-[calc(50%-16px)] lg:w-[calc(40%-16px)]";
+                        if (index === 3) widthClass = "w-full md:w-[calc(50%-16px)] lg:w-[calc(60%-16px)]";
 
-                                {/* Content Container */}
-                                <h3 className={`text-3xl md:text-3xl lg:text-4xl font-black mb-6 tracking-tight leading-[1.2] ${service.textColor}`}>
-                                    {service.title}
-                                </h3>
+                        return (
+                            <motion.div
+                                key={service.title}
+                                variants={CARD_VARIANTS}
+                                className={`${widthClass} min-h-[480px] p-10 md:p-12 flex flex-col justify-start box-border text-left rounded-tl-[60px] rounded-br-[60px] lg:rounded-tl-[80px] lg:rounded-br-[80px] ${service.bgColor} border ${service.borderColor} shadow-sm backdrop-blur-sm transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 group/card`}
+                            >
+                                <Link href={service.href} className="flex flex-col h-full focus:outline-none">
+                                    {/* Icon Container */}
+                                    <div className={`mb-10 w-20 h-20 rounded-2xl flex items-center justify-center transition-all duration-500 ${service.title === "Training" ? 'bg-white/10' : 'bg-primary/5'} group-hover/card:scale-110 group-hover/card:rotate-3`}>
+                                        <service.icon size={40} className={service.title === "Training" ? 'text-white' : 'text-primary'} strokeWidth={1.5} />
+                                    </div>
 
-                                <p className={`text-lg leading-relaxed mb-auto ${service.textColor} opacity-80 font-medium`}>
-                                    {service.description}
-                                </p>
+                                    {/* Content Container */}
+                                    <h3 className={`text-3xl md:text-3xl lg:text-4xl font-black mb-6 tracking-tight leading-[1.2] ${service.textColor}`}>
+                                        {service.title}
+                                    </h3>
 
-                                {/* Action link - Premium Button Style */}
-                                <div className={`mt-10 inline-flex items-center gap-2 w-fit px-10 py-5 ${service.title === "Training" ? 'bg-accent text-primary' : 'bg-primary text-white'} font-bold text-sm rounded-tl-[25px] rounded-tr-[25px] rounded-br-[70px] rounded-bl-[25px] shadow-lg transition-all duration-300 group-hover/card:gap-4`}>
-                                    Learn More
-                                    <div className="w-2 h-[2px] bg-current transition-all group-hover/card:w-4" />
-                                </div>
-                            </Link>
-                        </motion.div>
-                    ))}
+                                    <p className={`text-lg leading-relaxed mb-auto ${service.textColor} opacity-80 font-medium`}>
+                                        {service.description}
+                                    </p>
+
+                                    {/* Action link - Premium Button Style */}
+                                    <div className={`mt-10 inline-flex items-center gap-2 w-fit px-10 py-5 ${service.title === "Training" ? 'bg-accent text-primary' : 'bg-primary text-white'} font-bold text-sm rounded-tl-[25px] rounded-tr-[25px] rounded-br-[70px] rounded-bl-[25px] shadow-lg transition-all duration-300 group-hover/card:gap-4`}>
+                                        Learn More
+                                        <div className="w-2 h-[2px] bg-current transition-all group-hover/card:w-4" />
+                                    </div>
+                                </Link>
+                            </motion.div>
+                        );
+                    })}
                 </motion.div>
             </div>
         </section>

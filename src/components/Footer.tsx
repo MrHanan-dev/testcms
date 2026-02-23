@@ -6,12 +6,10 @@ import { Mail, MapPin, Phone, Send } from 'lucide-react';
 const footerLinks = {
   ourServices: [
     { label: "Project Management", href: "#" },
-    { label: "Business Analysis", href: "#" },
     { label: "Consulting", href: "#" },
     { label: "Change Management", href: "#" },
-    { label: "Quality Assurance and Testing", href: "#" },
+    { label: "Quality Assurance", href: "#" },
     { label: "Portfolio and Project Management as a Service", href: "#" },
-    { label: "Post Implementation Review (PIR)", href: "#" },
     { label: "Training Services", href: "#" },
   ],
   trainingServices: [
@@ -163,8 +161,8 @@ export default function Footer() {
                   </li>
                   <li className="flex gap-3 text-[14px] font-medium">
                     <Mail size={18} className="text-accent shrink-0" />
-                    <a href="mailto:syed.iqbal@totalqs.co.nz" className="hover:text-accent text-[14px] break-all transition-colors">
-                      syed.iqbal@totalqs.co.nz
+                    <a href="mailto:info@totalqs.co.nz" className="hover:text-accent text-[14px] break-all transition-colors">
+                      info@totalqs.co.nz
                     </a>
                   </li>
                 </ul>
