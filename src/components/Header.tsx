@@ -145,12 +145,31 @@ export default function Header() {
     >
       <div className="container-custom flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="relative z-50 flex items-center">
-          <img
-            src="/images/1Linkedin.png"
-            alt="TotalPMP"
-            className={`transition-all duration-500 object-contain ${isScrolled ? 'h-20' : 'h-40 brightness-0 invert'}`}
-          />
+        <Link href="/" className="relative z-50 flex items-center gap-2.5 md:gap-4 group">
+          <div className="relative w-8 h-8 md:w-10 md:h-10 flex-shrink-0 flex items-center justify-center">
+            <img
+              src="/favicon.png"
+              alt="TotalPMP Logo"
+              className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
+            />
+          </div>
+
+          {/* Vertical Separator */}
+          <div className={`h-8 md:h-10 w-px self-center transition-colors duration-500 ${isScrolled ? 'bg-slate-200' : 'bg-white/20'}`} />
+
+          <div className="flex flex-col justify-center -mt-0.5">
+            <div className={`text-[22px] md:text-[28px] font-display tracking-tight leading-none transition-colors duration-500 flex items-baseline ${isScrolled ? 'text-primary' : 'text-white'}`}>
+              <span className="font-black">TOTAL</span>
+              <span className="font-light text-accent ml-[1px]">PMP</span>
+            </div>
+            <div className={`text-[8.5px] font-sans font-bold uppercase tracking-[0.2em] leading-none mt-1.5 transition-colors duration-500 hidden md:flex items-center ${isScrolled ? 'text-slate-500' : 'text-white/70'}`}>
+              <span>Project Management</span>
+              <span className="mx-1.5 opacity-40 text-[6px]">•</span>
+              <span>Cost Management</span>
+              <span className="mx-1.5 opacity-40 text-[6px]">•</span>
+              <span>Training Consultants</span>
+            </div>
+          </div>
         </Link>
 
         {/* Desktop Navigation */}
