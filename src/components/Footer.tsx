@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { Mail, MapPin, Phone, Send } from 'lucide-react';
+import ContactForm from './ContactForm';
 
 const footerLinks = {
   ourServices: [
@@ -68,17 +69,15 @@ function NewsletterForm() {
 export default function Footer() {
   return (
     <footer className="w-full border-t border-slate-200">
-      {/* Newsletter Section */}
-      <div className="bg-slate-50 py-16">
+      {/* Contact Section - Replaced Newsletter */}
+      <div id="contact" className="bg-slate-50 py-16 scroll-mt-20">
         <div className="container-custom">
-          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <div className="text-center lg:text-left relative z-10 hidden md:block">
-              <span className="label-tag mb-6 block">Join our community</span>
-              <h3 className="h2 text-primary mb-6">Let's keep in<br />touch.</h3>
-              <p className="text-slate-600 text-lg md:text-xl leading-relaxed max-w-md mx-auto lg:mx-0 font-medium">Get the latest insights, training updates, and agile strategies in project management.</p>
-            </div>
-            <NewsletterForm />
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="label-tag mb-6 inline-block">Support & Enquiries</span>
+            <h3 className="h2 text-primary mb-6">How can we help?</h3>
+            <p className="text-slate-600 text-lg md:text-xl leading-relaxed font-medium">Reach out for custom corporate training, consulting enquiries, or certification guidance.</p>
           </div>
+          <ContactForm />
         </div>
       </div>
 

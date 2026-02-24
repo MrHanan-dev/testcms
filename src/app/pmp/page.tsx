@@ -1,10 +1,12 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import MobileNav from '@/components/MobileNav';
-import { Check, BookOpen, Clock, Target, Users, Layout, Globe, Star, Briefcase } from 'lucide-react';
+import { Check, BookOpen, Clock, Target, Users, Layout, Globe, Star, Briefcase, Send } from 'lucide-react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import CertificationHero from '@/components/CertificationHero';
+import BookingForm from '@/components/BookingForm';
+import Features from '@/components/Features';
 
 export const metadata: Metadata = {
     title: "PMP\u00ae Certification Training | Project Management Professional",
@@ -166,91 +168,36 @@ export default function PmpPage() {
                         </div>
                     </section>
 
-                    {/* Prerequisites Section */}
-                    <section className="bg-white rounded-3xl p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 relative">
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -z-10" />
-                        <div className="text-center max-w-2xl mx-auto mb-12">
-                            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Eligibility Prerequisites</h2>
-                            <p className="text-slate-600">Candidates can qualify for the PMP exam through one of three distinct paths.</p>
+                    {/* Comparison / Why Choose Us */}
+                    <Features />
+
+                    <section id="register" className="grid md:grid-cols-5 gap-16 items-start">
+                        <div className="md:col-span-3">
+                            <BookingForm
+                                courseName="PMP® Certification"
+                                availableDates={["March 2026", "April 2026", "May 2026"]}
+                            />
                         </div>
-
-                        <div className="grid md:grid-cols-3 gap-8">
-                            {/* Path 1 */}
-                            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200">
-                                <div className="text-accent font-bold text-sm tracking-widest uppercase mb-2">Path 1</div>
-                                <h3 className="text-xl font-bold text-primary mb-6 min-h-[56px] flex items-center">High School Diploma / Associate Degree</h3>
-                                <ul className="space-y-4 text-slate-700 text-sm">
-                                    <li className="flex gap-3">
-                                        <Briefcase className="shrink-0 text-blue-500" size={18} />
-                                        <span><strong>Project Experience:</strong> At least 60 months (5 years) of unique, non-overlapping professional project management experience.</span>
-                                    </li>
-                                    <li className="flex gap-3">
-                                        <BookOpen className="shrink-0 text-blue-500" size={18} />
-                                        <span><strong>Training:</strong> 35 contact hours of formal project management education or CAPM\u00ae certification.</span>
-                                    </li>
-                                </ul>
+                        <div className="md:col-span-2 space-y-8">
+                            <div className="bg-slate-800 text-white p-10 rounded-[40px] shadow-2xl relative overflow-hidden group">
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-accent/20 rounded-bl-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+                                <h3 className="text-2xl font-bold mb-6 relative z-10">Need a custom<br />batch for your<br />organization?</h3>
+                                <p className="text-slate-300 mb-8 relative z-10 font-medium">We offer tailored corporate training sessions for teams of 5 or more.</p>
+                                <Link
+                                    href="/about#contact"
+                                    className="inline-flex items-center gap-2 text-accent font-bold group/link relative z-10"
+                                >
+                                    Enquire about corporate training
+                                    <Send size={16} className="group-hover/link:translate-x-1 transition-transform" />
+                                </Link>
                             </div>
 
-                            {/* Path 2 */}
-                            <div className="p-6 rounded-2xl bg-blue-50 border-2 border-blue-200 relative">
-                                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider py-1 px-3 rounded-full">Most Common</span>
-                                <div className="text-blue-600 font-bold text-sm tracking-widest uppercase mb-2">Path 2</div>
-                                <h3 className="text-xl font-bold text-primary mb-6 min-h-[56px] flex items-center">Four-Year Bachelor's Degree or Higher</h3>
-                                <ul className="space-y-4 text-slate-700 text-sm">
-                                    <li className="flex gap-3">
-                                        <Briefcase className="shrink-0 text-blue-600" size={18} />
-                                        <span><strong>Project Experience:</strong> At least 36 months (3 years) of unique, non-overlapping professional project management experience.</span>
-                                    </li>
-                                    <li className="flex gap-3">
-                                        <BookOpen className="shrink-0 text-blue-600" size={18} />
-                                        <span><strong>Training:</strong> 35 contact hours of formal project management education or CAPM\u00ae certification.</span>
-                                    </li>
-                                </ul>
+                            <div className="p-8 border-2 border-dashed border-slate-200 rounded-[40px] text-center">
+                                <p className="text-slate-500 font-medium italic">
+                                    "The best investment I made in my career. The instructors are clearly experts."
+                                </p>
+                                <div className="mt-4 font-bold text-primary">— NZ Transport Agency Alumnus</div>
                             </div>
-
-                            {/* Path 3 */}
-                            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200">
-                                <div className="text-purple-500 font-bold text-sm tracking-widest uppercase mb-2">Path 3</div>
-                                <h3 className="text-xl font-bold text-primary mb-6 min-h-[56px] flex items-center">GAC-Accredited Degree Program</h3>
-                                <ul className="space-y-4 text-slate-700 text-sm">
-                                    <li className="flex gap-3">
-                                        <Briefcase className="shrink-0 text-purple-500" size={18} />
-                                        <span><strong>Project Experience:</strong> At least 24 months (2 years) of unique, non-overlapping professional project management experience.</span>
-                                    </li>
-                                    <li className="flex gap-3">
-                                        <BookOpen className="shrink-0 text-purple-500" size={18} />
-                                        <span><strong>Training:</strong> 35 contact hours of formal project management education.</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* Additional Exam Stats */}
-                    <section className="bg-gradient-to-r from-[#0b5c92] to-[#1479be] text-white rounded-3xl p-8 md:p-12 mb-16 relative overflow-hidden">
-                        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10"></div>
-                        <div className="relative z-10">
-                            <h3 className="text-2xl font-bold mb-8 text-center text-blue-100">Additional Exam Details</h3>
-                            <div className="grid sm:grid-cols-3 gap-6 text-center">
-                                <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10">
-                                    <Clock className="mx-auto mb-4 text-accent" size={32} />
-                                    <div className="font-bold text-2xl mb-1">230</div>
-                                    <div className="text-sm text-blue-200">Minutes Duration</div>
-                                </div>
-                                <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10">
-                                    <Layout className="mx-auto mb-4 text-accent" size={32} />
-                                    <div className="font-bold text-2xl mb-1">180</div>
-                                    <div className="text-sm text-blue-200">Total Questions</div>
-                                </div>
-                                <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10">
-                                    <Globe className="mx-auto mb-4 text-accent" size={32} />
-                                    <div className="font-bold text-2xl mb-1">3-4</div>
-                                    <div className="text-sm text-blue-200">Years Update Cycle</div>
-                                </div>
-                            </div>
-                            <p className="text-center text-sm text-blue-200 mt-8 max-w-2xl mx-auto">
-                                Questions include multiple choice, multiple response, matching, hotspot, and limited fill-in-the-blank. The exam is regularly updated to reflect the latest Agile and hybrid methodologies.
-                            </p>
                         </div>
                     </section>
 

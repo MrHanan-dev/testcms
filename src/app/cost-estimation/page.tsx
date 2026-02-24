@@ -2,9 +2,10 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import MobileNav from '@/components/MobileNav';
 import ServiceHero from '@/components/ServiceHero';
-import { Check, Calculator, BarChart3, TrendingUp, Building2, ClipboardList, Settings2 } from 'lucide-react';
+import { Check, Calculator, BarChart3, TrendingUp, Building2, ClipboardList, Settings2, FileText, Upload } from 'lucide-react';
 import { Metadata } from 'next';
 import Link from 'next/link';
+import CostEstimationForm from '@/components/CostEstimationForm';
 
 export const metadata: Metadata = {
     title: "Cost Estimation & Quantity Surveying | TotalPMP",
@@ -104,45 +105,48 @@ export default function CostEstimationPage() {
                     </div>
                 </section>
 
-                {/* Outcome Focus Section */}
-                <section className="py-32 bg-white">
+                {/* Enhanced Form Section */}
+                <section id="estimate-form" className="py-32 bg-slate-50 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-100/30 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
                     <div className="container-custom">
-                        <div className="grid lg:grid-cols-2 gap-20 items-center">
-                            <div className="relative aspect-square bg-[#0f293e] rounded-[100px] flex items-center justify-center p-20 text-white overflow-hidden shadow-2xl">
-                                <div className="absolute top-0 left-0 w-full h-full bg-[url('/grid-pattern.svg')] opacity-10" />
-                                <div className="text-center space-y-6 relative z-10">
-                                    <Calculator size={120} className="mx-auto text-accent" />
-                                    <h3 className="text-4xl font-black">Cost Certainty</h3>
-                                    <p className="text-blue-100/80 text-lg font-medium">Delivering accurate baselines and proactive commercial management.</p>
-                                </div>
-                            </div>
+                        <div className="grid lg:grid-cols-2 gap-20 items-start">
                             <div className="space-y-10">
                                 <div>
+                                    <span className="label-tag mb-6 block">Ready to Start?</span>
                                     <h2 className="text-3xl md:text-5xl font-black text-primary leading-tight tracking-tight mb-8">
-                                        Protecting Your Bottom Line
+                                        Upload your plans for a fast, accurate quote
                                     </h2>
-                                    <p className="text-slate-500 text-lg leading-relaxed mb-6">
-                                        Our cost management solutions provide the financial transparency required to make informed decisions and secure project funding confidently.
+                                    <p className="text-slate-500 text-lg leading-relaxed mb-10">
+                                        Our quantity surveyors use AI-driven tools to provide rapid material takeoffs and detailed pricing. Simply provide your project details and upload your documents.
                                     </p>
-                                    <ul className="space-y-5">
-                                        {[
-                                            "Rigorous bill of quantities (BOQ)",
-                                            "Risk and contingency planning",
-                                            "Cash flow forecasting",
-                                            "Final account settlement"
-                                        ].map((item, i) => (
-                                            <li key={i} className="flex gap-4 items-center text-primary font-bold">
-                                                <div className="bg-emerald-50 text-emerald-600 p-1 rounded-full"><Check size={18} strokeWidth={3} /></div>
-                                                {item}
-                                            </li>
-                                        ))}
-                                    </ul>
+
+                                    <div className="grid sm:grid-cols-2 gap-6">
+                                        <div className="p-6 bg-white rounded-3xl border border-slate-100 shadow-sm">
+                                            <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-4">
+                                                <FileText size={24} />
+                                            </div>
+                                            <h4 className="font-bold text-primary mb-2 text-lg">Detailed BOQ</h4>
+                                            <p className="text-slate-500 text-sm">Full bill of quantities provided for every trade package.</p>
+                                        </div>
+                                        <div className="p-6 bg-white rounded-3xl border border-slate-100 shadow-sm">
+                                            <div className="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mb-4">
+                                                <Upload size={24} />
+                                            </div>
+                                            <h4 className="font-bold text-primary mb-2 text-lg">Fast Turnaround</h4>
+                                            <p className="text-slate-500 text-sm">Initial estimates typically delivered within 48-72 hours.</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="pt-6">
-                                    <Link href="#contact" className="inline-block py-6 px-12 bg-primary text-white font-black text-xl rounded-2xl hover:scale-105 transition-all shadow-xl">
-                                        Request an Estimate
-                                    </Link>
+                                <div className="p-10 bg-primary text-white rounded-[40px] shadow-2xl relative overflow-hidden group">
+                                    <div className="absolute top-0 right-0 w-32 h-32 bg-accent/20 rounded-bl-full blur-2xl"></div>
+                                    <h3 className="text-2xl font-bold mb-4">Need urgent support?</h3>
+                                    <p className="text-blue-100/70 mb-6">Call our estimating team directly for a quick consultation.</p>
+                                    <div className="text-2xl font-black text-accent tracking-widest">09 620 7678</div>
                                 </div>
+                            </div>
+
+                            <div>
+                                <CostEstimationForm />
                             </div>
                         </div>
                     </div>
