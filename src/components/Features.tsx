@@ -9,25 +9,25 @@ const features = [
     description: "Our programs follow PMI® international standards, ensuring your certification holds weight in any market, from Auckland to London."
   },
   {
+    icon: <Users size={28} />,
+    title: "Expert Practitioners",
+    description: "Learn from instructors with 17+ years of real-world project leadership experience across New Zealand and abroad."
+  },
+  {
     icon: <Zap size={28} />,
-    title: "Industrial Situation Focus",
-    description: "Go beyond theory. Our training is rooted in actual industrial situations, providing practical solutions to real-world challenges."
+    title: "Industrial Context",
+    description: "Go beyond theory. Our training is rooted in actual industrial situations, providing practical solutions to project challenges."
   },
   {
     icon: <TrendingUp size={28} />,
-    title: "Proven Project Success",
-    description: "Our consultancy strategies have been battle-tested on major NZ infrastructure projects, ensuring success from masterplanning to delivery."
-  },
-  {
-    icon: <Users size={28} />,
-    title: "Independent Client Advisory",
-    description: "We provide high-fidelity development and commercial advice, acting as an independent partner focused solely on your project's success."
+    title: "High Success Rate",
+    description: "Our students consistently achieve a 100% exam success rate on their first attempt through our focused mentorship."
   }
 ];
 
 export default function Features() {
   return (
-    <section id="features" className="section bg-white overflow-hidden">
+    <section id="why-choose-us" className="section bg-white overflow-hidden">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
 

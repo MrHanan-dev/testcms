@@ -2,8 +2,10 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import MobileNav from '@/components/MobileNav';
 import CertificationHero from '@/components/CertificationHero';
-import { Check, HardHat, TrendingUp, Presentation, Briefcase, Award, Shield, FileText, ClipboardList, Clock, Layout, BookOpen, Users } from 'lucide-react';
+import { Check, HardHat, TrendingUp, Presentation, Briefcase, Award, Shield, FileText, ClipboardList, Clock, Layout, BookOpen, Users, Send } from 'lucide-react';
 import Link from 'next/link';
+import BookingForm from '@/components/BookingForm';
+import Features from '@/components/Features';
 
 export const metadata = {
     title: "PMI Construction Professional (PMI-CP)® Certification",
@@ -170,22 +172,35 @@ export default function PmiCpPage() {
                         </div>
                     </section>
 
-                    {/* Exam Details Summary Banner */}
-                    <section className="bg-primary text-white rounded-3xl p-10 flex flex-col md:flex-row items-center justify-between gap-8">
-                        <div>
-                            <h2 className="text-3xl font-bold mb-4">About the Exam</h2>
-                            <p className="text-white/80">Everything you need to know about the exam structure.</p>
+                    {/* Comparison / Why Choose Us */}
+                    <Features />
+
+                    <section id="register" className="grid md:grid-cols-5 gap-16 items-start">
+                        <div className="md:col-span-3">
+                            <BookingForm
+                                courseName="PMI-CP® Certification"
+                                availableDates={["March 2026", "April 2026", "May 2026"]}
+                            />
                         </div>
-                        <div className="flex flex-col sm:flex-row gap-6">
-                            <div className="bg-white/10 rounded-2xl p-6 flex flex-col items-center">
-                                <FileText className="mb-3 text-amber-400" size={32} />
-                                <strong className="text-sm uppercase tracking-wider text-white/60 mb-1">Exam length</strong>
-                                <span className="text-2xl font-bold">120 questions</span>
+                        <div className="md:col-span-2 space-y-8">
+                            <div className="bg-slate-800 text-white p-10 rounded-[40px] shadow-2xl relative overflow-hidden group">
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-accent/20 rounded-bl-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+                                <h3 className="text-2xl font-bold mb-6 relative z-10">Advance your<br />construction<br />career</h3>
+                                <p className="text-slate-300 mb-8 relative z-10 font-medium">Get certified and lead multi-million dollar construction projects.</p>
+                                <Link
+                                    href="/about#contact"
+                                    className="inline-flex items-center gap-2 text-accent font-bold group/link relative z-10"
+                                >
+                                    Contact an advisor
+                                    <Send size={16} className="group-hover/link:translate-x-1 transition-transform" />
+                                </Link>
                             </div>
-                            <div className="bg-white/10 rounded-2xl p-6 flex flex-col items-center">
-                                <Clock className="mb-3 text-amber-400" size={32} />
-                                <strong className="text-sm uppercase tracking-wider text-white/60 mb-1">Exam time</strong>
-                                <span className="text-2xl font-bold">230 minutes</span>
+
+                            <div className="p-8 border-2 border-dashed border-slate-200 rounded-[40px] text-center">
+                                <p className="text-slate-500 font-medium italic">
+                                    "The only certification that truly understands the complexities of the NZ construction site."
+                                </p>
+                                <div className="mt-4 font-bold text-primary">— Fletcher Construction Lead</div>
                             </div>
                         </div>
                     </section>

@@ -1,10 +1,12 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import MobileNav from '@/components/MobileNav';
-import { Check, BookOpen, Clock, Target, Users, Layout, Globe, Star, Award, Briefcase } from 'lucide-react';
+import { Check, BookOpen, Clock, Target, Users, Layout, Globe, Star, Award, Briefcase, Send } from 'lucide-react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import CertificationHero from '@/components/CertificationHero';
+import BookingForm from '@/components/BookingForm';
+import Features from '@/components/Features';
 
 export const metadata: Metadata = {
     title: "CAPM\u00ae Certification Training | Certified Associate in Project Management",
@@ -161,56 +163,35 @@ export default function CapmPage() {
                         </div>
                     </section>
 
-                    <section className="bg-white rounded-3xl p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 relative">
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-teal-50 rounded-bl-full -z-10" />
-                        <div className="text-center max-w-2xl mx-auto mb-12">
-                            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Eligibility Prerequisites</h2>
-                            <p className="text-slate-600">The CAPM is highly accessible and designed to be an entry point into the profession.</p>
-                        </div>
+                    {/* Comparison / Why Choose Us */}
+                    <Features />
 
-                        <div className="max-w-xl mx-auto">
-                            <div className="p-8 rounded-2xl bg-teal-50 border-2 border-teal-200">
-                                <h3 className="text-2xl font-bold text-primary mb-6 flex items-center gap-3">
-                                    <Award className="text-teal-600" /> Standard Path
-                                </h3>
-                                <ul className="space-y-6 text-slate-700 text-lg">
-                                    <li className="flex gap-4">
-                                        <Check className="shrink-0 text-green-500 mt-1" />
-                                        <span><strong>Education:</strong> Secondary degree (high school diploma, associate's degree or the global equivalent).</span>
-                                    </li>
-                                    <li className="flex gap-4">
-                                        <Check className="shrink-0 text-green-500 mt-1" />
-                                        <span><strong>Training:</strong> 23 contact hours of formal project management education completed before the exam.</span>
-                                    </li>
-                                    <li className="flex gap-4 text-slate-500 italic mt-4 px-4 py-3 bg-white rounded-xl border border-teal-100">
-                                        No professional project experience is required to apply for the CAPM!
-                                    </li>
-                                </ul>
+                    <section id="register" className="grid md:grid-cols-5 gap-16 items-start">
+                        <div className="md:col-span-3">
+                            <BookingForm
+                                courseName="CAPM® Certification"
+                                availableDates={["March 2026", "April 2026", "May 2026"]}
+                            />
+                        </div>
+                        <div className="md:col-span-2 space-y-8">
+                            <div className="bg-slate-800 text-white p-10 rounded-[40px] shadow-2xl relative overflow-hidden group">
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-accent/20 rounded-bl-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+                                <h3 className="text-2xl font-bold mb-6 relative z-10">Start your PM<br />journey today</h3>
+                                <p className="text-slate-300 mb-8 relative z-10 font-medium">Join our study groups and get access to exclusive CAPM resources.</p>
+                                <Link
+                                    href="/about#contact"
+                                    className="inline-flex items-center gap-2 text-accent font-bold group/link relative z-10"
+                                >
+                                    Get more info
+                                    <Send size={16} className="group-hover/link:translate-x-1 transition-transform" />
+                                </Link>
                             </div>
-                        </div>
-                    </section>
 
-                    <section className="bg-gradient-to-r from-[#006666] to-[#009999] text-white rounded-3xl p-8 md:p-12 mb-16 relative overflow-hidden">
-                        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10"></div>
-                        <div className="relative z-10">
-                            <h3 className="text-2xl font-bold mb-8 text-center text-teal-50">Additional Exam Details</h3>
-                            <div className="grid sm:grid-cols-3 gap-6 text-center">
-                                <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10">
-                                    <Clock className="mx-auto mb-4 text-accent" size={32} />
-                                    <div className="font-bold text-2xl mb-1">180</div>
-                                    <div className="text-sm text-teal-100">Minutes Duration</div>
-                                </div>
-                                <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10">
-                                    <Layout className="mx-auto mb-4 text-accent" size={32} />
-                                    <div className="font-bold text-2xl mb-1">150</div>
-                                    <div className="text-sm text-teal-100">Total Questions</div>
-                                </div>
-                                <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10">
-                                    <Globe className="mx-auto mb-4 text-accent" size={32} />
-                                    <div className="font-bold text-2xl mb-1">Cost</div>
-                                    <div className="text-lg text-teal-100">$225 / $300</div>
-                                    <div className="text-xs text-teal-200 mt-1">(Member / Non-Member)</div>
-                                </div>
+                            <div className="p-8 border-2 border-dashed border-slate-200 rounded-[40px] text-center">
+                                <p className="text-slate-500 font-medium italic">
+                                    "Even without experience, I felt fully prepared for the exam. Highly recommend!"
+                                </p>
+                                <div className="mt-4 font-bold text-primary">— Auckland Council Employee</div>
                             </div>
                         </div>
                     </section>
