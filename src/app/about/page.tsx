@@ -65,9 +65,9 @@ export default function AboutPage() {
                                         His extensive academic journey includes:
                                     </p>
                                     <ul className="list-disc pl-6 space-y-2 text-slate-600">
-                                        <li><strong>Master’s in Construction Management</strong> — Massey University, New Zealand</li>
-                                        <li><strong>Master’s in Project Management & Operational Development</strong> — KTH Royal Institute of Technology, Sweden</li>
-                                        <li><strong>Master’s in Engineering</strong> — Blekinge Institute of Technology (BTH), Sweden</li>
+                                        <li><strong>Master’s in Construction Management</strong> - Massey University, New Zealand</li>
+                                        <li><strong>Master’s in Project Management & Operational Development</strong> - KTH Royal Institute of Technology, Sweden</li>
+                                        <li><strong>Master’s in Engineering</strong> - Blekinge Institute of Technology (BTH), Sweden</li>
                                         <li><strong>Bachelor’s in Engineering</strong></li>
                                     </ul>
                                     <p>
@@ -130,7 +130,7 @@ export default function AboutPage() {
                                 A 17-Year Journey in Project Management
                             </h2>
                             <p className="text-slate-500 text-xl font-medium">
-                                From PMBOK 3rd to 8th Edition — Embracing Passion, Purpose, and Technology.
+                                From PMBOK 3rd to 8th Edition - Embracing Passion, Purpose, and Technology.
                             </p>
                         </div>
 

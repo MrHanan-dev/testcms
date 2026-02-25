@@ -29,7 +29,7 @@ const slides: Slide[] = [
     alt: "Second training backdrop from AgileNest",
     tag: "Cost Estimation & QS",
     headline: "Precision cost intelligence\nfor every build.",
-    description: "Quantity surveying and cost advisory trusted on $52M+ in projects. From feasibility to final account — accurate, every time.",
+    description: "Quantity surveying and cost advisory trusted on $52M+ in projects. From feasibility to final account - accurate, every time.",
   },
   {
     src: "/images/Totalqsconsultant.jpeg",

@@ -73,7 +73,7 @@ export default function ContactForm() {
                             <span className="w-8 h-[1px] bg-accent"></span>
                             Advisor Support
                         </div>
-                        <p className="text-xs text-blue-200/60 font-medium italic">"TotalPMP helped us navigate complex project hurdles with ease." — Project Lead, Auckland</p>
+                        <p className="text-xs text-blue-200/60 font-medium italic">"TotalPMP helped us navigate complex project hurdles with ease." - Project Lead, Auckland</p>
                     </div>
                 </div>
 

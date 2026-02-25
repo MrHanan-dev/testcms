@@ -37,7 +37,7 @@ export default function PmiCpPage() {
                             The <strong className="text-primary">PMI Construction Professional (PMI-CP)®</strong> certification, offered by the Project Management Institute (PMI), is a globally recognised credential for professionals in the construction and built environment sectors. Designed for engineers, project managers, and construction leaders, the PMI-CP® validates your ability to plan, manage, and deliver complex construction projects using industry-best practices.
                         </p>
                         <p>
-                            This prestigious certification demonstrates advanced skills in <strong>project planning, risk management, cost control, contract administration, scope management, and quality assurance</strong> — all critical for achieving success in modern construction environments.
+                            This prestigious certification demonstrates advanced skills in <strong>project planning, risk management, cost control, contract administration, scope management, and quality assurance</strong> - all critical for achieving success in modern construction environments.
                         </p>
                         <p>
                             Whether you work in commercial, residential, or infrastructure projects, the PMI-CP® certification positions you as a qualified, internationally recognised construction management professional capable of handling projects from concept to completion.
@@ -62,7 +62,7 @@ export default function PmiCpPage() {
                             </h3>
                             <ul className="space-y-4">
                                 {[
-                                    { title: "Global Recognition", desc: "Endorsed by PMI — the world's leading authority in project management." },
+                                    { title: "Global Recognition", desc: "Endorsed by PMI - the world's leading authority in project management." },
                                     { title: "Career Advancement", desc: "Gain credibility and open doors to higher-level roles in the construction industry." },
                                     { title: "Practical Skills", desc: "Master real-world tools and techniques tailored for construction professionals." },
                                     { title: "Professional Growth", desc: "Learn to manage scope, cost, quality, safety, and contracts with confidence." },
@@ -168,7 +168,7 @@ export default function PmiCpPage() {
                         </div>
 
                         <div className="bg-gray-100 p-6 rounded-xl text-center text-gray-700 italic border border-gray-200">
-                            These areas reflect real-world challenges in construction — such as delays, disputes, scope creep, and communication breakdowns.
+                            These areas reflect real-world challenges in construction - such as delays, disputes, scope creep, and communication breakdowns.
                         </div>
                     </section>
 

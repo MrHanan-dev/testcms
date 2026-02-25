@@ -16,7 +16,7 @@ const outfit = Outfit({
 export const metadata: Metadata = {
     title: {
         template: '%s | TotalPMP',
-        default: 'Total PMP — Project Management, Cost Estimation & Professional Training',
+        default: 'Total PMP - Project Management, Cost Estimation & Professional Training',
     },
     description: "TotalPMP delivers expert PMP certification training, precision AI-driven construction cost estimation, and strategic project management consulting. Empowering professionals and optimizing project outcomes globally.",
     keywords: ["TotalPMP", "PMP Certification Training", "Construction Cost Estimation", "Project Management Consulting", "PMO Services", "AI Cost Advisory", "Professional Project Training"],
