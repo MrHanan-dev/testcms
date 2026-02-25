@@ -6,7 +6,17 @@ import Image from 'next/image';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
-const slides = [
+type Slide = {
+  src: string;
+  alt: string;
+  tag: string;
+  headline: string;
+  description: string;
+  isInfographic?: boolean;
+  isCollage?: boolean;
+};
+
+const slides: Slide[] = [
   {
     src: "https://www.theagilenest.com/wp-content/uploads/2025/10/ag1-3.jpg",
     alt: "Professional training session backdrop from AgileNest",
@@ -22,11 +32,28 @@ const slides = [
     description: "Quantity surveying and cost advisory trusted on $52M+ in projects. From feasibility to final account — accurate, every time.",
   },
   {
-    src: "https://images.unsplash.com/photo-1460472178825-e5240623afd5?w=1920&h=1080&fit=crop&q=80",
-    alt: "Aerial view of a major infrastructure project and highway",
+    src: "/images/Totalqsconsultant.jpeg",
+    alt: "Total QS Consultant Overview",
     tag: "Strategic Consulting",
     headline: "From blueprint\nto delivery.",
     description: "PMO setup, agile transformation, and independent project audits. Strategic advisory for complex programmes that need to deliver.",
+    isInfographic: true,
+  },
+  {
+    src: "/images/pmbok_evolution.jpeg",
+    alt: "PMBOK Evolution",
+    tag: "Methodology",
+    headline: "Next Generation\nProject Standards.",
+    description: "Adapting established methodologies and integrating modern frameworks to keep your project execution strategy ahead of the curve.",
+    isInfographic: true,
+  },
+  {
+    src: "", // No src needed for collage as it's built with CSS
+    alt: "Globally Recognized Certifications - PMP, CAPM, PMI-CP",
+    tag: "Certifications",
+    headline: "Globally Recognized\nCredentials.",
+    description: "Elevate your career with industry-leading certifications. We provide comprehensive preparation for PMP®, CAPM®, and PMI-CP® exams.",
+    isCollage: true,
   },
 ];
 
@@ -92,28 +119,112 @@ export default function Hero() {
           transition={{ duration: 1.2, ease: "easeInOut" }}
           className="absolute inset-0"
         >
-          <motion.div
-            initial={{ scale: 1.08 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 8, ease: "linear" }}
-            className="absolute inset-0"
-          >
-            <Image
-              src={slide.src}
-              alt={slide.alt}
-              fill
-              className="object-cover"
-              sizes="100vw"
-              priority={current === 0}
-              unoptimized
-            />
-          </motion.div>
+          {slide.isCollage ? (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.5 }}
+              className="absolute inset-0 flex items-center justify-center bg-[#0B1D35]"
+            >
+              {/* Custom Collage Layout */}
+              <div className="w-full h-full max-w-[1920px] mx-auto relative overflow-hidden flex flex-col md:flex-row items-center justify-center gap-12 md:gap-24 p-10 pt-32">
+
+                {/* Background Ambient Glows */}
+                <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[100px] pointer-events-none" />
+                <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-white/5 rounded-full blur-[80px] pointer-events-none" />
+
+                {/* Left side: Monogram / Tripic */}
+                <motion.div
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+                  className="relative w-full max-w-[350px] md:max-w-[450px] aspect-square flex-shrink-0"
+                >
+                  <motion.div
+                    animate={{ y: [0, -10, 0] }}
+                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                    className="w-full h-full relative"
+                  >
+                    <Image src="/certifications/tripic.jpeg" alt="PMI Talent Triangle" fill className="object-contain drop-shadow-[0_0_25px_rgba(255,255,255,0.15)] mix-blend-screen opacity-90" unoptimized />
+                  </motion.div>
+                </motion.div>
+
+                {/* Right side: Certifications */}
+                <div className="flex flex-col items-center justify-center gap-12 z-10">
+                  <div className="flex items-center justify-center gap-6 md:gap-16">
+                    <motion.div
+                      initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+                      className="relative w-28 h-28 md:w-44 md:h-44 hover:scale-110 hover:-translate-y-2 transition-all duration-500 cursor-pointer drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]"
+                    >
+                      <Image src="/certifications/pmp.webp" alt="PMP Certification" fill className="object-contain" unoptimized />
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
+                      className="relative w-28 h-28 md:w-44 md:h-44 hover:scale-110 hover:-translate-y-2 transition-all duration-500 cursor-pointer drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]"
+                    >
+                      <Image src="/certifications/capm.webp" alt="CAPM Certification" fill className="object-contain" unoptimized />
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      transition={{ duration: 0.8, delay: 1.0, ease: "easeOut" }}
+                      className="relative w-28 h-28 md:w-44 md:h-44 hover:scale-110 hover:-translate-y-2 transition-all duration-500 cursor-pointer drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]"
+                    >
+                      <Image src="/certifications/pmi-cp.webp" alt="PMI-CP Certification" fill className="object-contain" unoptimized />
+                    </motion.div>
+                  </div>
+
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1, delay: 1.2, ease: "easeOut" }}
+                    className="relative w-56 h-24 md:w-72 md:h-28 mt-4 bg-white/5 backdrop-blur-md rounded-2xl p-4 border border-white/10 shadow-[0_0_30px_rgba(255,255,255,0.05)]"
+                  >
+                    <Image src="/certifications/pmi.jpeg" alt="PMI Authorized Training Partner" fill className="object-contain p-2 mix-blend-screen" unoptimized />
+                  </motion.div>
+                </div>
+
+                {/* Subtle Watermark */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 0.2 }}
+                  transition={{ duration: 2, delay: 1.5 }}
+                  className="absolute bottom-10 right-10 w-48 h-12 pointer-events-none brightness-0 invert"
+                >
+                  <Image src="/logo.png" alt="Total PMP watermark" fill className="object-contain" unoptimized />
+                </motion.div>
+              </div>
+            </motion.div>
+          ) : (
+            <motion.div
+              initial={{ scale: slide.isInfographic ? 1 : 1.08 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 8, ease: "linear" }}
+              className={`absolute inset-0 ${slide.isInfographic ? 'bg-[#0B1D35]' : ''}`}
+            >
+              <Image
+                src={slide.src}
+                alt={slide.alt}
+                fill
+                className={slide.isInfographic ? "object-contain" : "object-cover"}
+                sizes="100vw"
+                priority={current === 0}
+                unoptimized
+              />
+            </motion.div>
+          )}
         </motion.div>
       </AnimatePresence>
 
       {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0B1D35]/90 via-[#0B1D35]/55 to-[#0B1D35]/20 z-10" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0B1D35]/50 via-transparent to-[#0B1D35]/30 z-10" />
+      <div className={`absolute inset-0 z-10 pointer-events-none ${slide.isCollage ? 'bg-gradient-to-r from-black/60 to-transparent' : 'bg-gradient-to-r from-[#0B1D35]/90 via-[#0B1D35]/55 to-[#0B1D35]/20'}`} />
+      <div className={`absolute inset-0 z-10 pointer-events-none ${slide.isCollage ? 'bg-gradient-to-t from-black/40 to-transparent' : 'bg-gradient-to-t from-[#0B1D35]/50 via-transparent to-[#0B1D35]/30'}`} />
 
       {/* Content */}
       <div className="relative z-20 h-full flex items-center">
