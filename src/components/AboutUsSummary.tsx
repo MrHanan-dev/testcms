@@ -89,7 +89,7 @@ export default function AboutUsSummary() {
                             Why Choose TotalPMP
                         </h3>
                         <p className="text-xl text-slate-500 leading-relaxed mb-10 font-medium">
-                            We don't just teach project management — we transform professionals into confident leaders ready to deliver high-stakes results.
+                            We don't just teach project management - we transform professionals into confident leaders ready to deliver high-stakes results.
                         </p>
 
                         <Link
@@ -148,7 +148,7 @@ export default function AboutUsSummary() {
                             A 17-Year Journey
                         </h3>
                         <p className="text-xl text-blue-100/70 max-w-3xl mx-auto font-medium">
-                            From PMBOK 3rd to 8th Edition — Evolving passion with purpose and technological foresight.
+                            From PMBOK 3rd to 8th Edition - Evolving passion with purpose and technological foresight.
                         </p>
                     </div>
 

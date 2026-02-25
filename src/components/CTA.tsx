@@ -15,7 +15,7 @@ export default function CTA() {
           Let&apos;s build what<br />matters, together.
         </h2>
         <p className="text-[17px] md:text-[19px] leading-relaxed text-foreground/50 mb-12 max-w-xl mx-auto">
-          Whether you need PMI-accredited training, precision cost intelligence, or strategic project advisory — we deliver.
+          Whether you need PMI-accredited training, precision cost intelligence, or strategic project advisory - we deliver.
         </p>
         <div className="flex flex-wrap gap-4 justify-center">
           <Link href="#contact" className="px-10 py-4 bg-primary text-white font-bold text-[14px] uppercase tracking-widest rounded-md hover:bg-primary/90 transition-all shadow-subtle hover:shadow-card-hover group flex items-center gap-3">
