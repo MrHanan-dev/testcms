@@ -29,18 +29,18 @@ export default function PmpPage() {
                     description="Our PMP course provides comprehensive, expert-led training to help you master project management principles. Gain practical skills, internationally recognised certification, and the confidence to lead projects successfully."
                     prev={{ name: "CAPM", href: "/capm" }}
                     next={{ name: "PMI-CP", href: "/pmicp" }}
-                    gradientClass="from-[#0b5c92] to-[#1479be]"
-                    buttonColorText="text-slate-800"
+                    gradientClass="from-primary to-primary-700"
+                    buttonColorText="text-primary"
                     badgeImage="/certifications/pmp.webp"
                     downloadLink="/pmp-examination-content-outline.pdf"
                 />
 
-                <div className="container-custom max-w-5xl mt-20 space-y-24">
+                <div className="container-custom mt-20 space-y-24">
 
                     {/* Description Section */}
                     <section id="details" className="grid md:grid-cols-2 gap-16 items-center">
                         <div>
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 font-semibold text-sm mb-6">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/20 text-primary font-bold text-sm mb-6">
                                 <Star size={16} /> The Industry Standard
                             </div>
                             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6 leading-tight">
@@ -56,8 +56,8 @@ export default function PmpPage() {
                                     { title: "Global Recognition", desc: "PMP is respected across industries and countries, making it a valuable asset for career mobility." },
                                     { title: "Enhanced Performance", desc: "Provides the tools and frameworks to manage complex projects efficiently, on time, and within budget." },
                                 ].map((item, i) => (
-                                    <div key={i} className="flex gap-4" p-1="true" rounded-full="true" shrink-0="true">
-                                        <div className="mt-1 bg-green-100 text-green-600 p-1 rounded-full shrink-0">
+                                    <div key={i} className="flex gap-4">
+                                        <div className="mt-1 bg-accent/20 text-primary p-1 rounded-full shrink-0">
                                             <Check size={16} strokeWidth={3} />
                                         </div>
                                         <div>
@@ -69,7 +69,7 @@ export default function PmpPage() {
                             </div>
                         </div>
                         <div className="relative">
-                            <div className="absolute inset-0 bg-gradient-to-tr from-blue-100 to-teal-50 rounded-3xl transform rotate-3 scale-105 -z-10"></div>
+                            <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-primary/5 rounded-3xl transform rotate-3 scale-105 -z-10"></div>
                             <div className="bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-slate-100">
                                 <h3 className="text-2xl font-bold text-primary border-b border-slate-100 pb-4 mb-6">Who Should Apply?</h3>
                                 <p className="text-slate-600 mb-6 text-sm">Validating skills for those who want to formalize their project management expertise.</p>
@@ -104,9 +104,9 @@ export default function PmpPage() {
                                 <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
                                     <div className="flex justify-between items-start mb-4">
                                         <h4 className="text-xl font-bold text-primary flex items-center gap-2">
-                                            <Users className="text-blue-500" /> People
+                                            <Users className="text-accent" /> People
                                         </h4>
-                                        <span className="bg-blue-100 text-blue-700 font-bold px-3 py-1 rounded-full text-sm">42%</span>
+                                        <span className="bg-accent/20 text-primary font-bold px-3 py-1 rounded-full text-sm">42%</span>
                                     </div>
                                     <p className="text-slate-600 leading-relaxed">
                                         Managing teams, conflict resolution, supporting virtual teams, and leadership.
@@ -116,9 +116,9 @@ export default function PmpPage() {
                                 <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
                                     <div className="flex justify-between items-start mb-4">
                                         <h4 className="text-xl font-bold text-primary flex items-center gap-2">
-                                            <Target className="text-orange-500" /> Process
+                                            <Target className="text-primary" /> Process
                                         </h4>
-                                        <span className="bg-orange-100 text-orange-700 font-bold px-3 py-1 rounded-full text-sm">50%</span>
+                                        <span className="bg-slate-100 text-primary font-bold px-3 py-1 rounded-full text-sm">50%</span>
                                     </div>
                                     <p className="text-slate-600 leading-relaxed">
                                         Project methodologies including Waterfall, Agile, and Hybrid approaches. Managing scope, schedule, budget, and quality.
@@ -128,9 +128,9 @@ export default function PmpPage() {
                                 <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
                                     <div className="flex justify-between items-start mb-4">
                                         <h4 className="text-xl font-bold text-primary flex items-center gap-2">
-                                            <Briefcase className="text-purple-500" /> Business Environment
+                                            <Briefcase className="text-accent" /> Business Environment
                                         </h4>
-                                        <span className="bg-purple-100 text-purple-700 font-bold px-3 py-1 rounded-full text-sm">8%</span>
+                                        <span className="bg-accent/10 text-primary font-bold px-3 py-1 rounded-full text-sm">8%</span>
                                     </div>
                                     <p className="text-slate-600 leading-relaxed">
                                         Organizational culture, compliance, delivering business value, and supporting organizational change.
@@ -158,7 +158,7 @@ export default function PmpPage() {
                                     { title: "Flexible Learning", icon: Clock, desc: "Available in multiple formats for busy professional schedules." },
                                 ].map((feature) => (
                                     <li key={feature.title} className="flex gap-4 group">
-                                        <div className="bg-white border border-slate-100 shadow-sm p-3 rounded-xl text-[#0b5c92] shrink-0 h-14 w-14 flex items-center justify-center group-hover:bg-blue-50 transition-colors">
+                                        <div className="bg-white border border-slate-100 shadow-sm p-3 rounded-xl text-primary shrink-0 h-14 w-14 flex items-center justify-center group-hover:bg-accent/10 transition-colors">
                                             <feature.icon size={24} strokeWidth={1.5} />
                                         </div>
                                         <div>
@@ -193,7 +193,7 @@ export default function PmpPage() {
                                 "100% locally-owned organization operating with honesty and transparency."
                             ].map((advantage, i) => (
                                 <div key={i} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex gap-4 hover:shadow-lg transition-shadow">
-                                    <div className="mt-1 bg-teal-100 text-teal-600 p-1.5 rounded-full shrink-0 h-fit">
+                                    <div className="mt-1 bg-accent/20 text-primary p-1.5 rounded-full shrink-0 h-fit">
                                         <Check size={16} strokeWidth={3} />
                                     </div>
                                     <p className="text-slate-700 font-medium text-sm leading-relaxed">{advantage}</p>
@@ -218,7 +218,7 @@ export default function PmpPage() {
                                 <h3 className="text-2xl font-bold mb-6 relative z-10">Need a custom<br />batch for your<br />organization?</h3>
                                 <p className="text-slate-300 mb-8 relative z-10 font-medium">We offer tailored corporate training sessions for teams of 5 or more.</p>
                                 <Link
-                                    href="/about#contact"
+                                    href="#contact"
                                     className="inline-flex items-center gap-2 text-accent font-bold group/link relative z-10"
                                 >
                                     Enquire about corporate training

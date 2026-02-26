@@ -52,7 +52,7 @@ export default function CertificationLogos() {
                     </p>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-8 lg:gap-12 justify-center max-w-6xl mx-auto">
+                <div className="grid md:grid-cols-3 gap-8 lg:gap-12 justify-center">
                     {certifications.map((cert) => (
                         <Link
                             key={cert.name}

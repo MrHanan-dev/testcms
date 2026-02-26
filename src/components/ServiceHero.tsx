@@ -18,7 +18,7 @@ export default function ServiceHero({
     breadcrumb
 }: ServiceHeroProps) {
     return (
-        <section className={`relative pt-40 pb-24 px-4 overflow-hidden rounded-bl-[60px] md:rounded-bl-[100px] ${gradientClass}`}>
+        <section className={`relative pt-40 pb-24 px-6 lg:px-8 overflow-hidden rounded-bl-[60px] md:rounded-bl-[100px] ${gradientClass}`}>
             {/* Background pattern */}
             <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10 pointer-events-none" />
 

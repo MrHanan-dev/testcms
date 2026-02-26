@@ -92,7 +92,7 @@ export default function ProjectManagementPage() {
 
                 {/* How We Can Help Section */}
                 <section className="py-24 bg-white">
-                    <div className="container-custom max-w-5xl">
+                    <div className="container-custom">
                         <div className="text-center space-y-8 mb-20">
                             <span className="label-tag mx-auto">How we can help</span>
                             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-primary leading-tight tracking-tight">

@@ -31,10 +31,10 @@ export default function CertificationHero({
     downloadLink,
 }: CertificationHeroProps) {
     return (
-        <section className={`bg-gradient-to-r text-white pt-40 pb-24 px-4 relative overflow-hidden ${gradientClass}`}>
+        <section className={`bg-gradient-to-r text-white pt-40 pb-24 px-6 lg:px-8 relative overflow-hidden ${gradientClass}`}>
             <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10 pointer-events-none"></div>
 
-            <div className="container-custom max-w-6xl relative z-10 w-full">
+            <div className="container-custom relative z-10 w-full">
                 <div className={`flex flex-col items-center ${badgeImage ? 'lg:flex-row lg:justify-between lg:items-center gap-12' : ''}`}>
 
                     {/* Left Column (Text & Navigation) */}
