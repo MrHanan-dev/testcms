@@ -236,7 +236,7 @@ export default function Hero() {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="max-w-3xl bg-black/60 backdrop-blur-sm p-10 md:p-14 rounded-2xl border border-white/10 shadow-2xl relative overflow-hidden"
+              className="max-w-3xl bg-primary/40 backdrop-blur-md p-10 md:p-14 rounded-[32px] border border-white/10 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)] relative overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none" />
               {/* Tag */}

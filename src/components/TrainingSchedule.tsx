@@ -4,6 +4,36 @@ import { Calendar, Clock, MapPin, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
+const FADE_IN_UP = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+    }
+};
+
+const STAGGER_CONTAINER = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.12,
+            delayChildren: 0.2
+        }
+    }
+};
+
+const CARD_VARIANTS = {
+    hidden: { opacity: 0, y: 30, scale: 0.97 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] }
+    }
+};
+
 const schedules = [
     {
         month: "March 2026",
@@ -12,7 +42,7 @@ const schedules = [
         time: "9:00 AM - 5:00 PM (NZDT)",
         format: "Live Virtual",
         status: "Filling Fast",
-        link: "/contact"
+        link: "#contact"
     },
     {
         month: "April 2026",
@@ -21,7 +51,7 @@ const schedules = [
         time: "9:00 AM - 5:00 PM (NZDT)",
         format: "Live Virtual",
         status: "Open",
-        link: "/contact"
+        link: "#contact"
     },
     {
         month: "May 2026",
@@ -30,7 +60,7 @@ const schedules = [
         time: "9:00 AM - 5:00 PM (NZDT)",
         format: "Live Virtual",
         status: "Open",
-        link: "/contact"
+        link: "#contact"
     },
     {
         month: "May 2026",
@@ -39,15 +69,21 @@ const schedules = [
         time: "9:00 AM - 5:00 PM (NZDT)",
         format: "Live Virtual",
         status: "Open",
-        link: "/contact"
+        link: "#contact"
     }
 ];
 
 export default function TrainingSchedule() {
     return (
-        <section className="py-24 bg-slate-50 border-t border-slate-100">
+        <section className="py-24 bg-slate-50 border-t border-slate-100 shadow-xl">
             <div className="container-custom">
-                <div className="max-w-3xl mb-16">
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-80px" }}
+                    variants={FADE_IN_UP}
+                    className="max-w-3xl mb-16"
+                >
                     <span className="text-accent font-extrabold tracking-[0.2em] uppercase text-[10px] mb-6 block">Upcoming Batches</span>
                     <h2 className="text-4xl md:text-5xl font-black text-primary leading-tight">
                         Monthly Training Schedule
@@ -55,19 +91,24 @@ export default function TrainingSchedule() {
                     <p className="text-slate-600 text-lg mt-6 max-w-2xl font-medium">
                         Secure your spot in our upcoming certification cohorts. Our live virtual weekends are designed for working professionals to balance career growth with existing commitments.
                     </p>
-                </div>
+                </motion.div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-60px" }}
+                    variants={STAGGER_CONTAINER}
+                    className="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6"
+                >
                     {schedules.map((schedule, idx) => (
                         <motion.div
                             key={idx}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: idx * 0.1 }}
-                            className="bg-white rounded-3xl p-8 border border-slate-100 shadow-xl shadow-slate-200/20 hover:shadow-2xl hover:shadow-accent/5 transition-all duration-500 group relative overflow-hidden"
+                            variants={CARD_VARIANTS}
+                            whileHover={{ y: -6, boxShadow: "0 25px 50px -12px rgba(85, 197, 231, 0.15)" }}
+                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                            className="bg-white rounded-3xl p-8 border border-slate-100 shadow-xl shadow-slate-200/20 group relative overflow-hidden cursor-pointer"
                         >
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -z-10 transition-transform group-hover:scale-110"></div>
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full transition-transform duration-500 group-hover:scale-150"></div>
 
                             <div className="flex justify-between items-start mb-6">
                                 <span className={`px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider ${schedule.status === 'Filling Fast' ? 'bg-amber-100 text-amber-700' : 'bg-emerald-100 text-emerald-700'}`}>
@@ -106,7 +147,7 @@ export default function TrainingSchedule() {
                             </Link>
                         </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

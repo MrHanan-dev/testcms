@@ -28,17 +28,17 @@ export default function CapmPage() {
                     description="Kickstart your career by validating your understanding of the fundamental knowledge, terminology, and processes of effective project management."
                     prev={{ name: "PMI-CP", href: "/pmicp" }}
                     next={{ name: "PMP", href: "/pmp" }}
-                    gradientClass="from-[#006666] to-[#009999]"
-                    buttonColorText="text-teal-700"
+                    gradientClass="from-primary to-primary-700"
+                    buttonColorText="text-primary"
                     badgeImage="/certifications/capm.webp"
                     downloadLink="/CAPM-Exam Content Outline-english.pdf"
                 />
 
-                <div className="container-custom max-w-5xl mt-20 space-y-24">
+                <div className="container-custom mt-20 space-y-24">
 
                     <section id="details" className="grid md:grid-cols-2 gap-16 items-center">
                         <div>
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-100 text-teal-700 font-semibold text-sm mb-6">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/20 text-primary font-bold text-sm mb-6">
                                 <Award size={16} /> Foundations of PM
                             </div>
                             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6 leading-tight">
@@ -55,7 +55,7 @@ export default function CapmPage() {
                                     { title: "Career Kickstarter", desc: "Ideal for recent graduates or those looking to pivot into project management roles." },
                                 ].map((item, i) => (
                                     <div key={i} className="flex gap-4">
-                                        <div className="mt-1 bg-green-100 text-green-600 p-1 rounded-full shrink-0">
+                                        <div className="mt-1 bg-accent/20 text-primary p-1 rounded-full shrink-0">
                                             <Check size={16} strokeWidth={3} />
                                         </div>
                                         <div>
@@ -67,7 +67,7 @@ export default function CapmPage() {
                             </div>
                         </div>
                         <div className="relative">
-                            <div className="absolute inset-0 bg-gradient-to-tr from-teal-100 to-green-50 rounded-3xl transform rotate-3 scale-105 -z-10"></div>
+                            <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-primary/5 rounded-3xl transform rotate-3 scale-105 -z-10"></div>
                             <div className="bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-slate-100">
                                 <h3 className="text-2xl font-bold text-primary border-b border-slate-100 pb-4 mb-6">Who Should Apply?</h3>
                                 <p className="text-slate-600 mb-6 text-sm">Perfect for individuals starting their journey or those wanting to formalize their basic PM knowledge.</p>
@@ -98,9 +98,9 @@ export default function CapmPage() {
                                 <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
                                     <div className="flex justify-between items-start mb-4">
                                         <h4 className="text-xl font-bold text-primary flex items-center gap-2">
-                                            <BookOpen className="text-teal-500" /> PM Fundamentals & Core Concepts
+                                            <BookOpen className="text-accent" /> PM Fundamentals & Core Concepts
                                         </h4>
-                                        <span className="bg-teal-100 text-teal-700 font-bold px-3 py-1 rounded-full text-sm">36%</span>
+                                        <span className="bg-accent/20 text-primary font-bold px-3 py-1 rounded-full text-sm">36%</span>
                                     </div>
                                     <p className="text-slate-600 leading-relaxed text-sm">
                                         Understanding project life cycles, PM roles, and overarching methodologies.
@@ -109,9 +109,9 @@ export default function CapmPage() {
                                 <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
                                     <div className="flex justify-between items-start mb-4">
                                         <h4 className="text-xl font-bold text-primary flex items-center gap-2">
-                                            <Target className="text-blue-500" /> Predictive, Plan-Based Methodologies
+                                            <Target className="text-primary" /> Predictive, Plan-Based Methodologies
                                         </h4>
-                                        <span className="bg-blue-100 text-blue-700 font-bold px-3 py-1 rounded-full text-sm">17%</span>
+                                        <span className="bg-slate-100 text-primary font-bold px-3 py-1 rounded-full text-sm">17%</span>
                                     </div>
                                     <p className="text-slate-600 leading-relaxed text-sm">
                                         Deep dive into traditional waterfall project management techniques.
@@ -120,9 +120,9 @@ export default function CapmPage() {
                                 <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
                                     <div className="flex justify-between items-start mb-4">
                                         <h4 className="text-xl font-bold text-primary flex items-center gap-2">
-                                            <Users className="text-purple-500" /> Agile Frameworks/Methodologies
+                                            <Users className="text-accent" /> Agile Frameworks/Methodologies
                                         </h4>
-                                        <span className="bg-purple-100 text-purple-700 font-bold px-3 py-1 rounded-full text-sm">20%</span>
+                                        <span className="bg-accent/10 text-primary font-bold px-3 py-1 rounded-full text-sm">20%</span>
                                     </div>
                                     <p className="text-slate-600 leading-relaxed text-sm">
                                         Understanding adaptive approaches, Scrum, Kanban, and Agile principles.
@@ -153,7 +153,7 @@ export default function CapmPage() {
                                     { title: "Mock Exams", icon: Target, desc: "Extensive simulator tests matching the CAPM format." },
                                 ].map((feature) => (
                                     <li key={feature.title} className="flex gap-4 group">
-                                        <div className="bg-white border border-slate-100 shadow-sm p-3 rounded-xl text-teal-600 shrink-0 h-14 w-14 flex items-center justify-center group-hover:bg-teal-50 transition-colors">
+                                        <div className="bg-white border border-slate-100 shadow-sm p-3 rounded-xl text-primary shrink-0 h-14 w-14 flex items-center justify-center group-hover:bg-accent/10 transition-colors">
                                             <feature.icon size={24} strokeWidth={1.5} />
                                         </div>
                                         <div>
@@ -189,7 +189,7 @@ export default function CapmPage() {
                                 "100% locally-owned organization operating with honesty and transparency."
                             ].map((advantage, i) => (
                                 <div key={i} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex gap-4 hover:shadow-lg transition-shadow">
-                                    <div className="mt-1 bg-teal-100 text-teal-600 p-1.5 rounded-full shrink-0 h-fit">
+                                    <div className="mt-1 bg-accent/20 text-primary p-1.5 rounded-full shrink-0 h-fit">
                                         <Check size={16} strokeWidth={3} />
                                     </div>
                                     <p className="text-slate-700 font-medium text-sm leading-relaxed">{advantage}</p>
@@ -214,7 +214,7 @@ export default function CapmPage() {
                                 <h3 className="text-2xl font-bold mb-6 relative z-10">Start your PM<br />journey today</h3>
                                 <p className="text-slate-300 mb-8 relative z-10 font-medium">Join our study groups and get access to exclusive CAPM resources.</p>
                                 <Link
-                                    href="/about#contact"
+                                    href="#contact"
                                     className="inline-flex items-center gap-2 text-accent font-bold group/link relative z-10"
                                 >
                                     Get more info

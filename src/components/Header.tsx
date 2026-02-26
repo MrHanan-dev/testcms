@@ -85,7 +85,7 @@ function NavLink({ category, isScrolled, isActive, onMouseEnter, onMouseLeave }:
             variants={DROPDOWN_VARIANTS}
             className="absolute top-full left-1/2 -translate-x-1/2 pt-4"
           >
-            <div className="w-[320px] bg-white/95 backdrop-blur-xl rounded-[24px] border border-slate-200/50 shadow-[0_20px_50px_rgba(0,0,0,0.1)] p-2.5 overflow-hidden">
+            <div className="w-[320px] bg-white rounded-[24px] border border-slate-200 shadow-[0_20px_50px_rgba(0,0,0,0.1)] p-2.5 overflow-hidden">
               <div className="grid gap-1">
                 {category.items.map((item: any) => (
                   <Link
@@ -139,8 +139,8 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-        ? 'bg-white/80 backdrop-blur-md border-b border-slate-200/50 py-3 shadow-sm'
-        : 'bg-transparent py-6'
+        ? 'bg-white border-b border-slate-200 py-3 shadow-sm'
+        : 'bg-primary py-4 shadow-lg'
         }`}
     >
       <div className="container-custom flex items-center justify-between">
