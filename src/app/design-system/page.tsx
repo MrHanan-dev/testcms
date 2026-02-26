@@ -1,7 +1,7 @@
 import { Target, Heart, ShieldCheck, Zap } from 'lucide-react';
 
 export const metadata = {
-    title: 'Overview | Millpond Design System',
+    title: 'Overview | TotalPMP Design System',
 };
 
 export default function DesignSystemOverview() {
@@ -11,7 +11,7 @@ export default function DesignSystemOverview() {
                 <span className="label-tag block mb-2">Introduction</span>
                 <h1 className="h1 text-gray-900 mb-4">brand overview.</h1>
                 <p className="text-xl text-gray-600 max-w-3xl leading-relaxed">
-                    The Millpond design system brings our brand personality to life. It translates our "safe pair of hands" energy into a cohesive collection of colors, typography, components, and interactions.
+                    The TotalPMP design system brings our brand personality to life. It translates our "safe pair of hands" energy into a cohesive collection of colors, typography, components, and interactions.
                 </p>
             </header>
 
@@ -40,11 +40,11 @@ export default function DesignSystemOverview() {
                 <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm space-y-6 line-height-relaxed text-gray-700">
                     <div>
                         <h3 className="h3 text-gray-900 mb-2">Color Usage</h3>
-                        <p>Our palette relies heavily on <strong>Deep Navy Blue</strong> and <strong>Millpond Blue</strong> to establish trust, stability, and corporate foundation. To prevent feeling too sterile, we inject punchy, sparse moments of <strong>Magenta (Accent)</strong> to draw attention to critical interactions (CTAs) and add vibrancy.</p>
+                        <p>Our palette relies heavily on <strong>Deep Executive Blue</strong> and <strong>Primary Blue</strong> to establish trust, stability, and corporate foundation. To prevent feeling too sterile, we inject punchy, sparse moments of <strong>Bright Cyan (Accent)</strong> to draw attention to critical interactions (CTAs) and add vibrancy.</p>
                     </div>
                     <div>
                         <h3 className="h3 text-gray-900 mb-2">Typography</h3>
-                        <p>We combine the rounded, friendly, yet highly legible <strong className="font-display">Nunito Sans</strong> for all headings. This balances the corporate trust with our "approachable" trait. For dense body copy, we lean on the highly functional <strong>Open Sans</strong>.</p>
+                        <p>We combine the strong, approachable, yet authoritative <strong className="font-display">Outfit</strong> for all headings. This balances the corporate trust with our "expert" trait. For dense body copy, we lean on the highly functional <strong>Inter</strong>.</p>
                     </div>
                     <div>
                         <h3 className="h3 text-gray-900 mb-2">Shape & Structure</h3>
@@ -58,12 +58,12 @@ export default function DesignSystemOverview() {
                 <div className="grid md:grid-cols-2 gap-8">
                     <div className="bg-white p-12 rounded-3xl flex items-center justify-center border border-gray-100 shadow-sm">
                         <span className="font-display font-extrabold text-5xl text-primary-600 tracking-tight">
-                            millpond<span className="text-accent-500">.</span>
+                            totalpmp<span className="text-accent-500">.</span>
                         </span>
                     </div>
                     <div className="bg-primary-600 p-12 rounded-3xl flex items-center justify-center shadow-lg">
                         <span className="font-display font-extrabold text-5xl text-white tracking-tight">
-                            millpond<span className="text-accent-500">.</span>
+                            totalpmp<span className="text-accent-500">.</span>
                         </span>
                     </div>
                 </div>

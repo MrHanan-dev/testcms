@@ -1,27 +1,24 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Mail, MapPin, Phone, Send } from 'lucide-react';
 import ContactForm from './ContactForm';
 
 const footerLinks = {
   ourServices: [
-    { label: "Project Management", href: "#" },
-    { label: "Consulting", href: "#" },
-    { label: "Change Management", href: "#" },
-    { label: "Quality Assurance", href: "#" },
-    { label: "Portfolio and Project Management as a Service", href: "#" },
-    { label: "Training Services", href: "#" },
+    { label: "Project Management", href: "/project-management" },
+    { label: "Cost Management", href: "/cost-estimation" },
+    { label: "Contract Management", href: "/contract-management" },
+    { label: "Consulting", href: "/consulting" },
+    { label: "Training Services", href: "/training" },
   ],
   trainingServices: [
-    { label: "Course Catalogue – NZ", href: "#" },
-    { label: "Course Catalogue – Australia", href: "#" },
-    { label: "PMI Certification", href: "#" },
-    { label: "Professional Development", href: "#" },
-    { label: "Custom Training", href: "#" },
-    { label: "Coaching and Mentoring", href: "#" },
-    { label: "Training Resources", href: "#" },
-    { label: "Testimonials", href: "#" },
+    { label: "PMP® Certification", href: "/pmp" },
+    { label: "CAPM® Certification", href: "/capm" },
+    { label: "PMI-CP® Certification", href: "/pmicp" },
+    { label: "Custom Training", href: "/training" },
+    { label: "Training Resources", href: "/training" },
   ],
   resources: [
     { label: "Case Studies", href: "#" },
@@ -101,9 +98,11 @@ export default function Footer() {
 
               {/* PMI Logo Container */}
               <div className="mt-4 p-6 bg-white/5 rounded-3xl border border-white/10 w-fit group">
-                <img
+                <Image
                   src="/images/pmi_atp_atp_white_rgb.svg"
                   alt="PMI Authorized Training Partner"
+                  width={200}
+                  height={192}
                   className="h-48 w-auto transition-all duration-500 group-hover:scale-105"
                 />
               </div>

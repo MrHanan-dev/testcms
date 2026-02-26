@@ -6,7 +6,7 @@ import { Check, Users, Target, Briefcase, BarChart3, ShieldCheck, Network, Layou
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Project Management Services | TotalPMP",
+    title: "Project Management Services",
     description: "Expert project delivery professionals and customized project management solutions to help your organization achieve business outcomes.",
 };
 

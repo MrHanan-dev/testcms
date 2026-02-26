@@ -5,9 +5,10 @@ import Footer from '@/components/Footer';
 import MobileNav from '@/components/MobileNav';
 import EvolutionTimeline from '@/components/EvolutionTimeline';
 import { Target, Award, Users, BookOpen, Globe, ShieldCheck, Briefcase } from 'lucide-react';
+import type { Metadata } from 'next';
 
-export const metadata = {
-    title: "About Us | TotalPMP",
+export const metadata: Metadata = {
+    title: "About Us",
     description: "Our 17-year journey in Project Management excellence, from foundational PMBOK standards to modern AI-driven ecosystems.",
 };
 

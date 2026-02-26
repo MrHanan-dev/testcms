@@ -7,7 +7,7 @@ import { Check, ShieldCheck, TrendingUp, Settings2, BarChart3, Briefcase, Search
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Project Management Consulting | TotalPMP",
+    title: "Project Management Consulting",
     description: "Improving client project management maturity through consulting to create appropriate structure around delivery, governance, and tools.",
 };
 

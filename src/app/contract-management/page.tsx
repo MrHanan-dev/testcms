@@ -7,7 +7,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-    title: "Construction Contracts | TotalPMP",
+    title: "Construction Contracts",
     description: "Expert contract management, formulation, and dispute resolution for complex construction projects.",
 };
 

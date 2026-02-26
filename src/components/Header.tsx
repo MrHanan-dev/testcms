@@ -2,10 +2,11 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Menu, X, ChevronDown, GraduationCap, ShieldCheck,
   Layers, Users, Briefcase, Target,
-  FileSearch, Building2,
+  FileSearch, Building2, Phone, Mail, Globe, ArrowRight
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -147,10 +148,12 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="relative z-50 flex items-center gap-2.5 md:gap-4 group">
           <div className="relative w-8 h-8 md:w-10 md:h-10 flex-shrink-0 flex items-center justify-center">
-            <img
+            <Image
               src="/favicon.png"
               alt="TotalPMP Logo"
-              className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
+              width={40}
+              height={40}
+              className="w-10 h-10 md:w-12 md:h-12 object-contain transition-transform duration-500 group-hover:scale-110"
             />
           </div>
 

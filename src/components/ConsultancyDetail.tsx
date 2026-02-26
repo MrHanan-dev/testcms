@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { CheckCircle2, Layout, Landmark, ClipboardCheck, Ruler, Lightbulb } from 'lucide-react';
 
 const pillars = [
@@ -62,9 +63,10 @@ export default function ConsultancyDetail() {
                     <div className="lg:w-1/2 relative w-full">
                         <div className="absolute -inset-4 bg-accent/5 rounded-[40px] md:rounded-[60px] blur-2xl -rotate-3 md:-rotate-6"></div>
                         <div className="relative rounded-[40px] md:rounded-[60px] overflow-hidden border border-slate-100 shadow-premium aspect-[4/5] md:aspect-auto md:h-[700px]">
-                            <img
-                                src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80"
+                            <Image
+                                src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80"
                                 alt="Consultancy Site"
+                                fill
                                 className="w-full h-full object-cover grayscale-[5%] hover:grayscale-0 transition-all duration-1000 scale-105 hover:scale-100"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/10 to-transparent"></div>
