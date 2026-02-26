@@ -106,9 +106,12 @@ export default function BentoGrid() {
                             <motion.div
                                 key={service.title}
                                 variants={CARD_VARIANTS}
-                                className={`${widthClass} min-h-[480px] p-10 md:p-12 flex flex-col justify-start box-border text-left rounded-tl-[60px] rounded-br-[60px] lg:rounded-tl-[80px] lg:rounded-br-[80px] ${service.bgColor} border ${service.borderColor} shadow-sm backdrop-blur-sm transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 group/card`}
+                                className={`relative overflow-hidden ${widthClass} min-h-[480px] p-10 md:p-12 flex flex-col justify-start box-border text-left rounded-tl-[60px] rounded-br-[60px] lg:rounded-tl-[80px] lg:rounded-br-[80px] ${service.bgColor} border ${service.borderColor} shadow-sm backdrop-blur-sm transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 group/card`}
                             >
-                                <Link href={service.href} className="flex flex-col h-full focus:outline-none">
+                                {/* Glow Effect (Similar to Certifications) */}
+                                <div className={`absolute inset-0 bg-gradient-to-br ${service.title === "Training" ? 'from-white to-white' : 'from-accent to-primary'} opacity-0 group-hover/card:opacity-[0.03] transition-opacity duration-500 z-0 pointer-events-none`} />
+
+                                <Link href={service.href} className="relative z-10 flex flex-col h-full focus:outline-none">
                                     {/* Icon Container */}
                                     <div className={`mb-10 w-20 h-20 rounded-2xl flex items-center justify-center transition-all duration-500 ${service.title === "Training" ? 'bg-white/10' : 'bg-primary/5'} group-hover/card:scale-110 group-hover/card:rotate-3`}>
                                         <service.icon size={40} className={service.title === "Training" ? 'text-white' : 'text-primary'} strokeWidth={1.5} />

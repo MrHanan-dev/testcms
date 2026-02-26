@@ -16,6 +16,7 @@ interface CertificationHeroProps {
     gradientClass: string;
     buttonColorText?: string;
     badgeImage?: string;
+    downloadLink?: string;
 }
 
 export default function CertificationHero({
@@ -27,6 +28,7 @@ export default function CertificationHero({
     gradientClass,
     buttonColorText = "text-primary",
     badgeImage,
+    downloadLink,
 }: CertificationHeroProps) {
     return (
         <section className={`bg-gradient-to-r text-white pt-40 pb-24 px-4 relative overflow-hidden ${gradientClass}`}>
@@ -77,6 +79,15 @@ export default function CertificationHero({
                             <Link href="#enroll" className={`bg-white ${buttonColorText} hover:bg-slate-50 font-bold py-4 px-10 rounded-xl text-lg transition-transform hover:-translate-y-1 shadow-xl hover:shadow-2xl`}>
                                 Enroll Now
                             </Link>
+                            {downloadLink && (
+                                <a
+                                    href={downloadLink}
+                                    download
+                                    className={`bg-white/10 backdrop-blur-md text-white border border-white/20 font-bold py-4 px-8 rounded-full hover:bg-white/20 transition-all hover:shadow-lg hover:-translate-y-1 ${buttonColorText === "" ? "" : ""}`} // The color prop might be used inside differently, but we keep text-white for the hero area
+                                >
+                                    Download Course Outline
+                                </a>
+                            )}
                         </div>
                     </div> {/* End Left Column */}
 

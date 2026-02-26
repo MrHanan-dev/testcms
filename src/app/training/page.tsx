@@ -1,4 +1,6 @@
 import Header from '@/components/Header';
+import FAQ from '@/components/FAQ';
+import TrainingSchedule from '@/components/TrainingSchedule';
 import Footer from '@/components/Footer';
 import MobileNav from '@/components/MobileNav';
 import ServiceHero from '@/components/ServiceHero';
@@ -163,6 +165,8 @@ export default function TrainingPage() {
                     </div>
                 </section>
             </main>
+            <TrainingSchedule />
+            <FAQ />
             <Footer />
             <MobileNav />
         </>

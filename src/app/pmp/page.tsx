@@ -1,4 +1,6 @@
 import Header from '@/components/Header';
+import FAQ from '@/components/FAQ';
+import TrainingSchedule from '@/components/TrainingSchedule';
 import Footer from '@/components/Footer';
 import MobileNav from '@/components/MobileNav';
 import { Check, BookOpen, Clock, Target, Users, Layout, Globe, Star, Briefcase, Send } from 'lucide-react';
@@ -28,8 +30,9 @@ export default function PmpPage() {
                     prev={{ name: "CAPM", href: "/capm" }}
                     next={{ name: "PMI-CP", href: "/pmicp" }}
                     gradientClass="from-[#0b5c92] to-[#1479be]"
-                    buttonColorText="text-blue-700"
+                    buttonColorText="text-slate-800"
                     badgeImage="/certifications/pmp.webp"
+                    downloadLink="/pmp-examination-content-outline.pdf"
                 />
 
                 <div className="container-custom max-w-5xl mt-20 space-y-24">
@@ -168,6 +171,37 @@ export default function PmpPage() {
                         </div>
                     </section>
 
+                    {/* Why Train with TotalPMPro Section */}
+                    <section className="bg-white rounded-3xl p-10 md:p-16 border border-slate-100 shadow-sm mt-24 text-center">
+                        <div className="max-w-3xl mx-auto mb-16">
+                            <span className="text-accent font-extrabold tracking-[0.2em] uppercase text-[10px] mb-4 block">TotalPMPro Advantage</span>
+                            <h2 className="text-3xl md:text-4xl font-black text-primary mb-6">Why Train with TotalPMPro</h2>
+                            <p className="text-slate-600 text-lg leading-relaxed">
+                                We have been supporting project managers to attain their PMI® certifications. The combination of our training methods, facilitators, self-study, and collaboration has resulted in ongoing success.
+                            </p>
+                        </div>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+                            {[
+                                "Local company offering tailored, region-specific training.",
+                                "Trainers hand-picked for their expertise and real-world PM experience.",
+                                "Flexible training schedules to suit learning capacities.",
+                                "All-inclusive, transparent pricing with no hidden fees.",
+                                "Globally recognized materials enhanced with our own resources.",
+                                "Full support through the entire certification process.",
+                                "Feedback reviewed continuously to ensure top training quality.",
+                                "Trainers collaborate regularly to uphold high standards in adult education.",
+                                "100% locally-owned organization operating with honesty and transparency."
+                            ].map((advantage, i) => (
+                                <div key={i} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex gap-4 hover:shadow-lg transition-shadow">
+                                    <div className="mt-1 bg-teal-100 text-teal-600 p-1.5 rounded-full shrink-0 h-fit">
+                                        <Check size={16} strokeWidth={3} />
+                                    </div>
+                                    <p className="text-slate-700 font-medium text-sm leading-relaxed">{advantage}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
                     {/* Comparison / Why Choose Us */}
                     <Features />
 
@@ -203,6 +237,8 @@ export default function PmpPage() {
 
                 </div>
             </main>
+            <TrainingSchedule />
+            <FAQ />
             <Footer />
             <MobileNav />
         </>
