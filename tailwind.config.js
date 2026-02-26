@@ -16,13 +16,13 @@ module.exports = {
                     DEFAULT: '#0B3C5D',
                 },
                 luxury: {
-                    gold: '#C6A75E', // Champagne Gold
+                    gold: '#55c5e7', // Bright Cyan (formerly Champagne Gold)
                     navy: '#0F172A', // Rich Dark (Headings)
                     slate: '#334155', // Charcoal Gray (Body)
                     soft: '#F4F7FA', // Soft Luxury Background
                 },
                 accent: {
-                    DEFAULT: '#C6A75E',
+                    DEFAULT: '#55c5e7',
                 },
                 gray: {
                     900: '#0F172A', // Heading Navy
@@ -72,7 +72,7 @@ module.exports = {
             },
             backgroundImage: {
                 'luxury-gradient': 'linear-gradient(135deg, #0B3C5D 0%, #072A40 100%)',
-                'gold-shimmer': 'linear-gradient(90deg, transparent 0%, rgba(198, 167, 94, 0.1) 50%, transparent 100%)',
+                'gold-shimmer': 'linear-gradient(90deg, transparent 0%, rgba(85, 197, 231, 0.1) 50%, transparent 100%)',
             }
         },
     },

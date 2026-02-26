@@ -1,4 +1,5 @@
 import Header from '@/components/Header';
+import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
 import MobileNav from '@/components/MobileNav';
 import ServiceHero from '@/components/ServiceHero';
@@ -147,6 +148,7 @@ export default function ConsultingPage() {
                     </div>
                 </section>
             </main>
+            <FAQ />
             <Footer />
             <MobileNav />
         </>

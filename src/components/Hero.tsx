@@ -26,25 +26,25 @@ const slides: Slide[] = [
   },
   {
     src: "https://www.theagilenest.com/wp-content/uploads/2025/10/ag2-3.jpg",
-    alt: "Second training backdrop from AgileNest",
-    tag: "Cost Estimation & QS",
-    headline: "Precision cost intelligence\nfor every build.",
-    description: "Quantity surveying and cost advisory trusted on $52M+ in projects. From feasibility to final account - accurate, every time.",
+    alt: "Quantity Surveying and Cost Estimation",
+    tag: "Quantity Surveying",
+    headline: "Bid More. Win More.\nBuild Better with Total QS",
+    description: "Your reliable partner in Quantity Surveying, Cost Management, and successful project delivery across New Zealand.",
   },
   {
     src: "/images/Totalqsconsultant.jpeg",
     alt: "Total QS Consultant Overview",
-    tag: "Strategic Consulting",
-    headline: "From blueprint\nto delivery.",
-    description: "PMO setup, agile transformation, and independent project audits. Strategic advisory for complex programmes that need to deliver.",
+    tag: "Trusted Partner",
+    headline: "Simple. Transparent.\nStress-Free Estimation.",
+    description: "Helping builders, developers, and renovators complete their projects on time and within budget with expert cost management.",
     isInfographic: true,
   },
   {
     src: "/images/pmbok_evolution.jpeg",
-    alt: "PMBOK Evolution",
-    tag: "Methodology",
-    headline: "Next Generation\nProject Standards.",
-    description: "Adapting established methodologies and integrating modern frameworks to keep your project execution strategy ahead of the curve.",
+    alt: "Total QS - Bid More. Win More.",
+    tag: "Quantity Surveying",
+    headline: "Bid More. Win More.\nBuild Better with Total QS",
+    description: "Your reliable partner in Quantity Surveying, Cost Management, and successful project delivery.\n\nAt TotalQS, we make construction estimating and cost management simple, transparent, and stress-free. We act as your trusted partner in New Zealand's construction industry, helping builders, developers, and renovators complete their projects on time and within budget.",
     isInfographic: true,
   },
   {
@@ -236,12 +236,13 @@ export default function Hero() {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="max-w-2xl"
+              className="max-w-3xl bg-black/60 backdrop-blur-sm p-10 md:p-14 rounded-2xl border border-white/10 shadow-2xl relative overflow-hidden"
             >
+              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none" />
               {/* Tag */}
               <motion.span
                 variants={itemVariants}
-                className="label-tag mb-6 block"
+                className="label-tag mb-8 block w-fit border-white/10 bg-white/5"
               >
                 {slide.tag}
               </motion.span>
@@ -249,7 +250,7 @@ export default function Hero() {
               {/* Headline */}
               <motion.h1
                 variants={itemVariants}
-                className="text-[clamp(32px,5.5vw,64px)] font-black leading-[1.06] tracking-tighter text-white mb-6 whitespace-pre-line"
+                className="text-[clamp(32px,5vw,64px)] font-black leading-[1.06] tracking-tighter text-white mb-6 whitespace-pre-line"
               >
                 {slide.headline}
               </motion.h1>
@@ -257,7 +258,7 @@ export default function Hero() {
               {/* Description */}
               <motion.p
                 variants={itemVariants}
-                className="text-white/55 text-[clamp(15px,1.2vw,18px)] leading-[1.75] mb-10 max-w-lg"
+                className="text-white/70 text-[clamp(15px,1.2vw,18px)] leading-[1.75] mb-10 max-w-lg"
               >
                 {slide.description}
               </motion.p>
@@ -268,7 +269,7 @@ export default function Hero() {
                   href="#contact"
                   className="group inline-flex items-center gap-2 px-7 py-3.5 bg-accent text-primary text-[14px] font-semibold rounded-md hover:bg-accent/90 transition-all duration-300"
                 >
-                  Get Started
+                  Discover More
                   <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform duration-300" />
                 </Link>
                 <Link

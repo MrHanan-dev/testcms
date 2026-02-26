@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Header from '@/components/Header';
+import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
 import MobileNav from '@/components/MobileNav';
 import EvolutionTimeline from '@/components/EvolutionTimeline';
@@ -149,6 +150,7 @@ export default function AboutPage() {
                     </div>
                 </section>
             </main >
+            <FAQ />
             <Footer />
             <MobileNav />
         </>
