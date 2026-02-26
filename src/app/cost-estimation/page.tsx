@@ -11,7 +11,7 @@ import CostEstimationForm from '@/components/CostEstimationForm';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Quantity Surveying & Cost Management | TotalQS",
+    title: "Quantity Surveying & Cost Management",
     description: "Your trusted partner in New Zealand's construction industry. Precision cost estimation and project success services.",
 };
 
@@ -212,7 +212,7 @@ export default function CostEstimationPage() {
                                 We&apos;re always excited to connect with passionate professionals who share our commitment to quality, precision, and innovation in construction. Whether you&apos;re an experienced Quantity Surveyor or just starting your career, TotalQS offers a supportive environment where your skills can grow and your work truly makes an impact.
                             </p>
                             <Link
-                                href="/contact"
+                                href="#contact"
                                 className="inline-flex items-center gap-2 px-10 py-4 bg-primary text-white font-bold rounded-full hover:bg-primary/90 transition-all hover:scale-105"
                             >
                                 Contact us

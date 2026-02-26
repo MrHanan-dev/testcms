@@ -1,5 +1,5 @@
 export const metadata = {
-    title: 'Spacing | Millpond Design System',
+    title: 'Spacing | TotalPMP Design System',
 };
 
 const SpacingSpecimen = ({ token, pixels, rems }: { token: string, pixels: string, rems: string }) => (
@@ -25,7 +25,7 @@ export default function DesignSystemSpacing() {
                 <span className="label-tag block mb-2">Foundations</span>
                 <h1 className="h1 text-gray-900">spacing.</h1>
                 <p className="text-xl text-gray-600 mt-4 max-w-3xl leading-relaxed">
-                    The Millpond spatial system is built on a 4px base unit. Consistent spacing creates a predictable rhythm that users perceive as organized and professional.
+                    The TotalPMP spatial system is built on a 4px base unit. Consistent spacing creates a predictable rhythm that users perceive as organized and professional.
                 </p>
             </header>
 

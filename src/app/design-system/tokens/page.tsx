@@ -1,27 +1,26 @@
 export const metadata = {
-    title: 'Tokens | Millpond Design System',
+    title: 'Tokens | TotalPMP Design System',
 };
 
 export default function DesignSystemTokens() {
     const cssVars = `:root {
-  --color-primary-600: #1a5aa8;
-  --color-primary-500: #1e6fc7;
-  --color-primary-400: #3ca3e8;
-  --color-primary-100: #d6eaf8;
-  --color-accent-500: #e8186c;
-  --color-accent-400: #f03a88;
+  --color-primary-600: #0B3C5D;
+  --color-primary-500: #61CAED;
+  --color-primary-400: #55c5e7;
+  --color-primary-100: #F4F7FA;
+  --color-accent: #55c5e7;
   
-  --color-gray-900: #1a1a2e;
-  --color-gray-600: #4a5568;
-  --color-gray-100: #f7f9fc;
+  --color-gray-900: #0F172A;
+  --color-gray-600: #334155;
+  --color-gray-100: #F4F7FA;
   
   --color-success: #22c55e;
   --color-error: #ef4444;
   --color-warning: #f59e0b;
-  --color-info: #3ca3e8;
+  --color-info: #55c5e7;
 
-  --font-display: 'Nunito Sans', sans-serif;
-  --font-sans: 'Open Sans', sans-serif;
+  --font-display: 'Outfit', sans-serif;
+  --font-sans: 'Inter', sans-serif;
 }`;
 
     const tailwindSnippet = `colors: {
@@ -56,7 +55,7 @@ boxShadow: {
                 <span className="label-tag block mb-2">Developer Resources</span>
                 <h1 className="h1 text-gray-900">tokens.</h1>
                 <p className="text-xl text-gray-600 mt-4 max-w-3xl leading-relaxed">
-                    Copy and paste these raw tokens into your configuration files to implement the Millpond design system in any project.
+                    Copy and paste these raw tokens into your configuration files to implement the TotalPMP design system in any project.
                 </p>
             </header>
 

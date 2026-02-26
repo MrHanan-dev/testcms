@@ -43,7 +43,7 @@ export default function DesignSystemComponents() {
                 <div className="bg-gray-100 p-8 rounded-3xl border border-gray-200 overflow-hidden">
                     <div className="bg-white shadow-sm rounded-xl p-4 flex justify-between items-center border border-gray-100">
                         <div className="font-display font-bold text-xl text-primary-600 tracking-tight">
-                            millpond<span className="text-accent-500">.</span>
+                            totalpmp<span className="text-accent-500">.</span>
                         </div>
                         <div className="hidden md:flex gap-8 text-sm font-semibold text-gray-900">
                             <span className="text-accent-500 cursor-pointer">Home</span>
@@ -102,8 +102,8 @@ export default function DesignSystemComponents() {
                                     key={tab}
                                     onClick={() => setActiveTab(tab)}
                                     className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 cursor-pointer ${activeTab === tab
-                                            ? 'bg-primary-600 text-white shadow-md'
-                                            : 'bg-white border border-gray-200 text-gray-600 hover:border-primary-600 hover:text-primary-600'
+                                        ? 'bg-primary-600 text-white shadow-md'
+                                        : 'bg-white border border-gray-200 text-gray-600 hover:border-primary-600 hover:text-primary-600'
                                         }`}
                                 >
                                     {tab}

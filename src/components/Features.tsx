@@ -1,6 +1,7 @@
 "use client";
 
 import { ShieldCheck, Zap, TrendingUp, Users } from 'lucide-react';
+import Image from 'next/image';
 
 const features = [
   {
@@ -61,9 +62,10 @@ export default function Features() {
           <div className="relative">
             <div className="absolute -inset-4 bg-accent/10 rounded-[60px] blur-2xl rotate-3"></div>
             <div className="relative h-[600px] w-full rounded-[50px] overflow-hidden border border-slate-100 shadow-premium">
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80"
                 alt="TotalPMP Excellence"
+                fill
                 className="w-full h-full object-cover grayscale-[10%] hover:grayscale-0 transition-all duration-1000"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-transparent"></div>
