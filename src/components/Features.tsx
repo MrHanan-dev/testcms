@@ -26,7 +26,15 @@ const features = [
   }
 ];
 
-export default function Features() {
+interface FeaturesProps {
+  titleSuffix?: string;
+  descriptionSuffix?: string;
+}
+
+export default function Features({
+  titleSuffix = "PMP® Journey",
+  descriptionSuffix = "PMP® training programs"
+}: FeaturesProps) {
   return (
     <section id="why-choose-us" className="section bg-slate-50 relative overflow-hidden">
       {/* Dynamic Background Elements */}
@@ -37,10 +45,10 @@ export default function Features() {
         <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="text-accent font-extrabold tracking-[0.2em] uppercase text-xs mb-4 block">The Advantage</span>
           <h2 className="text-4xl md:text-5xl font-black text-primary mb-6 leading-tight">
-            Why choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-amber-600">TOTALPMP</span> for Your PMP® Journey?
+            Why choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-amber-600">TOTALPMP</span> for Your {titleSuffix}?
           </h2>
           <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium max-w-2xl mx-auto">
-            At TOTALPMP, we deliver one of New Zealand’s, Australia’s and Asia's most comprehensive and industry-ready PMP® training programs, designed to help you pass on your first attempt and excel in real-world project environments.
+            At TOTALPMP, we deliver one of New Zealand’s, Australia’s and Asia's most comprehensive and industry-ready {descriptionSuffix}, designed to help you pass on your first attempt and excel in real-world project environments.
           </p>
         </div>
 

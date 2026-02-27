@@ -3,7 +3,7 @@ import FAQ from '@/components/FAQ';
 import TrainingSchedule from '@/components/TrainingSchedule';
 import Footer from '@/components/Footer';
 import MobileNav from '@/components/MobileNav';
-import { Check, Star, Send, ArrowRight, TrendingUp, ShieldCheck, Globe, Users, Building2, Target } from 'lucide-react';
+import { Check, Star, Send, ArrowRight, TrendingUp, ShieldCheck, Globe, Users, Building2, Target, Award, Clock, Layout, BookOpen, HardHat, Briefcase } from 'lucide-react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import CertificationHero from '@/components/CertificationHero';
@@ -35,6 +35,160 @@ export default function PmpPage() {
                 />
 
                 <div className="container-custom mt-20 space-y-32">
+
+                    {/* Description Section - Adapted from PMI-CP */}
+                    <section id="details" className="grid md:grid-cols-2 gap-16 items-center">
+                        <div>
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/20 text-primary font-bold text-sm mb-6">
+                                <ShieldCheck size={16} /> Project Excellence
+                            </div>
+                            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6 leading-tight">
+                                Why PMP® Is a Game-Changer
+                            </h2>
+                            <p className="text-slate-600 text-lg leading-relaxed mb-6">
+                                The Project Management Professional (PMP)® certification is the most globally recognised credential for project managers. It validates your ability to plan, manage, and deliver complex projects across any industry using predictive, agile, and hybrid approaches.
+                            </p>
+                            <div className="space-y-4">
+                                {[
+                                    { title: "Stand Out from the Crowd", desc: "The internationally recognized gold standard in project management certification." },
+                                    { title: "Enhance Your Organisation", desc: "Achieve greater efficiency, profitability, and positive outcomes in projects and their delivery." },
+                                    { title: "Global Recognition", desc: "Gain an independent affirmation of your knowledge and mastery of project management concepts." },
+                                    { title: "Created by Professionals", desc: "The PMP® certification represents the skills and knowledge you need to help build a better tomorrow." },
+                                ].map((item, i) => (
+                                    <div key={i} className="flex gap-4">
+                                        <div className="mt-1 bg-accent/20 text-primary p-1 rounded-full shrink-0">
+                                            <Check size={16} strokeWidth={3} />
+                                        </div>
+                                        <div>
+                                            <strong className="text-primary block mb-1">{item.title}</strong>
+                                            <span className="text-slate-600 text-sm leading-relaxed">{item.desc}</span>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        <div className="relative">
+                            <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-primary/5 rounded-3xl transform rotate-3 scale-105 -z-10"></div>
+                            <div className="bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-slate-100">
+                                <h3 className="text-2xl font-bold text-primary border-b border-slate-100 pb-4 mb-6">Who Should Apply?</h3>
+                                <p className="text-slate-600 mb-6 text-sm">Designed for experienced project managers looking to validate their skills and advance their careers.</p>
+                                <ul className="space-y-3">
+                                    {[
+                                        "Project Managers & Directors",
+                                        "Program & Portfolio Managers",
+                                        "Delivery Leads & Agile Coaches",
+                                        "Industry Leaders Seeking Global Credentials",
+                                        "Professionals with 3+ Years PM Experience",
+                                    ].map((audience, i) => (
+                                        <li key={i} className="flex items-center gap-3 text-slate-700 font-medium">
+                                            <div className="w-2 h-2 rounded-full bg-accent shrink-0"></div>
+                                            {audience}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Curriculum / Syllabus & Features - Adapted from PMI-CP */}
+                    <section className="grid lg:grid-cols-5 gap-12">
+                        <div className="lg:col-span-3">
+                            <h2 className="text-3xl font-bold text-primary mb-2">Curriculum / Syllabus</h2>
+                            <p className="text-slate-500 mb-8">Aligned with the latest PMP® Examination Content Outline (ECO).</p>
+
+                            <div className="space-y-6">
+                                <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                                    <div className="flex justify-between items-start mb-4">
+                                        <h4 className="text-xl font-bold text-primary flex items-center gap-2">
+                                            <Users className="text-accent" /> People
+                                        </h4>
+                                        <span className="bg-accent/20 text-primary font-bold px-3 py-1 rounded-full text-sm">42%</span>
+                                    </div>
+                                    <p className="text-slate-600 leading-relaxed">
+                                        Building stronger stakeholder relationships, leading and managing teams, resolving conflict, and fostering team performance.
+                                    </p>
+                                </div>
+                                <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                                    <div className="flex justify-between items-start mb-4">
+                                        <h4 className="text-xl font-bold text-primary flex items-center gap-2">
+                                            <Target className="text-primary" /> Process
+                                        </h4>
+                                        <span className="bg-slate-100 text-primary font-bold px-3 py-1 rounded-full text-sm">50%</span>
+                                    </div>
+                                    <p className="text-slate-600 leading-relaxed">
+                                        Determining appropriate project methodologies (predictive, agile, hybrid), managing scope, schedule, budget, resources, and risks.
+                                    </p>
+                                </div>
+
+                                <div className="bg-slate-800 text-white p-6 rounded-2xl">
+                                    <div className="flex justify-between items-start mb-4">
+                                        <h4 className="text-xl font-bold text-white flex items-center gap-2">
+                                            <Globe className="text-accent" /> Business Environment
+                                        </h4>
+                                        <span className="bg-slate-700 text-slate-300 font-bold px-3 py-1 rounded-full text-sm">8%</span>
+                                    </div>
+                                    <p className="text-slate-300 leading-relaxed text-sm">
+                                        Evaluating delivering business value, navigating organizational change, and supporting compliance requirements.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="lg:col-span-2">
+                            <h2 className="text-3xl font-bold text-primary mb-8">Key Course Features</h2>
+                            <ul className="space-y-6">
+                                {[
+                                    { title: "35 Contact Hours", icon: Clock, desc: "Fulfills the PMI educational requirement to sit for the PMP exam." },
+                                    { title: "Expert Practitioners", icon: Users, desc: "Delivered by highly experienced PMP® certified professionals." },
+                                    { title: "Course Materials", icon: Layout, desc: "Comprehensive slideware, templates, and PMI's official learning materials." },
+                                    { title: "Mock Exams", icon: Target, desc: "Full-length mock exams and extensive question banks to ensure readiness." },
+                                    { title: "Application Support", icon: BookOpen, desc: "End-to-end assistance with your PMI application and audit process." },
+                                    { title: "Attendance Certificate", icon: Award, desc: "Official proof of course completion for your application." },
+                                ].map((feature) => (
+                                    <li key={feature.title} className="flex gap-4 group">
+                                        <div className="bg-white border border-slate-100 shadow-sm p-3 rounded-xl text-primary shrink-0 h-14 w-14 flex items-center justify-center group-hover:bg-accent/10 transition-colors">
+                                            <feature.icon size={24} strokeWidth={1.5} />
+                                        </div>
+                                        <div>
+                                            <h4 className="font-bold text-primary text-lg">{feature.title}</h4>
+                                            <p className="text-slate-500 text-sm leading-relaxed">{feature.desc}</p>
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </section>
+
+                    {/* Why Train with TotalPMPro Section - Adapted from PMI-CP */}
+                    <section className="bg-white rounded-3xl p-10 md:p-16 border border-slate-100 shadow-sm text-center">
+                        <div className="max-w-3xl mx-auto mb-16">
+                            <span className="text-accent font-extrabold tracking-[0.2em] uppercase text-[10px] mb-4 block">TotalPMPro Advantage</span>
+                            <h2 className="text-3xl md:text-4xl font-black text-primary mb-6">Why Train with TotalPMPro</h2>
+                            <p className="text-slate-600 text-lg leading-relaxed">
+                                We have been supporting project managers to attain their PMI® certifications. The combination of our training methods, facilitators, self-study, and collaboration has resulted in ongoing success.
+                            </p>
+                        </div>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+                            {[
+                                "Local company offering tailored, region-specific training.",
+                                "Trainers hand-picked for their expertise and real-world PM experience.",
+                                "Flexible training schedules to suit learning capacities.",
+                                "All-inclusive, transparent pricing with no hidden fees.",
+                                "Globally recognized materials enhanced with our own resources.",
+                                "Full support through the entire certification process.",
+                                "Feedback reviewed continuously to ensure top training quality.",
+                                "Trainers collaborate regularly to uphold high standards in adult education.",
+                                "100% locally-owned organization operating with honesty and transparency."
+                            ].map((advantage, i) => (
+                                <div key={i} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex gap-4 hover:shadow-lg transition-shadow">
+                                    <div className="mt-1 bg-accent/20 text-primary p-1.5 rounded-full shrink-0 h-fit">
+                                        <Check size={16} strokeWidth={3} />
+                                    </div>
+                                    <p className="text-slate-700 font-medium text-sm leading-relaxed">{advantage}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
 
                     {/* Why Choose Section (Using existing Features component refined with the new content) */}
                     <Features />

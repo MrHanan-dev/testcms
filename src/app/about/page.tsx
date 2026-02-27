@@ -174,7 +174,7 @@ export default function AboutPage() {
                     </div>
                 </section>
             </main>
-            <Features />
+            <Features titleSuffix="Certification Journey" descriptionSuffix="certification training programs" />
             <CourseSuccessQuotes />
             <FAQ />
             <Footer />
