@@ -11,8 +11,8 @@ import Features from '@/components/Features';
 import CourseSuccessQuotes from '@/components/CourseSuccessQuotes';
 
 export const metadata = {
-    title: "PMI Construction Professional (PMI-CP)® Certification Exam Prep",
-    description: "Master real-world construction project management tools and techniques tailored for professionals in the built environment. Globally recognised credential from PMI.",
+    title: "PMI Construction Professional (PMI-CP)® Certification",
+    description: "Validate your ability to manage and deliver complex construction projects with the globally recognised PMI-CP® certification.",
 };
 
 export default function PmiCpPage() {
@@ -24,9 +24,9 @@ export default function PmiCpPage() {
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-amber-100/30 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
                 <CertificationHero
-                    title="PMI-CP® Certification – Master Construction Project Management"
-                    subtitle="The leading global credential for the built environment. Professional excellence from plan to completion."
-                    description="Validate your ability to plan, manage, and deliver complex construction projects using industry-best practices and globally recognised standards."
+                    title="PMI-CP® Certification"
+                    subtitle="PMI Construction Professional"
+                    description="Validate your ability to plan, manage, and deliver complex construction projects using industry-best practices."
                     prev={{ name: "PMP", href: "/pmp" }}
                     next={{ name: "CAPM", href: "/capm" }}
                     gradientClass="from-primary to-primary-700"
@@ -38,72 +38,55 @@ export default function PmiCpPage() {
                 <div className="container-custom mt-20 space-y-24">
 
                     {/* Description Section - matches PMP/CAPM layout */}
-                    <section id="details" className="max-w-4xl mx-auto space-y-16">
-                        <div className="text-center space-y-6">
-                            <h2 className="text-3xl md:text-5xl font-black text-primary leading-tight">
-                                PMI Construction Professional (PMI-CP)® Certification
+                    <section id="details" className="grid md:grid-cols-2 gap-16 items-center">
+                        <div>
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/20 text-primary font-bold text-sm mb-6">
+                                <HardHat size={16} /> Construction Excellence
+                            </div>
+                            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6 leading-tight">
+                                Why PMI-CP® Is a Game-Changer
                             </h2>
-                            <div className="text-slate-600 text-lg leading-relaxed space-y-6 text-left">
-                                <p>
-                                    The <strong>PMI Construction Professional (PMI-CP)® certification</strong>, offered by the Project Management Institute (PMI), is a globally recognised credential for professionals in the construction and built environment sectors. Designed for engineers, project managers, and construction leaders, the PMI-CP® validates your ability to plan, manage, and deliver complex construction projects using industry-best practices.
-                                </p>
-                                <p>
-                                    This prestigious certification demonstrates advanced skills in project planning, risk management, cost control, contract administration, scope management, and quality assurance — all critical for achieving success in modern construction environments.
-                                </p>
-                                <p>
-                                    Whether you work in commercial, residential, or infrastructure projects, the PMI-CP® certification positions you as a qualified, internationally recognised construction management professional capable of handling projects from concept to completion.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="bg-primary rounded-[40px] p-12 md:p-16 text-white relative overflow-hidden">
-                            <div className="absolute top-0 right-0 w-1/3 h-full bg-accent/10 -skew-x-12 translate-x-1/2"></div>
-                            <div className="relative z-10 space-y-8">
-                                <h3 className="text-3xl font-black tracking-tight">Why PMI-CP® Certification Matters</h3>
-                                <p className="text-blue-100 text-lg leading-relaxed max-w-2xl">
-                                    Earning the PMI-CP® gives you a competitive edge in the construction industry, enhances your career opportunities, and demonstrates your ability to manage projects to international standards.
-                                </p>
-                                <div className="grid md:grid-cols-2 gap-8">
-                                    {[
-                                        { title: "Global Recognition", desc: "Endorsed by PMI — the world’s leading authority." },
-                                        { title: "Career Advancement", desc: "Open doors to higher-level roles." },
-                                        { title: "Practical Skills", desc: "Master tools tailored for construction." },
-                                        { title: "Competitive Edge", desc: "Stand out in NZ and international markets." }
-                                    ].map((item, i) => (
-                                        <div key={i} className="flex gap-4 items-start">
-                                            <div className="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center mt-1">
-                                                <Check className="text-accent" size={14} />
-                                            </div>
-                                            <div>
-                                                <div className="font-black">{item.title}</div>
-                                                <div className="text-blue-100/60 text-sm">{item.desc}</div>
-                                            </div>
+                            <p className="text-slate-600 text-lg leading-relaxed mb-6">
+                                The PMI Construction Professional (PMI-CP)® certification is a globally recognised credential for professionals in the construction and built environment sectors. It validates your ability to plan, manage, and deliver complex construction projects using industry-best practices.
+                            </p>
+                            <div className="space-y-4">
+                                {[
+                                    { title: "Stand Out from the Crowd", desc: "The only internationally recognized certification with an in-depth curriculum focused on the construction industry." },
+                                    { title: "Enhance Your Organisation", desc: "Achieve greater efficiency, profitability, and sustainability in projects and their delivery." },
+                                    { title: "Global Recognition", desc: "Gain an independent affirmation of your knowledge and mastery of construction concepts." },
+                                    { title: "Created by Professionals", desc: "The PMI-CP® certification represents the skills and knowledge you need to help build a better tomorrow." },
+                                ].map((item, i) => (
+                                    <div key={i} className="flex gap-4">
+                                        <div className="mt-1 bg-accent/20 text-primary p-1 rounded-full shrink-0">
+                                            <Check size={16} strokeWidth={3} />
                                         </div>
-                                    ))}
-                                </div>
+                                        <div>
+                                            <strong className="text-primary block mb-1">{item.title}</strong>
+                                            <span className="text-slate-600 text-sm leading-relaxed">{item.desc}</span>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
                         </div>
-
-                        <div className="bg-white rounded-[40px] p-10 md:p-16 border-2 border-slate-100 shadow-sm">
-                            <h3 className="text-2xl font-black text-primary mb-8 underline decoration-accent decoration-4 underline-offset-8">PMI-CP® Eligibility Requirements</h3>
-                            <p className="text-slate-600 mb-8 font-medium">To be eligible for the PMI-CP certification, you must meet the following criteria:</p>
-                            <div className="grid md:grid-cols-2 gap-10 text-left">
-                                <div className="space-y-4">
-                                    <h4 className="text-xl font-bold flex items-center gap-2">
-                                        <Briefcase className="text-primary" size={20} /> 1. Experience
-                                    </h4>
-                                    <p className="text-slate-500 text-sm leading-relaxed">
-                                        Minimum of <strong>3-4 years</strong> of professional experience in the construction or built environment field within the last 10 years.
-                                    </p>
-                                </div>
-                                <div className="space-y-4">
-                                    <h4 className="text-xl font-bold flex items-center gap-2">
-                                        <Award className="text-accent" size={20} /> 2. Speciality
-                                    </h4>
-                                    <p className="text-slate-500 text-sm leading-relaxed">
-                                        Experience must be in a project leadership or professional role within construction.
-                                    </p>
-                                </div>
+                        <div className="relative">
+                            <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-primary/5 rounded-3xl transform rotate-3 scale-105 -z-10"></div>
+                            <div className="bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-slate-100">
+                                <h3 className="text-2xl font-bold text-primary border-b border-slate-100 pb-4 mb-6">Who Should Apply?</h3>
+                                <p className="text-slate-600 mb-6 text-sm">Designed for engineers, project managers, and construction leaders looking to advance their careers.</p>
+                                <ul className="space-y-3">
+                                    {[
+                                        "Construction Project Managers & Coordinators",
+                                        "Architects & Engineers in PM Roles",
+                                        "Quantity Surveyors & Planners",
+                                        "Industry Leaders Seeking Global Credentials",
+                                        "Professionals with 3-4 Years Construction Experience",
+                                    ].map((audience, i) => (
+                                        <li key={i} className="flex items-center gap-3 text-slate-700 font-medium">
+                                            <div className="w-2 h-2 rounded-full bg-accent shrink-0"></div>
+                                            {audience}
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
                         </div>
                     </section>
