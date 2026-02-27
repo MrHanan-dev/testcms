@@ -200,7 +200,7 @@ export default function CapmPage() {
                     </section>
 
                     {/* Comparison / Why Choose Us */}
-                    <Features />
+                    <Features titleSuffix="CAPM® Journey" descriptionSuffix="CAPM® training programs" />
                     <CourseSuccessQuotes />
 
                     <section id="register" className="grid md:grid-cols-5 gap-16 items-start">

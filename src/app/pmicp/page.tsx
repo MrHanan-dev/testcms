@@ -203,7 +203,7 @@ export default function PmiCpPage() {
                     </section>
 
                     {/* Comparison / Why Choose Us */}
-                    <Features />
+                    <Features titleSuffix="PMI-CP® Journey" descriptionSuffix="PMI-CP® training programs" />
                     <CourseSuccessQuotes />
 
                     <section id="register" className="grid md:grid-cols-5 gap-16 items-start">
