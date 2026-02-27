@@ -120,24 +120,24 @@ export const globalFaqs: Record<string, FAQItem[]> = {
     ],
     pmp: [
         {
-            question: "What are the prerequisites for the PMP® certification?",
-            answer: "You need a four-year degree, 36 months of leading projects, and 35 hours of project management education (which our course provides). Alternatively, a high school diploma with 60 months of experience and 35 hours of education."
+            question: "How long does it take to prepare for the PMP exam?",
+            answer: "On average, candidates spend 2–3 months of preparation depending on prior experience and study schedule. Our comprehensive mentorship program ensures you stay on track."
         },
         {
-            question: "How long does it take to prepare for the PMP® exam?",
-            answer: "Most students prepare for 8-12 weeks. Our comprehensive training program is designed to efficiently guide you through the PMBOK® Guide and Agile Practice Guide to ensure you are exam-ready."
+            question: "Can I do PMP without prior project experience?",
+            answer: "No, PMP requires verified project management experience along with 35 hours of training. We provide full application and audit support to help you document your experience correctly."
         },
         {
-            question: "Does your training include mock exams?",
-            answer: "Yes! Our PMP® training includes extensive practice questions, full-length mock exams, and personalized performance analysis to guarantee our famous 100% first-attempt pass rate."
+            question: "Is PMP recognised globally?",
+            answer: "Yes, PMP is recognised in over 200 countries and industries, making it highly valued worldwide, from Auckland to London."
         },
         {
-            question: "Is the PMBOK® Guide included in the training fee?",
-            answer: "Our training materials comprehensively cover the PMBOK® Guide principles, but we recommend obtaining the official guide or joining PMI for digital access to their full library."
+            question: "How often is the PMP exam updated?",
+            answer: "PMI updates the exam every 3–4 years to reflect current practices, including Agile and hybrid methodologies. Our training is fully aligned with the latest PMBOK® Guide – Seventh Edition."
         },
         {
-            question: "What if I fail the exam on my first try?",
-            answer: "We provide ongoing support and mentorship. While our first-attempt pass rate is exceptional, we offer tailored guidance and review sessions for re-sitting the exam if necessary."
+            question: "What is the cost of PMP Certification?",
+            answer: "Costs vary by membership: PMI members pay USD 405, non-members pay USD 555 for the exam. This is paid directly to PMI; our course fee covers the comprehensive training and support required to pass."
         }
     ],
     capm: [

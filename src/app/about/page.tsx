@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     description: "Our 17-year journey in Project Management excellence, from foundational PMBOK standards to modern AI-driven ecosystems.",
 };
 
+import Features from '@/components/Features';
+import CourseSuccessQuotes from '@/components/CourseSuccessQuotes';
+
 export default function AboutPage() {
     const differentiators = [
         {
@@ -61,19 +64,19 @@ export default function AboutPage() {
                                 </h2>
                                 <div className="space-y-6 text-slate-600 text-lg leading-relaxed">
                                     <p>
-                                        With over 17 years of professional experience in construction and project management, <strong>Engr. Sayed Iqbal (PMP, PMI-CP)</strong> is a passionate leader, educator, and <strong>PMI Authorised trainer</strong>.
+                                        With over 17 years of professional experience in construction and project management, <strong>Engr. Syed Amjad Iqbal</strong> is a passionate leader, educator, and industry expert.
                                     </p>
                                     <p>
-                                        His extensive academic journey includes:
+                                        His unwavering dedication to empowering the next generation of project professionals is a source of inspiration and motivation for all who work with him. After earning his Bachelor’s in Engineering in 2003, Syed began his career in the construction industry, successfully delivering major infrastructure and commercial projects.
                                     </p>
-                                    <ul className="list-disc pl-6 space-y-2 text-slate-600">
-                                        <li><strong>Master’s in Construction Management</strong> - Massey University, New Zealand</li>
-                                        <li><strong>Master’s in Project Management & Operational Development</strong> - KTH Royal Institute of Technology, Sweden</li>
-                                        <li><strong>Master’s in Engineering</strong> - Blekinge Institute of Technology (BTH), Sweden</li>
-                                        <li><strong>Bachelor’s in Engineering</strong></li>
-                                    </ul>
                                     <p>
-                                        This deep technical and academic foundation, combined with his role as a certified professional trainer, ensures that TotalPMP delivers world-class project intelligence.
+                                        In 2008, he completed his Master’s in Engineering. He pursued a <strong>Master’s in Project Management and Operational Management</strong> from <strong>KTH Royal Institute of Technology, Sweden</strong>, one of Europe’s top universities and a Nobel Prize institution. His academic journey, combined with hands-on industry experience, shaped a unique blend of practical and theoretical expertise. He later completed a <strong>Master’s in Construction Management</strong> at <strong>Massey University in New Zealand</strong>.
+                                    </p>
+                                    <p>
+                                        He achieved the <strong>PMI-CP (Construction Professional)</strong>, a globally recognised credential from the Project Management Institute (PMI), a prestigious certification focused on construction. As a CEO, consultant, and certified trainer, Syed has mentored hundreds of professionals worldwide in Project Management, Construction Management, and Agile practices.
+                                    </p>
+                                    <p>
+                                        His commitment to continuous learning, which keeps him up to date with the latest industry standards, inspired the creation of <strong>Agile Nest</strong> — an institute dedicated to transferring knowledge, practical experience, and global standards to individuals and organisations seeking to manage projects with excellence and confidence.
                                     </p>
                                 </div>
                             </div>
@@ -81,14 +84,14 @@ export default function AboutPage() {
                                 <div className="aspect-[4/5] bg-slate-100 rounded-[60px] overflow-hidden shadow-2xl relative group">
                                     <Image
                                         src="/images/founder_amjad.webp"
-                                        alt="Engr. Sayed Iqbal - PMI Authorised Trainer"
+                                        alt="Engr. Syed Amjad Iqbal - CEO & Certified Trainer"
                                         fill
                                         className="object-cover group-hover:scale-105 transition-transform duration-700"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                                     <div className="absolute bottom-10 left-10 text-white">
-                                        <div className="text-2xl font-black">Engr. Sayed Iqbal</div>
-                                        <div className="text-blue-200 font-bold">PMI Authorised Trainer</div>
+                                        <div className="text-2xl font-black">Engr. Syed Amjad Iqbal</div>
+                                        <div className="text-blue-200 font-bold">CEO & Certified Trainer</div>
                                     </div>
                                 </div>
                             </div>
@@ -96,29 +99,49 @@ export default function AboutPage() {
                     </div>
                 </section>
 
-                {/* TotalQS Technical Depth Integration */}
+                {/* Why Choose Agile Nest Section */}
                 <section className="py-24 bg-slate-50">
                     <div className="container-custom">
-                        <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-5xl font-black text-primary mb-6">Built on Technical Excellence</h2>
-                            <p className="text-slate-500 text-lg max-w-3xl mx-auto font-medium">
-                                Beyond training, our DNA includes the precision of <strong>TotalQS</strong>—expert quantity surveying and commercial consultation for the construction sector.
+                        <div className="text-center mb-16 space-y-4">
+                            <span className="label-tag mx-auto">Who We Are</span>
+                            <h2 className="text-4xl md:text-5xl font-black text-primary">Why Choose Agile Nest</h2>
+                            <p className="text-slate-500 text-xl font-medium max-w-3xl mx-auto">
+                                At Agile Nest, we don’t just teach project management — we transform professionals into confident, agile leaders ready to deliver real results.
                             </p>
                         </div>
-                        <div className="grid md:grid-cols-3 gap-8">
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {[
-                                { title: "Cost Management", icon: ShieldCheck, desc: "Rigorous budget control and resource allocation to maximize project value." },
-                                { title: "Quantity Surveying", icon: Briefcase, desc: "Precision estimation using 3D models and field-tested commercial strategies." },
-                                { title: "Contract Admin", icon: Award, desc: "Expert oversight of specifications, tenders, and vendor engagements." }
+                                {
+                                    title: "🎯 Real-World Expertise",
+                                    desc: "Learn from certified industry experts with decades of hands-on experience in construction, operations, and leadership. We share what truly works — not just theory."
+                                },
+                                {
+                                    title: "🌍 Global Knowledge, Local Focus",
+                                    desc: "Trained at world-leading universities like KTH (Sweden) and Massey University (New Zealand), we combine international best practices with local industry insight."
+                                },
+                                {
+                                    title: "🧩 Practical, Impactful Learning",
+                                    desc: "Our training is designed around real projects, real tools, and real challenges — ensuring you can apply your learning immediately."
+                                },
+                                {
+                                    title: "🤝 Personal Mentorship",
+                                    desc: "We guide every learner through their professional growth journey, offering support, mentoring, and career coaching beyond the classroom."
+                                },
+                                {
+                                    title: "🚀 Lifelong Learning Culture",
+                                    desc: "Agile Nest is more than a training provider — it’s a learning community. We inspire continuous growth, innovation, and excellence."
+                                }
                             ].map((item, i) => (
-                                <div key={i} className="bg-white p-10 rounded-[40px] shadow-sm hover:shadow-xl transition-all group">
-                                    <div className="w-14 h-14 bg-slate-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-                                        <item.icon size={28} />
-                                    </div>
-                                    <h4 className="text-xl font-black text-primary mb-3">{item.title}</h4>
-                                    <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
+                                <div key={i} className="bg-white p-10 rounded-[40px] shadow-sm hover:shadow-xl transition-all h-full border border-slate-100">
+                                    <h4 className="text-xl font-black text-primary mb-4">{item.title}</h4>
+                                    <p className="text-slate-500 leading-relaxed font-medium">{item.desc}</p>
                                 </div>
                             ))}
+                        </div>
+                        <div className="mt-16 text-center">
+                            <p className="text-2xl font-black text-primary italic">
+                                Agile Nest — Where knowledge meets experience, and every project takes flight.
+                            </p>
                         </div>
                     </div>
                 </section>
@@ -150,7 +173,9 @@ export default function AboutPage() {
                         </div>
                     </div>
                 </section>
-            </main >
+            </main>
+            <Features />
+            <CourseSuccessQuotes />
             <FAQ />
             <Footer />
             <MobileNav />
