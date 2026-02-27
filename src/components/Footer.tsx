@@ -8,9 +8,9 @@ import ContactForm from './ContactForm';
 const footerLinks = {
   ourServices: [
     { label: "Project Management", href: "/project-management" },
-    { label: "Cost Management", href: "/cost-estimation" },
+    { label: "Cost Estimation & Quality Surveying", href: "/cost-estimation" },
     { label: "Contract Management", href: "/contract-management" },
-    { label: "Consulting", href: "/consulting" },
+    { label: "Advisory & PMO", href: "/consulting" },
     { label: "Training Services", href: "/training" },
   ],
   trainingServices: [

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { Network, MonitorPlay, Briefcase, FileSearch } from 'lucide-react';
+import { Network, MonitorPlay, Briefcase, FileSearch, Calculator } from 'lucide-react';
 import Link from 'next/link';
 
 // Constants for Clean Code
@@ -47,10 +47,10 @@ const services = [
         borderColor: "border-primary-600/20",
     },
     {
-        icon: Briefcase,
-        title: "Consulting",
-        description: "Improving client project management maturity through consulting to create appropriate structure around project delivery, governance, process and tools.",
-        href: "/consulting",
+        icon: Calculator,
+        title: "Cost Estimation and Quality Surveying",
+        description: "Fast, accurate quantity surveying and cost management services to ensure your construction projects stay on budget and on track.",
+        href: "/cost-estimation",
         bgColor: "bg-white",
         textColor: "text-slate-900",
         borderColor: "border-slate-200",

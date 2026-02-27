@@ -36,10 +36,10 @@ export default function Features() {
           <div className="order-last lg:order-first">
             <span className="text-accent font-extrabold tracking-[0.2em] uppercase text-[10px] mb-6 block">The Advantage</span>
             <h2 className="h2 mb-10 leading-tight">
-              Why choose <span className="text-accent">TotalPMP</span>?
+              Why choose <span className="text-accent">TOTALPMP</span> for Your PMP® Journey?
             </h2>
             <p className="text-xl text-slate-500 mb-12 leading-relaxed font-medium opacity-80 max-w-xl">
-              We impart knowledge based on actual industrial situations, combining pedagogical expertise with deep-rooted project leadership.
+              At TOTALPMP, we deliver one of New Zealand’s, Australia’s and Asia's most comprehensive and industry-ready PMP® training programs, designed to help you pass on your first attempt and excel in real-world project environments.
             </p>
 
             <div className="grid sm:grid-cols-2 gap-6">

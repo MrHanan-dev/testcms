@@ -9,10 +9,11 @@ import { Metadata } from 'next';
 import CertificationHero from '@/components/CertificationHero';
 import BookingForm from '@/components/BookingForm';
 import Features from '@/components/Features';
+import CourseSuccessQuotes from '@/components/CourseSuccessQuotes';
 
 export const metadata: Metadata = {
-    title: "CAPM\u00ae Certification Training | Certified Associate in Project Management",
-    description: "Kickstart your project management career with the CAPM certification. Validate your understanding of the fundamental knowledge, terminology, and processes of effective project management.",
+    title: "PMI CAPM Certification Training | Certified Associate in Project Management",
+    description: "Launch your project management career with the CAPM certification. Ideal for students, graduates, and early-career professionals.",
 };
 
 export default function CapmPage() {
@@ -23,9 +24,9 @@ export default function CapmPage() {
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-teal-100/30 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
                 <CertificationHero
-                    title="CAPM Training"
-                    subtitle="Certified Associate in Project Management"
-                    description="Kickstart your career by validating your understanding of the fundamental knowledge, terminology, and processes of effective project management."
+                    title="CAPM Training – Certified Associate in Project Management"
+                    subtitle="Launch your career with the world's most prestigious entry-level project management certification."
+                    description="Kickstart your journey in project management by validating your understanding of the fundamental knowledge, terminology, and processes used by top professionals worldwide."
                     prev={{ name: "PMI-CP", href: "/pmicp" }}
                     next={{ name: "PMP", href: "/pmp" }}
                     gradientClass="from-primary to-primary-700"
@@ -36,55 +37,46 @@ export default function CapmPage() {
 
                 <div className="container-custom mt-20 space-y-24">
 
-                    <section id="details" className="grid md:grid-cols-2 gap-16 items-center">
-                        <div>
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/20 text-primary font-bold text-sm mb-6">
-                                <Award size={16} /> Foundations of PM
-                            </div>
-                            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6 leading-tight">
-                                Your Gateway to Project Management
+                    <section id="details" className="max-w-4xl mx-auto space-y-16">
+                        <div className="text-center space-y-6">
+                            <h2 className="text-3xl md:text-5xl font-black text-primary leading-tight">
+                                What is the CAPM® Certification?
                             </h2>
-                            <p className="text-slate-600 text-lg leading-relaxed mb-6">
-                                The Certified Associate in Project Management (CAPM)\u00ae is an essential first step in building a career as a project manager. It demonstrates your knowledge of the principles and terminology in the PMBOK\u00ae Guide.
-                            </p>
-                            <div className="space-y-4">
-                                {[
-                                    { title: "Stand Out Automatically", desc: "Shows your commitment to the profession and readiness to take on project-based responsibilities." },
-                                    { title: "Gateway to the PMP", desc: "CAPM certification fulfills the 35-hour education requirement needed to eventually sit for the PMP exam." },
-                                    { title: "Universal Fundamentals", desc: "Gain fundamental knowledge that can be applied to any industry or project methodology." },
-                                    { title: "Career Kickstarter", desc: "Ideal for recent graduates or those looking to pivot into project management roles." },
-                                ].map((item, i) => (
-                                    <div key={i} className="flex gap-4">
-                                        <div className="mt-1 bg-accent/20 text-primary p-1 rounded-full shrink-0">
-                                            <Check size={16} strokeWidth={3} />
-                                        </div>
-                                        <div>
-                                            <strong className="text-primary block mb-1">{item.title}</strong>
-                                            <span className="text-slate-600 text-sm leading-relaxed">{item.desc}</span>
-                                        </div>
-                                    </div>
-                                ))}
+                            <div className="text-slate-600 text-lg leading-relaxed space-y-6 text-left">
+                                <p>
+                                    The <strong>Certified Associate in Project Management (CAPM®)</strong> is a prestigious and globally recognised entry-level certification offered by the Project Management Institute (PMI®) — the world’s leading authority on project management.
+                                </p>
+                                <p>
+                                    The CAPM® credential is tailor-made for students, graduates, and early-career professionals who aspire to build a robust foundation in project management and distinguish themselves in today’s competitive job market.
+                                </p>
+                                <p>
+                                    Whether you’re a student looking to launch your career in project management, a graduate aiming to enhance your existing role, or an early-career professional preparing for advanced certifications like PMP®, the CAPM® is the ideal starting point. It proves that you possess the knowledge, discipline, and commitment to manage projects efficiently across any industry, regardless of your career stage.
+                                </p>
                             </div>
                         </div>
-                        <div className="relative">
-                            <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-primary/5 rounded-3xl transform rotate-3 scale-105 -z-10"></div>
-                            <div className="bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-slate-100">
-                                <h3 className="text-2xl font-bold text-primary border-b border-slate-100 pb-4 mb-6">Who Should Apply?</h3>
-                                <p className="text-slate-600 mb-6 text-sm">Perfect for individuals starting their journey or those wanting to formalize their basic PM knowledge.</p>
-                                <ul className="space-y-3">
-                                    {[
-                                        "Students & Recent Graduates",
-                                        "Junior Project Coordinators",
-                                        "Project Team Members",
-                                        "Career Changers",
-                                        "Entry-Level PMs",
-                                    ].map((audience, i) => (
-                                        <li key={i} className="flex items-center gap-3 text-slate-700 font-medium">
-                                            <div className="w-2 h-2 rounded-full bg-accent shrink-0"></div>
-                                            {audience}
-                                        </li>
-                                    ))}
-                                </ul>
+
+                        <div className="bg-white rounded-[40px] p-10 md:p-16 border-2 border-slate-100 shadow-sm">
+                            <h3 className="text-2xl font-black text-primary mb-8 underline decoration-accent decoration-4 underline-offset-8">CAPM® Eligibility Criteria</h3>
+                            <p className="text-slate-600 mb-8 font-medium">To be eligible to apply for the CAPM® exam, you must meet both of the following:</p>
+                            <div className="grid md:grid-cols-2 gap-10">
+                                <div className="space-y-4">
+                                    <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center text-white">
+                                        <Award size={24} />
+                                    </div>
+                                    <h4 className="text-xl font-bold">1. Educational Requirement</h4>
+                                    <p className="text-slate-500 text-sm leading-relaxed">
+                                        You must hold a secondary degree — such as a high school diploma, or global equivalent.
+                                    </p>
+                                </div>
+                                <div className="space-y-4">
+                                    <div className="w-12 h-12 bg-accent rounded-xl flex items-center justify-center text-white">
+                                        <BookOpen size={24} />
+                                    </div>
+                                    <h4 className="text-xl font-bold">2. Training Requirement</h4>
+                                    <p className="text-slate-500 text-sm leading-relaxed">
+                                        You must complete at least <strong>23 hours</strong> of project management education / formal training before taking the exam.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -200,6 +192,7 @@ export default function CapmPage() {
 
                     {/* Comparison / Why Choose Us */}
                     <Features />
+                    <CourseSuccessQuotes />
 
                     <section id="register" className="grid md:grid-cols-5 gap-16 items-start">
                         <div className="md:col-span-3">

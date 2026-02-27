@@ -7,8 +7,8 @@ import Link from 'next/link';
 
 const tabs = [
     { label: "Training", icon: GraduationCap, href: "/training" },
-    { label: "Costs", icon: Calculator, href: "/consulting" },
-    { label: "Consult", icon: Briefcase, href: "/consulting" },
+    { label: "Estimating", icon: Calculator, href: "/cost-estimation" },
+    { label: "PMO", icon: Briefcase, href: "/consulting" },
 ];
 
 const menuLinks = [
