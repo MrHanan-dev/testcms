@@ -1,6 +1,5 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import MobileNav from '@/components/MobileNav';
 import ServiceHero from '@/components/ServiceHero';
 import { Check, FileText, Scale, ShieldCheck, FileSearch, HelpCircle, Briefcase } from 'lucide-react';
 import { Metadata } from 'next';
@@ -59,7 +58,7 @@ export default function ContractManagementPage() {
 
     return (
         <>
-            <Header />
+            <Header variant="transparent" />
             <main className="min-h-screen bg-white">
                 <ServiceHero
                     title="Construction Contracts"
@@ -149,7 +148,6 @@ export default function ContractManagementPage() {
                 </section>
             </main>
             <Footer />
-            <MobileNav />
         </>
     );
 }

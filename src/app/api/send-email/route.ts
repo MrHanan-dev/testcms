@@ -28,7 +28,7 @@ export async function POST(req: Request) {
 
             const mailOptions: any = {
                 from: `TotalPMP Site <${process.env.GMAIL_USER}>`,
-                to: process.env.NOTIFICATION_EMAIL || 'info@totalqs.co.nz',
+                to: process.env.NOTIFICATION_EMAIL || 'info@totalpmp.co.nz',
                 subject: `Website Lead: ${data.formType}`,
                 attachments: data.files?.map((file: any) => ({
                     filename: file.name,

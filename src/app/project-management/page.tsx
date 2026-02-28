@@ -1,6 +1,5 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import MobileNav from '@/components/MobileNav';
 import ServiceHero from '@/components/ServiceHero';
 import { Check, Users, Target, Briefcase, BarChart3, ShieldCheck, Network, Layout, RefreshCw, Zap, Search, FileCheck, Star, Heart, Award, Globe } from 'lucide-react';
 import { Metadata } from 'next';
@@ -81,7 +80,7 @@ export default function ProjectManagementPage() {
 
     return (
         <>
-            <Header />
+            <Header variant="transparent" />
             <main className="min-h-screen bg-white">
                 <ServiceHero
                     title="Project Management"
@@ -213,7 +212,6 @@ export default function ProjectManagementPage() {
                 </section>
             </main>
             <Footer />
-            <MobileNav />
         </>
     );
 }

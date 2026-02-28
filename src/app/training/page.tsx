@@ -2,7 +2,6 @@ import Header from '@/components/Header';
 import FAQ from '@/components/FAQ';
 import TrainingSchedule from '@/components/TrainingSchedule';
 import Footer from '@/components/Footer';
-import MobileNav from '@/components/MobileNav';
 import ServiceHero from '@/components/ServiceHero';
 import { Check, BookOpen, Users, Globe, Award, Laptop, GraduationCap, ArrowRight, MessageSquare, Files, Search, Star } from 'lucide-react';
 import { Metadata } from 'next';
@@ -43,7 +42,7 @@ export default function TrainingPage() {
 
     return (
         <>
-            <Header />
+            <Header variant="transparent" />
             <main className="min-h-screen bg-white">
                 <ServiceHero
                     title="Professional Training"
@@ -168,7 +167,6 @@ export default function TrainingPage() {
             <TrainingSchedule />
             <FAQ />
             <Footer />
-            <MobileNav />
         </>
     );
 }

@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -31,7 +33,7 @@ export default function CertificationHero({
     downloadLink,
 }: CertificationHeroProps) {
     return (
-        <section className={`bg-gradient-to-r text-white pt-40 pb-24 px-6 lg:px-8 relative overflow-hidden ${gradientClass}`}>
+        <section className={`bg-gradient-to-r text-white pt-24 sm:pt-32 lg:pt-40 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden ${gradientClass}`}>
             <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10 pointer-events-none"></div>
 
             <div className="container-custom relative z-10 w-full">
@@ -51,7 +53,7 @@ export default function CertificationHero({
                                 <ChevronLeft className="w-8 h-8 sm:w-10 sm:h-10 group-hover:-translate-x-1 transition-transform" strokeWidth={2.5} />
                             </Link>
 
-                            <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight text-center tracking-tight">
+                            <h1 className="text-2xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight text-center tracking-tight px-2">
                                 {title}
                             </h1>
 
@@ -65,25 +67,28 @@ export default function CertificationHero({
                         </div>
 
                         {/* Subtitle */}
-                        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 text-white/95 max-w-3xl leading-snug">
+                        <h2 className="text-lg sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6 text-white/95 max-w-3xl leading-snug">
                             {subtitle}
                         </h2>
 
                         {/* Description */}
-                        <p className={`text-base sm:text-lg md:text-xl text-white/80 max-w-3xl mb-10 font-medium leading-relaxed ${badgeImage ? '' : 'mx-auto'}`}>
+                        <p className={`text-sm sm:text-lg md:text-xl text-white/80 max-w-3xl mb-8 sm:mb-10 font-medium leading-relaxed ${badgeImage ? '' : 'mx-auto'}`}>
                             {description}
                         </p>
 
                         {/* Buttons */}
                         <div className={`flex flex-wrap gap-4 ${badgeImage ? 'justify-start' : 'justify-center'}`}>
-                            <Link href="#enroll" className={`bg-white ${buttonColorText} hover:bg-slate-50 font-bold py-4 px-10 rounded-xl text-lg transition-transform hover:-translate-y-1 shadow-xl hover:shadow-2xl`}>
+                            <button
+                                onClick={() => document.getElementById('register')?.scrollIntoView({ behavior: 'smooth' })}
+                                className={`w-full sm:w-auto bg-white ${buttonColorText} hover:bg-slate-50 font-bold py-3 sm:py-4 px-8 sm:px-10 rounded-xl text-base sm:text-lg transition-transform hover:-translate-y-1 shadow-xl hover:shadow-2xl cursor-pointer`}
+                            >
                                 Enroll Now
-                            </Link>
+                            </button>
                             {downloadLink && (
                                 <a
                                     href={downloadLink}
                                     download
-                                    className={`bg-white/10 backdrop-blur-md text-white border border-white/20 font-bold py-4 px-8 rounded-full hover:bg-white/20 transition-all hover:shadow-lg hover:-translate-y-1 ${buttonColorText === "" ? "" : ""}`} // The color prop might be used inside differently, but we keep text-white for the hero area
+                                    className={`w-full sm:w-auto text-center bg-white/10 backdrop-blur-md text-white border border-white/20 font-bold py-3 sm:py-4 px-8 rounded-full hover:bg-white/20 transition-all hover:shadow-lg hover:-translate-y-1 text-base sm:text-lg`}
                                 >
                                     Download Course Outline
                                 </a>
@@ -93,21 +98,21 @@ export default function CertificationHero({
 
                     {/* Right Column (Badge Image) */}
                     {badgeImage && (
-                        <div className="hidden lg:flex lg:w-1/2 relative justify-center items-center h-full min-h-[400px]">
+                        <div className="absolute lg:relative inset-0 lg:w-1/2 flex justify-center items-center h-full min-h-[300px] mt-8 lg:mt-0 opacity-40 lg:opacity-100 -z-10 lg:z-0">
                             {/* Rotating Background Blob */}
                             <div className="absolute w-[140%] h-[140%] max-w-[600px] max-h-[600px] opacity-20 pointer-events-none transition-transform duration-[20s] ease-linear hover:opacity-30 mix-blend-screen">
                                 <Image
                                     src="/certifications/blob.webp"
                                     alt="Background Blob"
                                     fill
-                                    sizes="(max-width: 1024px) 100vw, 50vw"
-                                    className="object-contain animate-[spin_30s_linear_infinite]"
+                                    sizes="100vw"
+                                    className="object-cover sm:object-contain animate-[spin_30s_linear_infinite]"
                                     priority
                                 />
                             </div>
 
                             {/* Floating Badge Image */}
-                            <div className="relative z-10 w-full max-w-[380px] aspect-square animate-[bounce_4s_ease-in-out_infinite] drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)]">
+                            <div className="relative z-10 w-full max-w-[240px] sm:max-w-[380px] aspect-square animate-[bounce_4s_ease-in-out_infinite] drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)]">
                                 <Image
                                     src={badgeImage}
                                     alt={`${title} Badge`}

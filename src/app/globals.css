@@ -9,6 +9,11 @@
   --accent: #55c5e7;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);

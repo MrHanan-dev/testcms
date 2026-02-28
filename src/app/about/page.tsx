@@ -2,7 +2,6 @@ import Image from 'next/image';
 import Header from '@/components/Header';
 import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
-import MobileNav from '@/components/MobileNav';
 import EvolutionTimeline from '@/components/EvolutionTimeline';
 import { Target, Award, Users, BookOpen, Globe, ShieldCheck, Briefcase } from 'lucide-react';
 import type { Metadata } from 'next';
@@ -36,7 +35,7 @@ export default function AboutPage() {
 
     return (
         <>
-            <Header />
+            <Header variant="transparent" />
             <main className="min-h-screen bg-slate-50">
                 {/* Hero section specifically for About page */}
                 <section className="pt-40 pb-20 bg-[#0b3b5c] text-white relative overflow-hidden">
@@ -161,16 +160,7 @@ export default function AboutPage() {
 
                         <EvolutionTimeline />
 
-                        {/* High Fidelity Graphic Callout */}
-                        <div className="mt-32 max-w-5xl mx-auto rounded-[60px] overflow-hidden shadow-2xl border-8 border-white bg-white">
-                            <Image
-                                src="/images/pmbok_evolution_pro.png"
-                                alt="Professional PMBOK Evolution Infographic"
-                                width={1200}
-                                height={800}
-                                className="w-full h-auto"
-                            />
-                        </div>
+
                     </div>
                 </section>
             </main>
@@ -178,7 +168,6 @@ export default function AboutPage() {
             <CourseSuccessQuotes />
             <FAQ />
             <Footer />
-            <MobileNav />
         </>
     );
 }

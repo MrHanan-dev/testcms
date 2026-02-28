@@ -26,10 +26,10 @@ const slides: Slide[] = [
   },
   {
     src: "https://www.theagilenest.com/wp-content/uploads/2025/10/ag2-3.jpg",
-    alt: "Quantity Surveying and Cost Estimation",
-    tag: "Quantity Surveying",
-    headline: "Bid More. Win More.\nBuild Better with Total QS",
-    description: "Your reliable partner in Quantity Surveying, Cost Management, and successful project delivery across New Zealand.",
+    alt: "Expert Project Management Consulting",
+    tag: "Project Management",
+    headline: "Strategic Planning.\nPrecision Delivery. Total Control.",
+    description: "From inception to completion, we provide the leadership and expertise required to navigate high-stakes projects and achieve outstanding business outcomes.",
   },
   {
     src: "/images/Totalqsconsultant.jpeg",
@@ -41,10 +41,10 @@ const slides: Slide[] = [
   },
   {
     src: "/images/pmbok_evolution.jpeg",
-    alt: "Total QS - Bid More. Win More.",
+    alt: "TotalPMP Estimation services - Bid More. Win More.",
     tag: "Quantity Surveying",
-    headline: "Bid More. Win More.\nBuild Better with Total QS",
-    description: "Your reliable partner in Quantity Surveying, Cost Management, and successful project delivery.\n\nAt TotalQS, we make construction estimating and cost management simple, transparent, and stress-free. We act as your trusted partner in New Zealand's construction industry, helping builders, developers, and renovators complete their projects on time and within budget.",
+    headline: "Bid More. Win More.\nBuild Better with TotalPMP Estimation services",
+    description: "Your reliable partner in Quantity Surveying, Cost Management, and successful project delivery.\n\nAt TotalPMP Estimation services, we make construction estimating and cost management simple, transparent, and stress-free. We act as your trusted partner in New Zealand's construction industry, helping builders, developers, and renovators complete their projects on time and within budget.",
     isInfographic: true,
   },
   {
@@ -127,67 +127,71 @@ export default function Hero() {
               className="absolute inset-0 flex items-center justify-center bg-[#0B1D35]"
             >
               {/* Custom Collage Layout */}
-              <div className="w-full h-full max-w-[1920px] mx-auto relative overflow-hidden flex flex-col md:flex-row items-center justify-center gap-12 md:gap-24 p-10 pt-32">
+              <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[55%] flex items-center justify-center lg:justify-end p-0 sm:p-6 lg:pr-24 overflow-hidden pt-[50vh] lg:pt-0">
 
                 {/* Background Ambient Glows */}
                 <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[100px] pointer-events-none" />
                 <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-white/5 rounded-full blur-[80px] pointer-events-none" />
 
-                {/* Left side: Monogram / Tripic */}
-                <motion.div
-                  initial={{ opacity: 0, x: -50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-                  className="relative w-full max-w-[350px] md:max-w-[450px] aspect-square flex-shrink-0"
-                >
-                  <motion.div
-                    animate={{ y: [0, -10, 0] }}
-                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                    className="w-full h-full relative"
-                  >
-                    <Image src="/certifications/tripic.jpeg" alt="PMI Talent Triangle" fill className="object-contain drop-shadow-[0_0_25px_rgba(255,255,255,0.15)] mix-blend-screen opacity-90" unoptimized />
-                  </motion.div>
-                </motion.div>
+                {/* Certifications Collage */}
+                <div className="flex flex-col items-center justify-center gap-6 md:gap-10 z-10 w-full max-w-2xl mx-auto lg:mr-0 px-4">
 
-                {/* Right side: Certifications */}
-                <div className="flex flex-col items-center justify-center gap-12 z-10">
-                  <div className="flex items-center justify-center gap-6 md:gap-16">
+                  {/* Top Row: Certifications */}
+                  <div className="flex items-center justify-center gap-4 md:gap-12">
                     <motion.div
-                      initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                      initial={{ opacity: 0, y: 20, scale: 0.8 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
-                      transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-                      className="relative w-28 h-28 md:w-44 md:h-44 hover:scale-110 hover:-translate-y-2 transition-all duration-500 cursor-pointer drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]"
+                      transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
+                      className="relative w-16 h-16 sm:w-28 sm:h-28 md:w-36 md:h-36 hover:scale-110 hover:-translate-y-2 transition-all duration-500 cursor-pointer drop-shadow-[0_0_15px_rgba(255,255,255,0.15)]"
                     >
                       <Image src="/certifications/pmp.webp" alt="PMP Certification" fill className="object-contain" unoptimized />
                     </motion.div>
 
                     <motion.div
-                      initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                      initial={{ opacity: 0, y: 20, scale: 0.8 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
-                      transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
-                      className="relative w-28 h-28 md:w-44 md:h-44 hover:scale-110 hover:-translate-y-2 transition-all duration-500 cursor-pointer drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]"
+                      transition={{ duration: 0.7, delay: 0.6, ease: "easeOut" }}
+                      className="relative w-16 h-16 sm:w-28 sm:h-28 md:w-36 md:h-36 hover:scale-110 hover:-translate-y-2 transition-all duration-500 cursor-pointer drop-shadow-[0_0_15px_rgba(255,255,255,0.15)]"
                     >
                       <Image src="/certifications/capm.webp" alt="CAPM Certification" fill className="object-contain" unoptimized />
                     </motion.div>
 
                     <motion.div
-                      initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                      initial={{ opacity: 0, y: 20, scale: 0.8 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
-                      transition={{ duration: 0.8, delay: 1.0, ease: "easeOut" }}
-                      className="relative w-28 h-28 md:w-44 md:h-44 hover:scale-110 hover:-translate-y-2 transition-all duration-500 cursor-pointer drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]"
+                      transition={{ duration: 0.7, delay: 0.7, ease: "easeOut" }}
+                      className="relative w-16 h-16 sm:w-28 sm:h-28 md:w-36 md:h-36 hover:scale-110 hover:-translate-y-2 transition-all duration-500 cursor-pointer drop-shadow-[0_0_15px_rgba(255,255,255,0.15)]"
                     >
                       <Image src="/certifications/pmi-cp.webp" alt="PMI-CP Certification" fill className="object-contain" unoptimized />
                     </motion.div>
                   </div>
 
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 1, delay: 1.2, ease: "easeOut" }}
-                    className="relative w-56 h-24 md:w-72 md:h-28 mt-4 bg-white/5 backdrop-blur-md rounded-2xl p-4 border border-white/10 shadow-[0_0_30px_rgba(255,255,255,0.05)]"
-                  >
-                    <Image src="/certifications/pmi.jpeg" alt="PMI Authorized Training Partner" fill className="object-contain p-2 mix-blend-screen" unoptimized />
-                  </motion.div>
+                  {/* Middle Row: Talent Triangle & ATP */}
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-12 w-full">
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
+                      className="relative w-24 h-24 sm:w-40 sm:h-40 md:w-52 md:h-52 hover:scale-105 transition-transform duration-500 cursor-pointer"
+                    >
+                      <Image
+                        src="/certifications/tripic.jpeg"
+                        alt="PMI Talent Triangle"
+                        fill
+                        className="object-contain drop-shadow-[0_0_25px_rgba(255,255,255,0.1)]"
+                        unoptimized
+                      />
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.8, delay: 1.1, ease: "easeOut" }}
+                      className="relative w-40 h-16 sm:w-56 sm:h-24 md:w-64 md:h-28 bg-white/5 backdrop-blur-md rounded-2xl p-3 border border-white/10 shadow-[0_0_30px_rgba(255,255,255,0.05)]"
+                    >
+                      <Image src="/certifications/pmi.jpeg" alt="PMI Authorized Training Partner" fill className="object-contain p-2 mix-blend-screen" unoptimized />
+                    </motion.div>
+                  </div>
                 </div>
 
                 {/* Subtle Watermark */}
@@ -212,7 +216,7 @@ export default function Hero() {
                 src={slide.src}
                 alt={slide.alt}
                 fill
-                className={slide.isInfographic ? "object-contain" : "object-cover"}
+                className={slide.isInfographic ? "object-cover lg:object-contain" : "object-cover"}
                 sizes="100vw"
                 priority={current === 0}
                 unoptimized
@@ -236,13 +240,13 @@ export default function Hero() {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="max-w-3xl bg-primary/40 backdrop-blur-md p-10 md:p-14 rounded-[32px] border border-white/10 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)] relative overflow-hidden"
+              className="max-w-3xl bg-primary/40 backdrop-blur-md p-6 sm:p-10 md:p-14 rounded-[32px] border border-white/10 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)] relative overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none" />
               {/* Tag */}
               <motion.span
                 variants={itemVariants}
-                className="label-tag mb-8 block w-fit border-white/10 bg-white/5"
+                className="label-tag mb-4 sm:mb-8 block w-fit border-white/10 bg-white/5"
               >
                 {slide.tag}
               </motion.span>
@@ -258,7 +262,7 @@ export default function Hero() {
               {/* Description */}
               <motion.p
                 variants={itemVariants}
-                className="text-white/70 text-[clamp(15px,1.2vw,18px)] leading-[1.75] mb-10 max-w-lg"
+                className="text-white/70 text-[14px] sm:text-[clamp(15px,1.2vw,18px)] leading-relaxed sm:leading-[1.75] mb-8 sm:mb-10 max-w-lg"
               >
                 {slide.description}
               </motion.p>
