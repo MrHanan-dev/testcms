@@ -2,13 +2,13 @@ import Header from '@/components/Header';
 import FAQ from '@/components/FAQ';
 import TrainingSchedule from '@/components/TrainingSchedule';
 import Footer from '@/components/Footer';
-import MobileNav from '@/components/MobileNav';
 import CertificationHero from '@/components/CertificationHero';
-import { Check, HardHat, BookOpen, Users, Target, Clock, Layout, Award, Briefcase, Send } from 'lucide-react';
+import { Check, HardHat, BookOpen, Users, Target, Clock, Layout, Award, Briefcase, Send, Globe } from 'lucide-react';
 import Link from 'next/link';
 import BookingForm from '@/components/BookingForm';
 import Features from '@/components/Features';
 import CourseSuccessQuotes from '@/components/CourseSuccessQuotes';
+import ScrollButton from '@/components/ScrollButton';
 
 export const metadata = {
     title: "PMI Construction Professional (PMI-CP)® Certification",
@@ -18,8 +18,8 @@ export const metadata = {
 export default function PmiCpPage() {
     return (
         <>
-            <Header />
-            <main className="pb-24 min-h-screen bg-slate-50 relative overflow-hidden">
+            <Header variant="transparent" />
+            <main className="min-h-screen bg-slate-50 relative overflow-hidden">
                 {/* Background decorative elements */}
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-amber-100/30 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
@@ -91,6 +91,70 @@ export default function PmiCpPage() {
                         </div>
                     </section>
 
+                    {/* ── PMI-CP Eligibility Requirements ── */}
+                    <section className="bg-white rounded-3xl border border-slate-100 shadow-sm p-10 md:p-14">
+                        <div className="mb-10">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/20 text-primary font-bold text-sm mb-4">
+                                <Check size={16} /> Eligibility Requirements
+                            </div>
+                            <h2 className="text-3xl md:text-4xl font-black text-primary mb-3">Who Can Apply for the PMI-CP?</h2>
+                            <p className="text-slate-500 text-lg font-medium max-w-2xl">
+                                The PMI-CP requires construction-specific project experience. Choose the pathway matching your education background.
+                            </p>
+                        </div>
+
+                        <div className="grid md:grid-cols-2 gap-6 mb-10">
+                            {/* Track 1 */}
+                            <div className="rounded-2xl border-2 border-accent/30 bg-accent/5 p-8 flex flex-col gap-5">
+                                <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center text-primary font-black text-lg">1</div>
+                                <div>
+                                    <h3 className="text-xl font-black text-primary mb-1">Secondary Diploma Track</h3>
+                                    <p className="text-slate-500 text-sm font-medium">(High school diploma / GED equivalent)</p>
+                                </div>
+                                <ul className="space-y-3">
+                                    {[
+                                        "Secondary diploma (high school or equivalent)",
+                                        "35 contact hours of construction PM education",
+                                        "60 months (5 years) of construction project experience",
+                                    ].map((req, i) => (
+                                        <li key={i} className="flex items-start gap-3 text-slate-700 font-medium text-sm">
+                                            <div className="mt-1 bg-accent/30 text-primary p-0.5 rounded-full shrink-0"><Check size={14} strokeWidth={3} /></div>
+                                            {req}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            {/* Track 2 */}
+                            <div className="rounded-2xl border-2 border-primary/20 bg-primary/5 p-8 flex flex-col gap-5">
+                                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-black text-lg">2</div>
+                                <div>
+                                    <h3 className="text-xl font-black text-primary mb-1">Degree Track</h3>
+                                    <p className="text-slate-500 text-sm font-medium">(Construction, engineering or related field)</p>
+                                </div>
+                                <ul className="space-y-3">
+                                    {[
+                                        "Bachelor's or associate degree in construction or related field",
+                                        "35 contact hours of construction PM education",
+                                        "36 months (3 years) of construction project experience",
+                                    ].map((req, i) => (
+                                        <li key={i} className="flex items-start gap-3 text-slate-700 font-medium text-sm">
+                                            <div className="mt-1 bg-primary/20 text-primary p-0.5 rounded-full shrink-0"><Check size={14} strokeWidth={3} /></div>
+                                            {req}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 flex items-start gap-4">
+                            <Globe size={22} className="text-accent shrink-0 mt-0.5" />
+                            <p className="text-slate-600 font-medium text-sm leading-relaxed">
+                                <strong className="text-primary">Good news:</strong> Our PMI-CP training course fulfils the <strong className="text-primary">35 contact hours</strong> requirement for both tracks. Construction experience must be documented in your PMI application.
+                            </p>
+                        </div>
+                    </section>
+
                     {/* Curriculum / Syllabus & Features - matches PMP/CAPM 3+2 grid */}
                     <section className="grid lg:grid-cols-5 gap-12">
                         <div className="lg:col-span-3">
@@ -146,36 +210,82 @@ export default function PmiCpPage() {
                             </div>
                         </div>
 
-                        <div className="lg:col-span-2">
-                            <h2 className="text-3xl font-bold text-primary mb-8">Key Course Features</h2>
-                            <ul className="space-y-6">
-                                {[
-                                    { title: "35+ Hours Training", icon: Clock, desc: "Comprehensive coverage of all 4 course modules and learning domains." },
-                                    { title: "Expert Practitioners", icon: Users, desc: "Delivered by PMI-CP® certified construction professionals." },
-                                    { title: "Course Materials", icon: Layout, desc: "Slideware, 30+ PM templates, and PMI's official learning materials." },
-                                    { title: "Mock Exams", icon: Target, desc: "Full-length mock exam plus additional topic-specific questions." },
-                                    { title: "Application Support", icon: BookOpen, desc: "Assistance with exam booking and preparation guidance." },
-                                    { title: "Attendance Certificate", icon: Award, desc: "Proof of course completion for your certification application." },
-                                ].map((feature) => (
-                                    <li key={feature.title} className="flex gap-4 group">
-                                        <div className="bg-white border border-slate-100 shadow-sm p-3 rounded-xl text-primary shrink-0 h-14 w-14 flex items-center justify-center group-hover:bg-accent/10 transition-colors">
-                                            <feature.icon size={24} strokeWidth={1.5} />
+                        {/* Right side - What you get & Exam Format */}
+                        <div className="lg:col-span-2 space-y-8">
+                            <div className="bg-primary rounded-3xl p-8 md:p-10 text-white relative overflow-hidden">
+                                <div className="absolute top-0 right-0 w-64 h-64 bg-accent/20 rounded-full blur-3xl -mr-20 -mt-20"></div>
+
+                                <h3 className="text-2xl font-bold mb-6 relative z-10">What's Included</h3>
+                                <ul className="space-y-5 relative z-10">
+                                    {[
+                                        "35+ Hours of Live Expert-led Training",
+                                        "Official PMI® Authorized Training Content",
+                                        "PMI-CP Mock Exams & Questions",
+                                        "PMI Application Assistance",
+                                        "Post-Training Support till Certification",
+                                        "100% Exam Pass Guarantee (T&Cs Apply)"
+                                    ].map((item, i) => (
+                                        <li key={i} className="flex items-start gap-4">
+                                            <div className="mt-1 bg-accent/20 text-accent p-1 rounded-full shrink-0">
+                                                <Check size={14} strokeWidth={3} />
+                                            </div>
+                                            <span className="font-medium">{item}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+
+                                <ScrollButton
+                                    targetId="register"
+                                    className="w-full mt-10 bg-accent hover:bg-accent-hover text-white font-bold py-4 rounded-xl transition-all hover:shadow-lg hover:-translate-y-1 relative z-10"
+                                >
+                                    Download Full Syllabus
+                                </ScrollButton>
+                            </div>
+
+                            {/* Exam Format Box */}
+                            <div className="bg-slate-50 border border-slate-200 rounded-3xl p-8 md:p-10">
+                                <h3 className="text-2xl font-bold text-primary mb-6">PMI-CP® Exam Format</h3>
+                                <ul className="space-y-5">
+                                    <li className="flex items-start gap-4">
+                                        <div className="w-10 h-10 rounded-lg bg-white shadow-sm flex items-center justify-center text-accent shrink-0 border border-slate-100">
+                                            <Target size={20} />
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-primary text-lg">{feature.title}</h4>
-                                            <p className="text-slate-500 text-sm leading-relaxed">{feature.desc}</p>
+                                            <p className="font-bold text-primary">170 Questions</p>
+                                            <p className="text-slate-500 text-sm">Scenario-based multiple-choice (150 scored, 20 unscored)</p>
                                         </div>
                                     </li>
-                                ))}
-                            </ul>
+                                    <li className="flex items-start gap-4">
+                                        <div className="w-10 h-10 rounded-lg bg-white shadow-sm flex items-center justify-center text-accent shrink-0 border border-slate-100">
+                                            <Clock size={20} />
+                                        </div>
+                                        <div>
+                                            <p className="font-bold text-primary">230 Minutes</p>
+                                            <p className="text-slate-500 text-sm">Total exam duration (3 hours 50 minutes). Two 10-minute breaks available.</p>
+                                        </div>
+                                    </li>
+                                    <li className="flex items-start gap-4">
+                                        <div className="w-10 h-10 rounded-lg bg-white shadow-sm flex items-center justify-center text-accent shrink-0 border border-slate-100">
+                                            <Layout size={20} />
+                                        </div>
+                                        <div>
+                                            <p className="font-bold text-primary">Exam Structure</p>
+                                            <p className="text-slate-500 text-sm">4 Domains: Fundamentals, Contract, Stakeholder, Execution</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </section>
 
-                    {/* Why Train with TotalPMPro Section */}
+                    {/* Why Train with TotalPMP Section */}
                     <section className="bg-white rounded-3xl p-10 md:p-16 border border-slate-100 shadow-sm mt-24 text-center">
                         <div className="max-w-3xl mx-auto mb-16">
-                            <span className="text-accent font-extrabold tracking-[0.2em] uppercase text-[10px] mb-4 block">TotalPMPro Advantage</span>
-                            <h2 className="text-3xl md:text-4xl font-black text-primary mb-6">Why Train with TotalPMPro</h2>
+                            <span className="text-accent font-extrabold tracking-[0.2em] uppercase text-[10px] mb-4 block">TotalPMP Advantage</span>
+                            <h2 className="text-3xl md:text-4xl font-black text-primary mb-6">Why Train with TotalPMP</h2>
+                            <p className="text-slate-600 text-lg leading-relaxed font-medium mb-4">
+                                We are a Premium Authorized Training Partner (A.T.P.) for the global Project Management Institute (PMI).
+                            </p>
                             <p className="text-slate-600 text-lg leading-relaxed">
                                 We have been supporting project managers to attain their PMI® certifications. The combination of our training methods, facilitators, self-study, and collaboration has resulted in ongoing success.
                             </p>
@@ -241,7 +351,6 @@ export default function PmiCpPage() {
             <TrainingSchedule />
             <FAQ />
             <Footer />
-            <MobileNav />
         </>
     );
 }

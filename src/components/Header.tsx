@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import {
   Menu, X, ChevronDown, GraduationCap, ShieldCheck,
-  Layers, Users, Briefcase, Target,
+  Layers, Users, Briefcase, Target, BookOpen,
   FileSearch, Building2, Phone, Mail, Globe, ArrowRight
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -23,16 +23,6 @@ const DROPDOWN_VARIANTS = {
 
 const navCategories = [
   {
-    title: 'Training',
-    href: '/training',
-    items: [
-      { name: 'PMP® Certification', desc: 'Expert-led preparation for the PMP exam.', icon: GraduationCap, href: '/pmp' },
-      { name: 'CAPM® Foundation', desc: 'Core principles for aspiring PMs.', icon: ShieldCheck, href: '/capm' },
-      { name: 'PMI-CP® Construction', desc: 'Specialized construction professional.', icon: Building2, href: '/pmicp' },
-      { name: 'Corporate Workshops', desc: 'Custom training for teams.', icon: Users, href: '/training' },
-    ]
-  },
-  {
     title: 'Consultancy',
     href: '/consulting',
     items: [
@@ -44,11 +34,29 @@ const navCategories = [
     ]
   },
   {
+    title: 'Training',
+    href: '/training',
+    items: [
+      { name: 'PMP® Certification', desc: 'Expert-led preparation for the PMP exam.', icon: GraduationCap, href: '/pmp' },
+      { name: 'CAPM® Foundation', desc: 'Core principles for aspiring PMs.', icon: ShieldCheck, href: '/capm' },
+      { name: 'PMI-CP® Construction', desc: 'Specialized construction professional.', icon: Building2, href: '/pmicp' },
+      { name: 'Corporate Workshops', desc: 'Custom training for teams.', icon: Users, href: '/training' },
+    ]
+  },
+  {
+    title: 'Blogs',
+    href: '/blog',
+    items: [
+      { name: 'Latest Blogs', desc: 'Insights and trends in PM.', icon: BookOpen, href: '/blog' },
+    ]
+  },
+  {
     title: 'About',
     href: '/about',
     items: [
       { name: 'Our Story', desc: '17 years of passion and purpose.', icon: Users, href: '/about' },
-      { name: 'Our Evolution', desc: 'From PMBOK 3rd to 8th Edition.', icon: Target, href: '/about#evolution' },
+      { name: 'Our Evolution', desc: 'Professional journey and milestones.', icon: Target, href: '/about#evolution' },
+      { name: 'Become a Partner', desc: 'Join our premium training network.', icon: Globe, href: '/partner' },
     ]
   }
 ];
@@ -116,7 +124,7 @@ function NavLink({ category, isScrolled, isActive, onMouseEnter, onMouseLeave }:
   );
 }
 
-export default function Header() {
+export default function Header({ variant = "solid" }: { variant?: "solid" | "transparent" }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -137,11 +145,15 @@ export default function Header() {
     dropdownTimeout.current = setTimeout(() => setActiveDropdown(null), 150);
   };
 
+  const isTransparent = variant === "transparent" && !isScrolled;
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
         ? 'bg-white border-b border-slate-200 py-3 shadow-sm'
-        : 'bg-primary py-4 shadow-lg'
+        : isTransparent
+          ? 'bg-transparent py-5'
+          : 'bg-primary py-4 shadow-lg'
         }`}
     >
       <div className="container-custom flex items-center justify-between">

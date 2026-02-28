@@ -1,5 +1,5 @@
 ---
-description: how to deploy TotalPMPro to Vercel
+description: how to deploy TotalPMP to Vercel
 ---
 
 # Deployment Workflow

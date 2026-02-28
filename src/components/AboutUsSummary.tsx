@@ -152,15 +152,7 @@ export default function AboutUsSummary() {
                         </p>
                     </div>
 
-                    <div className="w-full max-w-5xl mx-auto rounded-[40px] overflow-hidden shadow-2xl relative border-4 border-white/5 group">
-                        <Image
-                            src="/images/pmbok_evolution_pro.png"
-                            alt="Our Evolution in Project Management"
-                            width={1920}
-                            height={1080}
-                            className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-1000"
-                        />
-                    </div>
+
 
                     <div className="text-center mt-12">
                         <Link

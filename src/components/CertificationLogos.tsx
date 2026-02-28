@@ -4,7 +4,7 @@ import { Award, Briefcase, HardHat } from 'lucide-react';
 
 const certifications = [
     {
-        name: "PMP\u00ae",
+        name: "PMP",
         title: "Project Management Professional",
         href: "/pmp",
         color: "from-blue-500 to-blue-700",
@@ -13,7 +13,7 @@ const certifications = [
         image: "/certifications/pmp.webp"
     },
     {
-        name: "CAPM\u00ae",
+        name: "CAPM",
         title: "Certified Associate in Project Management",
         href: "/capm",
         color: "from-teal-500 to-teal-700",
@@ -22,7 +22,7 @@ const certifications = [
         image: "/certifications/capm.webp"
     },
     {
-        name: "PMI-CP\u00ae",
+        name: "PMI-CP",
         title: "PMI Construction Professional",
         href: "/pmicp",
         color: "from-amber-600 to-amber-800",

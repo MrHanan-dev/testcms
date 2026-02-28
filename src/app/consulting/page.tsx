@@ -1,7 +1,6 @@
 import Header from '@/components/Header';
 import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
-import MobileNav from '@/components/MobileNav';
 import ServiceHero from '@/components/ServiceHero';
 import { Check, ShieldCheck, TrendingUp, Settings2, BarChart3, Briefcase, Search, Activity, Users, LayoutList, Layers, FileSearch } from 'lucide-react';
 import { Metadata } from 'next';
@@ -59,7 +58,7 @@ export default function ConsultingPage() {
 
     return (
         <>
-            <Header />
+            <Header variant="transparent" />
             <main className="min-h-screen bg-white">
                 <ServiceHero
                     title="Consulting"
@@ -150,7 +149,6 @@ export default function ConsultingPage() {
             </main>
             <FAQ />
             <Footer />
-            <MobileNav />
         </>
     );
 }

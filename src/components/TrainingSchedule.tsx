@@ -42,7 +42,7 @@ const schedules = [
         time: "9:00 AM - 5:00 PM (NZDT)",
         format: "Live Virtual",
         status: "Filling Fast",
-        link: "#contact"
+        link: "#register"
     },
     {
         month: "April 2026",
@@ -51,7 +51,7 @@ const schedules = [
         time: "9:00 AM - 5:00 PM (NZDT)",
         format: "Live Virtual",
         status: "Open",
-        link: "#contact"
+        link: "#register"
     },
     {
         month: "May 2026",
@@ -60,7 +60,7 @@ const schedules = [
         time: "9:00 AM - 5:00 PM (NZDT)",
         format: "Live Virtual",
         status: "Open",
-        link: "#contact"
+        link: "#register"
     },
     {
         month: "May 2026",
@@ -69,7 +69,7 @@ const schedules = [
         time: "9:00 AM - 5:00 PM (NZDT)",
         format: "Live Virtual",
         status: "Open",
-        link: "#contact"
+        link: "#register"
     }
 ];
 
@@ -138,13 +138,13 @@ export default function TrainingSchedule() {
                                 </div>
                             </div>
 
-                            <Link
-                                href={schedule.link}
-                                className="inline-flex items-center gap-2 text-primary font-bold hover:text-accent transition-colors group/link w-full py-4 border-t border-slate-50"
+                            <button
+                                onClick={() => document.getElementById('register')?.scrollIntoView({ behavior: 'smooth' })}
+                                className="inline-flex items-center gap-2 text-primary font-bold hover:text-accent transition-colors group/link w-full py-4 border-t border-slate-50 cursor-pointer"
                             >
                                 Enroll Now
                                 <ArrowRight size={18} className="group-hover/link:translate-x-1 transition-transform" />
-                            </Link>
+                            </button>
                         </motion.div>
                     ))}
                 </motion.div>

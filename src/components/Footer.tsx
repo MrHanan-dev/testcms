@@ -22,8 +22,9 @@ const footerLinks = {
   ],
   resources: [
     { label: "Case Studies", href: "#" },
-    { label: "Blog", href: "#" },
+    { label: "Blog", href: "/blog" },
     { label: "About Us", href: "/about" },
+    { label: "Become a Partner", href: "/partner" },
   ],
 };
 
@@ -159,8 +160,8 @@ export default function Footer() {
                   </li>
                   <li className="flex gap-3 text-[14px] font-medium">
                     <Mail size={18} className="text-accent shrink-0" />
-                    <a href="mailto:info@totalqs.co.nz" className="hover:text-accent text-[14px] break-all transition-colors">
-                      info@totalqs.co.nz
+                    <a href="mailto:info@totalpmp.co.nz" className="hover:text-accent text-[14px] break-all transition-colors">
+                      info@totalpmp.co.nz
                     </a>
                   </li>
                 </ul>

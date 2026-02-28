@@ -14,6 +14,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
+    metadataBase: new URL("https://totalpmp.co.nz"),
     title: {
         template: '%s | TotalPMP',
         default: 'Total PMP - Project Management, Cost Estimation & Professional Training',
