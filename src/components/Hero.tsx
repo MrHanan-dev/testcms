@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import ContactLink from './ContactLink';
 
 type Slide = {
   src: string;
@@ -18,14 +19,14 @@ type Slide = {
 
 const slides: Slide[] = [
   {
-    src: "https://www.theagilenest.com/wp-content/uploads/2025/10/ag1-3.jpg",
-    alt: "Professional training session backdrop from AgileNest",
+    src: "https://www.theTotalPMPnest.com/wp-content/uploads/2025/10/ag1-3.jpg",
+    alt: "Professional training session backdrop from TotalPMPNest",
     tag: "Professional Training",
-    headline: "Hands-On Training.\nReal Results. Certified Success.",
-    description: "Gain practical, hands-on experience with AgileNest’s expert-led project management courses. Our proven methods ensure you not only pass your exams but also excel in real-world projects.",
+    headline: "Hands On Training.\nReal Results. Certified Success.",
+    description: "Gain practical, hands-on experience with TotalPMPNest’s expert-led project management courses. Our proven methods ensure you not only pass your exams but also excel in real-world projects.",
   },
   {
-    src: "https://www.theagilenest.com/wp-content/uploads/2025/10/ag2-3.jpg",
+    src: "https://www.theTotalPMPnest.com/wp-content/uploads/2025/10/ag2-3.jpg",
     alt: "Expert Project Management Consulting",
     tag: "Project Management",
     headline: "Strategic Planning.\nPrecision Delivery. Total Control.",
@@ -41,7 +42,7 @@ const slides: Slide[] = [
   },
   {
     src: "/images/pmbok_evolution.jpeg",
-    alt: "TotalPMP Estimation services - Bid More. Win More.",
+    alt: "TotalPMP Estimation services. Bid More. Win More.",
     tag: "Quantity Surveying",
     headline: "Bid More. Win More.\nBuild Better with TotalPMP Estimation services",
     description: "Your reliable partner in Quantity Surveying, Cost Management, and successful project delivery.\n\nAt TotalPMP Estimation services, we make construction estimating and cost management simple, transparent, and stress-free. We act as your trusted partner in New Zealand's construction industry, helping builders, developers, and renovators complete their projects on time and within budget.",
@@ -49,10 +50,10 @@ const slides: Slide[] = [
   },
   {
     src: "", // No src needed for collage as it's built with CSS
-    alt: "Globally Recognized Certifications - PMP, CAPM, PMI-CP",
+    alt: "Globally Recognized Certifications: PMP, CAPM, PMI-CP",
     tag: "Certifications",
     headline: "Globally Recognized\nCredentials.",
-    description: "Elevate your career with industry-leading certifications. We provide comprehensive preparation for PMP®, CAPM®, and PMI-CP® exams.",
+    description: "Elevate your career with industry leading certifications. We provide comprehensive preparation for PMP®, CAPM®, and PMI-CP® exams.",
     isCollage: true,
   },
 ];
@@ -124,86 +125,55 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1.5 }}
-              className="absolute inset-0 flex items-center justify-center bg-[#0B1D35]"
+              className="absolute inset-0 bg-[#0B1D35] overflow-hidden"
             >
-              {/* Custom Collage Layout */}
-              <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[55%] flex items-center justify-center lg:justify-end p-0 sm:p-6 lg:pr-24 overflow-hidden pt-[50vh] lg:pt-0">
-
-                {/* Background Ambient Glows */}
-                <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[100px] pointer-events-none" />
-                <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-white/5 rounded-full blur-[80px] pointer-events-none" />
-
-                {/* Certifications Collage */}
-                <div className="flex flex-col items-center justify-center gap-6 md:gap-10 z-10 w-full max-w-2xl mx-auto lg:mr-0 px-4">
-
-                  {/* Top Row: Certifications */}
-                  <div className="flex items-center justify-center gap-4 md:gap-12">
+              {/* Mosaic wallpaper   all 5 certs tiled in a 6×5 grid to cover the full hero */}
+              <motion.div
+                animate={{ x: [0, -80], y: [0, -60] }}
+                transition={{ duration: 25, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
+                className="absolute gap-3 p-2"
+                style={{
+                  inset: "-10%",
+                  display: "grid",
+                  gridTemplateColumns: "repeat(6, 1fr)",
+                  gridTemplateRows: "repeat(5, 1fr)",
+                  width: "120%",
+                  height: "120%",
+                }}
+              >
+                {Array.from({ length: 30 }).map((_, i) => {
+                  const certs = [
+                    { src: "/certifications/pmp.webp", alt: "PMP" },
+                    { src: "/certifications/capm.webp", alt: "CAPM" },
+                    { src: "/certifications/pmi-cp.webp", alt: "PMI-CP" },
+                    { src: "/certifications/tripic.jpeg", alt: "Talent Triangle" },
+                    { src: "/certifications/pmi.jpeg", alt: "PMI ATP" },
+                  ];
+                  const cert = certs[i % certs.length];
+                  return (
                     <motion.div
-                      initial={{ opacity: 0, y: 20, scale: 0.8 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
-                      className="relative w-16 h-16 sm:w-28 sm:h-28 md:w-36 md:h-36 hover:scale-110 hover:-translate-y-2 transition-all duration-500 cursor-pointer drop-shadow-[0_0_15px_rgba(255,255,255,0.15)]"
-                    >
-                      <Image src="/certifications/pmp.webp" alt="PMP Certification" fill className="object-contain" unoptimized />
-                    </motion.div>
-
-                    <motion.div
-                      initial={{ opacity: 0, y: 20, scale: 0.8 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      transition={{ duration: 0.7, delay: 0.6, ease: "easeOut" }}
-                      className="relative w-16 h-16 sm:w-28 sm:h-28 md:w-36 md:h-36 hover:scale-110 hover:-translate-y-2 transition-all duration-500 cursor-pointer drop-shadow-[0_0_15px_rgba(255,255,255,0.15)]"
-                    >
-                      <Image src="/certifications/capm.webp" alt="CAPM Certification" fill className="object-contain" unoptimized />
-                    </motion.div>
-
-                    <motion.div
-                      initial={{ opacity: 0, y: 20, scale: 0.8 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      transition={{ duration: 0.7, delay: 0.7, ease: "easeOut" }}
-                      className="relative w-16 h-16 sm:w-28 sm:h-28 md:w-36 md:h-36 hover:scale-110 hover:-translate-y-2 transition-all duration-500 cursor-pointer drop-shadow-[0_0_15px_rgba(255,255,255,0.15)]"
-                    >
-                      <Image src="/certifications/pmi-cp.webp" alt="PMI-CP Certification" fill className="object-contain" unoptimized />
-                    </motion.div>
-                  </div>
-
-                  {/* Middle Row: Talent Triangle & ATP */}
-                  <div className="flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-12 w-full">
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.8 }}
+                      key={i}
+                      initial={{ opacity: 0, scale: 0.85 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
-                      className="relative w-24 h-24 sm:w-40 sm:h-40 md:w-52 md:h-52 hover:scale-105 transition-transform duration-500 cursor-pointer"
+                      transition={{ duration: 0.5, delay: i * 0.03, ease: "easeOut" }}
+                      className="flex items-center justify-center bg-white/[0.04] rounded-xl border border-white/[0.08] p-3"
                     >
                       <Image
-                        src="/certifications/tripic.jpeg"
-                        alt="PMI Talent Triangle"
-                        fill
-                        className="object-contain drop-shadow-[0_0_25px_rgba(255,255,255,0.1)]"
+                        src={cert.src}
+                        alt={cert.alt}
+                        width={160}
+                        height={160}
+                        className="w-full h-full object-contain opacity-75"
                         unoptimized
                       />
                     </motion.div>
+                  );
+                })}
+              </motion.div>
 
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.8, delay: 1.1, ease: "easeOut" }}
-                      className="relative w-40 h-16 sm:w-56 sm:h-24 md:w-64 md:h-28 bg-white/5 backdrop-blur-md rounded-2xl p-3 border border-white/10 shadow-[0_0_30px_rgba(255,255,255,0.05)]"
-                    >
-                      <Image src="/certifications/pmi.jpeg" alt="PMI Authorized Training Partner" fill className="object-contain p-2 mix-blend-screen" unoptimized />
-                    </motion.div>
-                  </div>
-                </div>
-
-                {/* Subtle Watermark */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 0.2 }}
-                  transition={{ duration: 2, delay: 1.5 }}
-                  className="absolute bottom-10 right-10 w-48 h-12 pointer-events-none brightness-0 invert"
-                >
-                  <Image src="/logo.png" alt="Total PMP watermark" fill className="object-contain" unoptimized />
-                </motion.div>
-              </div>
+              {/* Gradient overlays so hero text stays legible */}
+              <div className="absolute inset-0 bg-gradient-to-r from-[#0B1D35]/95 via-[#0B1D35]/60 to-[#0B1D35]/25" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B1D35]/80 via-transparent to-[#0B1D35]/50" />
             </motion.div>
           ) : (
             <motion.div
@@ -227,8 +197,8 @@ export default function Hero() {
       </AnimatePresence>
 
       {/* Gradient overlays */}
-      <div className={`absolute inset-0 z-10 pointer-events-none ${slide.isCollage ? 'bg-gradient-to-r from-black/60 to-transparent' : 'bg-gradient-to-r from-[#0B1D35]/90 via-[#0B1D35]/55 to-[#0B1D35]/20'}`} />
-      <div className={`absolute inset-0 z-10 pointer-events-none ${slide.isCollage ? 'bg-gradient-to-t from-black/40 to-transparent' : 'bg-gradient-to-t from-[#0B1D35]/50 via-transparent to-[#0B1D35]/30'}`} />
+      <div className={`absolute inset-0 z-10 pointer-events-none ${slide.isCollage ? 'bg-gradient-to-r from-[#0B1D35]/90 via-[#0B1D35]/50 to-transparent' : 'bg-gradient-to-r from-[#0B1D35]/90 via-[#0B1D35]/55 to-[#0B1D35]/20'}`} />
+      <div className={`absolute inset-0 z-10 pointer-events-none ${slide.isCollage ? 'bg-gradient-to-t from-[#0B1D35]/70 via-transparent to-[#0B1D35]/40' : 'bg-gradient-to-t from-[#0B1D35]/50 via-transparent to-[#0B1D35]/30'}`} />
 
       {/* Content */}
       <div className="relative z-20 h-full flex items-center">
@@ -269,13 +239,12 @@ export default function Hero() {
 
               {/* CTA Buttons */}
               <motion.div variants={itemVariants} className="flex flex-wrap gap-3">
-                <Link
-                  href="#contact"
+                <ContactLink
                   className="group inline-flex items-center gap-2 px-7 py-3.5 bg-accent text-primary text-[14px] font-semibold rounded-md hover:bg-accent/90 transition-all duration-300"
                 >
                   Discover More
                   <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform duration-300" />
-                </Link>
+                </ContactLink>
                 <Link
                   href="#services"
                   className="inline-flex items-center px-7 py-3.5 bg-white/[0.08] backdrop-blur-sm border border-white/[0.12] text-white/80 text-[14px] font-medium rounded-md hover:bg-white/[0.14] hover:text-white transition-all duration-300"

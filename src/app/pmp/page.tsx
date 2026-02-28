@@ -11,6 +11,7 @@ import PMPBenefits from '@/components/PMPBenefits';
 import CourseSuccessQuotes from '@/components/CourseSuccessQuotes';
 import Features from '@/components/Features';
 import ScrollButton from '@/components/ScrollButton';
+import ContactLink from '@/components/ContactLink';
 
 export const metadata: Metadata = {
     title: "TOTALPMP Premier PMP® Training | Global Certification",
@@ -25,7 +26,7 @@ export default function PmpPage() {
                 <CertificationHero
                     title="PMP Training"
                     subtitle="Become a Certified Project Management Professional"
-                    description="Our PMP course provides comprehensive, expert-led training to help you master project management principles. Gain practical skills, internationally recognised certification, and the confidence to lead projects successfully."
+                    description="Our PMP course provides comprehensive, expert led training to help you master project management principles. Gain practical skills, internationally recognised certification, and the confidence to lead projects successfully."
                     prev={{ name: "CAPM", href: "/capm" }}
                     next={{ name: "PMI-CP", href: "/pmicp" }}
                     gradientClass="from-primary to-primary-700"
@@ -43,10 +44,10 @@ export default function PmpPage() {
                                 <ShieldCheck size={16} /> Project Excellence
                             </div>
                             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6 leading-tight">
-                                Why PMP® Is a Game-Changer
+                                Why PMP® Is a Game Changer
                             </h2>
                             <p className="text-slate-600 text-lg leading-relaxed mb-6">
-                                The Project Management Professional (PMP)® certification is the most globally recognised credential for project managers. It validates your ability to plan, manage, and deliver complex projects across any industry using predictive, agile, and hybrid approaches.
+                                The Project Management Professional (PMP)® certification is the most globally recognised credential for project managers. It validates your ability to plan, manage, and deliver complex projects across any industry using predictive, TotalPMP, and hybrid approaches.
                             </p>
                             <div className="space-y-4">
                                 {[
@@ -76,7 +77,7 @@ export default function PmpPage() {
                                     {[
                                         "Project Managers & Directors",
                                         "Program & Portfolio Managers",
-                                        "Delivery Leads & Agile Coaches",
+                                        "Delivery Leads & TotalPMP Coaches",
                                         "Industry Leaders Seeking Global Credentials",
                                         "Professionals with 3+ Years PM Experience",
                                     ].map((audience, i) => (
@@ -193,7 +194,7 @@ export default function PmpPage() {
                                 <h3 className="text-2xl font-bold mb-6 relative z-10">What's Included</h3>
                                 <ul className="space-y-5 relative z-10">
                                     {[
-                                        "35 Hours of Live Expert-led Training",
+                                        "35 Hours of Live Expert Led Training",
                                         "Official PMI® Authorized Training Content",
                                         "3 Full-length PMP Mock Exams",
                                         "PMI Application Assistance",
@@ -268,14 +269,14 @@ export default function PmpPage() {
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
                             {[
                                 "Local company offering tailored, region-specific training.",
-                                "Trainers hand-picked for their expertise and real-world PM experience.",
+                                "Trainers hand picked for their expertise and real world PM experience.",
                                 "Flexible training schedules to suit learning capacities.",
                                 "All-inclusive, transparent pricing with no hidden fees.",
                                 "Globally recognized materials enhanced with our own resources.",
                                 "Full support through the entire certification process.",
                                 "Feedback reviewed continuously to ensure top training quality.",
                                 "Trainers collaborate regularly to uphold high standards in adult education.",
-                                "100% locally-owned organization operating with honesty and transparency."
+                                "100% locally owned organization operating with honesty and transparency."
                             ].map((advantage, i) => (
                                 <div key={i} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex gap-4 hover:shadow-lg transition-shadow">
                                     <div className="mt-1 bg-accent/20 text-primary p-1.5 rounded-full shrink-0 h-fit">
@@ -374,15 +375,11 @@ export default function PmpPage() {
                                 <h4 className="text-accent font-black uppercase tracking-[0.2em] text-sm mb-6 relative z-10">Corporate Training</h4>
                                 <h3 className="text-3xl font-black mb-8 relative z-10 leading-tight">Need a custom<br />batch for your<br />organization?</h3>
                                 <p className="text-slate-400 mb-10 relative z-10 text-lg font-medium leading-relaxed">We offer tailored corporate training sessions for teams of 5 or more, focused on your specific industry challenges.</p>
-                                <Link
-                                    href="#contact"
-                                    className="inline-flex items-center gap-4 text-accent font-black text-xl group/link relative z-10"
+                                <ContactLink
+                                    className="inline-flex items-center justify-center py-6 px-16 bg-white text-primary font-black text-xl rounded-2xl hover:scale-105 transition-all shadow-2xl"
                                 >
-                                    Enquire Today
-                                    <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center group-hover/link:bg-accent group-hover/link:text-primary transition-all duration-300">
-                                        <Send size={20} className="group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
-                                    </div>
-                                </Link>
+                                    Enquire Now
+                                </ContactLink>
                             </div>
 
                             <div className="p-12 bg-slate-50 border border-slate-100 rounded-[50px] text-center space-y-6">

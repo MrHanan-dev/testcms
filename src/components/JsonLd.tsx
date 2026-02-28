@@ -3,9 +3,9 @@ export default function JsonLd() {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
         "name": "TotalPMP",
-        "url": "https://totalpmp.co.nz",
-        "logo": "https://totalpmp.co.nz/logo.png",
-        "description": "Premium PMP certification training and AI-driven construction cost estimation services.",
+        "url": "https://totalpmp.com",
+        "logo": "https://totalpmp.com/logo.png",
+        "description": "Premium PMP certification training and AI driven construction cost estimation services.",
         "address": {
             "@type": "PostalAddress",
             "addressLocality": "Auckland",

@@ -17,7 +17,7 @@ const pillars = [
     },
     {
         title: "Construction Management",
-        description: "Building project setups and overseeing work to ensure projects are buildable and cost-effective.",
+        description: "Building project setups and overseeing work to ensure projects are buildable and cost effective.",
         icon: <Ruler className="text-white" size={24} />,
     },
     {
@@ -46,7 +46,7 @@ export default function ConsultancyDetail() {
                         <span className="text-accent font-extrabold tracking-[0.2em] uppercase text-[9px] md:text-[10px] mb-6 block">Specialized Advisory</span>
                         <h2 className="h2 mb-10 leading-tight">Bespoke consultancy for high-stakes projects.</h2>
                         <p className="text-lg md:text-xl text-slate-500 leading-relaxed mb-12 font-medium opacity-80">
-                            We provide independent, expert-led advisory services that ensure project success from inception to delivery. Our approach is rooted in 17+ years of industrial experience.
+                            We provide independent, expert led advisory services that ensure project success from inception to delivery. Our approach is rooted in 17+ years of industrial experience.
                         </p>
 
                         <div className="grid sm:grid-cols-2 gap-x-12 gap-y-10 md:gap-y-16">

@@ -6,6 +6,7 @@ import Image from 'next/image';
 import * as motion from 'framer-motion/client';
 import { ArrowRight, Calculator, BarChart3, TrendingUp, Building2, ClipboardList, Settings2, FileText, Upload } from 'lucide-react';
 import Link from 'next/link';
+import ContactLink from '@/components/ContactLink';
 import CostEstimationForm from '@/components/CostEstimationForm';
 import type { Metadata } from 'next';
 
@@ -30,7 +31,7 @@ export default function CostEstimationPage() {
         },
         {
             title: "Materials Or Labour Schedules",
-            desc: "We provide material and labor scheduling services to help clients complete their construction projects on time and within budget. Our team creates customized schedules, sources high-quality materials, and secures the right labor and equipment for each project.",
+            desc: "We provide material and labor scheduling services to help clients complete their construction projects on time and within budget. Our team creates customized schedules, sources high quality materials, and secures the right labor and equipment for each project.",
             image: "/images/Totalqsconsultant.jpeg",
             icon: ClipboardList
         },
@@ -51,12 +52,6 @@ export default function CostEstimationPage() {
             desc: "We ensure that all contracts between employees and subcontractors are properly managed and fully executed. Our Contract Administrators oversee every aspect of your construction project's contracts, making the entire process simple, transparent, and efficient.",
             image: "/global-construction-contracts-comparison.png",
             icon: Settings2
-        },
-        {
-            title: "Project Management",
-            desc: "Our Start-to-Finish Project Management Process. We begin by understanding your project vision, requirements, and goals. We bring years of hands-on expertise in managing projects of all sizes and complexities.",
-            image: "/images/totalpmp_hero_main_1771222013046.png",
-            icon: TrendingUp
         }
     ];
 
@@ -80,7 +75,7 @@ export default function CostEstimationPage() {
                                 Partner with us to ensure your next project runs smoothly
                             </h2>
                             <p className="text-slate-600 text-xl font-medium leading-relaxed">
-                                Looking for a reliable quantity surveyor in New Zealand? You&apos;re in the right place! Our team of experienced quantity surveyors brings years of hands-on expertise in managing projects of all sizes and complexities.
+                                Looking for a reliable quantity surveyor in New Zealand? You&apos;re in the right place! Our team of experienced quantity surveyors brings years of hands on expertise in managing projects of all sizes and complexities.
                             </p>
                         </div>
                     </div>
@@ -210,12 +205,13 @@ export default function CostEstimationPage() {
                             <p className="text-slate-600 text-lg md:text-xl leading-relaxed font-medium">
                                 We&apos;re always excited to connect with passionate professionals who share our commitment to quality, precision, and innovation in construction. Whether you&apos;re an experienced Quantity Surveyor or just starting your career, TotalPMP offers a supportive environment where your skills can grow and your work truly makes an impact.
                             </p>
-                            <Link
-                                href="#contact"
-                                className="inline-flex items-center gap-2 px-10 py-4 bg-primary text-white font-bold rounded-full hover:bg-primary/90 transition-all hover:scale-105"
-                            >
-                                Contact us
-                            </Link>
+                            <div className="pt-4">
+                                <ContactLink
+                                    className="inline-flex items-center justify-center py-6 px-16 bg-white text-primary font-black text-xl rounded-2xl hover:scale-105 transition-all shadow-2xl"
+                                >
+                                    Enquire Now
+                                </ContactLink>
+                            </div>
                         </div>
                     </div>
                 </section>

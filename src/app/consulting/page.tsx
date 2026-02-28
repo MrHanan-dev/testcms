@@ -27,25 +27,11 @@ export default function ConsultingPage() {
             bgColor: "bg-emerald-50"
         },
         {
-            title: "PMO as a Service",
-            desc: "Strategic Portfolio and Project Management as a Service to give you on-demand maturity and governance structure.",
-            icon: LayoutList,
-            color: "text-blue-600",
-            bgColor: "bg-blue-50"
-        },
-        {
             title: "Post Implementation Review",
             desc: "External, independent PIRs to capture lessons learned and validate that business cases were actually achieved.",
             icon: FileSearch,
             color: "text-orange-600",
             bgColor: "bg-orange-50"
-        },
-        {
-            title: "Process Optimization",
-            desc: "Audit and assessment of current delivery processes to eliminate waste and build a faster, leaner project engine.",
-            icon: Settings2,
-            color: "text-purple-600",
-            bgColor: "bg-purple-50"
         },
         {
             title: "Governance Frameworks",

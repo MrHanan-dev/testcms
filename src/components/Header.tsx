@@ -9,6 +9,7 @@ import {
   FileSearch, Building2, Phone, Mail, Globe, ArrowRight
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import ContactLink from './ContactLink';
 
 const HEADER_VARIANTS = {
   hidden: { y: -20, opacity: 0 },
@@ -29,8 +30,6 @@ const navCategories = [
       { name: 'Project Management', desc: 'Expert delivery & recovery services.', icon: Target, href: '/project-management' },
       { name: 'Cost Estimation & Quality Surveying', desc: 'Fast accurate estimating for projects.', icon: Briefcase, href: '/cost-estimation' },
       { name: 'Construction Contract', desc: 'Contract management services.', icon: FileSearch, href: '/contract-management' },
-      { name: 'Advisory & PMO', desc: 'Independent & commercial audit.', icon: Layers, href: '/consulting' },
-      { name: 'Agile Transformation', desc: 'Modern agile workflows.', icon: Layers, href: '/consulting' },
     ]
   },
   {
@@ -201,15 +200,14 @@ export default function Header({ variant = "solid" }: { variant?: "solid" | "tra
           ))}
 
           <div className="ml-6 flex items-center gap-4">
-            <Link
-              href="#contact"
+            <ContactLink
               className={`px-6 py-2.5 text-[14px] font-black rounded-full transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 ${isScrolled
                 ? 'bg-primary text-white hover:bg-primary-700'
                 : 'bg-accent text-primary hover:bg-accent/90'
                 }`}
             >
               Contact Us
-            </Link>
+            </ContactLink>
           </div>
         </nav>
 
@@ -273,13 +271,12 @@ export default function Header({ variant = "solid" }: { variant?: "solid" | "tra
                 </div>
 
                 <div className="mt-auto pt-10">
-                  <Link
-                    href="#contact"
+                  <ContactLink
                     className="flex items-center justify-center w-full py-4 bg-primary text-white text-base font-black rounded-2xl shadow-xl active:scale-95 transition-all"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Contact Us
-                  </Link>
+                  </ContactLink>
                 </div>
               </motion.div>
             </>

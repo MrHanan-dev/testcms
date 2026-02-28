@@ -7,7 +7,7 @@ const services = [
   {
     icon: <GraduationCap size={28} />,
     title: "PMP® Certification",
-    description: "Comprehensive, expert-led training covering all knowledge areas of the PMBOK® Guide, taught by certified PMP® professionals.",
+    description: "Comprehensive, expert led training covering all knowledge areas of the PMBOK® Guide, taught by certified PMP® professionals.",
     link: "#training",
   },
   {

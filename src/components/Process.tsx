@@ -12,7 +12,7 @@ const steps = [
     {
         icon: <Users className="w-8 h-8" />,
         title: "2. Expert-Led Training",
-        description: "Our certified professionals impart immersive PMP and CAPM training, rooted in real-world industrial situations."
+        description: "Our certified professionals impart immersive PMP and CAPM training, rooted in real world industrial situations."
     },
     {
         icon: <BarChart4 className="w-8 h-8" />,
