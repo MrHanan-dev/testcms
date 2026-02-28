@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow: '/api/',
         },
-        sitemap: 'https://totalpmp.co.nz/sitemap.xml',
+        sitemap: 'https://totalpmp.com/sitemap.xml',
     }
 }

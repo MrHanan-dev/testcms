@@ -4,6 +4,7 @@ import ServiceHero from '@/components/ServiceHero';
 import { Check, FileText, Scale, ShieldCheck, FileSearch, HelpCircle, Briefcase } from 'lucide-react';
 import { Metadata } from 'next';
 import Link from 'next/link';
+import ContactLink from '@/components/ContactLink';
 
 export const metadata: Metadata = {
     title: "Construction Contracts",
@@ -138,9 +139,9 @@ export default function ContractManagementPage() {
                                     </ul>
                                 </div>
                                 <div className="pt-6">
-                                    <Link href="#contact" className="inline-block py-6 px-12 bg-primary text-white font-black text-xl rounded-2xl hover:scale-105 transition-all shadow-xl">
-                                        Consult an Expert
-                                    </Link>
+                                    <ContactLink className="inline-block py-6 px-12 bg-primary text-white font-black text-xl rounded-2xl hover:scale-105 transition-all shadow-xl">
+                                        Enquire Now
+                                    </ContactLink>
                                 </div>
                             </div>
                         </div>

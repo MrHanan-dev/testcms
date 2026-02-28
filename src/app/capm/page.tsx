@@ -4,6 +4,7 @@ import TrainingSchedule from '@/components/TrainingSchedule';
 import Footer from '@/components/Footer';
 import { Check, BookOpen, Clock, Target, Users, Layout, Globe, Star, Award, Briefcase, Send } from 'lucide-react';
 import Link from 'next/link';
+import ContactLink from '@/components/ContactLink';
 import { Metadata } from 'next';
 import CertificationHero from '@/components/CertificationHero';
 import BookingForm from '@/components/BookingForm';
@@ -98,7 +99,7 @@ export default function CapmPage() {
                             </div>
                             <h2 className="text-3xl md:text-4xl font-black text-primary mb-3">Who Can Apply for the CAPM?</h2>
                             <p className="text-slate-500 text-lg font-medium max-w-2xl">
-                                The CAPM has straightforward requirements — no project experience needed. Anyone with a secondary diploma can apply.
+                                The CAPM has straightforward requirements   no project experience needed. Anyone with a secondary diploma can apply.
                             </p>
                         </div>
 
@@ -135,7 +136,7 @@ export default function CapmPage() {
                                 <ul className="space-y-3">
                                     {[
                                         "23 contact hours of project management education",
-                                        "No work experience required — ideal for students & career changers",
+                                        "No work experience required   ideal for students & career changers",
                                     ].map((req, i) => (
                                         <li key={i} className="flex items-start gap-3 text-slate-700 font-medium text-sm">
                                             <div className="mt-1 bg-primary/20 text-primary p-0.5 rounded-full shrink-0"><Check size={14} strokeWidth={3} /></div>
@@ -149,7 +150,7 @@ export default function CapmPage() {
                         <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 flex items-start gap-4">
                             <Globe size={22} className="text-accent shrink-0 mt-0.5" />
                             <p className="text-slate-600 font-medium text-sm leading-relaxed">
-                                <strong className="text-primary">Good news:</strong> Our CAPM training course fulfils the <strong className="text-primary">23 contact hours</strong> requirement. No experience required — you can apply straight from study or a career change.
+                                <strong className="text-primary">Good news:</strong> Our CAPM training course fulfils the <strong className="text-primary">23 contact hours</strong> requirement. No experience required   you can apply straight from study or a career change.
                             </p>
                         </div>
                     </section>
@@ -186,12 +187,12 @@ export default function CapmPage() {
                                 <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
                                     <div className="flex justify-between items-start mb-4">
                                         <h4 className="text-xl font-bold text-primary flex items-center gap-2">
-                                            <Users className="text-accent" /> Agile Frameworks/Methodologies
+                                            <Users className="text-accent" /> TotalPMP Frameworks/Methodologies
                                         </h4>
                                         <span className="bg-accent/10 text-primary font-bold px-3 py-1 rounded-full text-sm">20%</span>
                                     </div>
                                     <p className="text-slate-600 leading-relaxed text-sm">
-                                        Understanding adaptive approaches, Scrum, Kanban, and Agile principles.
+                                        Understanding adaptive approaches, Scrum, Kanban, and TotalPMP principles.
                                     </p>
                                 </div>
 
@@ -269,7 +270,7 @@ export default function CapmPage() {
                                         </div>
                                         <div>
                                             <p className="font-bold text-primary">Exam Structure</p>
-                                            <p className="text-slate-500 text-sm">Core Concepts (36%), Predictive (17%), Agile (20%), Business Analysis (27%)</p>
+                                            <p className="text-slate-500 text-sm">Core Concepts (36%), Predictive (17%), TotalPMP (20%), Business Analysis (27%)</p>
                                         </div>
                                     </li>
                                 </ul>
@@ -292,14 +293,14 @@ export default function CapmPage() {
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
                             {[
                                 "Local company offering tailored, region-specific training.",
-                                "Trainers hand-picked for their expertise and real-world PM experience.",
+                                "Trainers hand picked for their expertise and real world PM experience.",
                                 "Flexible training schedules to suit learning capacities.",
                                 "All-inclusive, transparent pricing with no hidden fees.",
                                 "Globally recognized materials enhanced with our own resources.",
                                 "Full support through the entire certification process.",
                                 "Feedback reviewed continuously to ensure top training quality.",
                                 "Trainers collaborate regularly to uphold high standards in adult education.",
-                                "100% locally-owned organization operating with honesty and transparency."
+                                "100% locally owned organization operating with honesty and transparency."
                             ].map((advantage, i) => (
                                 <div key={i} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex gap-4 hover:shadow-lg transition-shadow">
                                     <div className="mt-1 bg-accent/20 text-primary p-1.5 rounded-full shrink-0 h-fit">
@@ -327,20 +328,18 @@ export default function CapmPage() {
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-accent/20 rounded-bl-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
                                 <h3 className="text-2xl font-bold mb-6 relative z-10">Start your PM<br />journey today</h3>
                                 <p className="text-slate-300 mb-8 relative z-10 font-medium">Join our study groups and get access to exclusive CAPM resources.</p>
-                                <Link
-                                    href="#contact"
-                                    className="inline-flex items-center gap-2 text-accent font-bold group/link relative z-10"
+                                <ContactLink
+                                    className="inline-flex items-center justify-center py-6 px-16 bg-white text-primary font-black text-xl rounded-2xl hover:scale-105 transition-all shadow-2xl"
                                 >
-                                    Get more info
-                                    <Send size={16} className="group-hover/link:translate-x-1 transition-transform" />
-                                </Link>
+                                    Enquire Now
+                                </ContactLink>
                             </div>
 
                             <div className="p-8 border-2 border-dashed border-slate-200 rounded-[40px] text-center">
                                 <p className="text-slate-500 font-medium italic">
                                     "Even without experience, I felt fully prepared for the exam. Highly recommend!"
                                 </p>
-                                <div className="mt-4 font-bold text-primary">— Auckland Council Employee</div>
+                                <div className="mt-4 font-bold text-primary">  Auckland Council Employee</div>
                             </div>
                         </div>
                     </section>

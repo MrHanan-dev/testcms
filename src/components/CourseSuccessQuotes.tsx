@@ -12,10 +12,10 @@ const quotes = [
 
 const subtitles = [
     "Our expert coaches provide interactive lessons, exam-focused strategies, and practical exercises to ensure you succeed the first time.",
-    "Learn from highly qualified instructors with hands-on practice and proven exam strategies designed for real results.",
+    "Learn from highly qualified instructors with hands on practice and proven exam strategies designed for real results.",
     "Achieve exam success on your first attempt through engaging training, targeted study plans, and practical exercises led by certified professionals.",
     "Benefit from experienced coaches, interactive training sessions, and exam-focused techniques to confidently pass your certification exam.",
-    "Gain the skills, strategies, and confidence needed to pass your exam on your first try with our expert-led, hands-on training."
+    "Gain the skills, strategies, and confidence needed to pass your exam on your first try with our expert led, hands on training."
 ];
 
 export default function CourseSuccessQuotes() {

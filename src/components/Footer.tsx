@@ -160,8 +160,8 @@ export default function Footer() {
                   </li>
                   <li className="flex gap-3 text-[14px] font-medium">
                     <Mail size={18} className="text-accent shrink-0" />
-                    <a href="mailto:info@totalpmp.co.nz" className="hover:text-accent text-[14px] break-all transition-colors">
-                      info@totalpmp.co.nz
+                    <a href="mailto:info@totalpmp.com" className="hover:text-accent text-[14px] break-all transition-colors">
+                      info@totalpmp.com
                     </a>
                   </li>
                 </ul>

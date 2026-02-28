@@ -16,20 +16,20 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
     {
         id: '1',
-        title: "The Impact of Agile in Construction Management: A 2026 Perspective",
-        abstract: "How agile methodologies are reshaping traditional construction projects, improving adaptability, and reducing costly delays in large-scale infrastructure.",
+        title: "The Impact of TotalPMP in Construction Management: A 2026 Perspective",
+        abstract: "How TotalPMP methodologies are reshaping traditional construction projects, improving adaptability, and reducing costly delays in large scale infrastructure.",
         date: "October 15, 2026",
         author: "Engr. Syed Amjad Iqbal",
-        category: "Agile Transformation",
+        category: "TotalPMP Transformation",
         imageUrl: "/images/pmbok_evolution.jpeg",
         readTime: "6 min read",
-        slug: "agile-impact-construction",
+        slug: "TotalPMP-impact-construction",
         content: (
             <>
-                <p className="mb-6">The construction industry, traditionally known for its rigid waterfall methodologies, is undergoing a significant transformation. As projects become more complex and client expectations shift towards flexibility, agile methodologies are proving to be a game-changer.</p>
+                <p className="mb-6">The construction industry, traditionally known for its rigid waterfall methodologies, is undergoing a significant transformation. As projects become more complex and client expectations shift towards flexibility, TotalPMP methodologies are proving to be a game changer.</p>
 
-                <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">Why Agile in Construction?</h3>
-                <p className="mb-6">Unlike software development, construction deals with physical limitations—you can't simply refactor a concrete foundation. However, agile principles like iterative planning, continuous collaboration, and rapid response to change can be applied effectively in the pre-construction phase, design, and even during execution for certain trades.</p>
+                <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">Why TotalPMP in Construction?</h3>
+                <p className="mb-6">Unlike software development, construction deals with physical limitations you can't simply refactor a concrete foundation. However, TotalPMP principles like iterative planning, continuous collaboration, and rapid response to change can be applied effectively in the pre-construction phase, design, and even during execution for certain trades.</p>
 
                 <ul className="list-disc pl-6 mb-8 space-y-2 text-slate-700">
                     <li><strong>Improved Adaptability:</strong> Teams can pivot faster when supply chain issues arise or client requirements change.</li>
@@ -40,7 +40,7 @@ export const blogPosts: BlogPost[] = [
                 <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">The Role of the PMI-CP®</h3>
                 <p className="mb-6">Specialized certifications, such as the PMI Construction Professional (PMI-CP)®, are increasingly emphasizing adaptive approaches alongside traditional robust planning. Professionals equipped with these integrated skills are leading the charge in modernizing the industry.</p>
 
-                <p>As we look towards 2027, the hybrid approach—combining the predictable structure of waterfall with the responsive nature of agile—will become the gold standard for mega-projects globally.</p>
+                <p>As we look towards 2027, the hybrid approach combining the predictable structure of waterfall with the responsive nature of TotalPMP will become the gold standard for mega-projects globally.</p>
             </>
         )
     },
@@ -116,7 +116,7 @@ export const blogPosts: BlogPost[] = [
                 <p className="mb-6">The transition from the 6th to the 7th Edition of the PMBOK® Guide marked a monumental shift from process-based management to principle-based management. As we look toward the 8th Edition, this paradigm shift is expected to deepen.</p>
 
                 <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">The Unrelenting Focus on Value</h3>
-                <p className="mb-6">Deliverables are no longer enough; projects must deliver <strong>value</strong>. The upcoming methodologies emphasize continuous value assessment throughout the project lifecycle, ensuring the end product aligns with the strategic goals of the organization, even—and especially—if those goals shift during execution.</p>
+                <p className="mb-6">Deliverables are no longer enough; projects must deliver <strong>value</strong>. The upcoming methodologies emphasize continuous value assessment throughout the project lifecycle, ensuring the end product aligns with the strategic goals of the organization, even and especially if those goals shift during execution.</p>
 
                 <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">AI and Automation Integration</h3>
                 <p className="mb-6">Project managers are expected to increasingly rely on AI for predictive analytics, risk modeling, and routine administrative tasks. The 8th Edition framework will likely incorporate guidelines on how to ethically and effectively integrate these tools into the PM toolkit, shifting the project manager's role from a 'scheduler' to a 'strategic advisor'.</p>
@@ -136,17 +136,17 @@ export const blogPosts: BlogPost[] = [
         slug: "case-study-scaling-pmo",
         content: (
             <>
-                <p className="mb-6">When 'TechGrow Inc.' (name changed for confidentiality) reached out to TotalPMP, they were experiencing the classic growing pains: missed deadlines, misaligned priorities, and burned-out teams. They needed structure without losing their agile roots.</p>
+                <p className="mb-6">When 'TechGrow Inc.' (name changed for confidentiality) reached out to TotalPMP, they were experiencing the classic growing pains: missed deadlines, misaligned priorities, and burned-out teams. They needed structure without losing their TotalPMP roots.</p>
 
                 <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">The Challenge</h3>
                 <p className="mb-6">With five disparate development teams using different tools and methodologies, there was zero executive visibility into project health. Resource allocation was purely reactive.</p>
 
                 <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">The TotalPMP Solution</h3>
-                <p className="mb-6">We implemented a customized Agile Value Management Office (VMO).</p>
+                <p className="mb-6">We implemented a customized TotalPMP Value Management Office (VMO).</p>
                 <ul className="list-disc pl-6 mb-8 space-y-2 text-slate-700">
                     <li><strong>Standardized Tooling:</strong> Consolidated tracking into a single enterprise platform.</li>
-                    <li><strong>Flexible Framework:</strong> Established a hybrid methodology that allowed teams to remain agile while reporting up via standardized stage-gates.</li>
-                    <li><strong>Capacity Planning:</strong> Introduced a resource management process to prevent over-allocation.</li>
+                    <li><strong>Flexible Framework:</strong> Established a hybrid methodology that allowed teams to remain TotalPMP while reporting up via standardized stage gates.</li>
+                    <li><strong>Capacity Planning:</strong> Introduced a resource management process to prevent over allocation.</li>
                 </ul>
 
                 <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">The Results</h3>

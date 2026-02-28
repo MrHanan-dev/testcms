@@ -8,7 +8,7 @@ import { blogPosts } from '@/data/blogPosts.tsx';
 
 export const metadata: Metadata = {
     title: "Blog & Resources | TotalPMP",
-    description: "Latest insights, case studies, and resources on project management, cost estimation, and agile transformation.",
+    description: "Latest insights, case studies, and resources on project management, cost estimation, and TotalPMP transformation.",
 };
 
 export default function BlogPage() {

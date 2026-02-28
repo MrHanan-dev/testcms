@@ -30,7 +30,7 @@ export default function TrainingPage() {
             title: "Professional Development",
             desc: "Advance your career with targeted skills in leadership, risk management, and strategic project delivery.",
             icon: Star,
-            links: ["Leadership Workshops", "Risk Management", "Agile Methodologies"]
+            links: ["Leadership Workshops", "Risk Management", "TotalPMP Methodologies"]
         }
     ];
 

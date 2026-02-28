@@ -19,7 +19,7 @@ export default function DesignSystemOverview() {
                 <h2 className="h2 text-primary-600">Personality & Voice</h2>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     {[
-                        { icon: ShieldCheck, title: 'Trustworthy', desc: '"A safe pair of hands" - we deliver on our promises reliably.' },
+                        { icon: ShieldCheck, title: 'Trustworthy', desc: '"A safe pair of hands". We deliver on our promises reliably.' },
                         { icon: Target, title: 'Expert', desc: 'Deep domain knowledge communicated directly and simply.' },
                         { icon: Zap, title: 'Modern', desc: 'Forward-looking, clean, and highly functional aesthetics.' },
                         { icon: Heart, title: 'Approachable', desc: 'Professional, but always human, collaborative, and friendly.' }

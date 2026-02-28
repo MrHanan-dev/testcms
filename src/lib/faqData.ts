@@ -7,7 +7,7 @@ export const globalFaqs: Record<string, FAQItem[]> = {
     default: [
         {
             question: "What makes TotalPMP different from other training and consulting firms?",
-            answer: "We offer a unique dual-focus: 100% first-attempt pass rate PMP® certification training and completely independent, expert-led project management and cost estimation consultancy."
+            answer: "We offer a unique dual focus: 100% first attempt pass rate PMP® certification training and completely independent, expert led project management and cost estimation consultancy."
         },
         {
             question: "Where are your services available?",
@@ -19,7 +19,7 @@ export const globalFaqs: Record<string, FAQItem[]> = {
         },
         {
             question: "Are your trainers and consultants certified?",
-            answer: "Yes, all our instructors and consultants hold the credentials they teach (such as PMP® or PMI-CP™) and have extensive, real-world industry experience managing complex projects."
+            answer: "Yes, all our instructors and consultants hold the credentials they teach (such as PMP® or PMI-CP™) and have extensive, real world industry experience managing complex projects."
         },
         {
             question: "What payment methods do you accept?",
@@ -29,15 +29,15 @@ export const globalFaqs: Record<string, FAQItem[]> = {
     home: [
         {
             question: "What is the exam success rate for TotalPMP's students?",
-            answer: "We are proud to maintain a 100% first-attempt pass rate for our PMP® certification training. Our curriculum is tailored based on actual industrial situations and includes comprehensive mock testing."
+            answer: "We are proud to maintain a 100% first attempt pass rate for our PMP® certification training. Our curriculum is tailored based on actual industrial situations and includes comprehensive mock testing."
         },
         {
             question: "Do you offer tailored project management consulting for enterprises?",
-            answer: "Yes, TotalPMP specializes in bespoke consultancy for high-stakes projects. From masterplanning to sustainability advice, we help organizations navigate complex delivery hurdles."
+            answer: "Yes, TotalPMP specializes in bespoke consultancy for high stakes projects. From masterplanning to sustainability advice, we help organizations navigate complex delivery hurdles."
         },
         {
             question: "What industries do your consultancy services cover?",
-            answer: "We have extensive experience in large-scale infrastructure, commercial developments, and industrial construction projects across diverse sectors."
+            answer: "We have extensive experience in large scale infrastructure, commercial developments, and industrial construction projects across diverse sectors."
         },
         {
             question: "Can you handle remote or international projects?",
@@ -59,7 +59,7 @@ export const globalFaqs: Record<string, FAQItem[]> = {
         },
         {
             question: "Is there any pre-reading and how much will I have to study?",
-            answer: "There's no pre-reading, but once the course starts, you'll have exercises to complete between sessions. The course is fast-paced, assuming a basic understanding of PM concepts. We recommend studying between sessions and before the exam for optimal success."
+            answer: "There's no pre-reading, but once the course starts, you'll have exercises to complete between sessions. The course is fast paced, assuming a basic understanding of PM concepts. We recommend studying between sessions and before the exam for optimal success."
         },
         {
             question: "How long is the PMI-CP™ exam and what is its format?",
@@ -81,7 +81,7 @@ export const globalFaqs: Record<string, FAQItem[]> = {
         },
         {
             question: "What is your typical turnaround time for an estimate?",
-            answer: "We understand the fast-paced nature of construction tendering. Our initial estimates for standard projects are typically delivered within 48 to 72 hours of receiving complete documentation."
+            answer: "We understand the fast paced nature of construction tendering. Our initial estimates for standard projects are typically delivered within 48 to 72 hours of receiving complete documentation."
         },
         {
             question: "Do you provide material and labor schedules as well?",
@@ -99,7 +99,7 @@ export const globalFaqs: Record<string, FAQItem[]> = {
     consulting: [
         {
             question: "What does your project management consulting process involve?",
-            answer: "We begin by deeply understanding your project vision, constraints, and goals. We then apply years of hands-on expertise to deliver high-fidelity commercial advice, streamline operations, and mitigate risks."
+            answer: "We begin by deeply understanding your project vision, constraints, and goals. We then apply years of hands on expertise to deliver high-fidelity commercial advice, streamline operations, and mitigate risks."
         },
         {
             question: "Do you assist with distressed or delayed projects?",
@@ -133,7 +133,7 @@ export const globalFaqs: Record<string, FAQItem[]> = {
         },
         {
             question: "How often is the PMP exam updated?",
-            answer: "PMI updates the exam every 3–4 years to reflect current practices, including Agile and hybrid methodologies. Our training is fully aligned with the latest PMBOK® Guide – Seventh Edition."
+            answer: "PMI updates the exam every 3–4 years to reflect current practices, including TotalPMP and hybrid methodologies. Our training is fully aligned with the latest PMBOK® Guide – Seventh Edition."
         },
         {
             question: "What is the cost of PMP Certification?",
@@ -147,7 +147,7 @@ export const globalFaqs: Record<string, FAQItem[]> = {
         },
         {
             question: "How does CAPM® help my career?",
-            answer: "CAPM® demonstrates your understanding of fundamental project management principles and terminology, making you an attractive candidate for entry-level project coordination and management roles."
+            answer: "CAPM® demonstrates your understanding of fundamental project management principles and terminology, making you an attractive candidate for entry level project coordination and management roles."
         },
         {
             question: "How long is the CAPM® certification valid?",
@@ -159,7 +159,7 @@ export const globalFaqs: Record<string, FAQItem[]> = {
         },
         {
             question: "What topics are covered in the CAPM® exam?",
-            answer: "The exam covers project management fundamentals, predictive methodologies, agile frameworks, and business analysis principles as outlined by PMI."
+            answer: "The exam covers project management fundamentals, predictive methodologies, TotalPMP frameworks, and business analysis principles as outlined by PMI."
         }
     ],
     training: [
@@ -169,7 +169,7 @@ export const globalFaqs: Record<string, FAQItem[]> = {
         },
         {
             question: "Who are the instructors for your certification courses?",
-            answer: "Our courses are led by seasoned, PMI-certified professionals who bring decades of real-world, high-stakes industrial project management experience directly into the virtual classroom."
+            answer: "Our courses are led by seasoned, PMI-certified professionals who bring decades of real world, high stakes industrial project management experience directly into the virtual classroom."
         },
         {
             question: "Do I earn PDUs or Contact Hours upon completion?",
@@ -181,7 +181,7 @@ export const globalFaqs: Record<string, FAQItem[]> = {
         },
         {
             question: "What materials are provided during the course?",
-            answer: "Students receive comprehensive study guides, access to mock exams, presentation slides, and a suite of practical project management templates for real-world use."
+            answer: "Students receive comprehensive study guides, access to mock exams, presentation slides, and a suite of practical project management templates for real world use."
         }
     ]
 };

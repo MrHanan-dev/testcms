@@ -9,6 +9,7 @@ import BookingForm from '@/components/BookingForm';
 import Features from '@/components/Features';
 import CourseSuccessQuotes from '@/components/CourseSuccessQuotes';
 import ScrollButton from '@/components/ScrollButton';
+import ContactLink from '@/components/ContactLink';
 
 export const metadata = {
     title: "PMI Construction Professional (PMI-CP)® Certification",
@@ -44,7 +45,7 @@ export default function PmiCpPage() {
                                 <HardHat size={16} /> Construction Excellence
                             </div>
                             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6 leading-tight">
-                                Why PMI-CP® Is a Game-Changer
+                                Why PMI-CP® Is a Game Changer
                             </h2>
                             <p className="text-slate-600 text-lg leading-relaxed mb-6">
                                 The PMI Construction Professional (PMI-CP)® certification is a globally recognised credential for professionals in the construction and built environment sectors. It validates your ability to plan, manage, and deliver complex construction projects using industry-best practices.
@@ -293,14 +294,14 @@ export default function PmiCpPage() {
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
                             {[
                                 "Local company offering tailored, region-specific training.",
-                                "Trainers hand-picked for their expertise and real-world construction PM experience.",
+                                "Trainers hand picked for their expertise and real world construction PM experience.",
                                 "Flexible training schedules to suit learning capacities.",
                                 "All-inclusive, transparent pricing with no hidden fees.",
                                 "Globally recognized materials enhanced with our own resources.",
                                 "Full support through the entire certification process.",
                                 "Feedback reviewed continuously to ensure top training quality.",
                                 "Trainers collaborate regularly to uphold high standards in adult education.",
-                                "100% locally-owned organization operating with honesty and transparency."
+                                "100% locally owned organization operating with honesty and transparency."
                             ].map((advantage, i) => (
                                 <div key={i} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex gap-4 hover:shadow-lg transition-shadow">
                                     <div className="mt-1 bg-accent/20 text-primary p-1.5 rounded-full shrink-0 h-fit">
@@ -328,20 +329,18 @@ export default function PmiCpPage() {
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-accent/20 rounded-bl-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
                                 <h3 className="text-2xl font-bold mb-6 relative z-10">Advance your<br />construction<br />career</h3>
                                 <p className="text-slate-300 mb-8 relative z-10 font-medium">Get certified and lead multi-million dollar construction projects.</p>
-                                <Link
-                                    href="#contact"
-                                    className="inline-flex items-center gap-2 text-accent font-bold group/link relative z-10"
+                                <ContactLink
+                                    className="inline-flex items-center justify-center py-6 px-16 bg-white text-primary font-black text-xl rounded-2xl hover:scale-105 transition-all shadow-2xl"
                                 >
-                                    Contact an advisor
-                                    <Send size={16} className="group-hover/link:translate-x-1 transition-transform" />
-                                </Link>
+                                    Enquire Now
+                                </ContactLink>
                             </div>
 
                             <div className="p-8 border-2 border-dashed border-slate-200 rounded-[40px] text-center">
                                 <p className="text-slate-500 font-medium italic">
                                     &quot;The only certification that truly understands the complexities of the NZ construction site.&quot;
                                 </p>
-                                <div className="mt-4 font-bold text-primary">— Fletcher Construction Lead</div>
+                                <div className="mt-4 font-bold text-primary">  Fletcher Construction Lead</div>
                             </div>
                         </div>
                     </section>

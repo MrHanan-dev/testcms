@@ -14,16 +14,16 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-    metadataBase: new URL("https://totalpmp.co.nz"),
+    metadataBase: new URL("https://totalpmp.com"),
     title: {
         template: '%s | TotalPMP',
-        default: 'Total PMP - Project Management, Cost Estimation & Professional Training',
+        default: 'Total PMP Project Management, Cost Estimation & Professional Training',
     },
-    description: "TotalPMP delivers expert PMP certification training, precision AI-driven construction cost estimation, and strategic project management consulting. Empowering professionals and optimizing project outcomes globally.",
+    description: "TotalPMP delivers expert PMP certification training, precision AI driven construction cost estimation, and strategic project management consulting. Empowering professionals and optimizing project outcomes globally.",
     keywords: ["TotalPMP", "PMP Certification Training", "Construction Cost Estimation", "Project Management Consulting", "PMO Services", "AI Cost Advisory", "Professional Project Training"],
     openGraph: {
         title: "TotalPMP | Professional Project Management Services",
-        description: "Expert PMP training and AI-powered construction estimation services by TotalPMP.",
+        description: "Expert PMP training and AI powered construction estimation services by TotalPMP.",
         type: "website",
         locale: 'en_US',
         siteName: 'TotalPMP',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
                 url: '/images/totalpmp_hero_main_1771222013046.png',
                 width: 1200,
                 height: 630,
-                alt: 'TotalPMP - Project Management & Cost Estimation',
+                alt: 'TotalPMP Project Management & Cost Estimation',
             },
         ],
     },

@@ -12,7 +12,7 @@ const features = [
   {
     icon: <Users size={28} />,
     title: "Expert Practitioners",
-    description: "Learn from instructors with 17+ years of real-world project leadership experience across New Zealand and abroad."
+    description: "Learn from instructors with 17+ years of real world project leadership experience across New Zealand and abroad."
   },
   {
     icon: <Zap size={28} />,
