@@ -19,14 +19,14 @@ type Slide = {
 
 const slides: Slide[] = [
   {
-    src: "https://www.theTotalPMPnest.com/wp-content/uploads/2025/10/ag1-3.jpg",
-    alt: "Professional training session backdrop from TotalPMPNest",
+    src: "https://www.theagilenest.com/wp-content/uploads/2025/10/ag1-3.jpg",
+    alt: "Professional training session backdrop from TotalPMP",
     tag: "Professional Training",
     headline: "Hands On Training.\nReal Results. Certified Success.",
-    description: "Gain practical, hands-on experience with TotalPMPNest’s expert-led project management courses. Our proven methods ensure you not only pass your exams but also excel in real-world projects.",
+    description: "Gain practical, hands-on experience with TotalPMP’s expert-led project management courses. Our proven methods ensure you not only pass your exams but also excel in real-world projects.",
   },
   {
-    src: "https://www.theTotalPMPnest.com/wp-content/uploads/2025/10/ag2-3.jpg",
+    src: "https://www.theagilenest.com/wp-content/uploads/2025/10/ag2-3.jpg",
     alt: "Expert Project Management Consulting",
     tag: "Project Management",
     headline: "Strategic Planning.\nPrecision Delivery. Total Control.",
@@ -153,9 +153,9 @@ export default function Hero() {
                   return (
                     <motion.div
                       key={i}
-                      initial={{ opacity: 0, scale: 0.85 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.5, delay: i * 0.03, ease: "easeOut" }}
+                      initial={{ opacity: 0, scale: 0.85, filter: "blur(4px)" }}
+                      animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                      transition={{ duration: 0.8, delay: i * 0.04, ease: "easeOut" }}
                       className="flex items-center justify-center bg-white/[0.04] rounded-xl border border-white/[0.08] p-3"
                     >
                       <Image
@@ -177,7 +177,7 @@ export default function Hero() {
             </motion.div>
           ) : (
             <motion.div
-              initial={{ scale: slide.isInfographic ? 1 : 1.08 }}
+              initial={{ scale: slide.isInfographic ? 1 : 1.03 }}
               animate={{ scale: 1 }}
               transition={{ duration: 8, ease: "linear" }}
               className={`absolute inset-0 ${slide.isInfographic ? 'bg-[#0B1D35]' : ''}`}
@@ -197,8 +197,8 @@ export default function Hero() {
       </AnimatePresence>
 
       {/* Gradient overlays */}
-      <div className={`absolute inset-0 z-10 pointer-events-none ${slide.isCollage ? 'bg-gradient-to-r from-[#0B1D35]/90 via-[#0B1D35]/50 to-transparent' : 'bg-gradient-to-r from-[#0B1D35]/90 via-[#0B1D35]/55 to-[#0B1D35]/20'}`} />
-      <div className={`absolute inset-0 z-10 pointer-events-none ${slide.isCollage ? 'bg-gradient-to-t from-[#0B1D35]/70 via-transparent to-[#0B1D35]/40' : 'bg-gradient-to-t from-[#0B1D35]/50 via-transparent to-[#0B1D35]/30'}`} />
+      <div className={`absolute inset-0 z-10 pointer-events-none ${slide.isCollage ? 'bg-gradient-to-r from-[#0B1D35]/80 via-[#0B1D35]/40 to-transparent' : 'bg-gradient-to-r from-[#0B1D35]/75 via-[#0B1D35]/35 to-transparent'}`} />
+      <div className={`absolute inset-0 z-10 pointer-events-none ${slide.isCollage ? 'bg-gradient-to-t from-[#0B1D35]/60 via-transparent to-[#0B1D35]/30' : 'bg-gradient-to-t from-[#0B1D35]/40 via-transparent to-[#0B1D35]/20'}`} />
 
       {/* Content */}
       <div className="relative z-20 h-full flex items-center">
