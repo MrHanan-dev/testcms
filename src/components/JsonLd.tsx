@@ -5,9 +5,13 @@ export default function JsonLd() {
         "name": "TotalPMP",
         "url": "https://totalpmp.com",
         "logo": "https://totalpmp.com/logo.png",
+        "image": "https://www.theagilenest.com/wp-content/uploads/2025/10/ag2-3.jpg",
         "description": "Premium PMP certification training and AI driven construction cost estimation services.",
+        "telephone": "09 620 7678",
+        "priceRange": "$$",
         "address": {
             "@type": "PostalAddress",
+            "streetAddress": "Auckland & Christchurch",
             "addressLocality": "Auckland",
             "addressRegion": "Auckland",
             "addressCountry": "NZ"

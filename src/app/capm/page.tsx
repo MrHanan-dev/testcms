@@ -13,7 +13,7 @@ import CourseSuccessQuotes from '@/components/CourseSuccessQuotes';
 import ScrollButton from '@/components/ScrollButton';
 
 export const metadata: Metadata = {
-    title: "CAPM Certification Training | Certified Associate in Project Management",
+    title: "CAPM Certification Training & Exam Prep",
     description: "Kickstart your project management career with the CAPM certification. Validate your understanding of the fundamental knowledge, terminology, and processes of effective project management.",
 };
 
