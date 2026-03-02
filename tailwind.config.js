@@ -10,35 +10,34 @@ module.exports = {
             colors: {
                 // Millpond exact palette
                 primary: {
-                    600: '#1a5aa8', // Deep Navy Blue
-                    500: '#1e6fc7', // Millpond Blue
-                    400: '#3ca3e8', // Sky Blue
-                    100: '#d6eaf8', // Pale Blue
-                    DEFAULT: '#1a5aa8',
+                    700: '#072A40', // Navy Shadow (Depth)
+                    600: '#0B3C5D', // Deep Executive Blue (Main)
+                    500: '#61CAED', // Primary Brand (Light Blue)
+                    DEFAULT: '#0B3C5D',
+                },
+                luxury: {
+                    gold: '#55c5e7', // Bright Cyan (formerly Champagne Gold)
+                    navy: '#0F172A', // Rich Dark (Headings)
+                    slate: '#334155', // Charcoal Gray (Body)
+                    soft: '#F4F7FA', // Soft Luxury Background
                 },
                 accent: {
-                    500: '#f59e0b', // Amber
-                    400: '#fbbf24', // Light Amber
-                    DEFAULT: '#f59e0b',
+                    DEFAULT: '#55c5e7',
                 },
                 gray: {
-                    900: '#1a1a2e', // Body text
-                    600: '#4a5568', // Muted body copy
-                    100: '#f7f9fc', // Light section backgrounds
+                    900: '#0F172A', // Heading Navy
+                    600: '#334155', // Charcoal Gray
+                    100: '#F4F7FA', // Soft Luxury BG
                 },
-                success: '#22c55e',
-                error: '#ef4444',
-                warning: '#f59e0b',
-                info: '#3ca3e8',
-                foreground: '#1a1a2e',      // Near-black text
-                muted: '#4a5568',           // Slate gray — secondary text
-                border: '#E2E8F0',          // Very light border  
-                surface: '#ffffff',         // Card backgrounds
-                background: '#FFFFFF',      // Pure white
+                foreground: '#0F172A',      // High-authority text
+                muted: '#334155',           // Smooth gray text
+                border: '#E2E8F0',
+                surface: '#FFFFFF',
+                background: '#F4F7FA',
             },
             fontFamily: {
-                sans: ['var(--font-open-sans)', 'system-ui', 'sans-serif'],
-                display: ['var(--font-nunito-sans)', 'system-ui', 'sans-serif'],
+                sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+                display: ['var(--font-outfit)', 'system-ui', 'sans-serif'],
             },
             spacing: {
                 'section': '100px',
@@ -72,7 +71,8 @@ module.exports = {
                 'premium': '0 25px 50px -12px rgba(0,0,0,0.08)',
             },
             backgroundImage: {
-                'hero-gradient': 'linear-gradient(135deg, #1e6fc7 0%, #1a5aa8 50%, #1248a0 100%)',
+                'luxury-gradient': 'linear-gradient(135deg, #0B3C5D 0%, #072A40 100%)',
+                'gold-shimmer': 'linear-gradient(90deg, transparent 0%, rgba(85, 197, 231, 0.1) 50%, transparent 100%)',
             }
         },
     },

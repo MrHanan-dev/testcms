@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
@@ -8,7 +9,7 @@ const insights = [
     {
         tag: "Training",
         title: "How to maintain a 100% first-attempt PMP® pass rate.",
-        snippet: "A breakdown of our data-driven 준비 curriculum designed by industry practitioners for busy professionals.",
+        snippet: "A breakdown of our data driven curriculum designed by industry practitioners for busy professionals.",
         date: "Feb 2026",
         image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&h=600&fit=crop&q=80"
     },
@@ -78,9 +79,10 @@ export default function Insights() {
                                     {/* Cover */}
                                     <div className="aspect-[4/3] bg-surface rounded-xl mb-8 relative overflow-hidden shadow-subtle group-hover:shadow-card-hover transition-all duration-500">
                                         <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
-                                        <img
+                                        <Image
                                             src={item.image || "https://images.unsplash.com/photo-1454165833767-1314389c0b21?w=800&h=600&fit=crop&q=80"}
                                             alt={item.title}
+                                            fill
                                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                         />
                                         <div className="absolute top-5 left-5 z-20">

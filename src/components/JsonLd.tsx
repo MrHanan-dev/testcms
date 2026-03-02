@@ -2,27 +2,30 @@ export default function JsonLd() {
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
-        "name": "TotalPMPro",
-        "url": "https://totalpmpro.com",
-        "logo": "https://totalpmpro.com/logo.png",
-        "description": "Premium PMP certification training and AI-driven construction cost estimation services.",
+        "name": "TotalPMP",
+        "url": "https://totalpmp.com",
+        "logo": "https://totalpmp.com/logo.png",
+        "description": "Premium PMP certification training and AI driven construction cost estimation services.",
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "100 Business Park, Suite 500",
-            "addressLocality": "New York",
-            "addressRegion": "NY",
-            "postalCode": "10001",
-            "addressCountry": "US"
+            "addressLocality": "Auckland",
+            "addressRegion": "Auckland",
+            "addressCountry": "NZ"
         },
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+1-555-123-4567",
-            "contactType": "customer service"
-        },
+        "contactPoint": [
+            {
+                "@type": "ContactPoint",
+                "telephone": "09 620 7678",
+                "contactType": "customer service"
+            },
+            {
+                "@type": "ContactPoint",
+                "telephone": "027 353 7774",
+                "contactType": "customer service"
+            }
+        ],
         "sameAs": [
-            "https://www.linkedin.com/company/totalpmpro",
-            "https://twitter.com/totalpmpro",
-            "https://facebook.com/totalpmpro"
+            "https://www.linkedin.com/company/totalpmp",
         ],
         "offers": [
             {
@@ -32,8 +35,8 @@ export default function JsonLd() {
             },
             {
                 "@type": "Offer",
-                "name": "AI Construction Cost Estimation",
-                "description": "Data-driven cost prediction for construction projects"
+                "name": "Construction Cost Management",
+                "description": "Precision cost management and quantity surveying"
             }
         ]
     };

@@ -1,21 +1,27 @@
 import Header from '@/components/Header';
+import FAQ from '@/components/FAQ';
+import TrainingSchedule from '@/components/TrainingSchedule';
 import Footer from '@/components/Footer';
-import MobileNav from '@/components/MobileNav';
-import { Check, BookOpen, Clock, Target, Users, Layout, Globe, Star, Award, Briefcase } from 'lucide-react';
+import { Check, BookOpen, Clock, Target, Users, Layout, Globe, Star, Award, Briefcase, Send } from 'lucide-react';
 import Link from 'next/link';
+import ContactLink from '@/components/ContactLink';
 import { Metadata } from 'next';
 import CertificationHero from '@/components/CertificationHero';
+import BookingForm from '@/components/BookingForm';
+import Features from '@/components/Features';
+import CourseSuccessQuotes from '@/components/CourseSuccessQuotes';
+import ScrollButton from '@/components/ScrollButton';
 
 export const metadata: Metadata = {
-    title: "CAPM\u00ae Certification Training | Certified Associate in Project Management",
+    title: "CAPM Certification Training | Certified Associate in Project Management",
     description: "Kickstart your project management career with the CAPM certification. Validate your understanding of the fundamental knowledge, terminology, and processes of effective project management.",
 };
 
 export default function CapmPage() {
     return (
         <>
-            <Header />
-            <main className="pb-24 min-h-screen bg-slate-50 relative overflow-hidden">
+            <Header variant="transparent" />
+            <main className="min-h-screen bg-slate-50 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-teal-100/30 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
                 <CertificationHero
@@ -24,23 +30,24 @@ export default function CapmPage() {
                     description="Kickstart your career by validating your understanding of the fundamental knowledge, terminology, and processes of effective project management."
                     prev={{ name: "PMI-CP", href: "/pmicp" }}
                     next={{ name: "PMP", href: "/pmp" }}
-                    gradientClass="from-[#006666] to-[#009999]"
-                    buttonColorText="text-teal-700"
+                    gradientClass="from-primary to-primary-700"
+                    buttonColorText="text-primary"
                     badgeImage="/certifications/capm.webp"
+                    downloadLink="/CAPM-Exam Content Outline-english.pdf"
                 />
 
-                <div className="container-custom max-w-5xl mt-20 space-y-24">
+                <div className="container-custom mt-20 space-y-24">
 
                     <section id="details" className="grid md:grid-cols-2 gap-16 items-center">
                         <div>
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-100 text-teal-700 font-semibold text-sm mb-6">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/20 text-primary font-bold text-sm mb-6">
                                 <Award size={16} /> Foundations of PM
                             </div>
                             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6 leading-tight">
                                 Your Gateway to Project Management
                             </h2>
                             <p className="text-slate-600 text-lg leading-relaxed mb-6">
-                                The Certified Associate in Project Management (CAPM)\u00ae is an essential first step in building a career as a project manager. It demonstrates your knowledge of the principles and terminology in the PMBOK\u00ae Guide.
+                                The Certified Associate in Project Management (CAPM) is an essential first step in building a career as a project manager. It demonstrates your knowledge of the principles and terminology in the PMBOK Guide.
                             </p>
                             <div className="space-y-4">
                                 {[
@@ -50,7 +57,7 @@ export default function CapmPage() {
                                     { title: "Career Kickstarter", desc: "Ideal for recent graduates or those looking to pivot into project management roles." },
                                 ].map((item, i) => (
                                     <div key={i} className="flex gap-4">
-                                        <div className="mt-1 bg-green-100 text-green-600 p-1 rounded-full shrink-0">
+                                        <div className="mt-1 bg-accent/20 text-primary p-1 rounded-full shrink-0">
                                             <Check size={16} strokeWidth={3} />
                                         </div>
                                         <div>
@@ -62,7 +69,7 @@ export default function CapmPage() {
                             </div>
                         </div>
                         <div className="relative">
-                            <div className="absolute inset-0 bg-gradient-to-tr from-teal-100 to-green-50 rounded-3xl transform rotate-3 scale-105 -z-10"></div>
+                            <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-primary/5 rounded-3xl transform rotate-3 scale-105 -z-10"></div>
                             <div className="bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-slate-100">
                                 <h3 className="text-2xl font-bold text-primary border-b border-slate-100 pb-4 mb-6">Who Should Apply?</h3>
                                 <p className="text-slate-600 mb-6 text-sm">Perfect for individuals starting their journey or those wanting to formalize their basic PM knowledge.</p>
@@ -84,7 +91,72 @@ export default function CapmPage() {
                         </div>
                     </section>
 
+                    {/* ── Eligibility Requirements ── */}
+                    <section className="bg-white rounded-3xl border border-slate-100 shadow-sm p-10 md:p-14">
+                        <div className="mb-10">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/20 text-primary font-bold text-sm mb-4">
+                                <Check size={16} /> Eligibility Requirements
+                            </div>
+                            <h2 className="text-3xl md:text-4xl font-black text-primary mb-3">Who Can Apply for the CAPM?</h2>
+                            <p className="text-slate-500 text-lg font-medium max-w-2xl">
+                                The CAPM has straightforward requirements   no project experience needed. Anyone with a secondary diploma can apply.
+                            </p>
+                        </div>
+
+                        <div className="grid md:grid-cols-2 gap-6 mb-10">
+                            <div className="rounded-2xl border-2 border-accent/30 bg-accent/5 p-8 flex flex-col gap-5">
+                                <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center text-primary">
+                                    <Award size={24} />
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-black text-primary mb-1">Education</h3>
+                                    <p className="text-slate-500 text-sm font-medium">Minimum requirement for all applicants</p>
+                                </div>
+                                <ul className="space-y-3">
+                                    {[
+                                        "Secondary diploma (high school diploma, GED, or global equivalent)",
+                                        "No university or college degree required",
+                                    ].map((req, i) => (
+                                        <li key={i} className="flex items-start gap-3 text-slate-700 font-medium text-sm">
+                                            <div className="mt-1 bg-accent/30 text-primary p-0.5 rounded-full shrink-0"><Check size={14} strokeWidth={3} /></div>
+                                            {req}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            <div className="rounded-2xl border-2 border-primary/20 bg-primary/5 p-8 flex flex-col gap-5">
+                                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                                    <Clock size={24} />
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-black text-primary mb-1">Project Management Education</h3>
+                                    <p className="text-slate-500 text-sm font-medium">Must be completed before sitting the exam</p>
+                                </div>
+                                <ul className="space-y-3">
+                                    {[
+                                        "23 contact hours of project management education",
+                                        "No work experience required   ideal for students & career changers",
+                                    ].map((req, i) => (
+                                        <li key={i} className="flex items-start gap-3 text-slate-700 font-medium text-sm">
+                                            <div className="mt-1 bg-primary/20 text-primary p-0.5 rounded-full shrink-0"><Check size={14} strokeWidth={3} /></div>
+                                            {req}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 flex items-start gap-4">
+                            <Globe size={22} className="text-accent shrink-0 mt-0.5" />
+                            <p className="text-slate-600 font-medium text-sm leading-relaxed">
+                                <strong className="text-primary">Good news:</strong> Our CAPM training course fulfils the <strong className="text-primary">23 contact hours</strong> requirement. No experience required   you can apply straight from study or a career change.
+                            </p>
+                        </div>
+                    </section>
+
                     <section className="grid lg:grid-cols-5 gap-12">
+
                         <div className="lg:col-span-3">
                             <h2 className="text-3xl font-bold text-primary mb-2">Curriculum / Syllabus</h2>
                             <p className="text-slate-500 mb-8">Reflects the latest standards in project delivery.</p>
@@ -93,9 +165,9 @@ export default function CapmPage() {
                                 <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
                                     <div className="flex justify-between items-start mb-4">
                                         <h4 className="text-xl font-bold text-primary flex items-center gap-2">
-                                            <BookOpen className="text-teal-500" /> PM Fundamentals & Core Concepts
+                                            <BookOpen className="text-accent" /> PM Fundamentals & Core Concepts
                                         </h4>
-                                        <span className="bg-teal-100 text-teal-700 font-bold px-3 py-1 rounded-full text-sm">36%</span>
+                                        <span className="bg-accent/20 text-primary font-bold px-3 py-1 rounded-full text-sm">36%</span>
                                     </div>
                                     <p className="text-slate-600 leading-relaxed text-sm">
                                         Understanding project life cycles, PM roles, and overarching methodologies.
@@ -104,9 +176,9 @@ export default function CapmPage() {
                                 <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
                                     <div className="flex justify-between items-start mb-4">
                                         <h4 className="text-xl font-bold text-primary flex items-center gap-2">
-                                            <Target className="text-blue-500" /> Predictive, Plan-Based Methodologies
+                                            <Target className="text-primary" /> Predictive, Plan-Based Methodologies
                                         </h4>
-                                        <span className="bg-blue-100 text-blue-700 font-bold px-3 py-1 rounded-full text-sm">17%</span>
+                                        <span className="bg-slate-100 text-primary font-bold px-3 py-1 rounded-full text-sm">17%</span>
                                     </div>
                                     <p className="text-slate-600 leading-relaxed text-sm">
                                         Deep dive into traditional waterfall project management techniques.
@@ -115,12 +187,12 @@ export default function CapmPage() {
                                 <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
                                     <div className="flex justify-between items-start mb-4">
                                         <h4 className="text-xl font-bold text-primary flex items-center gap-2">
-                                            <Users className="text-purple-500" /> Agile Frameworks/Methodologies
+                                            <Users className="text-accent" /> TotalPMP Frameworks/Methodologies
                                         </h4>
-                                        <span className="bg-purple-100 text-purple-700 font-bold px-3 py-1 rounded-full text-sm">20%</span>
+                                        <span className="bg-accent/10 text-primary font-bold px-3 py-1 rounded-full text-sm">20%</span>
                                     </div>
                                     <p className="text-slate-600 leading-relaxed text-sm">
-                                        Understanding adaptive approaches, Scrum, Kanban, and Agile principles.
+                                        Understanding adaptive approaches, Scrum, Kanban, and TotalPMP principles.
                                     </p>
                                 </div>
 
@@ -138,87 +210,145 @@ export default function CapmPage() {
                             </div>
                         </div>
 
-                        <div className="lg:col-span-2">
-                            <h2 className="text-3xl font-bold text-primary mb-8">Key Course Features</h2>
-                            <ul className="space-y-6">
-                                {[
-                                    { title: "Foundational Focus", icon: BookOpen, desc: "Step-by-step breakdown of core PM principles." },
-                                    { title: "Agile & BA Included", icon: Users, desc: "Covers crucial modern aspects like Agile and Business Analysis." },
-                                    { title: "Meets Requirements", icon: Layout, desc: "Provides the 23 contact hours needed to sit the exam." },
-                                    { title: "Mock Exams", icon: Target, desc: "Extensive simulator tests matching the CAPM format." },
-                                ].map((feature) => (
-                                    <li key={feature.title} className="flex gap-4 group">
-                                        <div className="bg-white border border-slate-100 shadow-sm p-3 rounded-xl text-teal-600 shrink-0 h-14 w-14 flex items-center justify-center group-hover:bg-teal-50 transition-colors">
-                                            <feature.icon size={24} strokeWidth={1.5} />
+                        {/* Right side - What you get & Exam Format */}
+                        <div className="lg:col-span-2 space-y-8">
+                            <div className="bg-primary rounded-3xl p-8 md:p-10 text-white relative overflow-hidden">
+                                <div className="absolute top-0 right-0 w-64 h-64 bg-accent/20 rounded-full blur-3xl -mr-20 -mt-20"></div>
+
+                                <h3 className="text-2xl font-bold mb-6 relative z-10">What's Included</h3>
+                                <ul className="space-y-5 relative z-10">
+                                    {[
+                                        "23 Hours of Live Expert-led Training",
+                                        "Official PMI® Authorized Training Content",
+                                        "Full-length CAPM Mock Exams",
+                                        "PMI Application Assistance",
+                                        "Post-Training Support till Certification",
+                                        "100% Exam Pass Guarantee (T&Cs Apply)"
+                                    ].map((item, i) => (
+                                        <li key={i} className="flex items-start gap-4">
+                                            <div className="mt-1 bg-accent/20 text-accent p-1 rounded-full shrink-0">
+                                                <Check size={14} strokeWidth={3} />
+                                            </div>
+                                            <span className="font-medium">{item}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+
+                                <ScrollButton
+                                    targetId="register"
+                                    className="w-full mt-10 bg-accent hover:bg-accent-hover text-white font-bold py-4 rounded-xl transition-all hover:shadow-lg hover:-translate-y-1 relative z-10"
+                                >
+                                    Download Full Syllabus
+                                </ScrollButton>
+                            </div>
+
+                            {/* Exam Format Box */}
+                            <div className="bg-slate-50 border border-slate-200 rounded-3xl p-8 md:p-10">
+                                <h3 className="text-2xl font-bold text-primary mb-6">CAPM® Exam Format</h3>
+                                <ul className="space-y-5">
+                                    <li className="flex items-start gap-4">
+                                        <div className="w-10 h-10 rounded-lg bg-white shadow-sm flex items-center justify-center text-accent shrink-0 border border-slate-100">
+                                            <Target size={20} />
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-primary text-lg">{feature.title}</h4>
-                                            <p className="text-slate-500 text-sm leading-relaxed">{feature.desc}</p>
+                                            <p className="font-bold text-primary">150 Questions</p>
+                                            <p className="text-slate-500 text-sm">Multiple-choice, drag-and-drop, animations, hotspot</p>
                                         </div>
                                     </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </section>
-
-                    <section className="bg-white rounded-3xl p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 relative">
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-teal-50 rounded-bl-full -z-10" />
-                        <div className="text-center max-w-2xl mx-auto mb-12">
-                            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Eligibility Prerequisites</h2>
-                            <p className="text-slate-600">The CAPM is highly accessible and designed to be an entry point into the profession.</p>
-                        </div>
-
-                        <div className="max-w-xl mx-auto">
-                            <div className="p-8 rounded-2xl bg-teal-50 border-2 border-teal-200">
-                                <h3 className="text-2xl font-bold text-primary mb-6 flex items-center gap-3">
-                                    <Award className="text-teal-600" /> Standard Path
-                                </h3>
-                                <ul className="space-y-6 text-slate-700 text-lg">
-                                    <li className="flex gap-4">
-                                        <Check className="shrink-0 text-green-500 mt-1" />
-                                        <span><strong>Education:</strong> Secondary degree (high school diploma, associate's degree or the global equivalent).</span>
+                                    <li className="flex items-start gap-4">
+                                        <div className="w-10 h-10 rounded-lg bg-white shadow-sm flex items-center justify-center text-accent shrink-0 border border-slate-100">
+                                            <Clock size={20} />
+                                        </div>
+                                        <div>
+                                            <p className="font-bold text-primary">180 Minutes</p>
+                                            <p className="text-slate-500 text-sm">Total exam duration (3 hours). One 10-minute break available.</p>
+                                        </div>
                                     </li>
-                                    <li className="flex gap-4">
-                                        <Check className="shrink-0 text-green-500 mt-1" />
-                                        <span><strong>Training:</strong> 23 contact hours of formal project management education completed before the exam.</span>
-                                    </li>
-                                    <li className="flex gap-4 text-slate-500 italic mt-4 px-4 py-3 bg-white rounded-xl border border-teal-100">
-                                        No professional project experience is required to apply for the CAPM!
+                                    <li className="flex items-start gap-4">
+                                        <div className="w-10 h-10 rounded-lg bg-white shadow-sm flex items-center justify-center text-accent shrink-0 border border-slate-100">
+                                            <Layout size={20} />
+                                        </div>
+                                        <div>
+                                            <p className="font-bold text-primary">Exam Structure</p>
+                                            <p className="text-slate-500 text-sm">Core Concepts (36%), Predictive (17%), TotalPMP (20%), Business Analysis (27%)</p>
+                                        </div>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </section>
 
-                    <section className="bg-gradient-to-r from-[#006666] to-[#009999] text-white rounded-3xl p-8 md:p-12 mb-16 relative overflow-hidden">
-                        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10"></div>
-                        <div className="relative z-10">
-                            <h3 className="text-2xl font-bold mb-8 text-center text-teal-50">Additional Exam Details</h3>
-                            <div className="grid sm:grid-cols-3 gap-6 text-center">
-                                <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10">
-                                    <Clock className="mx-auto mb-4 text-accent" size={32} />
-                                    <div className="font-bold text-2xl mb-1">180</div>
-                                    <div className="text-sm text-teal-100">Minutes Duration</div>
+                    {/* Why Choose Us Section */}
+                    <section className="bg-white rounded-3xl p-10 md:p-16 border border-slate-100 shadow-sm mt-24 text-center">
+                        <div className="max-w-3xl mx-auto mb-16">
+                            <span className="text-accent font-extrabold tracking-[0.2em] uppercase text-[10px] mb-4 block">TotalPMP Advantage</span>
+                            <h2 className="text-3xl md:text-4xl font-black text-primary mb-6">Why Train with TotalPMP</h2>
+                            <p className="text-slate-600 text-lg leading-relaxed font-medium mb-4">
+                                We are a Premium Authorized Training Partner (A.T.P.) for the global Project Management Institute (PMI).
+                            </p>
+                            <p className="text-slate-600 text-lg leading-relaxed">
+                                We have been supporting project managers to attain their PMI® certifications. The combination of our training methods, facilitators, self-study, and collaboration has resulted in ongoing success.
+                            </p>
+                        </div>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+                            {[
+                                "Local company offering tailored, region-specific training.",
+                                "Trainers hand picked for their expertise and real world PM experience.",
+                                "Flexible training schedules to suit learning capacities.",
+                                "All-inclusive, transparent pricing with no hidden fees.",
+                                "Globally recognized materials enhanced with our own resources.",
+                                "Full support through the entire certification process.",
+                                "Feedback reviewed continuously to ensure top training quality.",
+                                "Trainers collaborate regularly to uphold high standards in adult education.",
+                                "100% locally owned organization operating with honesty and transparency."
+                            ].map((advantage, i) => (
+                                <div key={i} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex gap-4 hover:shadow-lg transition-shadow">
+                                    <div className="mt-1 bg-accent/20 text-primary p-1.5 rounded-full shrink-0 h-fit">
+                                        <Check size={16} strokeWidth={3} />
+                                    </div>
+                                    <p className="text-slate-700 font-medium text-sm leading-relaxed">{advantage}</p>
                                 </div>
-                                <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10">
-                                    <Layout className="mx-auto mb-4 text-accent" size={32} />
-                                    <div className="font-bold text-2xl mb-1">150</div>
-                                    <div className="text-sm text-teal-100">Total Questions</div>
-                                </div>
-                                <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10">
-                                    <Globe className="mx-auto mb-4 text-accent" size={32} />
-                                    <div className="font-bold text-2xl mb-1">Cost</div>
-                                    <div className="text-lg text-teal-100">$225 / $300</div>
-                                    <div className="text-xs text-teal-200 mt-1">(Member / Non-Member)</div>
-                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    {/* Comparison / Why Choose Us */}
+                    <Features titleSuffix="CAPM® Journey" descriptionSuffix="CAPM® training programs" />
+                    <CourseSuccessQuotes />
+
+                    <section id="register" className="grid md:grid-cols-5 gap-16 items-start">
+                        <div className="md:col-span-3">
+                            <BookingForm
+                                courseName="CAPM® Certification"
+                                availableDates={["March 2026", "April 2026", "May 2026"]}
+                            />
+                        </div>
+                        <div className="md:col-span-2 space-y-8">
+                            <div className="bg-slate-800 text-white p-10 rounded-[40px] shadow-2xl relative overflow-hidden group">
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-accent/20 rounded-bl-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+                                <h3 className="text-2xl font-bold mb-6 relative z-10">Start your PM<br />journey today</h3>
+                                <p className="text-slate-300 mb-8 relative z-10 font-medium">Join our study groups and get access to exclusive CAPM resources.</p>
+                                <ContactLink
+                                    className="inline-flex items-center justify-center py-6 px-16 bg-white text-primary font-black text-xl rounded-2xl hover:scale-105 transition-all shadow-2xl"
+                                >
+                                    Enquire Now
+                                </ContactLink>
+                            </div>
+
+                            <div className="p-8 border-2 border-dashed border-slate-200 rounded-[40px] text-center">
+                                <p className="text-slate-500 font-medium italic">
+                                    "Even without experience, I felt fully prepared for the exam. Highly recommend!"
+                                </p>
+                                <div className="mt-4 font-bold text-primary">  Auckland Council Employee</div>
                             </div>
                         </div>
                     </section>
 
                 </div>
             </main>
+            <TrainingSchedule />
+            <FAQ />
             <Footer />
-            <MobileNav />
         </>
     );
 }

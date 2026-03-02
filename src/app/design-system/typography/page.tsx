@@ -1,5 +1,5 @@
 export const metadata = {
-    title: 'Typography | Millpond Design System',
+    title: 'Typography | TotalPMP Design System',
 };
 
 const TypeSpecimen = ({
@@ -19,7 +19,7 @@ const TypeSpecimen = ({
             <div className="text-xs text-gray-500 mt-1 font-mono">
                 {size} / {weight} / {lineHeight}
             </div>
-            <div className="text-xs text-gray-400 mt-1 uppercase tracking-wider">{fontFamily === 'font-display' ? 'Nunito Sans' : 'Open Sans'}</div>
+            <div className="text-xs text-gray-400 mt-1 uppercase tracking-wider">{fontFamily === 'font-display' ? 'Outfit' : 'Inter'}</div>
         </div>
         <div className={`text-gray-900 ${previewClass} truncate max-w-full overflow-hidden`}>
             {sample}
@@ -34,7 +34,7 @@ export default function DesignSystemTypography() {
                 <span className="label-tag block mb-2">Foundations</span>
                 <h1 className="h1 text-gray-900">typography.</h1>
                 <p className="text-xl text-gray-600 mt-4 max-w-3xl leading-relaxed">
-                    Our typography uses Nunito Sans for strong, approachable headings and Open Sans for highly readable body copy.
+                    Our typography uses Outfit for strong, approachable headings and Inter for highly readable body copy.
                 </p>
             </header>
 

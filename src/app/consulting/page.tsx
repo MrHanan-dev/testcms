@@ -1,12 +1,12 @@
 import Header from '@/components/Header';
+import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
-import MobileNav from '@/components/MobileNav';
 import ServiceHero from '@/components/ServiceHero';
 import { Check, ShieldCheck, TrendingUp, Settings2, BarChart3, Briefcase, Search, Activity, Users, LayoutList, Layers, FileSearch } from 'lucide-react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Project Management Consulting | TotalPMPro",
+    title: "Project Management Consulting",
     description: "Improving client project management maturity through consulting to create appropriate structure around delivery, governance, and tools.",
 };
 
@@ -27,25 +27,11 @@ export default function ConsultingPage() {
             bgColor: "bg-emerald-50"
         },
         {
-            title: "PMO as a Service",
-            desc: "Strategic Portfolio and Project Management as a Service to give you on-demand maturity and governance structure.",
-            icon: LayoutList,
-            color: "text-blue-600",
-            bgColor: "bg-blue-50"
-        },
-        {
             title: "Post Implementation Review",
             desc: "External, independent PIRs to capture lessons learned and validate that business cases were actually achieved.",
             icon: FileSearch,
             color: "text-orange-600",
             bgColor: "bg-orange-50"
-        },
-        {
-            title: "Process Optimization",
-            desc: "Audit and assessment of current delivery processes to eliminate waste and build a faster, leaner project engine.",
-            icon: Settings2,
-            color: "text-purple-600",
-            bgColor: "bg-purple-50"
         },
         {
             title: "Governance Frameworks",
@@ -58,7 +44,7 @@ export default function ConsultingPage() {
 
     return (
         <>
-            <Header />
+            <Header variant="transparent" />
             <main className="min-h-screen bg-white">
                 <ServiceHero
                     title="Consulting"
@@ -147,8 +133,8 @@ export default function ConsultingPage() {
                     </div>
                 </section>
             </main>
+            <FAQ />
             <Footer />
-            <MobileNav />
         </>
     );
 }
