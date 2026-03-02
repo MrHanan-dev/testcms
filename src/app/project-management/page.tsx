@@ -1,13 +1,14 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import MobileNav from '@/components/MobileNav';
 import ServiceHero from '@/components/ServiceHero';
+import Link from 'next/link';
+import ContactLink from '@/components/ContactLink';
 import { Check, Users, Target, Briefcase, BarChart3, ShieldCheck, Network, Layout, RefreshCw, Zap, Search, FileCheck, Star, Heart, Award, Globe } from 'lucide-react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Project Management Services | TotalPMPro",
-    description: "Expert project delivery professionals and customized project management solutions to help your organization achieve business outcomes.",
+    title: "Project Management for Construction Project",
+    description: "Expert project delivery professionals and customized project management solutions for construction projects to help your organization achieve business outcomes.",
 };
 
 export default function ProjectManagementPage() {
@@ -59,7 +60,7 @@ export default function ProjectManagementPage() {
     const valueProps = [
         {
             title: "Collective Experience",
-            desc: "150+ years of collective project experience and a reputation for delivering outcomes.",
+            desc: "17 years of collective project experience and a reputation for delivering outcomes.",
             icon: Star
         },
         {
@@ -81,10 +82,10 @@ export default function ProjectManagementPage() {
 
     return (
         <>
-            <Header />
+            <Header variant="transparent" />
             <main className="min-h-screen bg-white">
                 <ServiceHero
-                    title="Project Management"
+                    title="Project Management for Construction Project"
                     description="Providing experienced project professionals to help you achieve your business strategy through the leadership and management of key projects."
                     gradientClass="bg-gradient-to-br from-[#0b5c92] to-[#1479be]"
                     breadcrumb="Our Services"
@@ -92,11 +93,11 @@ export default function ProjectManagementPage() {
 
                 {/* How We Can Help Section */}
                 <section className="py-24 bg-white">
-                    <div className="container-custom max-w-5xl">
+                    <div className="container-custom">
                         <div className="text-center space-y-8 mb-20">
                             <span className="label-tag mx-auto">How we can help</span>
                             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-primary leading-tight tracking-tight">
-                                Project management for<br className="hidden md:block" /> any situation
+                                Project Management for<br className="hidden md:block" /> Construction Project
                             </h2>
                             <p className="text-slate-600 text-xl md:text-2xl leading-relaxed font-medium max-w-4xl mx-auto">
                                 We provide experienced project professionals to help you achieve your business strategy through the leadership and management of key projects.
@@ -111,9 +112,11 @@ export default function ProjectManagementPage() {
                                 <p className="text-slate-500 text-lg leading-relaxed">
                                     Whatever the size of your organisation or project, we’ve got experience across multiple sectors including Infrastructure, Utilities, Education, Agribusiness, and more.
                                 </p>
-                                <button className="py-5 px-10 bg-primary text-white font-black rounded-2xl hover:bg-blue-700 transition-all hover:scale-105 shadow-xl">
+                                <ContactLink
+                                    className="inline-flex items-center justify-center py-5 px-10 bg-primary text-white font-black rounded-2xl hover:bg-blue-700 transition-all hover:scale-105 shadow-xl"
+                                >
                                     Enquire Now
-                                </button>
+                                </ContactLink>
                             </div>
                             <div className="bg-slate-50 p-12 rounded-[50px] border border-slate-100 relative overflow-hidden group">
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-blue-100/30 rounded-bl-full pointer-events-none" />
@@ -157,12 +160,12 @@ export default function ProjectManagementPage() {
                     </div>
                 </section>
 
-                {/* Why TotalPMPro Section */}
+                {/* Why TotalPMP Section */}
                 <section className="py-32 bg-white">
                     <div className="container-custom">
                         <div className="grid lg:grid-cols-5 gap-16 items-start">
                             <div className="lg:col-span-2 space-y-8">
-                                <span className="label-tag">Why TotalPMPro</span>
+                                <span className="label-tag">Why TotalPMP</span>
                                 <h2 className="text-4xl md:text-5xl font-black text-primary leading-[1.1] tracking-tight">
                                     Proven expertise.<br />We love what we do
                                 </h2>
@@ -170,7 +173,7 @@ export default function ProjectManagementPage() {
                                     With decades of collective project experience and a reputation for delivering outcomes, we’ve built a legacy that’s only growing.
                                 </p>
                                 <p className="text-slate-500 text-lg leading-relaxed">
-                                    Some of the largest and most successful organisations use TotalPMPro because we offer a safe pair of hands and a people-centric culture.
+                                    Some of the largest and most successful organisations use TotalPMP because we offer a safe pair of hands and a people-centric culture.
                                 </p>
                                 <button className="text-blue-600 font-black text-lg flex items-center gap-3 hover:gap-5 transition-all">
                                     Learn more about us <Target size={24} />
@@ -204,16 +207,17 @@ export default function ProjectManagementPage() {
                                 Contact us to see how we can help your organisation; we’d love to hear from you.
                             </p>
                             <div className="pt-4">
-                                <button className="py-6 px-16 bg-white text-primary font-black text-xl rounded-2xl hover:scale-105 transition-all shadow-2xl">
+                                <ContactLink
+                                    className="inline-flex items-center justify-center py-6 px-16 bg-white text-primary font-black text-xl rounded-2xl hover:scale-105 transition-all shadow-2xl"
+                                >
                                     Get In Touch
-                                </button>
+                                </ContactLink>
                             </div>
                         </div>
                     </div>
                 </section>
             </main>
             <Footer />
-            <MobileNav />
         </>
     );
 }

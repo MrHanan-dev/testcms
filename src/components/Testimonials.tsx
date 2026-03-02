@@ -8,7 +8,7 @@ const testimonials = [
         name: "Sarah Mitchell",
         role: "Senior PM, Infrastructure NZ",
         initials: "SM",
-        content: "TotalPMP didn't just prepare me for the PMP exam — they transformed how I approach project delivery. The real-world case studies were invaluable.",
+        content: "TotalPMP didn't just prepare me for the PMP exam. They transformed how I approach project delivery. The real world case studies were invaluable.",
     },
     {
         name: "James Chen",

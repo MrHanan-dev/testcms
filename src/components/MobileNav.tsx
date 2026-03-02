@@ -7,15 +7,17 @@ import Link from 'next/link';
 
 const tabs = [
     { label: "Training", icon: GraduationCap, href: "/training" },
-    { label: "Costs", icon: Calculator, href: "/consulting" },
-    { label: "Consult", icon: Briefcase, href: "/consulting" },
+    { label: "Estimating", icon: Calculator, href: "/cost-estimation" },
+    { label: "PMO", icon: Briefcase, href: "/consulting" },
 ];
 
 const menuLinks = [
     { label: "PMP® Training", href: "/pmp", desc: "PMI-accredited certification programs" },
     { label: "Project Delivery", href: "/project-management", desc: "Expert Project & Change Management" },
-    { label: "Consulting", href: "/consulting", desc: "Advisory & PMO establishment" },
-    { label: "About TotalPMPro", href: "/about", desc: "Our story and mission" },
+    { label: "Cost Estimation & QS", href: "/cost-estimation", desc: "Fast accurate estimating for projects" },
+    { label: "Construction Contract", href: "/contract-management", desc: "Contract management services" },
+    { label: "Advisory & PMO", href: "/consulting", desc: "Strategic PMO & Consulting" },
+    { label: "About TotalPMP", href: "/about", desc: "Our story and mission" },
 ];
 
 export default function MobileNav() {
@@ -93,7 +95,7 @@ export default function MobileNav() {
                                     <Phone size={16} /> Call Us
                                 </a>
                                 <a
-                                    href="mailto:info@totalpmp.com"
+                                    href="mailto:info@TotalPMP.com"
                                     className="flex-1 flex items-center justify-center gap-2 py-4 rounded-lg bg-white/10 text-white font-semibold text-sm"
                                 >
                                     <Mail size={16} /> Email

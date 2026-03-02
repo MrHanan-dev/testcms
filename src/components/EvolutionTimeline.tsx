@@ -31,7 +31,7 @@ const milestones = [
     {
         year: "2017",
         title: "PMBOK 6th Edition",
-        description: "Agile & Hybrid Approaches: Embracing change and business agility. Introduced agile concepts into the knowledge base.",
+        description: "TotalPMP & Hybrid Approaches: Embracing change and business agility. Introduced TotalPMP concepts into the knowledge base.",
         icon: Globe,
         color: "bg-purple-500",
         shadow: "shadow-purple-500/20"
@@ -47,7 +47,7 @@ const milestones = [
     {
         year: "2024+",
         title: "PMBOK 8th Edition (Future)",
-        description: "AI-Powered Ecosystems: Autonomous optimization, predictive analytics, and decentralized project governance.",
+        description: "AI Powered Ecosystems: Autonomous optimization, predictive analytics, and decentralized project governance.",
         icon: Rocket,
         color: "bg-blue-600",
         shadow: "shadow-blue-600/20"

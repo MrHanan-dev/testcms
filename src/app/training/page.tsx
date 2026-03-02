@@ -1,13 +1,14 @@
 import Header from '@/components/Header';
+import FAQ from '@/components/FAQ';
+import TrainingSchedule from '@/components/TrainingSchedule';
 import Footer from '@/components/Footer';
-import MobileNav from '@/components/MobileNav';
 import ServiceHero from '@/components/ServiceHero';
 import { Check, BookOpen, Users, Globe, Award, Laptop, GraduationCap, ArrowRight, MessageSquare, Files, Search, Star } from 'lucide-react';
 import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-    title: "Professional Training Services | TotalPMPro",
+    title: "Professional Training Services",
     description: "Equipping organizations and individuals with the skills to achieve project outcomes through certification and bespoke training.",
 };
 
@@ -29,7 +30,7 @@ export default function TrainingPage() {
             title: "Professional Development",
             desc: "Advance your career with targeted skills in leadership, risk management, and strategic project delivery.",
             icon: Star,
-            links: ["Leadership Workshops", "Risk Management", "Agile Methodologies"]
+            links: ["Leadership Workshops", "Risk Management", "TotalPMP Methodologies"]
         }
     ];
 
@@ -41,7 +42,7 @@ export default function TrainingPage() {
 
     return (
         <>
-            <Header />
+            <Header variant="transparent" />
             <main className="min-h-screen bg-white">
                 <ServiceHero
                     title="Professional Training"
@@ -58,7 +59,7 @@ export default function TrainingPage() {
                             Build Your Team's<br />Project Capability
                         </h2>
                         <p className="text-slate-600 text-xl leading-relaxed font-medium">
-                            At TotalPMPro, we’re passionate about projects. We provide the full range of project services and training to increase your team’s skills and capabilities to help you achieve your business outcomes.
+                            At TotalPMP, we’re passionate about projects. We provide the full range of project services and training to increase your team’s skills and capabilities to help you achieve your business outcomes.
                         </p>
                     </div>
                 </section>
@@ -137,34 +138,35 @@ export default function TrainingPage() {
                     <div className="container-custom">
                         <div className="bg-white p-12 md:p-20 rounded-[60px] border border-slate-100 shadow-sm">
                             <div className="grid md:grid-cols-3 gap-12 text-center">
-                                <Link href="#" className="group space-y-4">
+                                <div className="group space-y-4">
                                     <div className="mx-auto bg-blue-50 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                                         <MessageSquare size={28} />
                                     </div>
                                     <h4 className="text-xl font-black text-primary">Testimonials</h4>
                                     <p className="text-slate-500 text-sm">What our students and corporate partners are saying.</p>
-                                </Link>
-                                <Link href="#" className="group space-y-4">
+                                </div>
+                                <div className="group space-y-4">
                                     <div className="mx-auto bg-teal-50 text-teal-600 w-16 h-16 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                                         <Search size={28} />
                                     </div>
                                     <h4 className="text-xl font-black text-primary">Case Studies</h4>
                                     <p className="text-slate-500 text-sm">Explore how our training transformed organisations.</p>
-                                </Link>
-                                <Link href="#" className="group space-y-4">
+                                </div>
+                                <div className="group space-y-4">
                                     <div className="mx-auto bg-purple-50 text-purple-600 w-16 h-16 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                                         <Files size={28} />
                                     </div>
                                     <h4 className="text-xl font-black text-primary">Resources</h4>
                                     <p className="text-slate-500 text-sm">Free guides, whitepapers, and PM tools.</p>
-                                </Link>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </section>
             </main>
+            <TrainingSchedule />
+            <FAQ />
             <Footer />
-            <MobileNav />
         </>
     );
 }

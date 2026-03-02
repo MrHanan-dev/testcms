@@ -4,31 +4,16 @@ import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const faqs = [
-    {
-        question: "What is the exam success rate for TotalPMP's students?",
-        answer: "We are proud to maintain a 100% first-attempt pass rate for our PMP® certification training. Our curriculum is tailored based on actual industrial situations and includes comprehensive mock testing."
-    },
-    {
-        question: "Do you offer tailored project management consulting for enterprises?",
-        answer: "Yes, TotalPMP specializes in bespoke consultancy for high-stakes projects. From masterplanning to sustainability advice, we help organizations navigate complex delivery hurdles."
-    },
-    {
-        question: "Is the training available globally or only in New Zealand?",
-        answer: "While we have deep roots in New Zealand, we offer both on-site and highly interactive online certifications that follow international standards, accessible to professionals worldwide."
-    },
-    {
-        question: "How does the consultancy approach differ from others?",
-        answer: "Our approach is independent and expert-led, focusing on providing high-fidelity development and commercial advice that ensures project success from inception to delivery."
-    },
-    {
-        question: "What industries do your consultancy services cover?",
-        answer: "We have extensive experience in large-scale infrastructure, commercial developments, and industrial construction projects across diverse sectors."
-    }
-];
+import { usePathname } from 'next/navigation';
+import { globalFaqs } from '@/lib/faqData';
 
 export default function FAQ() {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
+    const pathname = usePathname();
+
+    // Safely determine which FAQ set to load based on the URL path.
+    const routeKey = pathname === '/' ? 'home' : pathname.replace(/^\//, '').split('/')[0];
+    const activeFaqs = globalFaqs[routeKey] || globalFaqs['default'];
 
     return (
         <section className="section bg-white border-t border-slate-100">
@@ -39,7 +24,7 @@ export default function FAQ() {
                 </div>
 
                 <div className="max-w-4xl space-y-4">
-                    {faqs.map((faq, index) => (
+                    {activeFaqs.map((faq, index) => (
                         <div
                             key={index}
                             className={`rounded-[32px] overflow-hidden transition-all duration-700 ${openIndex === index ? 'glass-crystal shadow-premium border-accent/20' : 'bg-slate-50/50 hover:bg-slate-50 border border-transparent'}`}

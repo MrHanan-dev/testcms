@@ -9,7 +9,11 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'www.theagilenest.com',
+        hostname: 'www.theTotalPMPnest.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'yestechday.com',
       },
     ],
   },
