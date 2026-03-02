@@ -19,18 +19,18 @@ type Slide = {
 
 const slides: Slide[] = [
   {
-    src: "https://www.theagilenest.com/wp-content/uploads/2025/10/ag1-3.jpg",
-    alt: "Professional training session backdrop from TotalPMP",
-    tag: "Professional Training",
-    headline: "Hands On Training.\nReal Results. Certified Success.",
-    description: "Gain practical, hands-on experience with TotalPMP’s expert-led project management courses. Our proven methods ensure you not only pass your exams but also excel in real-world projects.",
-  },
-  {
     src: "https://www.theagilenest.com/wp-content/uploads/2025/10/ag2-3.jpg",
     alt: "Expert Project Management Consulting",
     tag: "Project Management",
     headline: "Strategic Planning.\nPrecision Delivery. Total Control.",
     description: "From inception to completion, we provide the leadership and expertise required to navigate high-stakes projects and achieve outstanding business outcomes.",
+  },
+  {
+    src: "https://www.theagilenest.com/wp-content/uploads/2025/10/ag1-3.jpg",
+    alt: "Professional training session backdrop from TotalPMP",
+    tag: "Professional Training",
+    headline: "Hands On Training.\nReal Results. Certified Success.",
+    description: "Gain practical, hands-on experience with TotalPMP’s expert-led project management courses. Our proven methods ensure you not only pass your exams but also excel in real-world projects.",
   },
   {
     src: "/images/Totalqsconsultant.jpeg",
@@ -153,8 +153,8 @@ export default function Hero() {
                   return (
                     <motion.div
                       key={i}
-                      initial={{ opacity: 0, scale: 0.85, filter: "blur(4px)" }}
-                      animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                      initial={{ opacity: 0, scale: 0.85 }}
+                      animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.8, delay: i * 0.04, ease: "easeOut" }}
                       className="flex items-center justify-center bg-white/[0.04] rounded-xl border border-white/[0.08] p-3"
                     >
@@ -163,7 +163,7 @@ export default function Hero() {
                         alt={cert.alt}
                         width={160}
                         height={160}
-                        className="w-full h-full object-contain opacity-75"
+                        className="w-full h-full object-contain"
                         unoptimized
                       />
                     </motion.div>
@@ -171,9 +171,7 @@ export default function Hero() {
                 })}
               </motion.div>
 
-              {/* Gradient overlays so hero text stays legible */}
-              <div className="absolute inset-0 bg-gradient-to-r from-[#0B1D35]/95 via-[#0B1D35]/60 to-[#0B1D35]/25" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B1D35]/80 via-transparent to-[#0B1D35]/50" />
+
             </motion.div>
           ) : (
             <motion.div
@@ -197,8 +195,8 @@ export default function Hero() {
       </AnimatePresence>
 
       {/* Gradient overlays */}
-      <div className={`absolute inset-0 z-10 pointer-events-none ${slide.isCollage ? 'bg-gradient-to-r from-[#0B1D35]/80 via-[#0B1D35]/40 to-transparent' : 'bg-gradient-to-r from-[#0B1D35]/75 via-[#0B1D35]/35 to-transparent'}`} />
-      <div className={`absolute inset-0 z-10 pointer-events-none ${slide.isCollage ? 'bg-gradient-to-t from-[#0B1D35]/60 via-transparent to-[#0B1D35]/30' : 'bg-gradient-to-t from-[#0B1D35]/40 via-transparent to-[#0B1D35]/20'}`} />
+      <div className={`absolute inset-0 z-10 pointer-events-none ${slide.isCollage ? 'bg-gradient-to-r from-[#0B1D35]/40 via-[#0B1D35]/20 to-transparent' : 'bg-gradient-to-r from-[#0B1D35]/75 via-[#0B1D35]/35 to-transparent'}`} />
+      <div className={`absolute inset-0 z-10 pointer-events-none ${slide.isCollage ? 'bg-gradient-to-t from-[#0B1D35]/30 via-transparent to-[#0B1D35]/15' : 'bg-gradient-to-t from-[#0B1D35]/40 via-transparent to-[#0B1D35]/20'}`} />
 
       {/* Content */}
       <div className="relative z-20 h-full flex items-center">
@@ -210,7 +208,7 @@ export default function Hero() {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="max-w-3xl bg-primary/40 backdrop-blur-md p-6 sm:p-10 md:p-14 rounded-[32px] border border-white/10 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)] relative overflow-hidden"
+              className="max-w-3xl bg-primary/40 p-6 sm:p-10 md:p-14 rounded-[32px] border border-white/10 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)] relative overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none" />
               {/* Tag */}
@@ -247,7 +245,7 @@ export default function Hero() {
                 </ContactLink>
                 <Link
                   href="#services"
-                  className="inline-flex items-center px-7 py-3.5 bg-white/[0.08] backdrop-blur-sm border border-white/[0.12] text-white/80 text-[14px] font-medium rounded-md hover:bg-white/[0.14] hover:text-white transition-all duration-300"
+                  className="inline-flex items-center px-7 py-3.5 bg-white/[0.08] border border-white/[0.12] text-white/80 text-[14px] font-medium rounded-md hover:bg-white/[0.14] hover:text-white transition-all duration-300"
                 >
                   Our Services
                 </Link>
