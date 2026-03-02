@@ -122,56 +122,19 @@ export default function Hero() {
         >
           {slide.isCollage ? (
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1.5 }}
-              className="absolute inset-0 bg-[#0B1D35] overflow-hidden"
+              initial={{ scale: 1.05, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 10, ease: "linear" }}
+              className="absolute inset-0 bg-[#0B1D35]"
             >
-              {/* Mosaic wallpaper   all 5 certs tiled in a 6×5 grid to cover the full hero */}
-              <motion.div
-                animate={{ x: [0, -80], y: [0, -60] }}
-                transition={{ duration: 25, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
-                className="absolute gap-3 p-2"
-                style={{
-                  inset: "-10%",
-                  display: "grid",
-                  gridTemplateColumns: "repeat(6, 1fr)",
-                  gridTemplateRows: "repeat(5, 1fr)",
-                  width: "120%",
-                  height: "120%",
-                }}
-              >
-                {Array.from({ length: 30 }).map((_, i) => {
-                  const certs = [
-                    { src: "/certifications/pmp.webp", alt: "PMP" },
-                    { src: "/certifications/capm.webp", alt: "CAPM" },
-                    { src: "/certifications/pmi-cp.webp", alt: "PMI-CP" },
-                    { src: "/certifications/tripic.jpeg", alt: "Talent Triangle" },
-                    { src: "/certifications/pmi.jpeg", alt: "PMI ATP" },
-                  ];
-                  const cert = certs[i % certs.length];
-                  return (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, scale: 0.85 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.8, delay: i * 0.04, ease: "easeOut" }}
-                      className="flex items-center justify-center bg-white/[0.04] rounded-xl border border-white/[0.08] p-3"
-                    >
-                      <Image
-                        src={cert.src}
-                        alt={cert.alt}
-                        width={160}
-                        height={160}
-                        className="w-full h-full object-contain"
-                        unoptimized
-                      />
-                    </motion.div>
-                  );
-                })}
-              </motion.div>
-
-
+              <Image
+                src="/images/certifications_collage.png"
+                alt={slide.alt}
+                fill
+                className="object-cover opacity-60"
+                priority={current === 4}
+                unoptimized
+              />
             </motion.div>
           ) : (
             <motion.div

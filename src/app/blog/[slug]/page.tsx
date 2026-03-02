@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const post = blogPosts.find((p) => p.slug === slug);
     if (!post) return { title: "Post Not Found | TotalPMP" };
     return {
-        title: `${post.title} | TotalPMP Blog`,
+        title: post.title,
         description: post.abstract,
     };
 }

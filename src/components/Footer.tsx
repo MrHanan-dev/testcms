@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Mail, MapPin, Phone, Send } from 'lucide-react';
 import ContactForm from './ContactForm';
+import CompanyBio from './CompanyBio';
 
 const footerLinks = {
   ourServices: [
@@ -78,6 +79,9 @@ export default function Footer() {
           <ContactForm />
         </div>
       </div>
+
+      {/* Company Bio Section */}
+      <CompanyBio />
 
       {/* Main Footer - Deep Executive Blue Area */}
       <div className="bg-primary pt-20 pb-12 text-white/90">

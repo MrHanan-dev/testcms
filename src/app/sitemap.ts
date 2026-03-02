@@ -1,68 +1,37 @@
 import { MetadataRoute } from 'next'
+import { blogPosts, BlogPost } from '@/data/blogPosts.tsx'
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://totalpmp.com'
 
-    return [
-        {
-            url: baseUrl,
-            lastModified: new Date(),
-            changeFrequency: 'monthly',
-            priority: 1,
-        },
-        {
-            url: `${baseUrl}/about`,
-            lastModified: new Date(),
-            changeFrequency: 'monthly',
-            priority: 0.8,
-        },
-        {
-            url: `${baseUrl}/training`,
-            lastModified: new Date(),
-            changeFrequency: 'weekly',
-            priority: 0.9,
-        },
-        {
-            url: `${baseUrl}/project-management`,
-            lastModified: new Date(),
-            changeFrequency: 'monthly',
-            priority: 0.8,
-        },
-        {
-            url: `${baseUrl}/cost-estimation`,
-            lastModified: new Date(),
-            changeFrequency: 'monthly',
-            priority: 0.8,
-        },
-        {
-            url: `${baseUrl}/contract-management`,
-            lastModified: new Date(),
-            changeFrequency: 'monthly',
-            priority: 0.8,
-        },
-        {
-            url: `${baseUrl}/consulting`,
-            lastModified: new Date(),
-            changeFrequency: 'monthly',
-            priority: 0.8,
-        },
-        {
-            url: `${baseUrl}/pmp`,
-            lastModified: new Date(),
-            changeFrequency: 'weekly',
-            priority: 0.7,
-        },
-        {
-            url: `${baseUrl}/capm`,
-            lastModified: new Date(),
-            changeFrequency: 'weekly',
-            priority: 0.7,
-        },
-        {
-            url: `${baseUrl}/pmicp`,
-            lastModified: new Date(),
-            changeFrequency: 'weekly',
-            priority: 0.7,
-        },
-    ]
+    // Static pages
+    const staticRoutes: MetadataRoute.Sitemap = [
+        '',
+        '/about',
+        '/training',
+        '/blog',
+        '/project-management',
+        '/cost-estimation',
+        '/contract-management',
+        '/consulting',
+        '/pmp',
+        '/capm',
+        '/pmicp',
+        '/partner'
+    ].map(route => ({
+        url: `${baseUrl}${route}`,
+        lastModified: new Date(),
+        changeFrequency: route === '' ? 'daily' : 'monthly',
+        priority: route === '' ? 1.0 : (route.startsWith('/training') || route.startsWith('/pmp') ? 0.9 : 0.8),
+    }))
+
+    // Dynamic blog posts
+    const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((post: BlogPost) => ({
+        url: `${baseUrl}/blog/${post.slug}`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly',
+        priority: 0.7,
+    }))
+
+    return [...staticRoutes, ...blogRoutes]
 }
