@@ -153,19 +153,36 @@ export default function Footer() {
                 <ul className="space-y-6">
                   <li className="flex gap-3 text-[14px] font-medium">
                     <MapPin size={18} className="text-accent shrink-0" />
-                    <span>Auckland &<br />Christchurch, NZ</span>
+                    <div>
+                      <div className="font-bold text-white/50 text-[10px] uppercase tracking-wider mb-1">Pakistan</div>
+                      <p>Flat no 203, Classical Apartments, Near Dr Akbar Niazi Teaching Hospital, Bharakahu, Islamabad</p>
+                    </div>
                   </li>
-                  <li className="flex gap-3 text-[14px] font-medium">
+                  <li className="flex gap-3 text-[14px] font-medium border-t border-white/5 pt-4">
+                    <MapPin size={18} className="text-accent shrink-0" />
+                    <div>
+                      <div className="font-bold text-white/50 text-[10px] uppercase tracking-wider mb-1">New Zealand</div>
+                      <p>15 Idlewild Ave, Mangere</p>
+                    </div>
+                  </li>
+                  <li className="flex gap-3 text-[14px] font-medium border-t border-white/5 pt-4">
+                    <MapPin size={18} className="text-accent shrink-0" />
+                    <div>
+                      <div className="font-bold text-white/50 text-[10px] uppercase tracking-wider mb-1">Australia</div>
+                      <p>93 Park Orchard Drive, Pakenham</p>
+                    </div>
+                  </li>
+                  <li className="flex gap-3 text-[14px] font-medium border-t border-white/5 pt-4">
                     <Phone size={18} className="text-accent shrink-0" />
                     <div className="flex flex-col">
                       <span className="hover:text-accent transition-colors">09 620 7678</span>
                       <span className="hover:text-accent transition-colors">027 353 7774</span>
                     </div>
                   </li>
-                  <li className="flex gap-3 text-[14px] font-medium">
+                  <li className="flex gap-3 text-[14px] font-medium border-t border-white/5 pt-4">
                     <Mail size={18} className="text-accent shrink-0" />
-                    <a href="mailto:info@totalpmp.com" className="hover:text-accent text-[14px] break-all transition-colors">
-                      info@totalpmp.com
+                    <a href="mailto:contact@totalpmp.com" className="hover:text-accent text-[14px] break-all transition-colors">
+                      contact@totalpmp.com
                     </a>
                   </li>
                 </ul>

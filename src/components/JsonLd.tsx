@@ -11,7 +11,7 @@ export default function JsonLd() {
         "priceRange": "$$",
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Auckland & Christchurch",
+            "streetAddress": "15 Idlewild Ave Mangere",
             "addressLocality": "Auckland",
             "addressRegion": "Auckland",
             "addressCountry": "NZ"
