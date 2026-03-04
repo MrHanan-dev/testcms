@@ -65,6 +65,38 @@ function NewsletterForm() {
   );
 }
 
+const clientImages = [
+  "/our_client/1.jpeg", "/our_client/2.jpeg", "/our_client/3.jpeg", "/our_client/4.jpeg",
+  "/our_client/5.jpeg", "/our_client/6.jpeg", "/our_client/7.jpeg", "/our_client/8.jpeg",
+  "/our_client/9.jpeg", "/our_client/10.jpeg", "/our_client/11.jpeg", "/our_client/12.jpeg",
+];
+
+function ClientsSection() {
+  return (
+    <div className="bg-white py-12 border-t border-slate-100 overflow-hidden">
+      <div className="container-custom">
+        <div className="text-center mb-8">
+          <h4 className="text-primary font-black text-xs uppercase tracking-[0.2em] opacity-60">Our Clients belong to</h4>
+        </div>
+        <div className="relative flex overflow-x-hidden group marquee-mask">
+          <div className="flex animate-marquee whitespace-nowrap py-4">
+            {[...clientImages, ...clientImages].map((src, index) => (
+              <div key={index} className="mx-12 w-48 h-24 relative transition-all duration-300 hover:scale-110">
+                <Image
+                  src={src}
+                  alt="Client Logo"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Footer() {
   return (
     <footer className="w-full border-t border-slate-200">
@@ -79,6 +111,9 @@ export default function Footer() {
           <ContactForm />
         </div>
       </div>
+
+      {/* Clients Marquee */}
+      <ClientsSection />
 
       {/* Company Bio Section */}
       <CompanyBio />
@@ -150,42 +185,47 @@ export default function Footer() {
 
               <div>
                 <h4 className="text-white font-black mb-8 text-xs uppercase tracking-[0.2em] opacity-50">Contact</h4>
-                <ul className="space-y-6">
-                  <li className="flex gap-3 text-[14px] font-medium">
-                    <MapPin size={18} className="text-accent shrink-0" />
-                    <div>
-                      <div className="font-bold text-white/50 text-[10px] uppercase tracking-wider mb-1">Pakistan</div>
-                      <p>Flat no 203, Classical Apartments, Near Dr Akbar Niazi Teaching Hospital, Bharakahu, Islamabad</p>
+                <div className="space-y-8">
+                  <div className="flex gap-4">
+                    <MapPin size={20} className="text-accent shrink-0 mt-1" />
+                    <div className="space-y-4">
+                      <div>
+                        <h5 className="text-white font-bold text-xs uppercase tracking-widest opacity-50 mb-1">Pakistan</h5>
+                        <p className="text-sm leading-relaxed">Flat no 203, Classical Apartments, Near Dr Akbar Niazi Teaching Hospital, Bharakahu, Islamabad</p>
+                      </div>
+                      <div className="pt-3 border-t border-white/5">
+                        <h5 className="text-white font-bold text-xs uppercase tracking-widest opacity-50 mb-1">New Zealand</h5>
+                        <p className="text-sm leading-relaxed">15 Idlewild Ave, Mangere</p>
+                      </div>
+                      <div className="pt-3 border-t border-white/5">
+                        <h5 className="text-white font-bold text-xs uppercase tracking-widest opacity-50 mb-1">Australia</h5>
+                        <p className="text-sm leading-relaxed">93 Park Orchard Drive, Pakenham</p>
+                      </div>
                     </div>
-                  </li>
-                  <li className="flex gap-3 text-[14px] font-medium border-t border-white/5 pt-4">
-                    <MapPin size={18} className="text-accent shrink-0" />
-                    <div>
-                      <div className="font-bold text-white/50 text-[10px] uppercase tracking-wider mb-1">New Zealand</div>
-                      <p>15 Idlewild Ave, Mangere</p>
+                  </div>
+
+                  <div className="flex gap-4 pt-4 border-t border-white/10">
+                    <div className="flex flex-col gap-4">
+                      <div className="flex items-center gap-3 group">
+                        <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                          <Phone size={14} className="text-accent" />
+                        </div>
+                        <div className="flex flex-col text-sm">
+                          <a href="tel:096207678" className="hover:text-accent transition-colors">09 620 7678</a>
+                          <a href="tel:0273537774" className="hover:text-accent transition-colors">027 353 7774</a>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-3 group">
+                        <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                          <Mail size={14} className="text-accent" />
+                        </div>
+                        <a href="mailto:contact@totalpmp.com" className="text-sm hover:text-accent transition-colors break-all">
+                          contact@totalpmp.com
+                        </a>
+                      </div>
                     </div>
-                  </li>
-                  <li className="flex gap-3 text-[14px] font-medium border-t border-white/5 pt-4">
-                    <MapPin size={18} className="text-accent shrink-0" />
-                    <div>
-                      <div className="font-bold text-white/50 text-[10px] uppercase tracking-wider mb-1">Australia</div>
-                      <p>93 Park Orchard Drive, Pakenham</p>
-                    </div>
-                  </li>
-                  <li className="flex gap-3 text-[14px] font-medium border-t border-white/5 pt-4">
-                    <Phone size={18} className="text-accent shrink-0" />
-                    <div className="flex flex-col">
-                      <span className="hover:text-accent transition-colors">09 620 7678</span>
-                      <span className="hover:text-accent transition-colors">027 353 7774</span>
-                    </div>
-                  </li>
-                  <li className="flex gap-3 text-[14px] font-medium border-t border-white/5 pt-4">
-                    <Mail size={18} className="text-accent shrink-0" />
-                    <a href="mailto:contact@totalpmp.com" className="hover:text-accent text-[14px] break-all transition-colors">
-                      contact@totalpmp.com
-                    </a>
-                  </li>
-                </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
