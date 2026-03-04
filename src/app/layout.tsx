@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import JsonLd from "@/components/JsonLd";
+import WhatsAppFAB from "@/components/WhatsAppFAB";
+
 
 const inter = Inter({
     subsets: ["latin"],
@@ -61,9 +63,10 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${inter.variable} ${outfit.variable} antialiased`}>
+            <body className={`${inter.variable} ${outfit.variable} antialiased`} suppressHydrationWarning={true}>
                 <JsonLd />
                 {children}
+                <WhatsAppFAB />
             </body>
         </html>
     );
