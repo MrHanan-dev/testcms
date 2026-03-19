@@ -119,7 +119,7 @@ export default function PMPBenefits() {
                         <div className="relative z-10 space-y-8 max-w-2xl">
                             <div className="flex items-center gap-4 text-accent">
                                 <Trophy size={48} strokeWidth={1.5} />
-                                <span className="text-4xl font-black tracking-tight">100% Success Club</span>
+                                <span className="text-4xl font-black tracking-tight">Proven Success Club</span>
                             </div>
                             <p className="text-xl text-slate-300 font-medium leading-relaxed">
                                 Whether you aim to advance your career, lead projects, or master global best practices, TOTALPMP is your trusted partner. We stay with you until you pass.

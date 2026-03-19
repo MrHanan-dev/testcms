@@ -223,7 +223,7 @@ export default function CapmPage() {
                                         "Full-length CAPM Mock Exams",
                                         "PMI Application Assistance",
                                         "Post-Training Support till Certification",
-                                        "100% Exam Pass Guarantee (T&Cs Apply)"
+                                        "Comprehensive Exam Support & Mentorship"
                                     ].map((item, i) => (
                                         <li key={i} className="flex items-start gap-4">
                                             <div className="mt-1 bg-accent/20 text-accent p-1 rounded-full shrink-0">

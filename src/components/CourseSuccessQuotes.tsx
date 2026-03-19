@@ -4,7 +4,7 @@ import { Quote } from 'lucide-react';
 
 const quotes = [
     "Pass Your Certification Exam on Your First Try!",
-    "First-Attempt Certification Success, Guaranteed!",
+    "First-Attempt Certification Success, Achieved!",
     "Master Project Management with Expert Guidance",
     "Your Path to First-Time Global Certification",
     "Exam Success Starts Here"

@@ -8,7 +8,7 @@ import Link from 'next/link';
 const insights = [
     {
         tag: "Training",
-        title: "How to maintain a 100% first-attempt PMP® pass rate.",
+        title: "How to maintain an exceptional first-attempt PMP® pass rate.",
         snippet: "A breakdown of our data driven curriculum designed by industry practitioners for busy professionals.",
         date: "Feb 2026",
         image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&h=600&fit=crop&q=80"

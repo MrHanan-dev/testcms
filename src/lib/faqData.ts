@@ -7,7 +7,7 @@ export const globalFaqs: Record<string, FAQItem[]> = {
     default: [
         {
             question: "What makes TotalPMP different from other training and consulting firms?",
-            answer: "We offer a unique dual focus: a 100% first-attempt pass rate for PMP® certification training and completely independent, expert-led project management and cost estimation consultancy. Unlike generic training providers, our curriculum is built on decades of high-stakes industrial experience, ensuring our students gain practical, battle-tested insights alongside their credentials. Our consultancy arm provides the same level of granular expertise to organizations navigating complex commercial and operational challenges."
+            answer: "We offer a unique dual focus: an exceptional first-attempt pass rate for PMP® certification training and completely independent, expert-led project management and cost estimation consultancy. Unlike generic training providers, our curriculum is built on decades of high-stakes industrial experience, ensuring our students gain practical, battle-tested insights alongside their credentials. Our consultancy arm provides the same level of granular expertise to organizations navigating complex commercial and operational challenges."
         },
         {
             question: "Where are your services available?",
@@ -29,7 +29,7 @@ export const globalFaqs: Record<string, FAQItem[]> = {
     home: [
         {
             question: "What is the exam success rate for TotalPMP's students?",
-            answer: "We are incredibly proud to maintain a consistent 100% first-attempt pass rate for our PMP® certification training programs. This success is not accidental; it is the result of a meticulously designed curriculum that is tailored based on actual industrial situations and includes comprehensive mock testing, personalized mentorship, and a deep-dive into the PMBOK® Guide's principles. We don't just teach you to pass; we teach you to excel."
+            answer: "We are incredibly proud to maintain an exceptional first-attempt pass rate for our PMP® certification training programs. This success is not accidental; it is the result of a meticulously designed curriculum that is tailored based on actual industrial situations and includes comprehensive mock testing, personalized mentorship, and a deep-dive into the PMBOK® Guide's principles. We don't just teach you to pass; we teach you to excel."
         },
         {
             question: "Do you offer tailored project management consulting for enterprises?",
