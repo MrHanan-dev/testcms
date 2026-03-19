@@ -4,7 +4,7 @@ import { Quote } from 'lucide-react';
 
 const quotes = [
     "Pass the PMP® Exam on Your First Try!",
-    "First-Attempt PMP® Success, Guaranteed!",
+    "First-Attempt PMP® Success, Achieved!",
     "Master PMP® with Expert Guidance",
     "Your Path to First-Time PMP® Certification",
     "PMP® Exam Success Starts Here"

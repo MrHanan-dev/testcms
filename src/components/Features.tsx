@@ -22,7 +22,7 @@ const features = [
   {
     icon: <TrendingUp size={28} />,
     title: "High Success Rate",
-    description: "Our students consistently achieve a 100% exam success rate on their first attempt through our focused mentorship."
+    description: "Our students consistently achieve an exceptional exam success rate on their first attempt through our focused mentorship."
   }
 ];
 
@@ -97,7 +97,7 @@ export default function Features({
                 <div className="absolute top-0 -left-[100%] w-1/2 h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg] group-hover:left-[200%] transition-all duration-1000 ease-in-out" />
 
                 <div className="flex items-center gap-6">
-                  <div className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-br from-accent to-amber-300 drop-shadow-sm">100%</div>
+                  <div className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-br from-accent to-amber-300 drop-shadow-sm">Proven</div>
                   <div className="w-px h-12 bg-white/20"></div>
                   <div className="text-xs text-white/90 font-bold uppercase tracking-[0.2em] leading-relaxed">Exam Success<br />On First Attempt</div>
                 </div>

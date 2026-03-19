@@ -15,7 +15,7 @@ import ContactLink from '@/components/ContactLink';
 
 export const metadata: Metadata = {
     title: "TOTALPMP Premier PMP® Training | Global Certification",
-    description: "Join New Zealand, Australia, and Asia's most comprehensive PMP® training. 100% exam success rate on first attempt with expert practitioners. Pass on your first try!",
+    description: "Join New Zealand, Australia, and Asia's most comprehensive PMP® training with expert practitioners. Pass on your first try!",
 };
 
 export default function PmpPage() {
@@ -199,7 +199,7 @@ export default function PmpPage() {
                                         "3 Full-length PMP Mock Exams",
                                         "PMI Application Assistance",
                                         "Post-Training Support till Certification",
-                                        "100% Exam Pass Guarantee (T&Cs Apply)"
+                                        "Comprehensive Exam Support & Mentorship"
                                     ].map((item, i) => (
                                         <li key={i} className="flex items-start gap-4">
                                             <div className="mt-1 bg-accent/20 text-accent p-1 rounded-full shrink-0">
@@ -336,8 +336,8 @@ export default function PmpPage() {
                                 </div>
                                 <div className="pt-10 border-t border-slate-100 grid grid-cols-2 gap-8">
                                     <div>
-                                        <div className="text-5xl font-black text-accent mb-2">100%</div>
-                                        <div className="text-xs font-bold uppercase tracking-widest text-slate-400">Exam Success Rate</div>
+                                        <div className="text-5xl font-black text-accent mb-2">Proven</div>
+                                        <div className="text-xs font-bold uppercase tracking-widest text-slate-400">Exam Success</div>
                                     </div>
                                     <div>
                                         <div className="text-5xl font-black text-primary mb-2">1.4M+</div>
