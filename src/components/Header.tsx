@@ -173,8 +173,8 @@ export default function Header({ variant = "solid" }: { variant?: "solid" | "tra
 
           <div className="flex flex-col justify-center -mt-0.5">
             <div className={`text-[22px] md:text-[28px] font-display tracking-tight leading-none transition-colors duration-500 flex items-baseline ${isScrolled ? 'text-primary' : 'text-white'}`}>
-              <span className="font-black">TOTAL</span>
-              <span className="font-light text-accent ml-[1px]">PMP</span>
+              <span className="font-black">TheAgile</span>
+              <span className="font-light text-accent ml-[1px]">Nest</span>
             </div>
             <div className={`text-[8.5px] font-sans font-bold uppercase tracking-[0.2em] leading-none mt-1.5 transition-colors duration-500 hidden md:flex items-center ${isScrolled ? 'text-slate-500' : 'text-white/70'}`}>
               <span>Project Management</span>
