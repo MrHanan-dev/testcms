@@ -72,7 +72,7 @@ export default function AboutUsSummary() {
                             <Rocket className="text-accent" /> Our Mission
                         </h3>
                         <p className="text-xl md:text-2xl text-slate-700 italic leading-relaxed font-medium">
-                            "At TotalPMP, we deliver immersive training and consultancy that transforms project management into a strategic advantage for teams and leaders."
+                            "At TheAgileNest, we deliver immersive training and consultancy that transforms project management into a strategic advantage for teams and leaders."
                         </p>
                     </div>
                 </motion.div>
@@ -86,7 +86,7 @@ export default function AboutUsSummary() {
                         variants={FADE_IN_UP}
                     >
                         <h3 className="text-3xl md:text-5xl font-black text-primary mb-8 tracking-tighter">
-                            Why Choose TotalPMP
+                            Why Choose TheAgileNest
                         </h3>
                         <p className="text-xl text-slate-500 leading-relaxed mb-10 font-medium">
                             We don't just teach project management. We transform professionals into confident leaders ready to deliver high-stakes results.
@@ -109,7 +109,7 @@ export default function AboutUsSummary() {
                         className="space-y-10 bg-slate-50/30 backdrop-blur-sm p-10 md:p-14 rounded-[50px] border border-slate-100"
                     >
                         <h3 className="text-2xl font-black text-primary mb-2">
-                            The TotalPMP Edge
+                            The TheAgileNest Edge
                         </h3>
                         <div className="space-y-10">
                             {differentiators.map((item) => (

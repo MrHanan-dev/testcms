@@ -126,7 +126,7 @@ export default function Footer() {
             <div className="lg:col-span-4 flex flex-col gap-8 pr-4">
               <div className="space-y-6">
                 <p className="text-[15px] leading-relaxed font-medium">
-                  At TotalPMP, we're passionate about projects. We provide the full range of project services and training to increase your team's skills and capabilities.
+                  At TheAgileNest, we're passionate about projects. We provide the full range of project services and training to increase your team's skills and capabilities.
                 </p>
                 <p className="text-accent text-xs font-black leading-relaxed uppercase tracking-[0.2em] bg-accent/5 p-4 rounded-xl border border-accent/10">
                   FAST ACCURATE ESTIMATING FOR CONSTRUCTION PROJECT
@@ -232,7 +232,7 @@ export default function Footer() {
 
           {/* Bottom attribution */}
           <div className="mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-bold uppercase tracking-widest opacity-50">
-            <p>© {new Date().getFullYear()} TotalPMP. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} TheAgileNest. All rights reserved.</p>
             <div className="flex gap-8">
               <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
               <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>

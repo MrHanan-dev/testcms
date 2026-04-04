@@ -27,14 +27,14 @@ const slides: Slide[] = [
   },
   {
     src: "https://www.theagilenest.com/wp-content/uploads/2025/10/ag1-3.jpg",
-    alt: "Professional training session backdrop from TotalPMP",
+    alt: "Professional training session backdrop from TheAgileNest",
     tag: "Professional Training",
     headline: "Hands On Training.\nReal Results. Certified Success.",
-    description: "Gain practical, hands-on experience with TotalPMP’s expert-led project management courses. Our proven methods ensure you not only pass your exams but also excel in real-world projects.",
+    description: "Gain practical, hands-on experience with TheAgileNest’s expert-led project management courses. Our proven methods ensure you not only pass your exams but also excel in real-world projects.",
   },
   {
     src: "/images/Totalqsconsultant.jpeg",
-    alt: "Total QS Consultant Overview",
+    alt: "TheAgileNest Consultant Overview",
     tag: "Trusted Partner",
     headline: "Simple. Transparent.\nStress-Free Estimation.",
     description: "Helping builders, developers, and renovators complete their projects on time and within budget with expert cost management.",
@@ -42,10 +42,10 @@ const slides: Slide[] = [
   },
   {
     src: "/images/pmbok_evolution.jpeg",
-    alt: "TotalPMP Estimation services. Bid More. Win More.",
+    alt: "TheAgileNest Estimation services. Bid More. Win More.",
     tag: "Quantity Surveying",
-    headline: "Bid More. Win More.\nBuild Better with TotalPMP Estimation services",
-    description: "Your reliable partner in Quantity Surveying, Cost Management, and successful project delivery.\n\nAt TotalPMP Estimation services, we make construction estimating and cost management simple, transparent, and stress-free. We act as your trusted partner in New Zealand's construction industry, helping builders, developers, and renovators complete their projects on time and within budget.",
+    headline: "Bid More. Win More.\nBuild Better with TheAgileNest Estimation services",
+    description: "Your reliable partner in Quantity Surveying, Cost Management, and successful project delivery.\n\nAt TheAgileNest Estimation services, we make construction estimating and cost management simple, transparent, and stress-free. We act as your trusted partner in New Zealand's construction industry, helping builders, developers, and renovators complete their projects on time and within budget.",
     isInfographic: true,
   },
   {

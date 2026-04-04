@@ -2,9 +2,9 @@ export default function JsonLd() {
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
-        "name": "TotalPMP",
-        "url": "https://totalpmp.com",
-        "logo": "https://totalpmp.com/logo.png",
+        "name": "TheAgileNest",
+        "url": "https://theagilenest.com",
+        "logo": "https://theagilenest.com/logo.png",
         "image": "https://www.theagilenest.com/wp-content/uploads/2025/10/ag2-3.jpg",
         "description": "Premium PMP certification training and AI driven construction cost estimation services.",
         "telephone": "09 620 7678",
@@ -29,7 +29,7 @@ export default function JsonLd() {
             }
         ],
         "sameAs": [
-            "https://www.linkedin.com/company/totalpmp",
+            "https://www.linkedin.com/company/theagilenest",
         ],
         "offers": [
             {
