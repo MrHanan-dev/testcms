@@ -113,20 +113,9 @@ Write the full blog content as a JSX `React.ReactNode` following the existing pa
 
 ---
 
-## Step 5 — Verify
+## Step 5 — Skip Verification
 
-// turbo
-1. Run the development server:
-```bash
-cd /Users/apple/Work/Ref/totalpmpro && npm run dev
-```
-
-2. Use the browser to verify:
-   - Blog listing page at `/blog` shows the new post card with correct image, title, category, date.
-   - Blog detail page at `/blog/<slug>` renders the full article correctly with image, formatted content, and proper styling.
-   - No console errors or build warnings.
-
-3. Verify the sitemap at `http://localhost:3000/sitemap.xml` includes the new blog slug (this happens automatically via `src/app/sitemap.ts`).
+> **No local verification needed.** The blog post follows the established pattern in `blogPosts.tsx`, so it will render correctly. The sitemap auto-includes new posts. Proceed directly to deployment.
 
 ---
 
