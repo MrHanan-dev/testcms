@@ -21,7 +21,7 @@ export const blogPosts: BlogPost[] = [
         date: "October 15, 2026",
         author: "Engr. Syed Amjad Iqbal",
         category: "TotalPMP Transformation",
-        imageUrl: "/images/pmbok_evolution.jpeg",
+        imageUrl: "/images/totalpmp_consulting_1771222157225.png",
         readTime: "12 min read",
         slug: "TotalPMP-impact-construction",
         content: (
@@ -378,6 +378,332 @@ export const blogPosts: BlogPost[] = [
                 <p className="mb-6">The construction industry doesn't forgive poor scheduling. A day lost on the critical path of a high-rise project can cascade into weeks of delay and hundreds of thousands in additional costs. <strong>Quantity surveying</strong> professionals understand this intimately—every variation, every delay, and every acceleration has a commercial consequence that must be measured and managed.</p>
 
                 <p>A project without a timeline is only an intention. But a project led by a trained, certified, and experienced professional—armed with the right scheduling tools and a principled approach to <strong>project management</strong>—is a promise that gets kept. At TotalPMP, we don't just teach you how to build a schedule. We teach you how to build a career on delivering results. Start your journey with us today.</p>
+            </>
+        )
+    },
+    {
+        id: '7',
+        title: "Planning Creates Direction; Execution Creates Results",
+        abstract: "Great project management bridges the gap between planning and execution. Discover how PMP-certified professionals turn strategic plans into real-world construction results.",
+        date: "April 06, 2026",
+        author: "Engr. Syed Amjad Iqbal",
+        category: "Project Management",
+        imageUrl: "/images/blog/planning-creates-direction-execution-creates-results.png",
+        readTime: "13 min read",
+        slug: "planning-creates-direction-execution-creates-results",
+        content: (
+            <>
+                <p className="mb-6">In the high-stakes world of modern industry, a common paradox persists: organizations spend months crafting immaculate strategies only to see them crumble during the first week of physical implementation. The reason is simple yet profound—while <strong>planning creates direction</strong>, it is only <strong>execution that creates results</strong>. This fundamental truth is the cornerstone of effective <strong>project management</strong>. Without a clear direction, execution is chaotic; without rigorous execution, planning is merely academic exercise. At TotalPMP, we specialize in bridging this gap, ensuring that every strategic roadmap translates into tangible, high-quality outcomes.</p>
+
+                <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">The Strategic Compass: Why Planning Still Matters</h3>
+                <p className="mb-6">Before we dive into the mechanics of execution, we must acknowledge the vital role of <strong>PMBOK project planning</strong>. A project without a plan is like a ship without a rudder. In complex <strong>construction project delivery</strong>, planning defines the boundaries of possibility. It establishes the scope, identifies the stakeholders, and maps out the critical path. However, the nature of planning is changing. As we move through 2026, the industry is shifting away from rigid, multi-year "waterfall" plans toward more adaptive, iterative frameworks that allow for real-time adjustments.</p>
+                
+                <p className="mb-6">A robust plan provides a baseline for <strong>project lifecycle management</strong>. It allows us to measure progress, forecast risks, and manage the expectations of clients and investors. For professionals pursuing <strong>PMP certification</strong>, mastering the art of the Project Management Plan is not about creating a static document; it’s about establishing a framework for decision-making that survives the inevitable "fog of war" on a construction site or in a software sprint.</p>
+
+                <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 mb-8">
+                    <h4 className="text-xl font-bold mb-4">Core Pillars of Directional Planning:</h4>
+                    <ul className="list-disc pl-6 space-y-3 text-slate-700">
+                        <li><strong>Strategic Alignment:</strong> Ensuring every task contributes directly to the overarching business goals.</li>
+                        <li><strong>Risk Anticipation:</strong> Identifying potential bottlenecks before they manifest as costly delays.</li>
+                        <li><strong>Resource Optimization:</strong> Mapping human and material capital to the most critical tasks on the path.</li>
+                        <li><strong>Stakeholder Consensus:</strong> Building a shared understanding of success metrics and delivery milestones.</li>
+                    </ul>
+                </div>
+
+                <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">The Execution Pivot: Turning Intent into Action</h3>
+                <p className="mb-6">Execution is where the "rubber meets the road." It is the process of coordinating people, systems, and materials to deliver the project scope. A successful <strong>project execution strategy 2026</strong> requires more than just following a checklist; it requires leadership, adaptability, and a deep understanding of the project’s technical constraints. In the construction sector, this means translating <strong>construction cost estimation</strong> data into actual procurement cycles and site activity.</p>
+                
+                <p className="mb-6">The most common reason projects fail during execution is a lack of "feedback loops." When the reality on the ground diverges from the plan—due to weather, supply chain disruptions, or labour shortages—the project manager must be able to pivot. This is where <strong>project management</strong> becomes an art form. It’s about maintaining the integrity of the project's direction while being ruthlessly pragmatic about the execution steps required to get there.</p>
+
+                <div className="grid md:grid-cols-2 gap-6 mb-10">
+                    <div className="p-6 bg-slate-50 rounded-xl border border-slate-100">
+                        <h4 className="font-bold text-primary mb-2">Real-Time Performance Tracking</h4>
+                        <p className="text-sm text-slate-600 leading-relaxed">Using digital twins and real-time site data to ensure that execution matches the planned direction every single day.</p>
+                    </div>
+                    <div className="p-6 bg-slate-50 rounded-xl border border-slate-100">
+                        <h4 className="font-bold text-primary mb-2">Unified Communication</h4>
+                        <p className="text-sm text-slate-600 leading-relaxed">Closing the gap between the executive boardroom and the site foreman to ensure everyone is working toward the same results.</p>
+                    </div>
+                    <div className="p-6 bg-slate-50 rounded-xl border border-slate-100">
+                        <h4 className="font-bold text-primary mb-2">Technical Leadership</h4>
+                        <p className="text-sm text-slate-600 leading-relaxed">Empowering team leads with the autonomy to make tactical decisions that keep the project moving without deviating from the scope.</p>
+                    </div>
+                    <div className="p-6 bg-slate-50 rounded-xl border border-slate-100">
+                        <h4 className="font-bold text-primary mb-2">Quality Control Gates</h4>
+                        <p className="text-sm text-slate-600 leading-relaxed">Implementing rigorous checks at every stage of the <strong>project lifecycle</strong> to prevent minor errors from cascading over time.</p>
+                    </div>
+                </div>
+
+                <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">Deep Dive: The Construction Delivery Paradigm</h3>
+                <p className="mb-6">In <strong>construction project delivery</strong>, the stakes are physical. A mistake in execution cannot be fixed with a software patch; it requires rework, additional material, and significant downtime. This is why <strong>quantity surveying</strong> and cost control are so deeply integrated into our execution models. We don't just plan for costs—we execute for value. By applying <strong>PMP certification</strong> principles to the construction site, we create a environment where safety, quality, and budget are not in competition, but are mutually reinforcing outcomes.</p>
+                
+                <p className="mb-6">Recent case studies in Auckland and Wellington highlight the difference between "intentionally planned" projects and "result-oriented execution." Projects that utilized a hybrid approach—combining meticulous <strong>PMBOK project planning</strong> with agile site management—delivered 20% faster than those relying on traditional methods. These results are not accidental; they are the product of a deliberate <strong>project execution strategy 2026</strong> that values outcomes over paper-work.</p>
+
+                <div className="bg-primary/5 p-8 rounded-3xl mb-10">
+                    <h4 className="text-xl font-bold text-primary mb-4">Success Metrics for The Decisive Leader:</h4>
+                    <ul className="list-disc pl-6 space-y-3 text-slate-700 font-medium">
+                        <li><strong>Schedule Variance (SV):</strong> Are we moving at the speed of our direction?</li>
+                        <li><strong>Cost Performance Index (CPI):</strong> Is our execution generating the expected value?</li>
+                        <li><strong>Resource Utilization Rate:</strong> Are we burning our people out, or are we positioning them for success?</li>
+                        <li><strong>Stakeholder Satisfaction:</strong> Are our results meeting the strategic intentions of our clients?</li>
+                    </ul>
+                </div>
+
+                <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">How TotalPMP Bridges the Gap</h3>
+                <p className="mb-6">At TotalPMP, our mission is to empower professionals to lead with both vision and precision. Our training programs are designed to teach the dual disciplines of planning and execution. We don't just help you pass the <strong>PMP certification</strong> exam; we prepare you for the reality of delivering multi-million dollar projects in a volatile global market.</p>
+
+                <div className="space-y-6 mb-12">
+                    <div className="flex gap-4 p-5 bg-white border border-slate-100 rounded-2xl shadow-sm">
+                        <div className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center shrink-0 text-accent font-bold">1</div>
+                        <div>
+                            <h5 className="font-bold text-primary">Advanced Planning Workshops</h5>
+                            <p className="text-slate-600 text-sm">Learn to create dynamic project charters and <strong>PMBOK project planning</strong> documents that actually guide your team through uncertainty.</p>
+                        </div>
+                    </div>
+                    <div className="flex gap-4 p-5 bg-white border border-slate-100 rounded-2xl shadow-sm">
+                        <div className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center shrink-0 text-accent font-bold">2</div>
+                        <div>
+                            <h5 className="font-bold text-primary">Execution Masterclasses</h5>
+                            <p className="text-slate-600 text-sm">Master the art of <strong>project lifecycle management</strong>, leadership, and conflict resolution on the site or in the office.</p>
+                        </div>
+                    </div>
+                    <div className="flex gap-4 p-5 bg-white border border-slate-100 rounded-2xl shadow-sm">
+                        <div className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center shrink-0 text-accent font-bold">3</div>
+                        <div>
+                            <h5 className="font-bold text-primary">Integrated Cost Control</h5>
+                            <p className="text-slate-600 text-sm">Deepen your skills in <strong>construction cost estimation</strong> and value engineering to ensure your execution is always profitable.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p className="mb-6">Ultimately, the success of your project rests on your ability to hold two thoughts simultaneously: the long-term strategic direction and the immediate tactical execution. One provides the "why," the other provides the "how." When these two forces are aligned, results are not just possible—they are inevitable.</p>
+                
+                <p className="mb-6">Don't let your strategic visions become forgotten files on a server. Turn your intentions into achievements with TotalPMP’s world-class <strong>project management</strong> training. Whether you are looking to secure your <strong>PMP certification</strong> or seeking to optimize your organization's <strong>project lifecycle management</strong>, we have the tools, the expertise, and the experience to help you deliver excellence.</p>
+
+                <p>Join the ranks of elite project leaders who know that planning is only half the battle. Step into the arena of execution and start creating results today. Contact TotalPMP to learn more about our upcoming 2026 courses and consulting services.</p>
+            </>
+        )
+    },
+    {
+        id: '8',
+        title: "Clear Plans Reduce Chaos Before It Begins",
+        abstract: "In project management, the power of proactive planning cannot be overstated. Learn how structured planning prevents chaos and sets the foundation for successful project delivery.",
+        date: "April 06, 2026",
+        author: "TotalPMP Training Team",
+        category: "Project Management",
+        imageUrl: "/images/blog/project-without-timeline-only-intention.png",
+        readTime: "11 min read",
+        slug: "clear-plans-reduce-chaos",
+        content: (
+            <>
+                <p className="mb-6">In the fast-paced world of project management, chaos is the enemy of success. Whether you're overseeing a complex construction project, launching a new software product, or managing organizational change, the difference between triumph and disaster often lies in one fundamental principle: <strong>clear plans reduce chaos before it begins</strong>. At TotalPMP, we believe that effective planning is not just a preliminary step—it's the strategic foundation that transforms uncertainty into controlled progress. This article explores why comprehensive planning is essential and how PMP-certified professionals leverage it to deliver exceptional results.</p>
+
+                <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">The Cost of Unplanned Chaos</h3>
+                <p className="mb-6">Without clear planning, projects descend into a predictable pattern of crisis management. Teams scramble to meet deadlines, stakeholders lose confidence, and budgets spiral out of control. According to industry research, poorly planned projects are 50% more likely to fail or exceed their budgets. In construction alone, inadequate planning can result in costly rework, safety incidents, and contractual disputes that erode profit margins and damage reputations.</p>
+
+                <p className="mb-6">The root cause is often a false economy—organizations rush into execution believing they can "figure it out as they go." This approach might work for simple tasks, but complex projects require structured foresight. Clear plans provide the roadmap that prevents small issues from becoming cascading failures.</p>
+
+                <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 mb-8">
+                    <h4 className="text-xl font-bold mb-4">Common Signs of Planning Deficiency:</h4>
+                    <ul className="list-disc pl-6 space-y-3 text-slate-700">
+                        <li><strong>Scope Creep:</strong> Requirements expanding uncontrollably without proper change control</li>
+                        <li><strong>Resource Conflicts:</strong> Teams over-allocated or under-resourced at critical moments</li>
+                        <li><strong>Risk Blindness:</strong> Unidentified threats emerging as major obstacles</li>
+                        <li><strong>Communication Breakdowns:</strong> Stakeholders working with different expectations</li>
+                        <li><strong>Budget Overruns:</strong> Costs exceeding estimates due to unforeseen complications</li>
+                    </ul>
+                </div>
+
+                <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">The Anatomy of Clear Planning</h3>
+                <p className="mb-6">Effective planning is a systematic process that addresses every dimension of project success. PMP-certified professionals follow a structured approach that ensures nothing is left to chance. The PMBOK® Guide outlines this process in detail, but successful implementation requires both knowledge and experience.</p>
+
+                <div className="grid md:grid-cols-2 gap-6 mb-10">
+                    <div className="p-6 bg-slate-50 rounded-xl border border-slate-100">
+                        <h4 className="font-bold text-primary mb-2">Scope Definition</h4>
+                        <p className="text-sm text-slate-600 leading-relaxed">Clearly articulating what will and won't be delivered, preventing scope creep and setting realistic expectations.</p>
+                    </div>
+                    <div className="p-6 bg-slate-50 rounded-xl border border-slate-100">
+                        <h4 className="font-bold text-primary mb-2">Schedule Development</h4>
+                        <p className="text-sm text-slate-600 leading-relaxed">Creating realistic timelines with dependencies, milestones, and contingency buffers.</p>
+                    </div>
+                    <div className="p-6 bg-slate-50 rounded-xl border border-slate-100">
+                        <h4 className="font-bold text-primary mb-2">Cost Estimation</h4>
+                        <p className="text-sm text-slate-600 leading-relaxed">Developing accurate budgets that account for all resources, risks, and market conditions.</p>
+                    </div>
+                    <div className="p-6 bg-slate-50 rounded-xl border border-slate-100">
+                        <h4 className="font-bold text-primary mb-2">Risk Management</h4>
+                        <p className="text-sm text-slate-600 leading-relaxed">Identifying potential threats and developing mitigation strategies before they impact the project.</p>
+                    </div>
+                </div>
+
+                <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">Stakeholder Engagement: The Human Element</h3>
+                <p className="mb-6">Clear plans extend beyond documents—they require active stakeholder involvement. Effective planning brings together all parties early in the process to align expectations, identify constraints, and build commitment. This collaborative approach reduces resistance during execution and ensures everyone is working toward the same objectives.</p>
+
+                <p className="mb-6">In construction projects, this means involving architects, engineers, subcontractors, and client representatives in the planning phase. Their input prevents costly redesigns and ensures the plan reflects real-world constraints and requirements.</p>
+
+                <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">The Role of Technology in Modern Planning</h3>
+                <p className="mb-6">Today's project managers have access to powerful tools that enhance planning effectiveness. Digital platforms enable real-time collaboration, automated risk analysis, and predictive modeling. However, technology is only as good as the planning framework it supports.</p>
+
+                <p className="mb-6">PMP professionals understand that tools like project management software, BIM (Building Information Modeling), and AI-powered estimation systems are enablers, not replacements for sound planning principles. The key is selecting the right tools and integrating them into a comprehensive planning process.</p>
+
+                <div className="bg-primary/5 p-8 rounded-3xl mb-10">
+                    <h4 className="text-xl font-bold text-primary mb-4">Planning Best Practices for 2026:</h4>
+                    <ul className="list-disc pl-6 space-y-3 text-slate-700 font-medium">
+                        <li><strong>Iterative Planning:</strong> Regularly review and update plans as new information emerges</li>
+                        <li><strong>Data-Driven Estimates:</strong> Base timelines and budgets on historical data and expert judgment</li>
+                        <li><strong>Contingency Planning:</strong> Build buffers for known unknowns and develop response strategies</li>
+                        <li><strong>Communication Protocols:</strong> Establish clear reporting structures and escalation procedures</li>
+                        <li><strong>Change Control:</strong> Implement formal processes for managing scope changes</li>
+                    </ul>
+                </div>
+
+                <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">From Planning to Execution: Maintaining Clarity</h3>
+                <p className="mb-6">The true test of planning comes during execution. Clear plans provide the framework for monitoring progress, identifying variances, and making corrective decisions. Regular status updates, milestone reviews, and performance metrics ensure the project stays on track.</p>
+
+                <p className="mb-6">When issues arise—and they will—well-planned projects have the flexibility to adapt without descending into chaos. This resilience is the ultimate benefit of comprehensive planning.</p>
+
+                <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">Building a Planning Culture at TotalPMP</h3>
+                <p className="mb-6">At TotalPMP, we teach planning as both a discipline and a mindset. Our PMP certification programs emphasize practical planning skills that professionals can immediately apply in their work. We believe that clear plans don't just reduce chaos—they create the conditions for excellence.</p>
+
+                <div className="space-y-6 mb-12">
+                    <div className="flex gap-4 p-5 bg-white border border-slate-100 rounded-2xl shadow-sm">
+                        <div className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center shrink-0 text-accent font-bold">1</div>
+                        <div>
+                            <h5 className="font-bold text-primary">Comprehensive Training</h5>
+                            <p className="text-slate-600 text-sm">Master all aspects of project planning through hands-on workshops and real-world case studies.</p>
+                        </div>
+                    </div>
+                    <div className="flex gap-4 p-5 bg-white border border-slate-100 rounded-2xl shadow-sm">
+                        <div className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center shrink-0 text-accent font-bold">2</div>
+                        <div>
+                            <h5 className="font-bold text-primary">Industry Expertise</h5>
+                            <p className="text-slate-600 text-sm">Learn from experienced professionals who have successfully planned complex projects across multiple industries.</p>
+                        </div>
+                    </div>
+                    <div className="flex gap-4 p-5 bg-white border border-slate-100 rounded-2xl shadow-sm">
+                        <div className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center shrink-0 text-accent font-bold">3</div>
+                        <div>
+                            <h5 className="font-bold text-primary">Practical Tools</h5>
+                            <p className="text-slate-600 text-sm">Gain access to templates, methodologies, and software that streamline the planning process.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p className="mb-6">In an era of increasing complexity and uncertainty, clear planning is not optional—it's essential. Projects that begin with comprehensive plans are more likely to succeed, teams that follow structured processes are more productive, and organizations that prioritize planning are more profitable.</p>
+
+                <p>Don't let chaos derail your next project. Invest in clear planning today and set yourself up for success. Contact TotalPMP to learn how our training and consulting services can help you master the art of effective project planning.</p>
+            </>
+        )
+    },
+    {
+        id: '9',
+        title: "Strategy Turns Ambition Into Structured Action",
+        abstract: "A practical guide for turning strategic ambition into disciplined project delivery that delivers results without chaos.",
+        date: "April 06, 2026",
+        author: "Engr. Syed Amjad Iqbal",
+        category: "Project Management",
+        imageUrl: "/images/totalpmp_ai_estimation_1771222114549.png",
+        readTime: "13 min read",
+        slug: "strategy-turns-ambition-into-structured-action",
+        content: (
+            <>
+                <p className="mb-6">A strong vision is only the beginning. <strong>Strategy turns ambition into structured action</strong> when leaders pair their goals with a disciplined project execution framework. In today’s competitive construction, consulting, and certification markets, the gap between ambition and outcome is bridged by effective <strong>project management</strong>, rigorous <strong>cost estimation</strong>, and a clear focus on value delivery.</p>
+
+                <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">Why Strategic Action Matters</h3>
+                <p className="mb-6">Many organizations pursue ambitious goals without establishing the structures needed to achieve them. That’s why the most successful initiatives do not rely on creativity alone—they depend on a repeatable system that turns strategy into deliverable work packages, measurable milestones, and disciplined progress tracking.</p>
+
+                <p className="mb-6">In the world of <strong>PMP certification</strong> and professional project delivery, strategy is not an abstract document. It is a sequence of decisions, plans, and controls that align resources, timelines, and stakeholder expectations. When the strategy is clear, every team member knows how their work contributes to the final outcome.</p>
+
+                <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 mb-8">
+                    <h4 className="text-xl font-bold mb-4">The Value of Structured Action:</h4>
+                    <ul className="list-disc pl-6 space-y-3 text-slate-700">
+                        <li><strong>Consistency:</strong> Ensures repeated success across multiple projects and teams.</li>
+                        <li><strong>Clarity:</strong> Helps stakeholders understand the plan, the risks, and the expected results.</li>
+                        <li><strong>Accountability:</strong> Makes progress visible and decisions traceable.</li>
+                        <li><strong>Cost Control:</strong> Links strategic objectives to reliable <strong>construction cost estimation</strong> and budget discipline.</li>
+                    </ul>
+                </div>
+
+                <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">The Four Pillars of Actionable Strategy</h3>
+                <div className="grid md:grid-cols-2 gap-6 mb-10">
+                    <div className="p-6 bg-slate-50 rounded-xl border border-slate-100">
+                        <h4 className="font-bold text-primary mb-2">1. Purposeful Planning</h4>
+                        <p className="text-sm text-slate-600 leading-relaxed">Translate high-level goals into a clear project scope, delivery plan, and measurable outcomes.</p>
+                    </div>
+                    <div className="p-6 bg-slate-50 rounded-xl border border-slate-100">
+                        <h4 className="font-bold text-primary mb-2">2. Value-Based Prioritization</h4>
+                        <p className="text-sm text-slate-600 leading-relaxed">Focus effort on the work that delivers the most business value, not just the most activity.</p>
+                    </div>
+                    <div className="p-6 bg-slate-50 rounded-xl border border-slate-100">
+                        <h4 className="font-bold text-primary mb-2">3. Integrated Delivery</h4>
+                        <p className="text-sm text-slate-600 leading-relaxed">Align planning, execution, and financial controls so every decision supports the overall strategy.</p>
+                    </div>
+                    <div className="p-6 bg-slate-50 rounded-xl border border-slate-100">
+                        <h4 className="font-bold text-primary mb-2">4. Continuous Adaptation</h4>
+                        <p className="text-sm text-slate-600 leading-relaxed">Update the approach as new information arrives, without losing sight of the original ambition.</p>
+                    </div>
+                </div>
+
+                <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">From Ambition to Action: A Practical Framework</h3>
+                <p className="mb-6">The best strategies are not mysterious. They are built from a series of small, disciplined activities. In a TotalPMP context, those activities look like this:</p>
+
+                <div className="space-y-6 mb-12">
+                    <div className="flex gap-4 p-5 bg-white border border-slate-100 rounded-2xl shadow-sm">
+                        <div className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center shrink-0 text-accent font-bold">1</div>
+                        <div>
+                            <h5 className="font-bold text-primary">Define the Outcome</h5>
+                            <p className="text-slate-600 text-sm">Be specific about what success looks like, including quality, time, cost, and stakeholder value.</p>
+                        </div>
+                    </div>
+                    <div className="flex gap-4 p-5 bg-white border border-slate-100 rounded-2xl shadow-sm">
+                        <div className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center shrink-0 text-accent font-bold">2</div>
+                        <div>
+                            <h5 className="font-bold text-primary">Plan the Work</h5>
+                            <p className="text-slate-600 text-sm">Use proven <strong>project management</strong> practices to structure work packages, schedules, and budgets.</p>
+                        </div>
+                    </div>
+                    <div className="flex gap-4 p-5 bg-white border border-slate-100 rounded-2xl shadow-sm">
+                        <div className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center shrink-0 text-accent font-bold">3</div>
+                        <div>
+                            <h5 className="font-bold text-primary">Execute with Discipline</h5>
+                            <p className="text-slate-600 text-sm">Maintain a cadence of execution reviews, quality checks, and progress validation.</p>
+                        </div>
+                    </div>
+                    <div className="flex gap-4 p-5 bg-white border border-slate-100 rounded-2xl shadow-sm">
+                        <div className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center shrink-0 text-accent font-bold">4</div>
+                        <div>
+                            <h5 className="font-bold text-primary">Measure, Learn, Improve</h5>
+                            <p className="text-slate-600 text-sm">Use performance metrics to refine the strategy in real time and avoid repeating the same mistakes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">What Strategy Looks Like in Construction and Consulting</h3>
+                <p className="mb-6">In construction, strategy must account for physical constraints, regulatory approvals, and procurement lead times. In consulting, strategy must account for client alignment, scope clarity, and measurable business outcomes. Both require disciplined <strong>cost estimation</strong>, strong stakeholder communication, and a reliable delivery process.</p>
+
+                <p className="mb-6">A structured strategy reduces the likelihood of surprises and gives teams the confidence to move forward. It also makes it easier to identify where ambition is out of sync with reality, so corrective action can happen before problems become expensive.</p>
+
+                <div className="bg-primary/5 p-8 rounded-3xl mb-10">
+                    <h4 className="text-xl font-bold text-primary mb-4">Key Questions for Every Strategy:</h4>
+                    <ul className="list-disc pl-6 space-y-3 text-slate-700 font-medium">
+                        <li><strong>What problem are we solving?</strong> Clarify the business need and desired outcome.</li>
+                        <li><strong>Who owns the delivery?</strong> Establish clear accountability and decision rights.</li>
+                        <li><strong>What are the risks?</strong> Identify what could derail the plan and how you will respond.</li>
+                        <li><strong>How will value be measured?</strong> Define the success metrics up front.</li>
+                    </ul>
+                </div>
+
+                <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">The TotalPMP Advantage</h3>
+                <p className="mb-6">TotalPMP teaches professionals to move beyond theory. Our programs focus on the practical skills that make strategy executable: structured planning, stakeholder alignment, rigorous <strong>quantity surveying</strong>, and integrated execution governance. That is how we help you turn ambition into consistent results.</p>
+
+                <p className="mb-6">For leaders preparing for the PMP exam, these skills are especially valuable. The exam tests your ability to translate project objectives into a plan that can be executed, monitored, and controlled. In practice, that means your strategy must be accessible, adaptive, and aligned with real-world constraints.</p>
+
+                <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">Build the Right Habits for Sustainable Delivery</h3>
+                <p className="mb-6">Successful professionals develop habits that keep their strategy on track. They ask focused questions, review progress frequently, and treat planning as an ongoing activity rather than a one-time event. These habits are the foundation of disciplined delivery and help prevent ambition from becoming misplaced effort.</p>
+
+                <p className="mb-6">When teams adopt a structured approach, they reduce waste, improve predictability, and deliver higher quality outcomes. Clear strategy becomes a catalyst for disciplined action instead of a lofty ideal.</p>
+
+                <p>At TotalPMP, we help you develop the habits, frameworks, and confidence to turn your ambition into structured action. Whether you are leading a construction program, managing a consulting engagement, or preparing for <strong>PMP certification</strong>, our training gives you the tools to deliver repeatable success. Start your next project with a strategy that works, and build the discipline to make it happen.</p>
             </>
         )
     }
