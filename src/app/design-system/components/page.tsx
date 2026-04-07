@@ -43,7 +43,7 @@ export default function DesignSystemComponents() {
                 <div className="bg-gray-100 p-8 rounded-3xl border border-gray-200 overflow-hidden">
                     <div className="bg-white shadow-sm rounded-xl p-4 flex justify-between items-center border border-gray-100">
                         <div className="font-display font-bold text-xl text-primary-600 tracking-tight">
-                            totalpmp<span className="text-accent-500">.</span>
+                            TheAgileNest<span className="text-accent-500">.</span>
                         </div>
                         <div className="hidden md:flex gap-8 text-sm font-semibold text-gray-900">
                             <span className="text-accent-500 cursor-pointer">Home</span>

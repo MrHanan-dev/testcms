@@ -19,13 +19,13 @@ export default function CostEstimationPage() {
     const mainServices = [
         {
             title: "Quantity Take off Services",
-            desc: "TotalPMP is your one-stop solution for quantity takeoff services and construction consultation. We provide a complete range of services including quantity takeoff, scheduling, and project execution support. Quantity takeoff is an important process in construction that helps planners and engineers accurately estimate the materials required for a project.",
+            desc: "TheAgileNest is your one-stop solution for quantity takeoff services and construction consultation. We provide a complete range of services including quantity takeoff, scheduling, and project execution support. Quantity takeoff is an important process in construction that helps planners and engineers accurately estimate the materials required for a project.",
             image: "/images/pmbok_evolution.jpeg",
             icon: FileText
         },
         {
             title: "Preliminary Estimate",
-            desc: "Looking for an Estimate on Your Construction Project? Look no further than TotalPMP. Our consultants provide accurate preliminary estimates so you can be confident you are getting the best possible value for your project. We deliver precise estimates that help you save both time and money.",
+            desc: "Looking for an Estimate on Your Construction Project? Look no further than TheAgileNest. Our consultants provide accurate preliminary estimates so you can be confident you are getting the best possible value for your project. We deliver precise estimates that help you save both time and money.",
             image: "https://yestechday.com/totalqs/wp-content/uploads/2025/09/two-engineer-as-young-and-senior-worker-discuss-about-project-using-building-plan-or-drawing-e1695894785861.jpg",
             icon: Calculator
         },
@@ -37,7 +37,7 @@ export default function CostEstimationPage() {
         },
         {
             title: "Fully Tendered Jobs",
-            desc: "Looking for a reliable and quality driven construction contractor? TotalPMP has you covered. We offer comprehensive tendering services to ensure you get the best value for your investment. We transform design concepts into detailed bid documents and facilitate subcontractor interviews.",
+            desc: "Looking for a reliable and quality driven construction contractor? TheAgileNest has you covered. We offer comprehensive tendering services to ensure you get the best value for your investment. We transform design concepts into detailed bid documents and facilitate subcontractor interviews.",
             image: "https://yestechday.com/totalqs/wp-content/uploads/2026/01/Gemini_Generated_Image_wmgvp8wmgvp8wmgv.png",
             icon: BarChart3
         },
@@ -203,7 +203,7 @@ export default function CostEstimationPage() {
                             <span className="label-tag mx-auto">Join the Team</span>
                             <h2 className="text-3xl md:text-5xl font-black text-primary leading-tight">Let’s talk about your opportunity</h2>
                             <p className="text-slate-600 text-lg md:text-xl leading-relaxed font-medium">
-                                We&apos;re always excited to connect with passionate professionals who share our commitment to quality, precision, and innovation in construction. Whether you&apos;re an experienced Quantity Surveyor or just starting your career, TotalPMP offers a supportive environment where your skills can grow and your work truly makes an impact.
+                                We&apos;re always excited to connect with passionate professionals who share our commitment to quality, precision, and innovation in construction. Whether you&apos;re an experienced Quantity Surveyor or just starting your career, TheAgileNest offers a supportive environment where your skills can grow and your work truly makes an impact.
                             </p>
                             <div className="pt-4">
                                 <ContactLink

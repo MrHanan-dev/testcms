@@ -1,5 +1,5 @@
 export const metadata = {
-    title: 'Tokens | TotalPMP Design System',
+    title: 'Tokens | TheAgileNest Design System',
 };
 
 export default function DesignSystemTokens() {
@@ -55,7 +55,7 @@ boxShadow: {
                 <span className="label-tag block mb-2">Developer Resources</span>
                 <h1 className="h1 text-gray-900">tokens.</h1>
                 <p className="text-xl text-gray-600 mt-4 max-w-3xl leading-relaxed">
-                    Copy and paste these raw tokens into your configuration files to implement the TotalPMP design system in any project.
+                    Copy and paste these raw tokens into your configuration files to implement the TheAgileNest design system in any project.
                 </p>
             </header>
 

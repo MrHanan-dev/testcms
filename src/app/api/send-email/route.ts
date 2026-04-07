@@ -27,8 +27,8 @@ export async function POST(req: Request) {
             };
 
             const mailOptions: any = {
-                from: `TotalPMP Site <${process.env.GMAIL_USER}>`,
-                to: process.env.NOTIFICATION_EMAIL || 'contact@totalpmp.com',
+                from: `TheAgileNest Site <${process.env.GMAIL_USER}>`,
+                to: process.env.NOTIFICATION_EMAIL || 'contact@TheAgileNest.com',
                 subject: `Website Lead: ${data.formType}`,
                 attachments: data.files?.map((file: any) => ({
                     filename: file.name,
@@ -44,7 +44,7 @@ export async function POST(req: Request) {
                             <pre style="white-space: pre-wrap; margin: 0; font-size: 14px; color: #444; background: #fff; padding: 15px; border-radius: 8px;">${JSON.stringify(cleanData, null, 2)}</pre>
                         </div>
                         <p style="margin-top: 24px; font-size: 12px; color: #888; text-align: center;">
-                            Sent from your TotalPMP corporate website enquiry system.
+                            Sent from your TheAgileNest corporate website enquiry system.
                         </p>
                     </div>
                 `,

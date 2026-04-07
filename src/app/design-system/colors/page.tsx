@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-    title: 'Colors | TotalPMP Design System',
+    title: 'Colors | TheAgileNest Design System',
 };
 
 const ColorRow = ({ title, desc, colors }: { title: string, desc: string, colors: any[] }) => (
@@ -36,7 +36,7 @@ export default function DesignSystemColors() {
                 <span className="label-tag block mb-2">Foundations</span>
                 <h1 className="h1 text-gray-900">colors.</h1>
                 <p className="text-xl text-gray-600 mt-4 max-w-3xl leading-relaxed">
-                    The TotalPMP color palette provides a foundation for trust, accessibility, and modern aesthetics.
+                    The TheAgileNest color palette provides a foundation for trust, accessibility, and modern aesthetics.
                 </p>
             </header>
 

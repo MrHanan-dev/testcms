@@ -30,7 +30,7 @@ export default function TrainingPage() {
             title: "Professional Development",
             desc: "Advance your career with targeted skills in leadership, risk management, and strategic project delivery.",
             icon: Star,
-            links: ["Leadership Workshops", "Risk Management", "TotalPMP Methodologies"]
+            links: ["Leadership Workshops", "Risk Management", "TheAgileNest Methodologies"]
         }
     ];
 
@@ -59,7 +59,7 @@ export default function TrainingPage() {
                             Build Your Team's<br />Project Capability
                         </h2>
                         <p className="text-slate-600 text-xl leading-relaxed font-medium">
-                            At TotalPMP, we’re passionate about projects. We provide the full range of project services and training to increase your team’s skills and capabilities to help you achieve your business outcomes.
+                            At TheAgileNest, we’re passionate about projects. We provide the full range of project services and training to increase your team’s skills and capabilities to help you achieve your business outcomes.
                         </p>
                     </div>
                 </section>

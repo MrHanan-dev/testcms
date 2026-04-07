@@ -279,11 +279,11 @@ export default function PmiCpPage() {
                         </div>
                     </section>
 
-                    {/* Why Train with TotalPMP Section */}
+                    {/* Why Train with TheAgileNest Section */}
                     <section className="bg-white rounded-3xl p-10 md:p-16 border border-slate-100 shadow-sm mt-24 text-center">
                         <div className="max-w-3xl mx-auto mb-16">
-                            <span className="text-accent font-extrabold tracking-[0.2em] uppercase text-[10px] mb-4 block">TotalPMP Advantage</span>
-                            <h2 className="text-3xl md:text-4xl font-black text-primary mb-6">Why Train with TotalPMP</h2>
+                            <span className="text-accent font-extrabold tracking-[0.2em] uppercase text-[10px] mb-4 block">TheAgileNest Advantage</span>
+                            <h2 className="text-3xl md:text-4xl font-black text-primary mb-6">Why Train with TheAgileNest</h2>
                             <p className="text-slate-600 text-lg leading-relaxed font-medium mb-4">
                                 We are a Premium Authorized Training Partner (A.T.P.) for the global Project Management Institute (PMI).
                             </p>

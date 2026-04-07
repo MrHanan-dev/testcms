@@ -122,7 +122,7 @@ export default function PMPBenefits() {
                                 <span className="text-4xl font-black tracking-tight">Proven Success Club</span>
                             </div>
                             <p className="text-xl text-slate-300 font-medium leading-relaxed">
-                                Whether you aim to advance your career, lead projects, or master global best practices, TOTALPMP is your trusted partner. We stay with you until you pass.
+                                Whether you aim to advance your career, lead projects, or master global best practices, TheAgileNest is your trusted partner. We stay with you until you pass.
                             </p>
                             <div className="flex flex-wrap gap-6 pt-4">
                                 <a href="#register" className="btn-accent px-10 py-5 rounded-2xl flex items-center gap-3 text-lg font-black group/btn">

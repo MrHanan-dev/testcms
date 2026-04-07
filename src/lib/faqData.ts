@@ -6,7 +6,7 @@ export type FAQItem = {
 export const globalFaqs: Record<string, FAQItem[]> = {
     default: [
         {
-            question: "What makes TotalPMP different from other training and consulting firms?",
+            question: "What makes TheAgileNest different from other training and consulting firms?",
             answer: "We offer a unique dual focus: an exceptional first-attempt pass rate for PMP® certification training and completely independent, expert-led project management and cost estimation consultancy. Unlike generic training providers, our curriculum is built on decades of high-stakes industrial experience, ensuring our students gain practical, battle-tested insights alongside their credentials. Our consultancy arm provides the same level of granular expertise to organizations navigating complex commercial and operational challenges."
         },
         {
@@ -15,7 +15,7 @@ export const globalFaqs: Record<string, FAQItem[]> = {
         },
         {
             question: "How do I get started with an estimate or consultancy service?",
-            answer: "Getting started is straightforward. Simply use our dedicated contact or cost estimation forms to share your project's high-level details and requirements. Our team of experts typically reviews your inquiry and responds within 12 business hours to arrange a friendly, no-obligation discovery call. During this initial discussion, we'll explore your specific needs, project constraints, and how TotalPMP can best add strategic value to your operations."
+            answer: "Getting started is straightforward. Simply use our dedicated contact or cost estimation forms to share your project's high-level details and requirements. Our team of experts typically reviews your inquiry and responds within 12 business hours to arrange a friendly, no-obligation discovery call. During this initial discussion, we'll explore your specific needs, project constraints, and how TheAgileNest can best add strategic value to your operations."
         },
         {
             question: "Are your trainers and consultants certified?",
@@ -28,12 +28,12 @@ export const globalFaqs: Record<string, FAQItem[]> = {
     ],
     home: [
         {
-            question: "What is the exam success rate for TotalPMP's students?",
+            question: "What is the exam success rate for TheAgileNest's students?",
             answer: "We are incredibly proud to maintain an exceptional first-attempt pass rate for our PMP® certification training programs. This success is not accidental; it is the result of a meticulously designed curriculum that is tailored based on actual industrial situations and includes comprehensive mock testing, personalized mentorship, and a deep-dive into the PMBOK® Guide's principles. We don't just teach you to pass; we teach you to excel."
         },
         {
             question: "Do you offer tailored project management consulting for enterprises?",
-            answer: "Absolutely. TotalPMP specializes in bespoke consultancy services designed for high-stakes, large-scale projects. From helping you establish a robust Project Management Office (PMO) to providing expert masterplanning and sustainability advice, we help organizations navigate complex delivery hurdles with confidence. We work as an extension of your team, ensuring that every project activity is aligned with your broader strategic objectives."
+            answer: "Absolutely. TheAgileNest specializes in bespoke consultancy services designed for high-stakes, large-scale projects. From helping you establish a robust Project Management Office (PMO) to providing expert masterplanning and sustainability advice, we help organizations navigate complex delivery hurdles with confidence. We work as an extension of your team, ensuring that every project activity is aligned with your broader strategic objectives."
         },
         {
             question: "What industries do your consultancy services cover?",
@@ -67,7 +67,7 @@ export const globalFaqs: Record<string, FAQItem[]> = {
         },
         {
             question: "Will I have to renew the PMI-CP™ certification?",
-            answer: "Yes, to ensure that PMI-CP™ credential holders remain at the forefront of the industry, you must renew your certification every three years. This process involves earning 60 Professional Development Units (PDUs) through a combination of continuous learning, professional activity, and giving back to the project management community. TotalPMP provides various resources and advanced seminars that can help you easily earn these PDUs while continuing to grow your expertise."
+            answer: "Yes, to ensure that PMI-CP™ credential holders remain at the forefront of the industry, you must renew your certification every three years. This process involves earning 60 Professional Development Units (PDUs) through a combination of continuous learning, professional activity, and giving back to the project management community. TheAgileNest provides various resources and advanced seminars that can help you easily earn these PDUs while continuing to grow your expertise."
         },
         {
             question: "Where can I sit the exam?",
@@ -137,7 +137,7 @@ export const globalFaqs: Record<string, FAQItem[]> = {
         },
         {
             question: "What is the cost of PMP Certification?",
-            answer: "The total cost involves both the training and the examination fee. PMI members typically pay an exam fee of USD 405, while non-members pay USD 555. These fees are paid directly to the Project Management Institute. Our TotalPMP course fee covers the comprehensive, high-engagement training, all study materials, mock exam access, and the intensive mentorship required to ensure you pass successfully, representing a strategic investment in your long-term career."
+            answer: "The total cost involves both the training and the examination fee. PMI members typically pay an exam fee of USD 405, while non-members pay USD 555. These fees are paid directly to the Project Management Institute. Our TheAgileNest course fee covers the comprehensive, high-engagement training, all study materials, mock exam access, and the intensive mentorship required to ensure you pass successfully, representing a strategic investment in your long-term career."
         }
     ],
     capm: [
@@ -151,7 +151,7 @@ export const globalFaqs: Record<string, FAQItem[]> = {
         },
         {
             question: "How long is the CAPM® certification valid?",
-            answer: "Your CAPM® certification is valid for a period of three years. To maintain your active status, you must earn 15 Professional Development Units (PDUs) during each three-year cycle. This ensures that you are staying current with industry trends and continuously developing your skills. TotalPMP offers various advanced courses and resources that can help you easily fulfill these PDU requirements while you continue to advance in your career."
+            answer: "Your CAPM® certification is valid for a period of three years. To maintain your active status, you must earn 15 Professional Development Units (PDUs) during each three-year cycle. This ensures that you are staying current with industry trends and continuously developing your skills. TheAgileNest offers various advanced courses and resources that can help you easily fulfill these PDU requirements while you continue to advance in your career."
         },
         {
             question: "Is the exam offered online?",
@@ -169,7 +169,7 @@ export const globalFaqs: Record<string, FAQItem[]> = {
         },
         {
             question: "Who are the instructors for your certification courses?",
-            answer: "Our instructors are more than just teachers; they are seasoned industry veterans. Every TotalPMP instructor is PMI-certified and brings decades of real-world, high-stakes project management experience—often from the construction, engineering, or technology sectors—directly into the classroom. This means our students receive practical, battle-tested advice and 'lessons from the field' that you simply won't find in a standard textbook or an automated online course."
+            answer: "Our instructors are more than just teachers; they are seasoned industry veterans. Every TheAgileNest instructor is PMI-certified and brings decades of real-world, high-stakes project management experience—often from the construction, engineering, or technology sectors—directly into the classroom. This means our students receive practical, battle-tested advice and 'lessons from the field' that you simply won't find in a standard textbook or an automated online course."
         },
         {
             question: "Do I earn PDUs or Contact Hours upon completion?",

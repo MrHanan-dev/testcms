@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'www.theTotalPMPnest.com',
+        hostname: 'www.theTheAgileNestnest.com',
       },
       {
         protocol: 'https',

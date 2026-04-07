@@ -1,5 +1,5 @@
 ---
-description: how to write and publish a new blog post for TotalPMP
+description: how to write and publish a new blog post for TheAgileNest
 ---
 
 # Blog Writing Workflow
@@ -10,7 +10,7 @@ Use this workflow when the user provides a **blog title** (or topic). It covers 
 
 ## Prerequisites
 - The user provides the blog **title** (or topic).
-- Core keyword pillars for TotalPMP SEO:
+- Core keyword pillars for TheAgileNest SEO:
   - **PMP Certification**
   - **Project Management**
   - **Quantity Surveying**
@@ -27,9 +27,9 @@ Use this workflow when the user provides a **blog title** (or topic). It covers 
    - `title` — The blog title (keep under 60 chars for SEO, can be longer for display).
    - `abstract` — A compelling 1–2 sentence meta description (under 160 chars) that includes the primary keyword.
    - `slug` — URL-friendly slug in kebab-case (e.g., `how-to-pass-pmp-exam-2026`).
-   - `category` — One of: `PMP Certification`, `Project Management`, `Quantity Surveying`, `Cost Estimation`, `Certifications`, `Case Studies`, `TotalPMP Transformation`, or a new relevant category.
+   - `category` — One of: `PMP Certification`, `Project Management`, `Quantity Surveying`, `Cost Estimation`, `Certifications`, `Case Studies`, `TheAgileNest Transformation`, or a new relevant category.
    - `readTime` — Estimated read time (e.g., `"12 min read"`).
-   - `author` — Default: `"Engr. Syed Amjad Iqbal"` or `"TotalPMP Training Team"`.
+   - `author` — Default: `"Engr. Syed Amjad Iqbal"` or `"TheAgileNest Training Team"`.
    - `date` — Use the current date in `"Month DD, YYYY"` format.
 
 4. **Present the SEO plan to the user for approval** before writing content.
@@ -43,7 +43,7 @@ Use this workflow when the user provides a **blog title** (or topic). It covers 
    - Modern, professional, construction/project-management themed.
    - No text overlays (the title is rendered by the page).
    - Clean, vibrant, suitable for a professional training company website.
-3. Save the generated image to `/Users/apple/Work/Ref/totalpmpro/public/images/blog/` with a descriptive filename matching the slug (e.g., `how-to-pass-pmp-exam-2026.png`).
+3. Save the generated image to `/Users/apple/Work/Ref/TheAgileNestro/public/images/blog/` with a descriptive filename matching the slug (e.g., `how-to-pass-pmp-exam-2026.png`).
 4. The `imageUrl` field in the blog post data will be `/images/blog/<filename>`.
 
 ---
@@ -58,8 +58,8 @@ Write the full blog content as a JSX `React.ReactNode` following the existing pa
 2. H3 section — Context / Why This Matters
 3. H3 section — Main body (use lists, callout boxes, grids as appropriate)
 4. H3 section — Deep dive or case study
-5. H3 section — Actionable advice / How TotalPMP Helps
-6. Closing paragraph — CTA linking to TotalPMP services
+5. H3 section — Actionable advice / How TheAgileNest Helps
+6. Closing paragraph — CTA linking to TheAgileNest services
 ```
 
 ### SEO Writing Rules
@@ -67,7 +67,7 @@ Write the full blog content as a JSX `React.ReactNode` following the existing pa
 - **Secondary keywords** sprinkled naturally throughout (2–3 times each).
 - Use `<strong>` for important keyword phrases.
 - Minimum **800 words**, target **1200–1500 words**.
-- Use internal linking language (mention TotalPMP services/training/consulting).
+- Use internal linking language (mention TheAgileNest services/training/consulting).
 - Write in a professional but approachable tone matching existing posts.
 
 ### JSX Styling Rules (match existing posts exactly)

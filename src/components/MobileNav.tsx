@@ -17,7 +17,7 @@ const menuLinks = [
     { label: "Cost Estimation & QS", href: "/cost-estimation", desc: "Fast accurate estimating for projects" },
     { label: "Construction Contract", href: "/contract-management", desc: "Contract management services" },
     { label: "Advisory & PMO", href: "/consulting", desc: "Strategic PMO & Consulting" },
-    { label: "About TotalPMP", href: "/about", desc: "Our story and mission" },
+    { label: "About TheAgileNest", href: "/about", desc: "Our story and mission" },
 ];
 
 export default function MobileNav() {
@@ -60,7 +60,7 @@ export default function MobileNav() {
                             </button>
 
                             <div className="mb-10">
-                                <h2 className="text-white text-2xl font-bold tracking-dense">TotalPMP</h2>
+                                <h2 className="text-white text-2xl font-bold tracking-dense">TheAgileNest</h2>
                                 <p className="text-white/30 text-sm mt-1">Navigate. Estimate. Deliver.</p>
                             </div>
 
@@ -95,7 +95,7 @@ export default function MobileNav() {
                                     <Phone size={16} /> Call Us
                                 </a>
                                 <a
-                                    href="mailto:info@TotalPMP.com"
+                                    href="mailto:info@TheAgileNest.com"
                                     className="flex-1 flex items-center justify-center gap-2 py-4 rounded-lg bg-white/10 text-white font-semibold text-sm"
                                 >
                                     <Mail size={16} /> Email

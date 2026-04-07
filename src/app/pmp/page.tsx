@@ -14,7 +14,7 @@ import ScrollButton from '@/components/ScrollButton';
 import ContactLink from '@/components/ContactLink';
 
 export const metadata: Metadata = {
-    title: "TOTALPMP Premier PMP® Training | Global Certification",
+    title: "TheAgileNest Premier PMP® Training | Global Certification",
     description: "Join New Zealand, Australia, and Asia's most comprehensive PMP® training with expert practitioners. Pass on your first try!",
 };
 
@@ -47,7 +47,7 @@ export default function PmpPage() {
                                 Why PMP® Is a Game Changer
                             </h2>
                             <p className="text-slate-600 text-lg leading-relaxed mb-6">
-                                The Project Management Professional (PMP)® certification is the most globally recognised credential for project managers. It validates your ability to plan, manage, and deliver complex projects across any industry using predictive, TotalPMP, and hybrid approaches.
+                                The Project Management Professional (PMP)® certification is the most globally recognised credential for project managers. It validates your ability to plan, manage, and deliver complex projects across any industry using predictive, TheAgileNest, and hybrid approaches.
                             </p>
                             <div className="space-y-4">
                                 {[
@@ -77,7 +77,7 @@ export default function PmpPage() {
                                     {[
                                         "Project Managers & Directors",
                                         "Program & Portfolio Managers",
-                                        "Delivery Leads & TotalPMP Coaches",
+                                        "Delivery Leads & TheAgileNest Coaches",
                                         "Industry Leaders Seeking Global Credentials",
                                         "Professionals with 3+ Years PM Experience",
                                     ].map((audience, i) => (
@@ -254,11 +254,11 @@ export default function PmpPage() {
                         </div>
                     </section>
 
-                    {/* Why Train with TotalPMP Section - Adapted from PMI-CP */}
+                    {/* Why Train with TheAgileNest Section - Adapted from PMI-CP */}
                     <section className="bg-white rounded-3xl p-10 md:p-16 border border-slate-100 shadow-sm text-center">
                         <div className="max-w-3xl mx-auto mb-16">
-                            <span className="text-accent font-extrabold tracking-[0.2em] uppercase text-[10px] mb-4 block">TotalPMP Advantage</span>
-                            <h2 className="text-3xl md:text-4xl font-black text-primary mb-6">Why Train with TotalPMP</h2>
+                            <span className="text-accent font-extrabold tracking-[0.2em] uppercase text-[10px] mb-4 block">TheAgileNest Advantage</span>
+                            <h2 className="text-3xl md:text-4xl font-black text-primary mb-6">Why Train with TheAgileNest</h2>
                             <p className="text-slate-600 text-lg leading-relaxed font-medium mb-4">
                                 We are a Premium Authorized Training Partner (A.T.P.) for the global Project Management Institute (PMI).
                             </p>
@@ -303,7 +303,7 @@ export default function PmpPage() {
                                     🚀 Why PMP® is <span className="text-accent">Right for You</span>
                                 </h2>
                                 <p className="text-slate-300 text-xl font-medium leading-relaxed opacity-90">
-                                    Become PMP® Certified With TOTALPMP. Whether you aim to advance your career, lead projects, or master global best practices, TOTALPMP is your trusted partner.
+                                    Become PMP® Certified With TheAgileNest. Whether you aim to advance your career, lead projects, or master global best practices, TheAgileNest is your trusted partner.
                                 </p>
                                 <div className="grid gap-8">
                                     {[

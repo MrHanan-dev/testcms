@@ -45,10 +45,10 @@ export default function Features({
         <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="text-accent font-extrabold tracking-[0.2em] uppercase text-xs mb-4 block">The Advantage</span>
           <h2 className="text-4xl md:text-5xl font-black text-primary mb-6 leading-tight">
-            Why choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-amber-600">TOTALPMP</span> for Your {titleSuffix}?
+            Why choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-amber-600">TheAgileNest</span> for Your {titleSuffix}?
           </h2>
           <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium max-w-2xl mx-auto">
-            At TOTALPMP, we deliver one of New Zealand’s, Australia’s and Asia's most comprehensive and industry-ready {descriptionSuffix}, designed to help you pass on your first attempt and excel in real-world project environments.
+            At TheAgileNest, we deliver one of New Zealand’s, Australia’s and Asia's most comprehensive and industry-ready {descriptionSuffix}, designed to help you pass on your first attempt and excel in real-world project environments.
           </p>
         </div>
 
@@ -81,8 +81,8 @@ export default function Features({
           <div className="lg:col-span-5 relative h-[600px] lg:h-[700px] w-full rounded-[40px] overflow-hidden group shadow-2xl">
             <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-700 z-10" />
             <Image
-              src="/images/totalpmp_hero_main_1771222013046.png"
-              alt="TotalPMP Professional Excellence"
+              src="/images/TheAgileNest_hero_main_1771222013046.png"
+              alt="TheAgileNest Professional Excellence"
               fill
               className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-1000 origin-center"
             />
