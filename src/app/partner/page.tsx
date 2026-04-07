@@ -78,9 +78,9 @@ export default function PartnerPage() {
                     <section className="bg-white p-10 md:p-16 rounded-[40px] border border-slate-100 shadow-sm">
                         <div className="grid lg:grid-cols-2 gap-12 items-center">
                             <div>
-                                <h2 className="text-3xl md:text-4xl font-black text-primary mb-6">TotalPMP Training Partner Program</h2>
+                                <h2 className="text-3xl md:text-4xl font-black text-primary mb-6">TheAgileNest Training Partner Program</h2>
                                 <p className="text-slate-600 text-lg leading-relaxed mb-6">
-                                    TotalPMP Training Partner Program links up the best trainers out there with solid project management skills that everyone recognizes around the world. You can join in to give your instructors a real boost and add more courses that come with those popular certifications people want.
+                                    TheAgileNest Training Partner Program links up the best trainers out there with solid project management skills that everyone recognizes around the world. You can join in to give your instructors a real boost and add more courses that come with those popular certifications people want.
                                 </p>
                                 <p className="text-slate-600 text-lg leading-relaxed">
                                     When you become a partner, you get special materials, help with marketing, and one-on-one advice to help build up your training side of things. Team up with us so you can help form the upcoming group of project management experts. Apply right now.
@@ -88,7 +88,7 @@ export default function PartnerPage() {
                             </div>
                             <div className="bg-slate-50 p-8 rounded-3xl border border-slate-200 text-center space-y-6">
                                 <h3 className="text-2xl font-bold text-primary italic leading-tight">
-                                    "Empower Your Training. Grow Your Reach. Deliver Excellence. Become a TotalPMP Partner."
+                                    "Empower Your Training. Grow Your Reach. Deliver Excellence. Become a TheAgileNest Partner."
                                 </h3>
                                 <div className="w-16 h-1 w-accent mx-auto rounded-full"></div>
                                 <p className="text-slate-500 font-bold uppercase tracking-widest text-sm">PM Training Leadership</p>
@@ -191,7 +191,7 @@ export default function PartnerPage() {
                         <div className="relative z-10">
                             <h2 className="text-3xl md:text-4xl font-black mb-6">Lead in Training Partner with Us!</h2>
                             <p className="text-slate-300 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-                                Strengthen instructor capabilities and grow your training offerings. Partner with TotalPMP.
+                                Strengthen instructor capabilities and grow your training offerings. Partner with TheAgileNest.
                             </p>
                             <Link
                                 href="#apply"
@@ -239,7 +239,7 @@ export default function PartnerPage() {
                                         </div>
                                         <h3 className="text-2xl font-bold text-primary">Application Received!</h3>
                                         <p className="text-slate-600 max-w-sm mx-auto">
-                                            Thank you for your interest in partnering with <strong>TotalPMP</strong>.
+                                            Thank you for your interest in partnering with <strong>TheAgileNest</strong>.
                                             Our partnership team will review your application and contact you within 48 hours.
                                         </p>
                                         <button

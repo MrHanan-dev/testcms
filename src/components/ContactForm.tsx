@@ -47,7 +47,7 @@ export default function ContactForm() {
                 </div>
                 <h3 className="text-2xl font-bold text-primary">Message Sent!</h3>
                 <p className="text-slate-600">
-                    Thank you for reaching out to <strong>TotalPMP</strong>. Our advisors will review your message and get back to you within 24 hours.
+                    Thank you for reaching out to <strong>TheAgileNest</strong>. Our advisors will review your message and get back to you within 24 hours.
                 </p>
                 <button
                     onClick={() => setIsSubmitted(false)}
@@ -73,7 +73,7 @@ export default function ContactForm() {
                             <span className="w-8 h-[1px] bg-accent"></span>
                             Advisor Support
                         </div>
-                        <p className="text-xs text-blue-200/60 font-medium italic">"TotalPMP helped us navigate complex project hurdles with ease."   Project Lead, Auckland</p>
+                        <p className="text-xs text-blue-200/60 font-medium italic">"TheAgileNest helped us navigate complex project hurdles with ease."   Project Lead, Auckland</p>
                     </div>
                 </div>
 

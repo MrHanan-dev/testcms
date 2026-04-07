@@ -161,7 +161,7 @@ export default function Header({ variant = "solid" }: { variant?: "solid" | "tra
           <div className="relative w-8 h-8 md:w-10 md:h-10 flex-shrink-0 flex items-center justify-center">
             <Image
               src="/favicon.png"
-              alt="TotalPMP Logo"
+              alt="TheAgileNest Logo"
               width={40}
               height={40}
               className="w-10 h-10 md:w-12 md:h-12 object-contain transition-transform duration-500 group-hover:scale-110"

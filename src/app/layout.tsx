@@ -31,7 +31,7 @@ export const metadata: Metadata = {
         siteName: 'TheAgileNest',
         images: [
             {
-                url: '/images/totalpmp_hero_main_1771222013046.png',
+                url: '/images/TheAgileNest_hero_main_1771222013046.png',
                 width: 1200,
                 height: 630,
                 alt: 'TheAgileNest Project Management & Cost Estimation',

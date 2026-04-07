@@ -1,6 +1,6 @@
-# TotalPMP Development Guidelines
+# TheAgileNest Development Guidelines
 
-This document outlines the strict standards and best practices for the TotalPMP project. All developers must adhere to these rules to maintain code quality, UI consistency, and performance.
+This document outlines the strict standards and best practices for the TheAgileNest project. All developers must adhere to these rules to maintain code quality, UI consistency, and performance.
 
 ## 1. Core Technology Stack
 - **Framework**: Next.js 15+ (App Router)

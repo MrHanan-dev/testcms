@@ -187,12 +187,12 @@ export default function CapmPage() {
                                 <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
                                     <div className="flex justify-between items-start mb-4">
                                         <h4 className="text-xl font-bold text-primary flex items-center gap-2">
-                                            <Users className="text-accent" /> TotalPMP Frameworks/Methodologies
+                                            <Users className="text-accent" /> TheAgileNest Frameworks/Methodologies
                                         </h4>
                                         <span className="bg-accent/10 text-primary font-bold px-3 py-1 rounded-full text-sm">20%</span>
                                     </div>
                                     <p className="text-slate-600 leading-relaxed text-sm">
-                                        Understanding adaptive approaches, Scrum, Kanban, and TotalPMP principles.
+                                        Understanding adaptive approaches, Scrum, Kanban, and TheAgileNest principles.
                                     </p>
                                 </div>
 
@@ -270,7 +270,7 @@ export default function CapmPage() {
                                         </div>
                                         <div>
                                             <p className="font-bold text-primary">Exam Structure</p>
-                                            <p className="text-slate-500 text-sm">Core Concepts (36%), Predictive (17%), TotalPMP (20%), Business Analysis (27%)</p>
+                                            <p className="text-slate-500 text-sm">Core Concepts (36%), Predictive (17%), TheAgileNest (20%), Business Analysis (27%)</p>
                                         </div>
                                     </li>
                                 </ul>
@@ -281,8 +281,8 @@ export default function CapmPage() {
                     {/* Why Choose Us Section */}
                     <section className="bg-white rounded-3xl p-10 md:p-16 border border-slate-100 shadow-sm mt-24 text-center">
                         <div className="max-w-3xl mx-auto mb-16">
-                            <span className="text-accent font-extrabold tracking-[0.2em] uppercase text-[10px] mb-4 block">TotalPMP Advantage</span>
-                            <h2 className="text-3xl md:text-4xl font-black text-primary mb-6">Why Train with TotalPMP</h2>
+                            <span className="text-accent font-extrabold tracking-[0.2em] uppercase text-[10px] mb-4 block">TheAgileNest Advantage</span>
+                            <h2 className="text-3xl md:text-4xl font-black text-primary mb-6">Why Train with TheAgileNest</h2>
                             <p className="text-slate-600 text-lg leading-relaxed font-medium mb-4">
                                 We are a Premium Authorized Training Partner (A.T.P.) for the global Project Management Institute (PMI).
                             </p>

@@ -72,10 +72,10 @@ export default function AboutPage() {
                                         In 2008, he completed his Master’s in Engineering. He pursued a <strong>Master’s in Project Management and Operational Management</strong> from <strong>KTH Royal Institute of Technology, Sweden</strong>, one of Europe’s top universities and a Nobel Prize institution. His academic journey, combined with hands-on industry experience, shaped a unique blend of practical and theoretical expertise. He later completed a <strong>Master’s in Construction Management</strong> at <strong>Massey University in New Zealand</strong>.
                                     </p>
                                     <p>
-                                        He achieved the <strong>PMI-CP (Construction Professional)</strong>, a globally recognised credential from the Project Management Institute (PMI), a prestigious certification focused on construction. As a CEO, consultant, and certified trainer, Syed has mentored hundreds of professionals worldwide in Project Management, Construction Management, and TotalPMP practices.
+                                        He achieved the <strong>PMI-CP (Construction Professional)</strong>, a globally recognised credential from the Project Management Institute (PMI), a prestigious certification focused on construction. As a CEO, consultant, and certified trainer, Syed has mentored hundreds of professionals worldwide in Project Management, Construction Management, and TheAgileNest practices.
                                     </p>
                                     <p>
-                                        His commitment to continuous learning, which keeps him up to date with the latest industry standards, inspired the creation of <strong>TotalPMP</strong>   an institute dedicated to transferring knowledge, practical experience, and global standards to individuals and organisations seeking to manage projects with excellence and confidence.
+                                        His commitment to continuous learning, which keeps him up to date with the latest industry standards, inspired the creation of <strong>TheAgileNest</strong>   an institute dedicated to transferring knowledge, practical experience, and global standards to individuals and organisations seeking to manage projects with excellence and confidence.
                                     </p>
                                 </div>
                             </div>
@@ -98,14 +98,14 @@ export default function AboutPage() {
                     </div>
                 </section>
 
-                {/* Why Choose TotalPMP Section */}
+                {/* Why Choose TheAgileNest Section */}
                 <section className="py-24 bg-slate-50">
                     <div className="container-custom">
                         <div className="text-center mb-16 space-y-4">
                             <span className="label-tag mx-auto">Who We Are</span>
-                            <h2 className="text-4xl md:text-5xl font-black text-primary">Why Choose TotalPMP</h2>
+                            <h2 className="text-4xl md:text-5xl font-black text-primary">Why Choose TheAgileNest</h2>
                             <p className="text-slate-500 text-xl font-medium max-w-3xl mx-auto">
-                                At TotalPMP, we don’t just teach project management   we transform professionals into confident, TotalPMP leaders ready to deliver real results.
+                                At TheAgileNest, we don’t just teach project management   we transform professionals into confident, TheAgileNest leaders ready to deliver real results.
                             </p>
                         </div>
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -128,7 +128,7 @@ export default function AboutPage() {
                                 },
                                 {
                                     title: "🚀 Lifelong Learning Culture",
-                                    desc: "TotalPMP is more than a training provider   it’s a learning community. We inspire continuous growth, innovation, and excellence."
+                                    desc: "TheAgileNest is more than a training provider   it’s a learning community. We inspire continuous growth, innovation, and excellence."
                                 }
                             ].map((item, i) => (
                                 <div key={i} className="bg-white p-10 rounded-[40px] shadow-sm hover:shadow-xl transition-all h-full border border-slate-100">
@@ -139,7 +139,7 @@ export default function AboutPage() {
                         </div>
                         <div className="mt-16 text-center">
                             <p className="text-2xl font-black text-primary italic">
-                                TotalPMP   Where knowledge meets experience, and every project takes flight.
+                                TheAgileNest   Where knowledge meets experience, and every project takes flight.
                             </p>
                         </div>
                     </div>

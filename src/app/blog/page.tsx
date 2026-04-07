@@ -7,8 +7,8 @@ import { Tag, ArrowRight, Calendar, User } from 'lucide-react';
 import { blogPosts } from '@/data/blogPosts.tsx';
 
 export const metadata: Metadata = {
-    title: "Blog & Resources | TotalPMP",
-    description: "Latest insights, case studies, and resources on project management, cost estimation, and TotalPMP transformation.",
+    title: "Blog & Resources | TheAgileNest",
+    description: "Latest insights, case studies, and resources on project management, cost estimation, and TheAgileNest transformation.",
 };
 
 export default function BlogPage() {
@@ -21,7 +21,7 @@ export default function BlogPage() {
 
                     {/* Simple page heading */}
                     <div className="mb-14 border-b border-slate-100 pb-10">
-                        <span className="text-accent font-extrabold tracking-[0.2em] uppercase text-[11px] mb-3 block">TotalPMP</span>
+                        <span className="text-accent font-extrabold tracking-[0.2em] uppercase text-[11px] mb-3 block">TheAgileNest</span>
                         <h1 className="text-4xl md:text-5xl font-black text-primary mb-3">Blog & Resources</h1>
                         <p className="text-slate-500 text-lg font-medium max-w-xl">
                             Insights on project management, certifications, and industry trends.

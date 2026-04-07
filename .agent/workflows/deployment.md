@@ -1,5 +1,5 @@
 ---
-description: how to deploy TotalPMP to Vercel
+description: how to deploy TheAgileNest to Vercel
 ---
 
 # Deployment Workflow

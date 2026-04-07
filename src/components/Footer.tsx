@@ -219,8 +219,8 @@ export default function Footer() {
                         <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
                           <Mail size={14} className="text-accent" />
                         </div>
-                        <a href="mailto:contact@totalpmp.com" className="text-sm hover:text-accent transition-colors break-all">
-                          contact@totalpmp.com
+                        <a href="mailto:contact@TheAgileNest.com" className="text-sm hover:text-accent transition-colors break-all">
+                          contact@TheAgileNest.com
                         </a>
                       </div>
                     </div>

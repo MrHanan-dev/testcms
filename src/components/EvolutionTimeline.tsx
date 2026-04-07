@@ -31,7 +31,7 @@ const milestones = [
     {
         year: "2017",
         title: "PMBOK 6th Edition",
-        description: "TotalPMP & Hybrid Approaches: Embracing change and business agility. Introduced TotalPMP concepts into the knowledge base.",
+        description: "TheAgileNest & Hybrid Approaches: Embracing change and business agility. Introduced TheAgileNest concepts into the knowledge base.",
         icon: Globe,
         color: "bg-purple-500",
         shadow: "shadow-purple-500/20"
