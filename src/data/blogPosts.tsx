@@ -21,15 +21,15 @@ export const blogPosts: BlogPost[] = [
         date: "April 07, 2026",
         author: "Engr. Syed Amjad Iqbal",
         category: "TheAgileNest Transformation",
-        imageUrl: "/images/totalpmp_consulting_1771222157225.png",
+        imageUrl: "/images/blog/impact-construction-realistic.png",
         readTime: "12 min read",
         slug: "TheAgileNest-impact-construction",
         content: (
-            <>
+            <div className="not-prose bg-white rounded-[2rem] p-8 md:p-12 border border-slate-100 shadow-sm">
                 <p className="mb-6">The construction industry, traditionally known for its rigid waterfall methodologies, is undergoing a significant transformation. As projects become more complex and client expectations shift towards flexibility, TheAgileNest methodologies are proving to be a game changer in the built environment. This evolution is not just about changing tools; it's about a fundamental shift in how we perceive project value and stakeholder engagement.</p>
 
                 <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">Why TheAgileNest in Construction?</h3>
-                <p className="mb-6">Unlike software development, construction deals with physical limitations—you can't simply refactor a concrete foundation. However, TheAgileNest principles like iterative planning, continuous collaboration, and rapid response to change can be applied effectively in the pre-construction phase, design, and even during execution for certain trades. The goal is to minimize waste and maximize the flow of value through the project lifecycle.</p>
+                <p className="mb-6">Unlike software development, construction deals with physical limitations; you can't simply refactor a concrete foundation. However, TheAgileNest principles like iterative planning, continuous collaboration, and rapid response to change can be applied effectively in the pre-construction phase, design, and even during execution for certain trades. The goal is to minimize waste and maximize the flow of value through the project lifecycle.</p>
 
                 <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 mb-8">
                     <h4 className="text-xl font-bold mb-4">Core Benefits of Adaptive Construction:</h4>
@@ -44,13 +44,13 @@ export const blogPosts: BlogPost[] = [
                 <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">The Role of the PMI-CP®</h3>
                 <p className="mb-6">Specialized certifications, such as the PMI Construction Professional (PMI-CP)®, are increasingly emphasizing adaptive approaches alongside traditional robust planning. Professionals equipped with these integrated skills are leading the charge in modernizing the industry. This certification validates a professional's ability to navigate the complex commercial and operational landscape of modern construction.</p>
 
-                <p className="mb-6">At TheAgileNest, our training programs bridge the gap between theoretical project management and the practical, high-stakes reality of the construction site. We focus on the 'human element'—the leadership skills required to manage diverse teams of contractors, architects, and engineers in a fast-paced environment.</p>
+                <p className="mb-6">At TheAgileNest, our training programs bridge the gap between theoretical project management and the practical, high-stakes reality of the construction site. We focus on the 'human element', the leadership skills required to manage diverse teams of contractors, architects, and engineers in a fast-paced environment.</p>
 
                 <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">Looking Forward: 2027 and Beyond</h3>
-                <p className="mb-6">As we look towards 2027, the hybrid approach—combining the predictable structure of waterfall with the responsive nature of TheAgileNest—will become the gold standard for mega-projects globally. The integration of AI in cost estimation and risk modeling will further empower project managers to make data-driven decisions that safeguard project margins and timelines.</p>
+                <p className="mb-6">As we look towards 2027, the hybrid approach, combining the predictable structure of waterfall with the responsive nature of TheAgileNest, will become the gold standard for mega-projects globally. The integration of AI in cost estimation and risk modeling will further empower project managers to make data-driven decisions that safeguard project margins and timelines.</p>
 
                 <p>Ultimately, the success of a construction project is measured not just by its physical completion, but by its ability to deliver the intended social and economic value. TheAgileNest provides the framework to ensure that value is delivered consistently, regardless of the challenges encountered along the way.</p>
-            </>
+            </div>
         )
     },
     {
@@ -60,11 +60,11 @@ export const blogPosts: BlogPost[] = [
         date: "April 07, 2026",
         author: "TheAgileNest Training Team",
         category: "Certifications",
-        imageUrl: "/images/blog/navigating-pmicp-journey.png",
+        imageUrl: "/images/blog/pmicp-journey-realistic.png",
         readTime: "15 min read",
         slug: "navigating-pmicp-journey",
         content: (
-            <>
+            <div className="not-prose bg-white rounded-[2rem] p-8 md:p-12 border border-slate-100 shadow-sm">
                 <p className="mb-6">The Project Management Institute's Construction Professional (PMI-CP)® certification is rapidly becoming the benchmark for excellence in the construction sector. Designed specifically for construction professionals, it addresses the unique challenges of the built environment, from complex contract management to high-stakes stakeholder engagement.</p>
 
                 <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">Key Domains of the PMI-CP®</h3>
@@ -104,7 +104,7 @@ export const blogPosts: BlogPost[] = [
                 <p className="mb-6">The construction industry is more competitive than ever. Holding a PMI-CP® certification signals to employers and clients that you possess the advanced skills necessary to lead projects to success in an increasingly complex global market. It's an investment in your long-term career trajectory and your ability to deliver superior results.</p>
 
                 <p>Join the next generation of construction leaders. With TheAgileNest's expert guidance, the path to certification is clear, manageable, and profoundly rewarding.</p>
-            </>
+            </div>
         )
     },
     {
@@ -114,11 +114,11 @@ export const blogPosts: BlogPost[] = [
         date: "April 07, 2026",
         author: "TheAgileNest Advisory",
         category: "Cost Estimation",
-        imageUrl: "/images/blog/mastering-cost-estimation-pitfalls.png",
+        imageUrl: "/images/blog/cost-estimation-realistic.png",
         readTime: "10 min read",
         slug: "mastering-cost-estimation-pitfalls",
         content: (
-            <>
+            <div className="not-prose bg-white rounded-[2rem] p-8 md:p-12 border border-slate-100 shadow-sm">
                 <p className="mb-6">Cost overruns are an industry plague, and they almost always stem from the earliest phases of a project: estimation. Accurate cost estimation and quality surveying are not just about numbers; they are about understanding risk, anticipating fluctuations, and providing a realistic roadmap for project viability.</p>
 
                 <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">The Top 3 Estimation Mistakes</h3>
@@ -151,7 +151,7 @@ export const blogPosts: BlogPost[] = [
                 <p className="mb-6">Accurate estimation is the foundation of trust between a contractor and a client. When estimates are reliable, projects stay on schedule, relationships remain professional, and the construction industry as a whole becomes more sustainable.</p>
 
                 <p>TheAgileNest provides specialized cost estimation services to ensure your bids are both competitive and profitable. Let us help you take the guesswork out of your next project.</p>
-            </>
+            </div>
         )
     },
     {
@@ -161,11 +161,11 @@ export const blogPosts: BlogPost[] = [
         date: "April 07, 2026",
         author: "Engr. Syed Amjad Iqbal",
         category: "Project Management",
-        imageUrl: "/images/pmbok_evolution.png",
+        imageUrl: "/images/blog/pmbok-evolution-realistic.png",
         readTime: "14 min read",
         slug: "pmbok-7th-vs-8th-changes",
         content: (
-            <>
+            <div className="not-prose bg-white rounded-[2rem] p-8 md:p-12 border border-slate-100 shadow-sm">
                 <p className="mb-6">The transition from the 6th to the 7th Edition of the PMBOK® Guide marked a monumental shift from process-based management to principle-based management. This set the stage for an even more adaptive future. As we look toward the 8th Edition, this paradigm shift is expected to deepen, reflecting a global economy that demands speed, agility, and measurable impact.</p>
 
                 <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">The Unrelenting Focus on Value delivery</h3>
@@ -184,12 +184,12 @@ export const blogPosts: BlogPost[] = [
                 <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">AI and Automation Integration</h3>
                 <p className="mb-6">Project managers are expected to increasingly rely on AI for predictive analytics, risk modeling, and routine administrative tasks. The 8th Edition framework will likely incorporate guidelines on how to ethically and effectively integrate these tools into the PM toolkit, shifting the project manager's role from a 'scheduler' to a 'strategic advisor' and 'empathetic leader'.</p>
 
-                <p className="mb-6">As routine tasks become automated, the demand for "soft skills"—leadership, emotional intelligence, and complex problem-solving—will skyrocket. TheAgileNest's training programs are already ahead of this curve, focusing on the leadership competencies required for the next decade of project delivery.</p>
+                <p className="mb-6">As routine tasks become automated, the demand for "soft skills": leadership, emotional intelligence, and complex problem-solving, will skyrocket. TheAgileNest's training programs are already ahead of this curve, focusing on the leadership competencies required for the next decade of project delivery.</p>
 
                 <p className="mb-6">The future of project management is not about following a rigid manual; it's about applying professional judgment within a principled framework. It's about being responsive to a world in flux while remaining anchored in the pursuit of excellence.</p>
 
                 <p>Stay ahead of the curve with TheAgileNest's updated training seminars and certification bootcamps. Our curriculum is designed to evolve as fast as the industry does.</p>
-            </>
+            </div>
         )
     },
     {
@@ -203,7 +203,7 @@ export const blogPosts: BlogPost[] = [
         readTime: "18 min read",
         slug: "case-study-scaling-pmo",
         content: (
-            <>
+            <div className="not-prose bg-white rounded-[2rem] p-8 md:p-12 border border-slate-100 shadow-sm">
                 <p className="mb-6">When 'TechGrow Inc.' (name changed for confidentiality) reached out to TheAgileNest, they were experiencing the classic growing pains of a successful scale-up: missed deadlines, misaligned priorities, and burned-out teams. They needed structure without losing the agile spirit that fueled their initial growth. They needed a strategic partner to help them transition from a startup to an enterprise-grade organization.</p>
 
                 <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">The Challenge</h3>
@@ -242,7 +242,7 @@ export const blogPosts: BlogPost[] = [
                 <p className="mb-6">Beyond the numbers, the organizational culture improved. Teams reported feeling more supported and less overwhelmed. The executive leadership gained the clarity required to make bold, long-term investments with confidence.</p>
 
                 <p>Scaling a PMO is not about imposing bureaucracy; it's about providing the clarity and support required for teams to do their best work. At TheAgileNest, we specialize in building governance models that empower rather than restrict.</p>
-            </>
+            </div>
         )
     },
     {
@@ -252,17 +252,17 @@ export const blogPosts: BlogPost[] = [
         date: "April 07, 2026",
         author: "Engr. Syed Amjad Iqbal",
         category: "Project Management",
-        imageUrl: "/images/blog/project-without-timeline-only-intention.png",
+        imageUrl: "/images/blog/project-timeline.png",
         readTime: "14 min read",
         slug: "project-without-timeline-only-intention",
         content: (
-            <>
-                <p className="mb-6">Every great achievement begins as an idea—but an idea without a plan is merely a wish, and a plan without a <strong>project timeline</strong> is only an intention. In the world of <strong>project management</strong>, the difference between a successful delivery and a spectacular failure almost always traces back to one discipline: scheduling. Whether you're overseeing a multi-million dollar infrastructure build or launching a new software product, the timeline is your compass, your contract with reality, and your most powerful tool for turning ambition into outcome.</p>
+            <div className="not-prose bg-white rounded-[2rem] p-8 md:p-12 border border-slate-100 shadow-sm">
+                <p className="mb-6">Every great achievement begins as an idea, but an idea without a plan is merely a wish, and a plan without a <strong>project timeline</strong> is only an intention. In the world of <strong>project management</strong>, the difference between a successful delivery and a spectacular failure almost always traces back to one discipline: scheduling. Whether you're overseeing a multi-million dollar infrastructure build or launching a new software product, the timeline is your compass, your contract with reality, and your most powerful tool for turning ambition into outcome.</p>
 
                 <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">Why Timelines Are Non-Negotiable</h3>
-                <p className="mb-6">A project timeline is far more than a Gantt chart pinned to a wall. It is the living, breathing backbone of every decision made throughout the <strong>project lifecycle</strong>. Without it, teams drift. Stakeholders lose confidence. Budgets spiral. In construction, where a single day of delay can cost tens of thousands of dollars in crane hire, labour, and contractual penalties, the absence of a schedule is not just poor practice—it is commercially reckless.</p>
+                <p className="mb-6">A project timeline is far more than a Gantt chart pinned to a wall. It is the living, breathing backbone of every decision made throughout the <strong>project lifecycle</strong>. Without it, teams drift. Stakeholders lose confidence. Budgets spiral. In construction, where a single day of delay can cost tens of thousands of dollars in crane hire, labour, and contractual penalties, the absence of a schedule is not just poor practice; it is commercially reckless.</p>
 
-                <p className="mb-6">Consider this: according to the Project Management Institute (PMI), organizations that undervalue project scheduling waste an average of 11.4% of their investment due to poor project performance. That's not a rounding error—it's a systemic failure that erodes margins, destroys reputations, and stalls careers. For professionals pursuing <strong>PMP certification</strong>, mastering schedule management is not optional; it is a core competency tested rigorously across every domain of the PMBOK® Guide.</p>
+                <p className="mb-6">Consider this: according to the Project Management Institute (PMI), organizations that undervalue project scheduling waste an average of 11.4% of their investment due to poor project performance. That's not a rounding error; it's a systemic failure that erodes margins, destroys reputations, and stalls careers. For professionals pursuing <strong>PMP certification</strong>, mastering schedule management is not optional; it is a core competency tested rigorously across every domain of the PMBOK® Guide.</p>
 
                 <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 mb-8">
                     <h4 className="text-xl font-bold mb-4">What a Project Timeline Actually Controls:</h4>
@@ -281,7 +281,7 @@ export const blogPosts: BlogPost[] = [
                 <div className="grid md:grid-cols-2 gap-6 mb-10">
                     <div className="p-6 bg-slate-50 rounded-xl border border-slate-100">
                         <h4 className="font-bold text-primary mb-2">Work Breakdown Structure (WBS)</h4>
-                        <p className="text-sm text-slate-600 leading-relaxed">Decompose the entire project scope into manageable work packages. The WBS is the foundation upon which the schedule is built—without it, you're estimating in the dark.</p>
+                        <p className="text-sm text-slate-600 leading-relaxed">Decompose the entire project scope into manageable work packages. The WBS is the foundation upon which the schedule is built; without it, you're estimating in the dark.</p>
                     </div>
                     <div className="p-6 bg-slate-50 rounded-xl border border-slate-100">
                         <h4 className="font-bold text-primary mb-2">Activity Sequencing & Dependencies</h4>
@@ -289,11 +289,11 @@ export const blogPosts: BlogPost[] = [
                     </div>
                     <div className="p-6 bg-slate-50 rounded-xl border border-slate-100">
                         <h4 className="font-bold text-primary mb-2">Duration Estimating</h4>
-                        <p className="text-sm text-slate-600 leading-relaxed">Use analogous, parametric, or three-point estimation techniques to assign realistic durations. Avoid the trap of optimism bias—always factor in contingency.</p>
+                        <p className="text-sm text-slate-600 leading-relaxed">Use analogous, parametric, or three-point estimation techniques to assign realistic durations. Avoid the trap of optimism bias; always factor in contingency.</p>
                     </div>
                     <div className="p-6 bg-slate-50 rounded-xl border border-slate-100">
                         <h4 className="font-bold text-primary mb-2">Critical Path Method (CPM)</h4>
-                        <p className="text-sm text-slate-600 leading-relaxed">Identify the longest sequence of dependent activities. Any delay on the critical path delays the entire project—this is where management attention must focus.</p>
+                        <p className="text-sm text-slate-600 leading-relaxed">Identify the longest sequence of dependent activities. Any delay on the critical path delays the entire project; this is where management attention must focus.</p>
                     </div>
                 </div>
 
@@ -327,7 +327,7 @@ export const blogPosts: BlogPost[] = [
 
                     <section>
                         <h4 className="text-xl font-bold text-slate-800 mb-3">5. Disconnecting Schedule from Cost</h4>
-                        <p className="mb-4 text-slate-600">Time is money—literally. When the schedule and the budget exist as separate documents, the project loses the ability to forecast cash flow, measure earned value, or detect cost overruns until it's too late. <strong>Construction cost estimation</strong> and scheduling must be integrated from day one.</p>
+                        <p className="mb-4 text-slate-600">Time is money, literally. When the schedule and the budget exist as separate documents, the project loses the ability to forecast cash flow, measure earned value, or detect cost overruns until it's too late. <strong>Construction cost estimation</strong> and scheduling must be integrated from day one.</p>
                         <p className="text-sm font-medium border-l-2 border-accent pl-4"><em>Solution:</em> Implement cost-loaded schedules that tie every activity to its budgeted cost. This enables S-curve analysis and Earned Value Management (EVM) for real-time performance tracking.</p>
                     </section>
                 </div>
@@ -346,10 +346,10 @@ export const blogPosts: BlogPost[] = [
                     </ul>
                 </div>
 
-                <p className="mb-6">These are not theoretical concepts—they are practical tools that TheAgileNest-trained professionals apply daily on construction sites, in corporate PMOs, and across global infrastructure programs. The PMBOK® Guide provides the framework; experience provides the judgment to apply it wisely.</p>
+                <p className="mb-6">These are not theoretical concepts; they are practical tools that TheAgileNest-trained professionals apply daily on construction sites, in corporate PMOs, and across global infrastructure programs. The PMBOK® Guide provides the framework; experience provides the judgment to apply it wisely.</p>
 
                 <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">From Intention to Execution: The TheAgileNest Approach</h3>
-                <p className="mb-6">At TheAgileNest, we believe that a project schedule is only as good as the professional who builds it. That's why our training programs go beyond the textbook. We immerse candidates in real-world scenarios where scheduling decisions have tangible consequences—delayed handovers, contractual liquidated damages, and the pressure of a client who needs answers today.</p>
+                <p className="mb-6">At TheAgileNest, we believe that a project schedule is only as good as the professional who builds it. That's why our training programs go beyond the textbook. We immerse candidates in real-world scenarios where scheduling decisions have tangible consequences, such as delayed handovers, contractual liquidated damages, and the pressure of a client who needs answers today.</p>
 
                 <div className="space-y-6 mb-12">
                     <div className="flex gap-4 p-5 bg-white border border-slate-100 rounded-2xl shadow-sm">
@@ -375,10 +375,10 @@ export const blogPosts: BlogPost[] = [
                     </div>
                 </div>
 
-                <p className="mb-6">The construction industry doesn't forgive poor scheduling. A day lost on the critical path of a high-rise project can cascade into weeks of delay and hundreds of thousands in additional costs. <strong>Quantity surveying</strong> professionals understand this intimately—every variation, every delay, and every acceleration has a commercial consequence that must be measured and managed.</p>
+                <p className="mb-6">The construction industry doesn't forgive poor scheduling. A day lost on the critical path of a high-rise project can cascade into weeks of delay and hundreds of thousands in additional costs. <strong>Quantity surveying</strong> professionals understand this intimately; every variation, every delay, and every acceleration has a commercial consequence that must be measured and managed.</p>
 
-                <p>A project without a timeline is only an intention. But a project led by a trained, certified, and experienced professional—armed with the right scheduling tools and a principled approach to <strong>project management</strong>—is a promise that gets kept. At TheAgileNest, we don't just teach you how to build a schedule. We teach you how to build a career on delivering results. Start your journey with us today.</p>
-            </>
+                <p>A project without a timeline is only an intention. But a project led by a trained, certified, and experienced professional, armed with the right scheduling tools and a principled approach to <strong>project management</strong>, is a promise that gets kept. At TheAgileNest, we don't just teach you how to build a schedule. We teach you how to build a career on delivering results. Start your journey with us today.</p>
+            </div>
         )
     },
     {
@@ -388,12 +388,12 @@ export const blogPosts: BlogPost[] = [
         date: "April 07, 2026",
         author: "Engr. Syed Amjad Iqbal",
         category: "Project Management",
-        imageUrl: "/images/blog/planning-creates-direction-execution-creates-results.png",
+        imageUrl: "/images/blog/planning-direction.png",
         readTime: "13 min read",
         slug: "planning-creates-direction-execution-creates-results",
         content: (
-            <>
-                <p className="mb-6">In the high-stakes world of modern industry, a common paradox persists: organizations spend months crafting immaculate strategies only to see them crumble during the first week of physical implementation. The reason is simple yet profound—while <strong>planning creates direction</strong>, it is only <strong>execution that creates results</strong>. This fundamental truth is the cornerstone of effective <strong>project management</strong>. Without a clear direction, execution is chaotic; without rigorous execution, planning is merely academic exercise. At TheAgileNest, we specialize in bridging this gap, ensuring that every strategic roadmap translates into tangible, high-quality outcomes.</p>
+            <div className="not-prose bg-white rounded-[2rem] p-8 md:p-12 border border-slate-100 shadow-sm">
+                <p className="mb-6">In the high-stakes world of modern industry, a common paradox persists: organizations spend months crafting immaculate strategies only to see them crumble during the first week of physical implementation. The reason is simple yet profound: while <strong>planning creates direction</strong>, it is only <strong>execution that creates results</strong>. This fundamental truth is the cornerstone of effective <strong>project management</strong>. Without a clear direction, execution is chaotic; without rigorous execution, planning is merely academic exercise. At TheAgileNest, we specialize in bridging this gap, ensuring that every strategic roadmap translates into tangible, high-quality outcomes.</p>
 
                 <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">The Strategic Compass: Why Planning Still Matters</h3>
                 <p className="mb-6">Before we dive into the mechanics of execution, we must acknowledge the vital role of <strong>PMBOK project planning</strong>. A project without a plan is like a ship without a rudder. In complex <strong>construction project delivery</strong>, planning defines the boundaries of possibility. It establishes the scope, identifies the stakeholders, and maps out the critical path. However, the nature of planning is changing. As we move through 2026, the industry is shifting away from rigid, multi-year "waterfall" plans toward more adaptive, iterative frameworks that allow for real-time adjustments.</p>
@@ -413,7 +413,7 @@ export const blogPosts: BlogPost[] = [
                 <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">The Execution Pivot: Turning Intent into Action</h3>
                 <p className="mb-6">Execution is where the "rubber meets the road." It is the process of coordinating people, systems, and materials to deliver the project scope. A successful <strong>project execution strategy 2026</strong> requires more than just following a checklist; it requires leadership, adaptability, and a deep understanding of the project’s technical constraints. In the construction sector, this means translating <strong>construction cost estimation</strong> data into actual procurement cycles and site activity.</p>
 
-                <p className="mb-6">The most common reason projects fail during execution is a lack of "feedback loops." When the reality on the ground diverges from the plan—due to weather, supply chain disruptions, or labour shortages—the project manager must be able to pivot. This is where <strong>project management</strong> becomes an art form. It’s about maintaining the integrity of the project's direction while being ruthlessly pragmatic about the execution steps required to get there.</p>
+                <p className="mb-6">The most common reason projects fail during execution is a lack of "feedback loops." When the reality on the ground diverges from the plan, due to weather, supply chain disruptions, or labour shortages, the project manager must be able to pivot. This is where <strong>project management</strong> becomes an art form. It’s about maintaining the integrity of the project's direction while being ruthlessly pragmatic about the execution steps required to get there.</p>
 
                 <div className="grid md:grid-cols-2 gap-6 mb-10">
                     <div className="p-6 bg-slate-50 rounded-xl border border-slate-100">
@@ -435,9 +435,9 @@ export const blogPosts: BlogPost[] = [
                 </div>
 
                 <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">Deep Dive: The Construction Delivery Paradigm</h3>
-                <p className="mb-6">In <strong>construction project delivery</strong>, the stakes are physical. A mistake in execution cannot be fixed with a software patch; it requires rework, additional material, and significant downtime. This is why <strong>quantity surveying</strong> and cost control are so deeply integrated into our execution models. We don't just plan for costs—we execute for value. By applying <strong>PMP certification</strong> principles to the construction site, we create a environment where safety, quality, and budget are not in competition, but are mutually reinforcing outcomes.</p>
+                <p className="mb-6">In <strong>construction project delivery</strong>, the stakes are physical. A mistake in execution cannot be fixed with a software patch; it requires rework, additional material, and significant downtime. This is why <strong>quantity surveying</strong> and cost control are so deeply integrated into our execution models. We don't just plan for costs; we execute for value. By applying <strong>PMP certification</strong> principles to the construction site, we create a environment where safety, quality, and budget are not in competition, but are mutually reinforcing outcomes.</p>
 
-                <p className="mb-6">Recent case studies in Auckland and Wellington highlight the difference between "intentionally planned" projects and "result-oriented execution." Projects that utilized a hybrid approach—combining meticulous <strong>PMBOK project planning</strong> with agile site management—delivered 20% faster than those relying on traditional methods. These results are not accidental; they are the product of a deliberate <strong>project execution strategy 2026</strong> that values outcomes over paper-work.</p>
+                <p className="mb-6">Recent case studies in Auckland and Wellington highlight the difference between "intentionally planned" projects and "result-oriented execution." Projects that utilized a hybrid approach, combining meticulous <strong>PMBOK project planning</strong> with agile site management, delivered 20% faster than those relying on traditional methods. These results are not accidental; they are the product of a deliberate <strong>project execution strategy 2026</strong> that values outcomes over paper-work.</p>
 
                 <div className="bg-primary/5 p-8 rounded-3xl mb-10">
                     <h4 className="text-xl font-bold text-primary mb-4">Success Metrics for The Decisive Leader:</h4>
@@ -476,12 +476,12 @@ export const blogPosts: BlogPost[] = [
                     </div>
                 </div>
 
-                <p className="mb-6">Ultimately, the success of your project rests on your ability to hold two thoughts simultaneously: the long-term strategic direction and the immediate tactical execution. One provides the "why," the other provides the "how." When these two forces are aligned, results are not just possible—they are inevitable.</p>
+                <p className="mb-6">Ultimately, the success of your project rests on your ability to hold two thoughts simultaneously: the long-term strategic direction and the immediate tactical execution. One provides the "why," the other provides the "how." When these two forces are aligned, results are not just possible; they are inevitable.</p>
 
                 <p className="mb-6">Don't let your strategic visions become forgotten files on a server. Turn your intentions into achievements with TheAgileNest’s world-class <strong>project management</strong> training. Whether you are looking to secure your <strong>PMP certification</strong> or seeking to optimize your organization's <strong>project lifecycle management</strong>, we have the tools, the expertise, and the experience to help you deliver excellence.</p>
 
                 <p>Join the ranks of elite project leaders who know that planning is only half the battle. Step into the arena of execution and start creating results today. Contact TheAgileNest to learn more about our upcoming 2026 courses and consulting services.</p>
-            </>
+            </div>
         )
     },
     {
@@ -491,17 +491,17 @@ export const blogPosts: BlogPost[] = [
         date: "April 07, 2026",
         author: "TheAgileNest Training Team",
         category: "Project Management",
-        imageUrl: "/images/blog/project-without-timeline-only-intention.png",
+        imageUrl: "/images/blog/reduce-chaos.png",
         readTime: "11 min read",
         slug: "clear-plans-reduce-chaos",
         content: (
-            <>
-                <p className="mb-6">In the fast-paced world of project management, chaos is the enemy of success. Whether you're overseeing a complex construction project, launching a new software product, or managing organizational change, the difference between triumph and disaster often lies in one fundamental principle: <strong>clear plans reduce chaos before it begins</strong>. At TheAgileNest, we believe that effective planning is not just a preliminary step—it's the strategic foundation that transforms uncertainty into controlled progress. This article explores why comprehensive planning is essential and how PMP-certified professionals leverage it to deliver exceptional results.</p>
+            <div className="not-prose bg-white rounded-[2rem] p-8 md:p-12 border border-slate-100 shadow-sm">
+                <p className="mb-6">In the fast-paced world of project management, chaos is the enemy of success. Whether you're overseeing a complex construction project, launching a new software product, or managing organizational change, the difference between triumph and disaster often lies in one fundamental principle: <strong>clear plans reduce chaos before it begins</strong>. At TheAgileNest, we believe that effective planning is not just a preliminary step; it's the strategic foundation that transforms uncertainty into controlled progress. This article explores why comprehensive planning is essential and how PMP-certified professionals leverage it to deliver exceptional results.</p>
 
                 <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">The Cost of Unplanned Chaos</h3>
                 <p className="mb-6">Without clear planning, projects descend into a predictable pattern of crisis management. Teams scramble to meet deadlines, stakeholders lose confidence, and budgets spiral out of control. According to industry research, poorly planned projects are 50% more likely to fail or exceed their budgets. In construction alone, inadequate planning can result in costly rework, safety incidents, and contractual disputes that erode profit margins and damage reputations.</p>
 
-                <p className="mb-6">The root cause is often a false economy—organizations rush into execution believing they can "figure it out as they go." This approach might work for simple tasks, but complex projects require structured foresight. Clear plans provide the roadmap that prevents small issues from becoming cascading failures.</p>
+                <p className="mb-6">The root cause is often a false economy: organizations rush into execution believing they can "figure it out as they go." This approach might work for simple tasks, but complex projects require structured foresight. Clear plans provide the roadmap that prevents small issues from becoming cascading failures.</p>
 
                 <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 mb-8">
                     <h4 className="text-xl font-bold mb-4">Common Signs of Planning Deficiency:</h4>
@@ -537,7 +537,7 @@ export const blogPosts: BlogPost[] = [
                 </div>
 
                 <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">Stakeholder Engagement: The Human Element</h3>
-                <p className="mb-6">Clear plans extend beyond documents—they require active stakeholder involvement. Effective planning brings together all parties early in the process to align expectations, identify constraints, and build commitment. This collaborative approach reduces resistance during execution and ensures everyone is working toward the same objectives.</p>
+                <p className="mb-6">Clear plans extend beyond documents; they require active stakeholder involvement. Effective planning brings together all parties early in the process to align expectations, identify constraints, and build commitment. This collaborative approach reduces resistance during execution and ensures everyone is working toward the same objectives.</p>
 
                 <p className="mb-6">In construction projects, this means involving architects, engineers, subcontractors, and client representatives in the planning phase. Their input prevents costly redesigns and ensures the plan reflects real-world constraints and requirements.</p>
 
@@ -560,10 +560,10 @@ export const blogPosts: BlogPost[] = [
                 <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">From Planning to Execution: Maintaining Clarity</h3>
                 <p className="mb-6">The true test of planning comes during execution. Clear plans provide the framework for monitoring progress, identifying variances, and making corrective decisions. Regular status updates, milestone reviews, and performance metrics ensure the project stays on track.</p>
 
-                <p className="mb-6">When issues arise—and they will—well-planned projects have the flexibility to adapt without descending into chaos. This resilience is the ultimate benefit of comprehensive planning.</p>
+                <p className="mb-6">When issues arise, and they will, well-planned projects have the flexibility to adapt without descending into chaos. This resilience is the ultimate benefit of comprehensive planning.</p>
 
                 <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">Building a Planning Culture at TheAgileNest</h3>
-                <p className="mb-6">At TheAgileNest, we teach planning as both a discipline and a mindset. Our PMP certification programs emphasize practical planning skills that professionals can immediately apply in their work. We believe that clear plans don't just reduce chaos—they create the conditions for excellence.</p>
+                <p className="mb-6">At TheAgileNest, we teach planning as both a discipline and a mindset. Our PMP certification programs emphasize practical planning skills that professionals can immediately apply in their work. We believe that clear plans don't just reduce chaos: they create the conditions for excellence.</p>
 
                 <div className="space-y-6 mb-12">
                     <div className="flex gap-4 p-5 bg-white border border-slate-100 rounded-2xl shadow-sm">
@@ -589,10 +589,10 @@ export const blogPosts: BlogPost[] = [
                     </div>
                 </div>
 
-                <p className="mb-6">In an era of increasing complexity and uncertainty, clear planning is not optional—it's essential. Projects that begin with comprehensive plans are more likely to succeed, teams that follow structured processes are more productive, and organizations that prioritize planning are more profitable.</p>
+                <p className="mb-6">In an era of increasing complexity and uncertainty, clear planning is not optional; it's essential. Projects that begin with comprehensive plans are more likely to succeed, teams that follow structured processes are more productive, and organizations that prioritize planning are more profitable.</p>
 
                 <p>Don't let chaos derail your next project. Invest in clear planning today and set yourself up for success. Contact TheAgileNest to learn how our training and consulting services can help you master the art of effective project planning.</p>
-            </>
+            </div>
         )
     },
     {
@@ -602,15 +602,15 @@ export const blogPosts: BlogPost[] = [
         date: "April 07, 2026",
         author: "Engr. Syed Amjad Iqbal",
         category: "Project Management",
-        imageUrl: "/images/totalpmp_ai_estimation_1771222114549.png",
+        imageUrl: "/images/blog/strategy-action.png",
         readTime: "13 min read",
         slug: "strategy-turns-ambition-into-structured-action",
         content: (
-            <>
+            <div className="not-prose bg-white rounded-[2rem] p-8 md:p-12 border border-slate-100 shadow-sm">
                 <p className="mb-6">A strong vision is only the beginning. <strong>Strategy turns ambition into structured action</strong> when leaders pair their goals with a disciplined project execution framework. In today’s competitive construction, consulting, and certification markets, the gap between ambition and outcome is bridged by effective <strong>project management</strong>, rigorous <strong>cost estimation</strong>, and a clear focus on value delivery.</p>
 
                 <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">Why Strategic Action Matters</h3>
-                <p className="mb-6">Many organizations pursue ambitious goals without establishing the structures needed to achieve them. That’s why the most successful initiatives do not rely on creativity alone—they depend on a repeatable system that turns strategy into deliverable work packages, measurable milestones, and disciplined progress tracking.</p>
+                <p className="mb-6">Many organizations pursue ambitious goals without establishing the structures needed to achieve them. That’s why the most successful initiatives do not rely on creativity alone; they depend on a repeatable system that turns strategy into deliverable work packages, measurable milestones, and disciplined progress tracking.</p>
 
                 <p className="mb-6">In the world of <strong>PMP certification</strong> and professional project delivery, strategy is not an abstract document. It is a sequence of decisions, plans, and controls that align resources, timelines, and stakeholder expectations. When the strategy is clear, every team member knows how their work contributes to the final outcome.</p>
 
@@ -704,7 +704,7 @@ export const blogPosts: BlogPost[] = [
                 <p className="mb-6">When teams adopt a structured approach, they reduce waste, improve predictability, and deliver higher quality outcomes. Clear strategy becomes a catalyst for disciplined action instead of a lofty ideal.</p>
 
                 <p>At TheAgileNest, we help you develop the habits, frameworks, and confidence to turn your ambition into structured action. Whether you are leading a construction program, managing a consulting engagement, or preparing for <strong>PMP certification</strong>, our training gives you the tools to deliver repeatable success. Start your next project with a strategy that works, and build the discipline to make it happen.</p>
-            </>
+            </div>
         )
     },
     {
@@ -714,24 +714,24 @@ export const blogPosts: BlogPost[] = [
         date: "April 08, 2026",
         author: "Engr. Syed Amjad Iqbal",
         category: "Project Management",
-        imageUrl: "/images/blog/strong-foundations-planning-prevent-costly-corrections.png",
+        imageUrl: "/images/blog/strong-foundations.png",
         readTime: "14 min read",
         slug: "strong-foundations-planning-prevent-costly-corrections",
         content: (
-            <>
-                <p className="mb-6">In construction, the phrase "get it right the first time" is more than a quality motto—it is a financial imperative. Strong foundations in planning prevent costly corrections later, and this truth applies with equal force whether you are pouring a concrete slab or launching a multi-million dollar programme of work. Every hour invested in rigorous <strong>project management</strong> planning during the early stages of a project pays back manifold during execution. At TheAgileNest, we have seen it time and again: organisations that rush into action without a solid planning foundation end up paying the price—in rework, in overruns, and in reputational damage that lingers long after the project closes.</p>
+            <div className="not-prose bg-white rounded-[2rem] p-8 md:p-12 border border-slate-100 shadow-sm">
+                <p className="mb-6">In construction, the phrase "get it right the first time" is more than a quality motto; it is a financial imperative. Strong foundations in planning prevent costly corrections later, and this truth applies with equal force whether you are pouring a concrete slab or launching a multi-million dollar programme of work. Every hour invested in rigorous <strong>project management</strong> planning during the early stages of a project pays back manifold during execution. At TheAgileNest, we have seen it time and again: organisations that rush into action without a solid planning foundation end up paying the price: in rework, in overruns, and in reputational damage that lingers long after the project closes.</p>
 
                 <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">The True Cost of a Weak Foundation</h3>
-                <p className="mb-6">The construction industry loses billions of dollars annually to rework. Studies consistently show that between 5% and 15% of total project costs are consumed by correcting work that was done incorrectly the first time. In large infrastructure programmes, that percentage represents enormous sums. The root cause is almost never a lack of effort—it is almost always a failure of early planning. Scope ambiguity, incomplete drawings, poorly defined responsibilities, and rushed <strong>construction cost estimation</strong> create a brittle project structure that fractures the moment it meets field reality.</p>
+                <p className="mb-6">The construction industry loses billions of dollars annually to rework. Studies consistently show that between 5% and 15% of total project costs are consumed by correcting work that was done incorrectly the first time. In large infrastructure programmes, that percentage represents enormous sums. The root cause is almost never a lack of effort; it is almost always a failure of early planning. Scope ambiguity, incomplete drawings, poorly defined responsibilities, and rushed <strong>construction cost estimation</strong> create a brittle project structure that fractures the moment it meets field reality.</p>
 
-                <p className="mb-6">The PMBOK® Guide describes this dynamic through the "cost of quality" principle: defects that are caught in the planning phase cost a fraction of what they cost to correct during execution, and a tiny fraction of what they cost if they reach the client during handover. This is not theoretical—it is the commercial reality that every <strong>PMP certification</strong> holder is trained to act on from day one of a project.</p>
+                <p className="mb-6">The PMBOK® Guide describes this dynamic through the "cost of quality" principle: defects that are caught in the planning phase cost a fraction of what they cost to correct during execution, and a tiny fraction of what they cost if they reach the client during handover. This is not theoretical; it is the commercial reality that every <strong>PMP certification</strong> holder is trained to act on from day one of a project.</p>
 
                 <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 mb-8">
                     <h4 className="text-xl font-bold mb-4">What a Weak Planning Foundation Costs You:</h4>
                     <ul className="list-disc pl-6 space-y-3 text-slate-700">
                         <li><strong>Rework Costs:</strong> Physical corrections to completed work routinely cost 5–10× the original activity cost once labour, materials, and downtime are factored in.</li>
                         <li><strong>Schedule Delays:</strong> Every day of rework on the critical path compounds, triggering liquidated damages, extended preliminaries, and subcontractor claims.</li>
-                        <li><strong>Stakeholder Erosion:</strong> Client confidence, once lost due to poor delivery, is extraordinarily difficult to rebuild—often resulting in lost future work.</li>
+                        <li><strong>Stakeholder Erosion:</strong> Client confidence, once lost due to poor delivery, is extraordinarily difficult to rebuild, often resulting in lost future work.</li>
                         <li><strong>Team Burnout:</strong> Teams forced into crisis mode repeatedly become disengaged, increasing turnover and further damaging delivery capability.</li>
                         <li><strong>Commercial Exposure:</strong> Unplanned scope changes and variations lead to contractual disputes that consume management bandwidth and legal budgets.</li>
                     </ul>
@@ -751,7 +751,7 @@ export const blogPosts: BlogPost[] = [
                     </div>
                     <div className="p-6 bg-slate-50 rounded-xl border border-slate-100">
                         <h4 className="font-bold text-primary mb-2">Risk Register Development</h4>
-                        <p className="text-sm text-slate-600 leading-relaxed">Identifying and quantifying risks before execution begins allows the team to build contingency intelligently—not as a vague percentage, but as a traceable, auditable response to specific, named threats.</p>
+                        <p className="text-sm text-slate-600 leading-relaxed">Identifying and quantifying risks before execution begins allows the team to build contingency intelligently, not as a vague percentage, but as a traceable, auditable response to specific, named threats.</p>
                     </div>
                     <div className="p-6 bg-slate-50 rounded-xl border border-slate-100">
                         <h4 className="font-bold text-primary mb-2">Stakeholder Alignment</h4>
@@ -765,7 +765,7 @@ export const blogPosts: BlogPost[] = [
                 <div className="space-y-10">
                     <section>
                         <h4 className="text-xl font-bold text-slate-800 mb-3">1. Front-End Loading (FEL)</h4>
-                        <p className="mb-4 text-slate-600">Front-End Loading is the practice of investing disproportionately in planning, design, and stakeholder alignment before committing to full execution. Projects with high FEL scores—where scope, cost, and schedule are thoroughly developed before ground-break—statistically outperform their peers in cost and schedule performance by margins of 20–40%.</p>
+                        <p className="mb-4 text-slate-600">Front-End Loading is the practice of investing disproportionately in planning, design, and stakeholder alignment before committing to full execution. Projects with high FEL scores, where scope, cost, and schedule are thoroughly developed before ground-break, statistically outperform their peers in cost and schedule performance by margins of 20–40%.</p>
                         <p className="text-sm font-medium border-l-2 border-accent pl-4"><em>Application:</em> Gate reviews at the pre-FEED, FEED, and sanction stages ensure that approved budgets and schedules are based on fully developed information, not aspirational estimates.</p>
                     </section>
 
@@ -777,25 +777,25 @@ export const blogPosts: BlogPost[] = [
 
                     <section>
                         <h4 className="text-xl font-bold text-slate-800 mb-3">3. Design Freeze Discipline</h4>
-                        <p className="mb-4 text-slate-600">One of the most common causes of construction rework is design changes issued after procurement or construction has commenced. Every late design change ripples through the supply chain, creating waste and conflict. A formally enforced design freeze—tied to procurement milestones—is one of the most powerful cost-protection measures available to a project team.</p>
+                        <p className="mb-4 text-slate-600">One of the most common causes of construction rework is design changes issued after procurement or construction has commenced. Every late design change ripples through the supply chain, creating waste and conflict. A formally enforced design freeze, tied to procurement milestones, is one of the most powerful cost-protection measures available to a project team.</p>
                         <p className="text-sm font-medium border-l-2 border-accent pl-4"><em>Application:</em> Establish a formal change control board that reviews, approves, and prices all design changes before they are issued to the field. No verbal instructions.</p>
                     </section>
 
                     <section>
                         <h4 className="text-xl font-bold text-slate-800 mb-3">4. Constructability Reviews</h4>
-                        <p className="mb-4 text-slate-600">Inviting experienced site personnel and contractors to review designs before finalisation catches buildability issues that engineers and architects—working in isolation—often miss. The cost of a constructability review is measured in days; the cost of the problems it prevents is measured in months and millions.</p>
+                        <p className="mb-4 text-slate-600">Inviting experienced site personnel and contractors to review designs before finalisation catches buildability issues that engineers and architects, working in isolation, often miss. The cost of a constructability review is measured in days; the cost of the problems it prevents is measured in months and millions.</p>
                         <p className="text-sm font-medium border-l-2 border-accent pl-4"><em>Application:</em> Conduct formal constructability reviews at 30%, 60%, and 90% design completion, with documented action logs tracked to closure.</p>
                     </section>
 
                     <section>
                         <h4 className="text-xl font-bold text-slate-800 mb-3">5. Procurement Strategy Planning</h4>
-                        <p className="mb-4 text-slate-600">How you procure your supply chain is as important as what you procure. A poorly structured procurement strategy—wrong contract type, insufficient lead time, inadequate vendor pre-qualification—introduces risk at every interface. <strong>Construction cost estimation</strong> professionals and <strong>quantity surveyors</strong> play a critical role in designing procurement strategies that balance risk, cost, and programme.</p>
+                        <p className="mb-4 text-slate-600">How you procure your supply chain is as important as what you procure. A poorly structured procurement strategy, wrong contract type, insufficient lead time, inadequate vendor pre-qualification, introduces risk at every interface. <strong>Construction cost estimation</strong> professionals and <strong>quantity surveyors</strong> play a critical role in designing procurement strategies that balance risk, cost, and programme.</p>
                         <p className="text-sm font-medium border-l-2 border-accent pl-4"><em>Application:</em> Develop a Procurement Strategy Document (PSD) that maps every major package to the appropriate contract mechanism, risk allocation, and award timeline.</p>
                     </section>
                 </div>
 
                 <h3 className="text-2xl font-bold text-slate-800 mt-12 mb-4">How PMP-Certified Professionals Build Unshakeable Foundations</h3>
-                <p className="mb-6">The <strong>PMP certification</strong> from PMI is built on the recognition that project success is overwhelmingly determined by the quality of the foundation laid before execution begins. The PMBOK® Guide's Planning Process Group is the most extensive in the framework—not by accident, but because PMI's research validates that planning investment is the single highest-leverage activity in project management.</p>
+                <p className="mb-6">The <strong>PMP certification</strong> from PMI is built on the recognition that project success is overwhelmingly determined by the quality of the foundation laid before execution begins. The PMBOK® Guide's Planning Process Group is the most extensive in the framework, not by accident, but because PMI's research validates that planning investment is the single highest-leverage activity in project management.</p>
 
                 <div className="bg-primary/5 p-8 rounded-3xl mb-10">
                     <h4 className="text-xl font-bold text-primary mb-4">PMP-Certified Planning Capabilities:</h4>
@@ -804,24 +804,24 @@ export const blogPosts: BlogPost[] = [
                         <li><strong>Schedule Network Analysis:</strong> Identifying the critical path, float, and resource dependencies before a single activity begins on site.</li>
                         <li><strong>Cost Baseline & EVM:</strong> Integrating scope, schedule, and cost into a performance measurement baseline that enables real-time earned value analysis throughout delivery.</li>
                         <li><strong>Quality Management Planning:</strong> Defining quality standards, inspection criteria, and non-conformance processes so the team knows what "acceptable" means before work starts.</li>
-                        <li><strong>Risk Response Planning:</strong> Developing proactive mitigation and contingency strategies for the project's most significant threats—before they materialise as crises.</li>
+                        <li><strong>Risk Response Planning:</strong> Developing proactive mitigation and contingency strategies for the project's most significant threats, before they materialise as crises.</li>
                     </ul>
                 </div>
 
                 <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">The Quantity Surveyor's Role in Foundational Planning</h3>
-                <p className="mb-6">In construction and infrastructure, the <strong>quantity surveyor</strong> is the guardian of the project's financial foundation. A skilled QS does not simply produce a Bill of Quantities—they underpin the entire cost management framework. From accurate pre-tender estimates to robust contract structures, the QS's early involvement determines whether the project is commercially viable and whether the team has a realistic baseline against which to manage performance.</p>
+                <p className="mb-6">In construction and infrastructure, the <strong>quantity surveyor</strong> is the guardian of the project's financial foundation. A skilled QS does not simply produce a Bill of Quantities; they underpin the entire cost management framework. From accurate pre-tender estimates to robust contract structures, the QS's early involvement determines whether the project is commercially viable and whether the team has a realistic baseline against which to manage performance.</p>
 
-                <p className="mb-6">At TheAgileNest, our training integrates <strong>quantity surveying</strong> principles with PMBOK® cost management, recognising that the two disciplines are inseparable in construction project delivery. Professionals who understand both—the commercial precision of QS practice and the governance framework of <strong>project management</strong>—are the most effective guardians of project value in any market.</p>
+                <p className="mb-6">At TheAgileNest, our training integrates <strong>quantity surveying</strong> principles with PMBOK® cost management, recognising that the two disciplines are inseparable in construction project delivery. Professionals who understand both, the commercial precision of QS practice and the governance framework of <strong>project management</strong>, are the most effective guardians of project value in any market.</p>
 
                 <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">How TheAgileNest Builds Planning Excellence</h3>
-                <p className="mb-6">At TheAgileNest, we don't just prepare you for the <strong>PMP certification</strong> exam—we prepare you to be the person on the project who prevents the costly corrections before they happen. Our training programmes are built around real-world scenarios where planning decisions have tangible financial consequences.</p>
+                <p className="mb-6">At TheAgileNest, we don't just prepare you for the <strong>PMP certification</strong> exam; we prepare you to be the person on the project who prevents the costly corrections before they happen. Our training programmes are built around real-world scenarios where planning decisions have tangible financial consequences.</p>
 
                 <div className="space-y-6 mb-12">
                     <div className="flex gap-4 p-5 bg-white border border-slate-100 rounded-2xl shadow-sm">
                         <div className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center shrink-0 text-accent font-bold">1</div>
                         <div>
                             <h5 className="font-bold text-primary">Front-End Planning Workshops</h5>
-                            <p className="text-slate-600 text-sm">Immersive workshops that teach professionals how to structure the critical planning decisions made in the first 10% of a project's life—the decisions that determine 90% of its outcome.</p>
+                            <p className="text-slate-600 text-sm">Immersive workshops that teach professionals how to structure the critical planning decisions made in the first 10% of a project's life, the decisions that determine 90% of its outcome.</p>
                         </div>
                     </div>
                     <div className="flex gap-4 p-5 bg-white border border-slate-100 rounded-2xl shadow-sm">
@@ -835,15 +835,15 @@ export const blogPosts: BlogPost[] = [
                         <div className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center shrink-0 text-accent font-bold">3</div>
                         <div>
                             <h5 className="font-bold text-primary">PMP Exam Bootcamps</h5>
-                            <p className="text-slate-600 text-sm">Our structured bootcamp programmes ensure you master every planning knowledge area and process group tested in the <strong>PMP certification</strong> exam—with 200+ practice questions and expert debrief sessions.</p>
+                            <p className="text-slate-600 text-sm">Our structured bootcamp programmes ensure you master every planning knowledge area and process group tested in the <strong>PMP certification</strong> exam, with 200+ practice questions and expert debrief sessions.</p>
                         </div>
                     </div>
                 </div>
 
-                <p className="mb-6">Strong foundations in planning are not a luxury reserved for mega-projects with unlimited budgets. They are a professional obligation—a discipline that separates project managers who merely survive their projects from those who deliver them with confidence, precision, and commercial integrity. The corrections you prevent in the planning phase are invisible achievements, but their value is real and measurable in every budget report and every on-time handover.</p>
+                <p className="mb-6">Strong foundations in planning are not a luxury reserved for mega-projects with unlimited budgets. They are a professional obligation, a discipline that separates project managers who merely survive their projects from those who deliver them with confidence, precision, and commercial integrity. The corrections you prevent in the planning phase are invisible achievements, but their value is real and measurable in every budget report and every on-time handover.</p>
 
-                <p>Stop paying for corrections that planning could have prevented. At TheAgileNest, we train the professionals who build the foundations that hold. Whether you are pursuing your <strong>PMP certification</strong>, developing your <strong>quantity surveying</strong> expertise, or leading a complex construction programme, our training equips you with the planning rigour to get it right the first time—every time. Contact us today to find your next step.</p>
-            </>
+                <p>Stop paying for corrections that planning could have prevented. At TheAgileNest, we train the professionals who build the foundations that hold. Whether you are pursuing your <strong>PMP certification</strong>, developing your <strong>quantity surveying</strong> expertise, or leading a complex construction programme, our training equips you with the planning rigour to get it right the first time, every time. Contact us today to find your next step.</p>
+            </div>
         )
     }
 ];
