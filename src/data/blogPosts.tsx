@@ -18,10 +18,10 @@ export const blogPosts: BlogPost[] = [
         id: '1',
         title: "TheAgileNest's Impact on 2026 Construction Management",
         abstract: "How TheAgileNest methodologies are reshaping traditional construction projects, improving adaptability, and reducing costly delays in large scale infrastructure.",
-        date: "October 15, 2026",
+        date: "April 07, 2026",
         author: "Engr. Syed Amjad Iqbal",
         category: "TheAgileNest Transformation",
-        imageUrl: "/images/TheAgileNest_consulting_1771222157225.png",
+        imageUrl: "/images/totalpmp_consulting_1771222157225.png",
         readTime: "12 min read",
         slug: "TheAgileNest-impact-construction",
         content: (
@@ -57,10 +57,10 @@ export const blogPosts: BlogPost[] = [
         id: '2',
         title: "Navigating the PMI-CP® Journey for Professionals",
         abstract: "A comprehensive guide to preparing for the Construction Professional (PMI-CP) certification, covering key domains and study strategies.",
-        date: "September 28, 2026",
+        date: "April 07, 2026",
         author: "TheAgileNest Training Team",
         category: "Certifications",
-        imageUrl: "/images/Totalqsconsultant.jpeg",
+        imageUrl: "/images/blog/navigating-pmicp-journey.png",
         readTime: "15 min read",
         slug: "navigating-pmicp-journey",
         content: (
@@ -111,10 +111,10 @@ export const blogPosts: BlogPost[] = [
         id: '3',
         title: "Mastering Cost Estimation: Common Pitfalls",
         abstract: "Accurate cost estimation is critical to project success. We break down the most frequent mistakes made during the bidding phase and how to mitigate them.",
-        date: "September 10, 2026",
+        date: "April 07, 2026",
         author: "TheAgileNest Advisory",
         category: "Cost Estimation",
-        imageUrl: "/images/founder_amjad.webp",
+        imageUrl: "/images/blog/mastering-cost-estimation-pitfalls.png",
         readTime: "10 min read",
         slug: "mastering-cost-estimation-pitfalls",
         content: (
@@ -158,10 +158,10 @@ export const blogPosts: BlogPost[] = [
         id: '4',
         title: "PMBOK 7th vs 8th: Changes & Value Delivery",
         abstract: "As the project management landscape evolves, we analyze the shift towards value delivery and adaptation expected in the upcoming PMBOK 8th Edition.",
-        date: "August 22, 2026",
+        date: "April 07, 2026",
         author: "Engr. Syed Amjad Iqbal",
         category: "Project Management",
-        imageUrl: "/certifications/pmp.webp",
+        imageUrl: "/images/pmbok_evolution.png",
         readTime: "14 min read",
         slug: "pmbok-7th-vs-8th-changes",
         content: (
@@ -196,10 +196,10 @@ export const blogPosts: BlogPost[] = [
         id: '5',
         title: "Case Study: Scaling PMO for Mid-Sized Tech",
         abstract: "How we helped a growing software company establish a Project Management Office (PMO) that improved delivery timelines by 30%.",
-        date: "August 05, 2026",
+        date: "April 07, 2026",
         author: "TheAgileNest Consulting",
         category: "Case Studies",
-        imageUrl: "/images/1Linkedin.jpeg",
+        imageUrl: "/images/blog/case-study-scaling-pmo.png",
         readTime: "18 min read",
         slug: "case-study-scaling-pmo",
         content: (
@@ -249,7 +249,7 @@ export const blogPosts: BlogPost[] = [
         id: '6',
         title: "A Project Without a Timeline Is Only an Intention",
         abstract: "Discover why every successful project needs a robust timeline. Learn proven scheduling techniques from PMP-certified project managers to transform intentions into measurable results.",
-        date: "April 05, 2026",
+        date: "April 07, 2026",
         author: "Engr. Syed Amjad Iqbal",
         category: "Project Management",
         imageUrl: "/images/blog/project-without-timeline-only-intention.png",
@@ -385,7 +385,7 @@ export const blogPosts: BlogPost[] = [
         id: '7',
         title: "Planning Creates Direction; Execution Creates Results",
         abstract: "Great project management bridges the gap between planning and execution. Discover how PMP-certified professionals turn strategic plans into real-world construction results.",
-        date: "April 06, 2026",
+        date: "April 07, 2026",
         author: "Engr. Syed Amjad Iqbal",
         category: "Project Management",
         imageUrl: "/images/blog/planning-creates-direction-execution-creates-results.png",
@@ -488,7 +488,7 @@ export const blogPosts: BlogPost[] = [
         id: '8',
         title: "Clear Plans Reduce Chaos Before It Begins",
         abstract: "In project management, the power of proactive planning cannot be overstated. Learn how structured planning prevents chaos and sets the foundation for successful project delivery.",
-        date: "April 06, 2026",
+        date: "April 07, 2026",
         author: "TheAgileNest Training Team",
         category: "Project Management",
         imageUrl: "/images/blog/project-without-timeline-only-intention.png",
@@ -599,10 +599,10 @@ export const blogPosts: BlogPost[] = [
         id: '9',
         title: "Strategy Turns Ambition Into Structured Action",
         abstract: "A practical guide for turning strategic ambition into disciplined project delivery that delivers results without chaos.",
-        date: "April 06, 2026",
+        date: "April 07, 2026",
         author: "Engr. Syed Amjad Iqbal",
         category: "Project Management",
-        imageUrl: "/images/TheAgileNest_ai_estimation_1771222114549.png",
+        imageUrl: "/images/totalpmp_ai_estimation_1771222114549.png",
         readTime: "13 min read",
         slug: "strategy-turns-ambition-into-structured-action",
         content: (
@@ -704,6 +704,145 @@ export const blogPosts: BlogPost[] = [
                 <p className="mb-6">When teams adopt a structured approach, they reduce waste, improve predictability, and deliver higher quality outcomes. Clear strategy becomes a catalyst for disciplined action instead of a lofty ideal.</p>
 
                 <p>At TheAgileNest, we help you develop the habits, frameworks, and confidence to turn your ambition into structured action. Whether you are leading a construction program, managing a consulting engagement, or preparing for <strong>PMP certification</strong>, our training gives you the tools to deliver repeatable success. Start your next project with a strategy that works, and build the discipline to make it happen.</p>
+            </>
+        )
+    },
+    {
+        id: '10',
+        title: "Strong Foundations in Planning Prevent Costly Corrections Later",
+        abstract: "Discover why investing in strong project planning foundations is the single most effective way to prevent expensive rework, delays, and budget overruns in construction and project management.",
+        date: "April 08, 2026",
+        author: "Engr. Syed Amjad Iqbal",
+        category: "Project Management",
+        imageUrl: "/images/blog/strong-foundations-planning-prevent-costly-corrections.png",
+        readTime: "14 min read",
+        slug: "strong-foundations-planning-prevent-costly-corrections",
+        content: (
+            <>
+                <p className="mb-6">In construction, the phrase "get it right the first time" is more than a quality motto—it is a financial imperative. Strong foundations in planning prevent costly corrections later, and this truth applies with equal force whether you are pouring a concrete slab or launching a multi-million dollar programme of work. Every hour invested in rigorous <strong>project management</strong> planning during the early stages of a project pays back manifold during execution. At TheAgileNest, we have seen it time and again: organisations that rush into action without a solid planning foundation end up paying the price—in rework, in overruns, and in reputational damage that lingers long after the project closes.</p>
+
+                <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">The True Cost of a Weak Foundation</h3>
+                <p className="mb-6">The construction industry loses billions of dollars annually to rework. Studies consistently show that between 5% and 15% of total project costs are consumed by correcting work that was done incorrectly the first time. In large infrastructure programmes, that percentage represents enormous sums. The root cause is almost never a lack of effort—it is almost always a failure of early planning. Scope ambiguity, incomplete drawings, poorly defined responsibilities, and rushed <strong>construction cost estimation</strong> create a brittle project structure that fractures the moment it meets field reality.</p>
+
+                <p className="mb-6">The PMBOK® Guide describes this dynamic through the "cost of quality" principle: defects that are caught in the planning phase cost a fraction of what they cost to correct during execution, and a tiny fraction of what they cost if they reach the client during handover. This is not theoretical—it is the commercial reality that every <strong>PMP certification</strong> holder is trained to act on from day one of a project.</p>
+
+                <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 mb-8">
+                    <h4 className="text-xl font-bold mb-4">What a Weak Planning Foundation Costs You:</h4>
+                    <ul className="list-disc pl-6 space-y-3 text-slate-700">
+                        <li><strong>Rework Costs:</strong> Physical corrections to completed work routinely cost 5–10× the original activity cost once labour, materials, and downtime are factored in.</li>
+                        <li><strong>Schedule Delays:</strong> Every day of rework on the critical path compounds, triggering liquidated damages, extended preliminaries, and subcontractor claims.</li>
+                        <li><strong>Stakeholder Erosion:</strong> Client confidence, once lost due to poor delivery, is extraordinarily difficult to rebuild—often resulting in lost future work.</li>
+                        <li><strong>Team Burnout:</strong> Teams forced into crisis mode repeatedly become disengaged, increasing turnover and further damaging delivery capability.</li>
+                        <li><strong>Commercial Exposure:</strong> Unplanned scope changes and variations lead to contractual disputes that consume management bandwidth and legal budgets.</li>
+                    </ul>
+                </div>
+
+                <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">What "Strong Foundations" Actually Means in Practice</h3>
+                <p className="mb-6">A strong planning foundation is not a thick document sitting in a shared drive. It is a living system of decisions, agreements, and controls that guides every subsequent action on the project. For <strong>project management</strong> professionals, building this foundation means mastering several interconnected disciplines before a single resource is mobilised.</p>
+
+                <div className="grid md:grid-cols-2 gap-6 mb-10">
+                    <div className="p-6 bg-slate-50 rounded-xl border border-slate-100">
+                        <h4 className="font-bold text-primary mb-2">Scope Precision</h4>
+                        <p className="text-sm text-slate-600 leading-relaxed">A Work Breakdown Structure (WBS) that decomposes every deliverable to the work-package level ensures nothing is assumed, nothing is forgotten, and every team member understands the boundaries of their responsibility.</p>
+                    </div>
+                    <div className="p-6 bg-slate-50 rounded-xl border border-slate-100">
+                        <h4 className="font-bold text-primary mb-2">Accurate Cost Estimation</h4>
+                        <p className="text-sm text-slate-600 leading-relaxed">Rigorous <strong>quantity surveying</strong> and bottom-up <strong>construction cost estimation</strong> at project inception establish a credible budget baseline that withstands the scrutiny of clients, financiers, and auditors throughout delivery.</p>
+                    </div>
+                    <div className="p-6 bg-slate-50 rounded-xl border border-slate-100">
+                        <h4 className="font-bold text-primary mb-2">Risk Register Development</h4>
+                        <p className="text-sm text-slate-600 leading-relaxed">Identifying and quantifying risks before execution begins allows the team to build contingency intelligently—not as a vague percentage, but as a traceable, auditable response to specific, named threats.</p>
+                    </div>
+                    <div className="p-6 bg-slate-50 rounded-xl border border-slate-100">
+                        <h4 className="font-bold text-primary mb-2">Stakeholder Alignment</h4>
+                        <p className="text-sm text-slate-600 leading-relaxed">Documenting stakeholder expectations, decision-making authority, and communication cadences before work begins eliminates the "I thought you meant…" conversations that derail projects mid-stream.</p>
+                    </div>
+                </div>
+
+                <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">The Five Planning Investments That Pay the Biggest Dividends</h3>
+                <p className="mb-6">Not all planning activities deliver equal value. Based on decades of combined field experience across construction, infrastructure, and consulting, TheAgileNest has identified the five planning investments that consistently deliver the highest return in terms of corrections avoided and value protected.</p>
+
+                <div className="space-y-10">
+                    <section>
+                        <h4 className="text-xl font-bold text-slate-800 mb-3">1. Front-End Loading (FEL)</h4>
+                        <p className="mb-4 text-slate-600">Front-End Loading is the practice of investing disproportionately in planning, design, and stakeholder alignment before committing to full execution. Projects with high FEL scores—where scope, cost, and schedule are thoroughly developed before ground-break—statistically outperform their peers in cost and schedule performance by margins of 20–40%.</p>
+                        <p className="text-sm font-medium border-l-2 border-accent pl-4"><em>Application:</em> Gate reviews at the pre-FEED, FEED, and sanction stages ensure that approved budgets and schedules are based on fully developed information, not aspirational estimates.</p>
+                    </section>
+
+                    <section>
+                        <h4 className="text-xl font-bold text-slate-800 mb-3">2. Integrated Baseline Review (IBR)</h4>
+                        <p className="mb-4 text-slate-600">An IBR is a structured review process that validates the alignment between the project's scope, schedule, and budget before execution begins. It ensures that the team lead­ing delivery has a shared, documented understanding of what success looks like and how it will be measured.</p>
+                        <p className="text-sm font-medium border-l-2 border-accent pl-4"><em>Application:</em> Schedule an IBR within 90 days of project authorisation. Document all open items, assign owners, and track closure before mobilisation.</p>
+                    </section>
+
+                    <section>
+                        <h4 className="text-xl font-bold text-slate-800 mb-3">3. Design Freeze Discipline</h4>
+                        <p className="mb-4 text-slate-600">One of the most common causes of construction rework is design changes issued after procurement or construction has commenced. Every late design change ripples through the supply chain, creating waste and conflict. A formally enforced design freeze—tied to procurement milestones—is one of the most powerful cost-protection measures available to a project team.</p>
+                        <p className="text-sm font-medium border-l-2 border-accent pl-4"><em>Application:</em> Establish a formal change control board that reviews, approves, and prices all design changes before they are issued to the field. No verbal instructions.</p>
+                    </section>
+
+                    <section>
+                        <h4 className="text-xl font-bold text-slate-800 mb-3">4. Constructability Reviews</h4>
+                        <p className="mb-4 text-slate-600">Inviting experienced site personnel and contractors to review designs before finalisation catches buildability issues that engineers and architects—working in isolation—often miss. The cost of a constructability review is measured in days; the cost of the problems it prevents is measured in months and millions.</p>
+                        <p className="text-sm font-medium border-l-2 border-accent pl-4"><em>Application:</em> Conduct formal constructability reviews at 30%, 60%, and 90% design completion, with documented action logs tracked to closure.</p>
+                    </section>
+
+                    <section>
+                        <h4 className="text-xl font-bold text-slate-800 mb-3">5. Procurement Strategy Planning</h4>
+                        <p className="mb-4 text-slate-600">How you procure your supply chain is as important as what you procure. A poorly structured procurement strategy—wrong contract type, insufficient lead time, inadequate vendor pre-qualification—introduces risk at every interface. <strong>Construction cost estimation</strong> professionals and <strong>quantity surveyors</strong> play a critical role in designing procurement strategies that balance risk, cost, and programme.</p>
+                        <p className="text-sm font-medium border-l-2 border-accent pl-4"><em>Application:</em> Develop a Procurement Strategy Document (PSD) that maps every major package to the appropriate contract mechanism, risk allocation, and award timeline.</p>
+                    </section>
+                </div>
+
+                <h3 className="text-2xl font-bold text-slate-800 mt-12 mb-4">How PMP-Certified Professionals Build Unshakeable Foundations</h3>
+                <p className="mb-6">The <strong>PMP certification</strong> from PMI is built on the recognition that project success is overwhelmingly determined by the quality of the foundation laid before execution begins. The PMBOK® Guide's Planning Process Group is the most extensive in the framework—not by accident, but because PMI's research validates that planning investment is the single highest-leverage activity in project management.</p>
+
+                <div className="bg-primary/5 p-8 rounded-3xl mb-10">
+                    <h4 className="text-xl font-bold text-primary mb-4">PMP-Certified Planning Capabilities:</h4>
+                    <ul className="list-disc pl-6 space-y-3 text-slate-700 font-medium">
+                        <li><strong>Scope Baseline Development:</strong> Creating a WBS, WBS Dictionary, and Scope Statement that eliminate ambiguity and set the project up for controlled delivery.</li>
+                        <li><strong>Schedule Network Analysis:</strong> Identifying the critical path, float, and resource dependencies before a single activity begins on site.</li>
+                        <li><strong>Cost Baseline & EVM:</strong> Integrating scope, schedule, and cost into a performance measurement baseline that enables real-time earned value analysis throughout delivery.</li>
+                        <li><strong>Quality Management Planning:</strong> Defining quality standards, inspection criteria, and non-conformance processes so the team knows what "acceptable" means before work starts.</li>
+                        <li><strong>Risk Response Planning:</strong> Developing proactive mitigation and contingency strategies for the project's most significant threats—before they materialise as crises.</li>
+                    </ul>
+                </div>
+
+                <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">The Quantity Surveyor's Role in Foundational Planning</h3>
+                <p className="mb-6">In construction and infrastructure, the <strong>quantity surveyor</strong> is the guardian of the project's financial foundation. A skilled QS does not simply produce a Bill of Quantities—they underpin the entire cost management framework. From accurate pre-tender estimates to robust contract structures, the QS's early involvement determines whether the project is commercially viable and whether the team has a realistic baseline against which to manage performance.</p>
+
+                <p className="mb-6">At TheAgileNest, our training integrates <strong>quantity surveying</strong> principles with PMBOK® cost management, recognising that the two disciplines are inseparable in construction project delivery. Professionals who understand both—the commercial precision of QS practice and the governance framework of <strong>project management</strong>—are the most effective guardians of project value in any market.</p>
+
+                <h3 className="text-2xl font-bold text-slate-800 mt-10 mb-4">How TheAgileNest Builds Planning Excellence</h3>
+                <p className="mb-6">At TheAgileNest, we don't just prepare you for the <strong>PMP certification</strong> exam—we prepare you to be the person on the project who prevents the costly corrections before they happen. Our training programmes are built around real-world scenarios where planning decisions have tangible financial consequences.</p>
+
+                <div className="space-y-6 mb-12">
+                    <div className="flex gap-4 p-5 bg-white border border-slate-100 rounded-2xl shadow-sm">
+                        <div className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center shrink-0 text-accent font-bold">1</div>
+                        <div>
+                            <h5 className="font-bold text-primary">Front-End Planning Workshops</h5>
+                            <p className="text-slate-600 text-sm">Immersive workshops that teach professionals how to structure the critical planning decisions made in the first 10% of a project's life—the decisions that determine 90% of its outcome.</p>
+                        </div>
+                    </div>
+                    <div className="flex gap-4 p-5 bg-white border border-slate-100 rounded-2xl shadow-sm">
+                        <div className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center shrink-0 text-accent font-bold">2</div>
+                        <div>
+                            <h5 className="font-bold text-primary">Integrated Cost & Schedule Training</h5>
+                            <p className="text-slate-600 text-sm">We teach <strong>construction cost estimation</strong> and schedule development as a unified discipline, because in the real world, you cannot manage one without the other.</p>
+                        </div>
+                    </div>
+                    <div className="flex gap-4 p-5 bg-white border border-slate-100 rounded-2xl shadow-sm">
+                        <div className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center shrink-0 text-accent font-bold">3</div>
+                        <div>
+                            <h5 className="font-bold text-primary">PMP Exam Bootcamps</h5>
+                            <p className="text-slate-600 text-sm">Our structured bootcamp programmes ensure you master every planning knowledge area and process group tested in the <strong>PMP certification</strong> exam—with 200+ practice questions and expert debrief sessions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p className="mb-6">Strong foundations in planning are not a luxury reserved for mega-projects with unlimited budgets. They are a professional obligation—a discipline that separates project managers who merely survive their projects from those who deliver them with confidence, precision, and commercial integrity. The corrections you prevent in the planning phase are invisible achievements, but their value is real and measurable in every budget report and every on-time handover.</p>
+
+                <p>Stop paying for corrections that planning could have prevented. At TheAgileNest, we train the professionals who build the foundations that hold. Whether you are pursuing your <strong>PMP certification</strong>, developing your <strong>quantity surveying</strong> expertise, or leading a complex construction programme, our training equips you with the planning rigour to get it right the first time—every time. Contact us today to find your next step.</p>
             </>
         )
     }
