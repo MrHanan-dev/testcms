@@ -7,7 +7,7 @@ export default function JsonLd() {
         "logo": "https://theagilenest.com/logo.png",
         "image": "https://www.theagilenest.com/wp-content/uploads/2025/10/ag2-3.jpg",
         "description": "Premium PMP certification training and AI driven construction cost estimation services.",
-        "telephone": "09 620 7678",
+        "telephone": "+64 9 620 7678",
         "priceRange": "$$",
         "address": {
             "@type": "PostalAddress",
@@ -19,12 +19,12 @@ export default function JsonLd() {
         "contactPoint": [
             {
                 "@type": "ContactPoint",
-                "telephone": "09 620 7678",
+                "telephone": "+64 9 620 7678",
                 "contactType": "customer service"
             },
             {
                 "@type": "ContactPoint",
-                "telephone": "027 353 7774",
+                "telephone": "+64 27 353 7774",
                 "contactType": "customer service"
             }
         ],
