@@ -149,7 +149,7 @@ export default function Footer() {
             </div>
 
             {/* Links Columns */}
-            <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12">
+            <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12">
               <div>
                 <h4 className="text-white font-black mb-8 text-xs uppercase tracking-[0.2em] opacity-50">Our services</h4>
                 <ul className="space-y-4">
@@ -211,15 +211,15 @@ export default function Footer() {
                           <Phone size={14} className="text-accent" />
                         </div>
                         <div className="flex flex-col text-sm">
-                          <a href="tel:096207678" className="hover:text-accent transition-colors">09 620 7678</a>
-                          <a href="tel:0273537774" className="hover:text-accent transition-colors">027 353 7774</a>
+                          <a href="tel:+6496207678" className="hover:text-accent transition-colors">+64 9 620 7678</a>
+                          <a href="tel:+64273537774" className="hover:text-accent transition-colors">+64 27 353 7774</a>
                         </div>
                       </div>
                       <div className="flex items-center gap-3 group">
                         <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
                           <Mail size={14} className="text-accent" />
                         </div>
-                        <a href="mailto:contact@TheAgileNest.com" className="text-sm hover:text-accent transition-colors break-all">
+                        <a href="mailto:contact@TheAgileNest.com" className="text-sm hover:text-accent transition-colors whitespace-nowrap">
                           contact@TheAgileNest.com
                         </a>
                       </div>
