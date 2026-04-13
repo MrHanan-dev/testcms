@@ -87,13 +87,10 @@ export default function Features({
               className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-1000 origin-center"
             />
 
-            {/* Elegant Overlay Gradient */}
             <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent z-10" />
 
-            {/* Floating Premium Badge */}
             <div className="absolute bottom-10 left-8 right-8 z-20">
               <div className="glass-crystal p-8 rounded-[32px] border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.12)] transform group-hover:-translate-y-2 transition-transform duration-500 relative overflow-hidden">
-                {/* Shine effect */}
                 <div className="absolute top-0 -left-[100%] w-1/2 h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg] group-hover:left-[200%] transition-all duration-1000 ease-in-out" />
 
                 <div className="flex items-center gap-6">
