@@ -300,7 +300,7 @@ export default function PmpPage() {
                         <div className="relative z-10 grid lg:grid-cols-2 gap-20 items-center">
                             <div className="space-y-10">
                                 <h2 className="text-4xl md:text-6xl font-black leading-tight">
-                                    🚀 Why PMP® is <span className="text-accent">Right for You</span>
+                                    Why PMP® is <span className="text-accent">Right for You</span>
                                 </h2>
                                 <p className="text-slate-300 text-xl font-medium leading-relaxed opacity-90">
                                     Become PMP® Certified With TheAgileNest. Whether you aim to advance your career, lead projects, or master global best practices, TheAgileNest is your trusted partner.

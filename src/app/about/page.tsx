@@ -111,23 +111,23 @@ export default function AboutPage() {
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {[
                                 {
-                                    title: "🎯 Real-World Expertise",
+                                    title: "Real-World Expertise",
                                     desc: "Learn from certified industry experts with decades of hands on experience in construction, operations, and leadership. We share what truly works   not just theory."
                                 },
                                 {
-                                    title: "🌍 Global Knowledge, Local Focus",
+                                    title: "Global Knowledge, Local Focus",
                                     desc: "Trained at world leading universities like KTH (Sweden) and Massey University (New Zealand), we combine international best practices with local industry insight."
                                 },
                                 {
-                                    title: "🧩 Practical, Impactful Learning",
+                                    title: "Practical, Impactful Learning",
                                     desc: "Our training is designed around real projects, real tools, and real challenges   ensuring you can apply your learning immediately."
                                 },
                                 {
-                                    title: "🤝 Personal Mentorship",
+                                    title: "Personal Mentorship",
                                     desc: "We guide every learner through their professional growth journey, offering support, mentoring, and career coaching beyond the classroom."
                                 },
                                 {
-                                    title: "🚀 Lifelong Learning Culture",
+                                    title: "Lifelong Learning Culture",
                                     desc: "TheAgileNest is more than a training provider   it’s a learning community. We inspire continuous growth, innovation, and excellence."
                                 }
                             ].map((item, i) => (
