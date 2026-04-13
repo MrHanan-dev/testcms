@@ -85,7 +85,7 @@ export default function PMPBenefits() {
                 <div className="text-center max-w-4xl mx-auto mb-20 space-y-6">
                     <span className="label-tag mx-auto bg-primary/5 text-primary">Inclusions</span>
                     <h2 className="text-4xl md:text-5xl font-black text-primary tracking-tight">
-                        💼 What You Get With Our <span className="text-accent">PMP® Training</span>
+                        What You Get With Our <span className="text-accent">PMP® Training</span>
                     </h2>
                     <p className="text-slate-500 text-lg font-medium">
                         Everything you need to successfully navigate your PMP® journey and become a certified professional.
