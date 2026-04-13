@@ -1,6 +1,6 @@
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
-import Partners from '@/components/Partners';
+
 import BentoGrid from '@/components/BentoGrid';
 import CertificationLogos from '@/components/CertificationLogos';
 import AboutUsSummary from '@/components/AboutUsSummary';
@@ -13,7 +13,7 @@ export default function Home() {
             <Header variant="transparent" />
             <main>
                 <Hero />
-                <Partners />
+
                 <BentoGrid />
                 <CertificationLogos />
                 <AboutUsSummary />

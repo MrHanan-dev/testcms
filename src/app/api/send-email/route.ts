@@ -23,18 +23,56 @@ export async function POST(req: Request) {
         const gmailUser = process.env.GMAIL_USER;
         const gmailPass = process.env.GMAIL_APP_PASSWORD;
 
+        // Filter out base64 content for clean terminal logs
+        const cleanData = {
+            ...data,
+            files: data.files?.map((f: any) => ({ name: f.name, size: f.size, type: f.type })) || []
+        };
+
         // If credentials are provided, send the actual email
         if (gmailUser && gmailPass) {
-            // Filter out base64 content for clean terminal logs
-            const cleanData = {
-                ...data,
-                files: data.files?.map((f: any) => ({ name: f.name, type: f.type, status: 'Attached' })) || []
+            console.log(`--- Processing [${data.formType}] Lead ---`);
+
+            // Helper to format field name and filter allowed fields
+            const mapping: { [key: string]: string } = {
+                fullName: 'Full Name',
+                firstName: 'First Name',
+                lastName: 'Last Name',
+                email: 'Email Address',
+                phone: 'Phone Number',
+                organization: 'Organization',
+                company: 'Company',
+                projectName: 'Project Name',
+                courseName: 'Course Name',
+                preferredBatch: 'Preferred Batch',
+                message: 'Message/Inquiry'
             };
+
+            const formatFieldName = (key: string) => mapping[key];
+
+            // Generate HTML rows only for mapped fields
+            const dataRows = Object.entries(data)
+                .filter(([key]) => mapping[key]) // Only include fields that have a mapping
+                .map(([key, value]) => `
+                    <tr>
+                        <td style="padding: 12px 0; border-bottom: 1px solid #f0f0f0;">
+                            <strong style="color: #666; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px;">${mapping[key]}</strong>
+                            <div style="color: #333; font-size: 16px; margin-top: 4px; font-weight: 500; white-space: pre-wrap;">${value || 'Not provided'}</div>
+                        </td>
+                    </tr>
+                `).join('');
+
+            // Generate text-only version for fallback
+            const textVersion = Object.entries(data)
+                .filter(([key]) => mapping[key])
+                .map(([key, value]) => `${mapping[key]}: ${value}`)
+                .join('\n');
 
             const mailOptions: any = {
                 from: `"TheAgileNest Support" <${gmailUser}>`,
-                to: process.env.NOTIFICATION_EMAIL || 'info@totalqs.co.nz',
-                subject: `[${data.formType}] Lead from theagilenest.com`,
+                to: process.env.NOTIFICATION_EMAIL || 'agilenestconsultants@gmail.com',
+                subject: `[${data.formType}] Lead from ${data.fullName || data.firstName || 'New Inquiry'}`,
+                text: textVersion,
                 attachments: data.files?.map((file: any) => ({
                     filename: file.name,
                     content: file.content,
@@ -42,17 +80,38 @@ export async function POST(req: Request) {
                     contentType: file.type
                 })),
                 html: `
-                    <div style="font-family: sans-serif; padding: 20px; color: #333; line-height: 1.6; max-width: 600px; margin: auto; border: 1px solid #eee; border-radius: 10px;">
-                        <h1 style="color: #002D5B; margin-bottom: 24px; border-bottom: 2px solid #002D5B; padding-bottom: 10px;">New Website Inquiry</h1>
-                        <div style="background: #fdfdfd; padding: 24px; border-radius: 12px; border: 1px solid #f0f0f0;">
-                            <h3 style="margin-top: 0; color: #555; text-transform: uppercase; font-size: 13px;">Inquiry Type: <span style="color: #002D5B;">${data.formType}</span></h3>
-                            <div style="background: #fff; padding: 15px; border-radius: 8px; border: 1px solid #eee;">
-                                <pre style="white-space: pre-wrap; margin: 0; font-size: 14px; color: #444;">${JSON.stringify(cleanData, null, 2)}</pre>
+                    <div style="font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; padding: 40px 20px; background-color: #f9fafb; color: #1f2937;">
+                        <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                            <div style="background: #002D5B; padding: 32px; text-align: center;">
+                                <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 800; letter-spacing: -0.5px;">NEW INQUIRY</h1>
+                                <p style="color: #93c5fd; margin: 8px 0 0 0; text-transform: uppercase; font-size: 12px; font-weight: 700; letter-spacing: 1px;">${data.formType}</p>
+                            </div>
+                            
+                            <div style="padding: 40px;">
+                                <table style="width: 100%; border-collapse: collapse;">
+                                    ${dataRows}
+                                </table>
+
+                                ${data.files && data.files.length > 0 ? `
+                                <div style="margin-top: 32px; padding: 20px; background: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0;">
+                                    <h4 style="margin: 0 0 12px 0; color: #475569; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px;">Attached Documents</h4>
+                                    <ul style="margin: 0; padding: 0; list-style: none;">
+                                        ${data.files.map((f: any) => `
+                                            <li style="font-size: 14px; color: #1e293b; padding: 4px 0; display: flex; align-items: center;">
+                                                <span style="color: #3b82f6; margin-right: 8px;">📎</span> ${f.name}
+                                            </li>
+                                        `).join('')}
+                                    </ul>
+                                </div>
+                                ` : ''}
+
+                                <div style="margin-top: 40px; text-align: center; border-top: 1px solid #f3f4f6; padding-top: 24px;">
+                                    <p style="font-size: 13px; color: #9ca3af; margin: 0;">
+                                        This lead was generated from <strong>theagilenest.com</strong>
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                        <p style="margin-top: 24px; font-size: 12px; color: #888; text-align: center;">
-                            Sent from THEAGILENEST digital systems.
-                        </p>
                     </div>
                 `,
             };
@@ -60,7 +119,7 @@ export async function POST(req: Request) {
             await transporter.sendMail(mailOptions);
             console.log('✓ Email sent successfully via Gmail');
         } else {
-            console.warn('⚠ Gmail credentials missing. Check your .env.local file.');
+            console.warn('⚠ Gmail credentials missing. Check your .env environment variables.');
         }
 
         return NextResponse.json({
