@@ -29,7 +29,6 @@ const navCategories = [
     items: [
       { name: 'Project Management', desc: 'Expert delivery & recovery services.', icon: Target, href: '/project-management' },
       { name: 'Cost Estimation & Quality Surveying', desc: 'Fast accurate estimating for projects.', icon: Briefcase, href: '/cost-estimation' },
-      { name: 'Construction Contract', desc: 'Contract management services.', icon: FileSearch, href: '/contract-management' },
     ]
   },
   {
@@ -60,7 +59,7 @@ const navCategories = [
   }
 ];
 
-function NavLink({ category, isScrolled, isActive, onMouseEnter, onMouseLeave }: any) {
+function NavLink({ category, isLight, isActive, onMouseEnter, onMouseLeave }: any) {
   return (
     <div
       className="relative"
@@ -68,7 +67,7 @@ function NavLink({ category, isScrolled, isActive, onMouseEnter, onMouseLeave }:
       onMouseLeave={onMouseLeave}
     >
       <button
-        className={`flex items-center gap-1.5 px-5 py-2 text-[14px] font-bold tracking-tight transition-all duration-300 rounded-full ${isScrolled
+        className={`flex items-center gap-1.5 px-5 py-2 text-[14px] font-bold tracking-tight transition-all duration-300 rounded-full ${isLight
           ? isActive
             ? 'text-primary bg-primary/5'
             : 'text-slate-600 hover:text-primary hover:bg-slate-100/50'
@@ -144,45 +143,26 @@ export default function Header({ variant = "solid" }: { variant?: "solid" | "tra
     dropdownTimeout.current = setTimeout(() => setActiveDropdown(null), 150);
   };
 
-  const isTransparent = variant === "transparent" && !isScrolled;
+  const isLight = true; // Always light background now
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
         ? 'bg-white border-b border-slate-200 py-3 shadow-sm'
-        : isTransparent
-          ? 'bg-transparent py-5'
-          : 'bg-primary py-4 shadow-lg'
+        : 'bg-white border-b border-slate-100 py-5 shadow-md'
         }`}
     >
       <div className="container-custom flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="relative z-50 flex items-center gap-2.5 md:gap-4 group">
-          <div className="relative w-8 h-8 md:w-10 md:h-10 flex-shrink-0 flex items-center justify-center">
+        <Link href="/" className="relative z-50 flex items-center group">
+          <div className="relative flex-shrink-0 flex items-center justify-center">
             <Image
-              src="/favicon.png"
+              src="/1.png"
               alt="TheAgileNest Logo"
-              width={40}
-              height={40}
-              className="w-10 h-10 md:w-12 md:h-12 object-contain transition-transform duration-500 group-hover:scale-110"
+              width={180}
+              height={56}
+              className="w-auto h-12 md:h-14 object-contain transition-transform duration-500 group-hover:scale-105"
             />
-          </div>
-
-          {/* Vertical Separator */}
-          <div className={`h-8 md:h-10 w-px self-center transition-colors duration-500 ${isScrolled ? 'bg-slate-200' : 'bg-white/20'}`} />
-
-          <div className="flex flex-col justify-center -mt-0.5">
-            <div className={`text-[22px] md:text-[28px] font-display tracking-tight leading-none transition-colors duration-500 flex items-baseline ${isScrolled ? 'text-primary' : 'text-white'}`}>
-              <span className="font-black">TheAgile</span>
-              <span className="font-light text-accent ml-[1px]">Nest</span>
-            </div>
-            <div className={`text-[8.5px] font-sans font-bold uppercase tracking-[0.2em] leading-none mt-1.5 transition-colors duration-500 hidden md:flex items-center ${isScrolled ? 'text-slate-500' : 'text-white/70'}`}>
-              <span>Project Management</span>
-              <span className="mx-1.5 opacity-40 text-[6px]">•</span>
-              <span>Cost Management</span>
-              <span className="mx-1.5 opacity-40 text-[6px]">•</span>
-              <span>Training Consultants</span>
-            </div>
           </div>
         </Link>
 
@@ -192,7 +172,7 @@ export default function Header({ variant = "solid" }: { variant?: "solid" | "tra
             <NavLink
               key={category.title}
               category={category}
-              isScrolled={isScrolled}
+              isLight={isLight}
               isActive={activeDropdown === category.title}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
@@ -201,7 +181,7 @@ export default function Header({ variant = "solid" }: { variant?: "solid" | "tra
 
           <div className="ml-6 flex items-center gap-4">
             <ContactLink
-              className={`px-6 py-2.5 text-[14px] font-black rounded-full transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 ${isScrolled
+              className={`px-6 py-2.5 text-[14px] font-black rounded-full transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 ${isLight
                 ? 'bg-primary text-white hover:bg-primary-700'
                 : 'bg-accent text-primary hover:bg-accent/90'
                 }`}
@@ -213,7 +193,7 @@ export default function Header({ variant = "solid" }: { variant?: "solid" | "tra
 
         {/* Mobile Toggle */}
         <button
-          className={`lg:hidden relative z-50 p-2 text-primary transition-all duration-300 ${isScrolled ? 'bg-primary/5 rounded-full' : 'text-white'}`}
+          className={`lg:hidden relative z-50 p-2 text-primary transition-all duration-300 ${isLight ? 'bg-primary/5 rounded-full' : 'text-white'}`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}

@@ -2,7 +2,7 @@ import Header from '@/components/Header';
 import FAQ from '@/components/FAQ';
 import TrainingSchedule from '@/components/TrainingSchedule';
 import Footer from '@/components/Footer';
-import { Check, BookOpen, Clock, Target, Users, Layout, Globe, Star, Award, Briefcase, Send } from 'lucide-react';
+import { Check, BookOpen, Clock, Target, Users, Layout, Globe, Star, Award, Briefcase, Send, Mail, Phone, Building2, AlertCircle, ArrowRight, TrendingUp } from 'lucide-react';
 import Link from 'next/link';
 import ContactLink from '@/components/ContactLink';
 import { Metadata } from 'next';
@@ -27,7 +27,7 @@ export default function CapmPage() {
                 <CertificationHero
                     title="CAPM Training"
                     subtitle="Certified Associate in Project Management"
-                    description="Kickstart your career by validating your understanding of the fundamental knowledge, terminology, and processes of effective project management."
+                    description="Launch your project management career with a globally recognised entry-level credential. Validate your understanding of fundamental principles, processes, and best practices."
                     prev={{ name: "PMI-CP", href: "/pmicp" }}
                     next={{ name: "PMP", href: "/pmp" }}
                     gradientClass="from-primary to-primary-700"
@@ -43,17 +43,17 @@ export default function CapmPage() {
                             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/20 text-primary font-bold text-sm mb-6">
                                 <Award size={16} /> Foundations of PM
                             </div>
-                            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6 leading-tight">
-                                Your Gateway to Project Management
+                            <h2 className="text-3xl md:text-5xl font-black text-primary mb-6 leading-tight">
+                                Launch Your Project Management Career
                             </h2>
-                            <p className="text-slate-600 text-lg leading-relaxed mb-6">
-                                The Certified Associate in Project Management (CAPM) is an essential first step in building a career as a project manager. It demonstrates your knowledge of the principles and terminology in the PMBOK Guide.
+                            <p className="text-slate-600 text-lg leading-relaxed mb-10">
+                                The CAPM® (Certified Associate in Project Management) certification, awarded by PMI, is one of the world’s leading entry-level project management credentials. It is ideal for students, graduates, coordinators, aspiring project managers, and professionals looking to start or grow a career in project management.
                             </p>
                             <div className="space-y-4">
                                 {[
-                                    { title: "Stand Out Automatically", desc: "Shows your commitment to the profession and readiness to take on project-based responsibilities." },
-                                    { title: "Gateway to the PMP", desc: "CAPM certification fulfills the 35-hour education requirement needed to eventually sit for the PMP exam." },
-                                    { title: "Universal Fundamentals", desc: "Gain fundamental knowledge that can be applied to any industry or project methodology." },
+                                    { title: "Global Recognition", desc: "Validates your understanding of project management principles, terminology, and processes." },
+                                    { title: "Employer Trust", desc: "Demonstrates that you are serious about professional growth and ready to contribute effectively." },
+                                    { title: "Smart Investment", desc: "Ranked among the most in-demand certifications, providing a clear pathway toward PMP®." },
                                     { title: "Career Kickstarter", desc: "Ideal for recent graduates or those looking to pivot into project management roles." },
                                 ].map((item, i) => (
                                     <div key={i} className="flex gap-4">
@@ -278,42 +278,154 @@ export default function CapmPage() {
                         </div>
                     </section>
 
-                    {/* Why Choose Us Section */}
-                    <section className="bg-white rounded-3xl p-10 md:p-16 border border-slate-100 shadow-sm mt-24 text-center">
-                        <div className="max-w-3xl mx-auto mb-16">
-                            <span className="text-accent font-extrabold tracking-[0.2em] uppercase text-[10px] mb-4 block">TheAgileNest Advantage</span>
-                            <h2 className="text-3xl md:text-4xl font-black text-primary mb-6">Why Train with TheAgileNest</h2>
-                            <p className="text-slate-600 text-lg leading-relaxed font-medium mb-4">
-                                We are a Premium Authorized Training Partner (A.T.P.) for the global Project Management Institute (PMI).
+                    {/* Why Train with TheAgileNest Section */}
+                    <section className="bg-white rounded-[50px] p-10 md:p-20 border border-slate-100 shadow-xl text-center relative overflow-hidden">
+                        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary via-accent to-primary"></div>
+                        
+                        <div className="max-w-4xl mx-auto mb-20">
+                            <span className="text-accent font-black tracking-[0.3em] uppercase text-xs mb-6 block">TheAgileNest Advantage</span>
+                            <h2 className="text-4xl md:text-5xl font-black text-primary mb-8">Why Train with TheAgileNest</h2>
+                            <p className="text-slate-600 text-xl leading-relaxed font-bold italic mb-6">
+                                We are a Premium Authorised Training Partner (A.T.P.) for the global Project Management Institute (PMI).
                             </p>
-                            <p className="text-slate-600 text-lg leading-relaxed">
-                                We have been supporting project managers to attain their PMI® certifications. The combination of our training methods, facilitators, self-study, and collaboration has resulted in ongoing success.
+                            <p className="text-slate-500 text-lg leading-relaxed font-medium">
+                                We have been supporting project managers to attain their PMI® certifications. Our methods, facilitators, and collaborative learning have resulted in ongoing success.
                             </p>
                         </div>
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+
+                        <div className="grid md:grid-cols-2 gap-8 text-left">
                             {[
-                                "Local company offering tailored, region-specific training.",
-                                "Trainers hand picked for their expertise and real world PM experience.",
-                                "Flexible training schedules to suit learning capacities.",
-                                "All-inclusive, transparent pricing with no hidden fees.",
-                                "Globally recognized materials enhanced with our own resources.",
-                                "Full support through the entire certification process.",
-                                "Feedback reviewed continuously to ensure top training quality.",
-                                "Trainers collaborate regularly to uphold high standards in adult education.",
-                                "100% locally owned organization operating with honesty and transparency."
-                            ].map((advantage, i) => (
-                                <div key={i} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex gap-4 hover:shadow-lg transition-shadow">
-                                    <div className="mt-1 bg-accent/20 text-primary p-1.5 rounded-full shrink-0 h-fit">
-                                        <Check size={16} strokeWidth={3} />
+                                { title: "Experienced Instructor-Led", desc: "Learn from skilled professionals with real-world PM experience." },
+                                { title: "PMI-Aligned Content", desc: "Training materials fully aligned with the latest PMI framework and PMBOK® Guide." },
+                                { title: "23 Hours CAPM® Prep", desc: "Satisfies the 23 contact hour requirement for exam eligibility." },
+                                { title: "Certificate of Completion", desc: "Receive official confirmation of your training hours for your application." },
+                                { title: "Flexible Class Options", desc: "Choose convenient weekend or weekday sessions (Classroom or Live Online)." },
+                                { title: "First Attempt Strategies", desc: "Practical tips and exam approaches designed to maximise your success." },
+                                { title: "High-Quality Mock Exams", desc: "Access realistic practice questions and mock sessions as part of your training." },
+                                { title: "Free 1-on-1 Coaching", desc: "A complimentary 1-hour session with your instructor for personalised guidance." },
+                                { title: "Premium Experience", desc: "Full catering provided during our in-person classroom sessions." },
+                                { title: "Application & Audit Support", desc: "Expert assistance with application submission and documentation." }
+                            ].map((feature, i) => (
+                                <div key={i} className="flex gap-5 p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:border-accent transition-all group">
+                                    <div className="w-10 h-10 rounded-full bg-accent/20 text-primary flex items-center justify-center shrink-0 group-hover:bg-accent group-hover:text-white transition-all">
+                                        <Check size={20} strokeWidth={3} />
                                     </div>
-                                    <p className="text-slate-700 font-medium text-sm leading-relaxed">{advantage}</p>
+                                    <div>
+                                        <h4 className="font-black text-primary text-lg mb-2">{feature.title}</h4>
+                                        <p className="text-slate-500 text-sm font-medium leading-relaxed">{feature.desc}</p>
+                                    </div>
                                 </div>
                             ))}
                         </div>
                     </section>
 
-                    {/* Comparison / Why Choose Us */}
-                    <Features titleSuffix="CAPM® Journey" descriptionSuffix="CAPM® training programs" />
+                    {/* Training Options & Investment Section */}
+                    <section className="space-y-20 pt-24">
+                        <div className="text-center max-w-3xl mx-auto space-y-4">
+                            <span className="label-tag mx-auto">Training & Investment</span>
+                            <h2 className="text-4xl font-black text-primary tracking-tight">Everything you need to succeed</h2>
+                            <p className="text-slate-500 font-medium">Flexible delivery modes and comprehensive support materials</p>
+                        </div>
+
+                        <div className="grid lg:grid-cols-3 gap-8">
+                            {[
+                                { title: "Corporate On-Site", desc: "Customised preparation delivered at your workplace for teams and departments.", icon: Building2 },
+                                { title: "Classroom (Face-to-Face)", desc: "Interactive in-person learning with expert guidance and collaborative environments.", icon: Users },
+                                { title: "Live Online Training", desc: "Live-streamed classes from anywhere with real-time interaction and flexibility.", icon: Globe }
+                            ].map((option, i) => (
+                                <div key={i} className="bg-white border border-slate-100 p-10 rounded-[40px] shadow-sm hover:shadow-xl transition-all group relative overflow-hidden">
+                                    <div className="absolute top-0 right-0 w-24 h-24 bg-slate-50 rounded-bl-full -mr-12 -mt-12 group-hover:bg-accent/10 transition-colors"></div>
+                                    <div className="w-16 h-16 rounded-2xl bg-slate-50 flex items-center justify-center text-primary mb-8 group-hover:bg-primary group-hover:text-white transition-all">
+                                        <option.icon size={32} />
+                                    </div>
+                                    <h4 className="text-2xl font-black text-primary mb-4">{option.title}</h4>
+                                    <p className="text-slate-500 font-medium leading-relaxed">{option.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className="grid lg:grid-cols-2 gap-12">
+                            {/* Materials & Support */}
+                            <div className="bg-slate-900 text-white p-12 rounded-[50px] shadow-2xl relative overflow-hidden">
+                                <div className="absolute bottom-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl -mr-32 -mb-32"></div>
+                                <h3 className="text-3xl font-black mb-8 flex items-center gap-3">
+                                    Prep Materials Included
+                                    <div className="h-1 w-12 bg-accent rounded-full"></div>
+                                </h3>
+                                <ul className="grid sm:grid-cols-2 gap-6 relative z-10">
+                                    {[
+                                        "Course workbook & notes",
+                                        "Interactive activities",
+                                        "Formulas & flash cards",
+                                        "Free practice exams",
+                                        "LMS access",
+                                        "Structured study support"
+                                    ].map((item, i) => (
+                                        <li key={i} className="flex items-center gap-3 group">
+                                            <div className="bg-accent/20 text-accent p-1.5 rounded-lg group-hover:bg-accent group-hover:text-primary transition-all">
+                                                <Check size={16} strokeWidth={3} />
+                                            </div>
+                                            <span className="font-bold text-slate-300 group-hover:text-white transition-colors">{item}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            {/* Investment & Fees */}
+                            <div className="bg-slate-50 border border-slate-200 p-12 rounded-[50px] space-y-10">
+                                <div>
+                                    <h3 className="text-2xl font-black text-primary mb-6 flex items-center gap-3">
+                                        CAPM® Exam Fee (PMI)
+                                        <div className="h-px flex-1 bg-slate-200"></div>
+                                    </h3>
+                                    <div className="grid grid-cols-2 gap-6">
+                                        <div className="p-6 bg-white rounded-3xl border border-slate-100 shadow-sm">
+                                            <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">PMI Member</p>
+                                            <p className="text-3xl font-black text-primary">US $225</p>
+                                        </div>
+                                        <div className="p-6 bg-white rounded-3xl border border-slate-100 shadow-sm">
+                                            <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Non-Member</p>
+                                            <p className="text-3xl font-black text-primary">US $300</p>
+                                        </div>
+                                    </div>
+                                    <p className="mt-4 text-xs font-medium text-slate-500 italic">
+                                        *PMI Membership (Approx. US $139) may reduce exam fees and provide extra resources.
+                                    </p>
+                                </div>
+
+                                <div className="pt-8 border-t border-slate-200">
+                                    <h3 className="text-2xl font-black text-primary mb-6">Course Fees & Discounts</h3>
+                                    <div className="space-y-4 mb-8">
+                                        <p className="text-slate-600 font-medium">Contact us for current fees, upcoming schedules, and corporate packages:</p>
+                                        <div className="flex flex-wrap gap-4">
+                                            <a href="mailto:contact@theagilenest.com" className="flex items-center gap-2 px-4 py-2 bg-white rounded-xl border border-slate-200 text-primary font-bold hover:border-accent transition-colors">
+                                                <Mail size={18} className="text-accent" /> contact@theagilenest.com
+                                            </a>
+                                            <a href="https://wa.me/64273537774" className="flex items-center gap-2 px-4 py-2 bg-white rounded-xl border border-slate-200 text-primary font-bold hover:border-accent transition-colors">
+                                                <Phone size={18} className="text-accent" /> +64 273537774
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div className="grid grid-cols-2 gap-x-8 gap-y-2">
+                                        {["Group bookings", "Corporate organisations", "Early bird registrations", "PMI Chapter members"].map((d, i) => (
+                                            <div key={i} className="flex items-center gap-2 text-sm font-bold text-slate-500">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-accent"></div> {d}
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="bg-accent/5 border border-accent/20 p-8 rounded-[32px] text-center max-w-4xl mx-auto">
+                            <p className="text-primary font-bold text-lg leading-relaxed flex flex-col md:flex-row items-center justify-center gap-2">
+                                <AlertCircle className="text-accent" size={24} />
+                                <span className="text-accent">Important Note:</span>
+                                The CAPM® exam fee is only payable after your application has been approved by PMI.
+                            </p>
+                        </div>
+                    </section>
+
                     <CourseSuccessQuotes />
 
                     <section id="register" className="grid md:grid-cols-5 gap-16 items-start">
@@ -347,7 +459,23 @@ export default function CapmPage() {
                 </div>
             </main>
             <TrainingSchedule />
-            <FAQ />
+            <FAQ 
+                title="CAPM® Exam FAQs"
+                subtitle="Certification Journey"
+                description="Everything You Need to Know About CAPM® Training, Exam, Fees & Eligibility"
+                items={[
+                    { question: "1. Does this course satisfy the 23 contact hour requirement for the CAPM® exam?", answer: "Yes. The Agile Nest CAPM® course provides the required 23 contact hours of project management education needed for CAPM® exam eligibility. Upon successful completion, you will receive a Certificate of Completion to support your exam application." },
+                    { question: "2. Do I need project management experience to take this course or the CAPM® exam?", answer: "No. The CAPM® certification is designed for individuals who are new to project management or looking to start a career in the field. Unlike PMP®, CAPM® does not require prior project leadership experience, making it an ideal entry-level certification." },
+                    { question: "3. Is this course enough to pass the CAPM® exam?", answer: "This course is designed to give you a strong foundation for exam success. It includes PMI-aligned content, structured lessons, practice questions, mock exams, and instructor guidance. Your success will also depend on your study commitment and revision plan." },
+                    { question: "4. What’s included with the CAPM® course?", answer: "Our CAPM® training includes 23 Contact Hours Certificate, PMI-aligned training content, Expert instructor-led sessions, Practice questions and mock exams, Course workbook and study materials, Real-world project management examples, Exam guidance and support, and Flexible online and classroom options." },
+                    { question: "5. Who should take the CAPM® course?", answer: "This course is ideal for students, graduates, coordinators, administrators, aspiring project managers, and professionals looking to build a career in project management." },
+                    { question: "6. Is CAPM® recognised internationally?", answer: "Yes. CAPM® is awarded by PMI and recognised globally by employers across many industries." },
+                    { question: "7. Can CAPM® help my career growth?", answer: "Yes. CAPM® can improve your employability, strengthen your resume, and help you qualify for project management roles." },
+                    { question: "8. Can I take this course online?", answer: "Yes. The Agile Nest offers live online, classroom, and corporate training options." },
+                    { question: "9. What happens after CAPM®?", answer: "Many professionals use CAPM® as a stepping stone toward higher-level certifications, such as PMP®, as they gain experience." },
+                    { question: "10. How do I get started?", answer: "Contact The Agile Nest to confirm your eligibility, choose a course option, and begin your CAPM® certification journey with confidence." }
+                ]}
+            />
             <Footer />
         </>
     );

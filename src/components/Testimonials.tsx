@@ -1,88 +1,63 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { Star } from 'lucide-react';
+import { Quote } from 'lucide-react';
 
 const testimonials = [
     {
-        name: "Sarah Mitchell",
-        role: "Senior PM, Infrastructure NZ",
-        initials: "SM",
-        content: "TheAgileNest didn't just prepare me for the PMP exam. They transformed how I approach project delivery. The real world case studies were invaluable.",
+        quote: "TheAgileNest's PMP training was a game-changer. Their practical approach made complex concepts easy to grasp and apply immediately.",
+        author: "Sarah Johnson",
+        role: "Senior Project Manager",
+        company: "Infrastructure Global"
     },
     {
-        name: "James Chen",
-        role: "Director of Costs, Lendlease",
-        initials: "JC",
-        content: "The cost estimation advisory saved us $2.4M on a single project. Their precision approach is genuinely ahead of the curve.",
+        quote: "Working with their consultants on our PMO recovery saved us months of delays. Their expertise in cost estimation is unparalleled.",
+        author: "Mark Thompson",
+        role: "Operations Director",
+        company: "BuildRight NZ"
     },
     {
-        name: "Priya Sharma",
-        role: "PMO Lead, Spark NZ",
-        initials: "PS",
-        content: "Their PMO establishment service gave us structure without bureaucracy. Our delivery velocity improved by 40% in the first quarter.",
-    },
+        quote: "The most professional training experience I've had in 15 years. They don't just teach the book; they teach the reality of the industry.",
+        author: "David Chen",
+        role: "Construction Lead",
+        company: "Urban Developers"
+    }
 ];
 
 export default function Testimonials() {
     return (
-        <section className="section bg-surface">
+        <section className="py-20 md:py-32 bg-slate-50 relative overflow-hidden">
             <div className="container-custom">
-                <div className="max-w-lg mb-16">
-                    <span className="label-tag mb-3 block">Testimonials</span>
-                    <h2 className="h2">What our clients say.</h2>
+                <div className="mb-12 md:mb-20 text-center">
+                    <span className="label-tag mb-4 block">Testimonials</span>
+                    <h2 className="text-3xl md:text-6xl font-black text-primary tracking-tight">
+                        Voice of <span className="text-slate-400">Excellence</span>
+                    </h2>
                 </div>
 
-                <motion.div
-                    variants={{
-                        hidden: {},
-                        visible: {
-                            transition: {
-                                staggerChildren: 0.15
-                            }
-                        }
-                    }}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-50px" }}
-                    className="grid md:grid-cols-3 gap-12 lg:gap-16"
-                >
-                    {testimonials.map((t) => (
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {testimonials.map((t, index) => (
                         <motion.div
-                            key={t.name}
-                            variants={{
-                                hidden: { opacity: 0, y: 24 },
-                                visible: {
-                                    opacity: 1,
-                                    y: 0,
-                                    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
-                                }
-                            }}
-                            className="flex gap-6"
+                            key={index}
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.1, duration: 0.8 }}
+                            className="bg-white p-8 md:p-12 rounded-[32px] md:rounded-[48px] border border-slate-100 shadow-sm relative group hover:shadow-xl transition-all duration-500"
                         >
-                            {/* Vertical accent line */}
-                            <div className="w-[1.5px] bg-accent/30 flex-shrink-0" />
-
-                            <div className="flex flex-col py-1">
-                                {/* Quote */}
-                                <p className="text-foreground/80 text-[16px] lg:text-[17px] leading-[1.8] font-medium mb-8 flex-1">
-                                    &ldquo;{t.content}&rdquo;
-                                </p>
-
-                                {/* Author */}
-                                <div className="flex items-center gap-4 mt-auto">
-                                    <div className="w-11 h-11 rounded-xl bg-primary flex items-center justify-center flex-shrink-0 shadow-subtle group hover:scale-105 transition-transform duration-300">
-                                        <span className="text-white text-[13px] font-bold tracking-tight">{t.initials}</span>
-                                    </div>
-                                    <div className="flex flex-col">
-                                        <p className="font-bold text-foreground text-[14px] leading-none mb-1.5">{t.name}</p>
-                                        <p className="text-foreground/40 text-[11px] font-bold uppercase tracking-wider">{t.role}</p>
-                                    </div>
+                            <Quote className="text-accent/20 absolute top-10 right-10 group-hover:text-accent/40 transition-colors" size={48} />
+                             <p className="text-base sm:text-lg md:text-xl text-slate-700 font-medium italic leading-relaxed mb-8 md:mb-10 relative z-10">
+                                "{t.quote}"
+                            </p>
+                            <div>
+                                <div className="font-black text-primary text-lg">{t.author}</div>
+                                <div className="text-sm font-bold text-slate-400 uppercase tracking-widest mt-1">
+                                    {t.role} • {t.company}
                                 </div>
                             </div>
                         </motion.div>
                     ))}
-                </motion.div>
+                </div>
             </div>
         </section>
     );

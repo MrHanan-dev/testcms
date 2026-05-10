@@ -3,7 +3,7 @@ import FAQ from '@/components/FAQ';
 import TrainingSchedule from '@/components/TrainingSchedule';
 import Footer from '@/components/Footer';
 import CertificationHero from '@/components/CertificationHero';
-import { Check, HardHat, BookOpen, Users, Target, Clock, Layout, Award, Briefcase, Send, Globe } from 'lucide-react';
+import { Check, HardHat, BookOpen, Users, Target, Clock, Layout, Award, Briefcase, Send, Globe, Mail, Phone, Building2, AlertCircle, ArrowRight, TrendingUp } from 'lucide-react';
 import Link from 'next/link';
 import BookingForm from '@/components/BookingForm';
 import Features from '@/components/Features';
@@ -27,7 +27,7 @@ export default function PmiCpPage() {
                 <CertificationHero
                     title="PMI-CP® Certification"
                     subtitle="PMI Construction Professional"
-                    description="Validate your ability to plan, manage, and deliver complex construction projects using industry-best practices."
+                    description="The only globally recognised certification designed specifically for the construction and built environment sectors. Validate your ability to manage multi-million dollar projects with confidence."
                     prev={{ name: "PMP", href: "/pmp" }}
                     next={{ name: "CAPM", href: "/capm" }}
                     gradientClass="from-primary to-primary-700"
@@ -280,41 +280,153 @@ export default function PmiCpPage() {
                     </section>
 
                     {/* Why Train with TheAgileNest Section */}
-                    <section className="bg-white rounded-3xl p-10 md:p-16 border border-slate-100 shadow-sm mt-24 text-center">
-                        <div className="max-w-3xl mx-auto mb-16">
-                            <span className="text-accent font-extrabold tracking-[0.2em] uppercase text-[10px] mb-4 block">TheAgileNest Advantage</span>
-                            <h2 className="text-3xl md:text-4xl font-black text-primary mb-6">Why Train with TheAgileNest</h2>
-                            <p className="text-slate-600 text-lg leading-relaxed font-medium mb-4">
-                                We are a Premium Authorized Training Partner (A.T.P.) for the global Project Management Institute (PMI).
+                    <section className="bg-white rounded-[50px] p-10 md:p-20 border border-slate-100 shadow-xl text-center relative overflow-hidden">
+                        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary via-accent to-primary"></div>
+                        
+                        <div className="max-w-4xl mx-auto mb-20">
+                            <span className="text-accent font-black tracking-[0.3em] uppercase text-xs mb-6 block">TheAgileNest Advantage</span>
+                            <h2 className="text-4xl md:text-5xl font-black text-primary mb-8">Why Train with TheAgileNest</h2>
+                            <p className="text-slate-600 text-xl leading-relaxed font-bold italic mb-6">
+                                We are a Premium Authorised Training Partner (A.T.P.) for the global Project Management Institute (PMI).
                             </p>
-                            <p className="text-slate-600 text-lg leading-relaxed">
-                                We have been supporting project managers to attain their PMI® certifications. The combination of our training methods, facilitators, self-study, and collaboration has resulted in ongoing success.
+                            <p className="text-slate-500 text-lg leading-relaxed font-medium">
+                                We specialize in bridging the gap between construction theory and on-site realities. Our methods and expert facilitators have resulted in ongoing success for industry leaders.
                             </p>
                         </div>
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+
+                        <div className="grid md:grid-cols-2 gap-8 text-left">
                             {[
-                                "Local company offering tailored, region-specific training.",
-                                "Trainers hand picked for their expertise and real world construction PM experience.",
-                                "Flexible training schedules to suit learning capacities.",
-                                "All-inclusive, transparent pricing with no hidden fees.",
-                                "Globally recognized materials enhanced with our own resources.",
-                                "Full support through the entire certification process.",
-                                "Feedback reviewed continuously to ensure top training quality.",
-                                "Trainers collaborate regularly to uphold high standards in adult education.",
-                                "100% locally owned organization operating with honesty and transparency."
-                            ].map((advantage, i) => (
-                                <div key={i} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex gap-4 hover:shadow-lg transition-shadow">
-                                    <div className="mt-1 bg-accent/20 text-primary p-1.5 rounded-full shrink-0 h-fit">
-                                        <Check size={16} strokeWidth={3} />
+                                { title: "Experienced Instructor-Led", desc: "Learn from construction veterans with decades of multi-sector project experience." },
+                                { title: "PMI-Aligned Content", desc: "Training materials fully aligned with the latest PMI Construction standards." },
+                                { title: "35 Hours PMI-CP® Prep", desc: "Satisfies the 35 contact hour requirement for both diploma and degree tracks." },
+                                { title: "Certificate of Completion", desc: "Receive official confirmation of your training hours for your application." },
+                                { title: "Flexible Class Options", desc: "Choose convenient weekend or weekday sessions (Classroom or Live Online)." },
+                                { title: "First Attempt Strategies", desc: "Practical tips and exam approaches designed to maximise your success." },
+                                { title: "High-Quality Mock Exams", desc: "Access realistic practice questions and mock sessions as part of your training." },
+                                { title: "Free 1-on-1 Coaching", desc: "A complimentary 1-hour session with your instructor for personalised guidance." },
+                                { title: "Premium Experience", desc: "Full catering provided during our in-person classroom sessions." },
+                                { title: "Application & Audit Support", desc: "Expert assistance with application submission and documentation." }
+                            ].map((feature, i) => (
+                                <div key={i} className="flex gap-5 p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:border-accent transition-all group">
+                                    <div className="w-10 h-10 rounded-full bg-accent/20 text-primary flex items-center justify-center shrink-0 group-hover:bg-accent group-hover:text-white transition-all">
+                                        <Check size={20} strokeWidth={3} />
                                     </div>
-                                    <p className="text-slate-700 font-medium text-sm leading-relaxed">{advantage}</p>
+                                    <div>
+                                        <h4 className="font-black text-primary text-lg mb-2">{feature.title}</h4>
+                                        <p className="text-slate-500 text-sm font-medium leading-relaxed">{feature.desc}</p>
+                                    </div>
                                 </div>
                             ))}
                         </div>
                     </section>
 
-                    {/* Comparison / Why Choose Us */}
-                    <Features titleSuffix="PMI-CP® Journey" descriptionSuffix="PMI-CP® training programs" />
+                    {/* Training Options & Investment Section */}
+                    <section className="space-y-20 pt-24">
+                        <div className="text-center max-w-3xl mx-auto space-y-4">
+                            <span className="label-tag mx-auto">Training & Investment</span>
+                            <h2 className="text-4xl font-black text-primary tracking-tight">Everything you need to succeed</h2>
+                            <p className="text-slate-500 font-medium">Flexible delivery modes and comprehensive support materials</p>
+                        </div>
+
+                        <div className="grid lg:grid-cols-3 gap-8">
+                            {[
+                                { title: "Corporate On-Site", desc: "Customised preparation delivered at your workplace for teams and departments.", icon: Building2 },
+                                { title: "Classroom (Face-to-Face)", desc: "Interactive in-person learning with expert guidance and collaborative environments.", icon: Users },
+                                { title: "Live Online Training", desc: "Live-streamed classes from anywhere with real-time interaction and flexibility.", icon: Globe }
+                            ].map((option, i) => (
+                                <div key={i} className="bg-white border border-slate-100 p-10 rounded-[40px] shadow-sm hover:shadow-xl transition-all group relative overflow-hidden">
+                                    <div className="absolute top-0 right-0 w-24 h-24 bg-slate-50 rounded-bl-full -mr-12 -mt-12 group-hover:bg-accent/10 transition-colors"></div>
+                                    <div className="w-16 h-16 rounded-2xl bg-slate-50 flex items-center justify-center text-primary mb-8 group-hover:bg-primary group-hover:text-white transition-all">
+                                        <option.icon size={32} />
+                                    </div>
+                                    <h4 className="text-2xl font-black text-primary mb-4">{option.title}</h4>
+                                    <p className="text-slate-500 font-medium leading-relaxed">{option.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className="grid lg:grid-cols-2 gap-12">
+                            {/* Materials & Support */}
+                            <div className="bg-slate-900 text-white p-12 rounded-[50px] shadow-2xl relative overflow-hidden">
+                                <div className="absolute bottom-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl -mr-32 -mb-32"></div>
+                                <h3 className="text-3xl font-black mb-8 flex items-center gap-3">
+                                    Prep Materials Included
+                                    <div className="h-1 w-12 bg-accent rounded-full"></div>
+                                </h3>
+                                <ul className="grid sm:grid-cols-2 gap-6 relative z-10">
+                                    {[
+                                        "Construction PM workbook",
+                                        "Interactive industry activities",
+                                        "Formulas & flash cards",
+                                        "Free practice exams",
+                                        "LMS access",
+                                        "Structured study support"
+                                    ].map((item, i) => (
+                                        <li key={i} className="flex items-center gap-3 group">
+                                            <div className="bg-accent/20 text-accent p-1.5 rounded-lg group-hover:bg-accent group-hover:text-primary transition-all">
+                                                <Check size={16} strokeWidth={3} />
+                                            </div>
+                                            <span className="font-bold text-slate-300 group-hover:text-white transition-colors">{item}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            {/* Investment & Fees */}
+                            <div className="bg-slate-50 border border-slate-200 p-12 rounded-[50px] space-y-10">
+                                <div>
+                                    <h3 className="text-2xl font-black text-primary mb-6 flex items-center gap-3">
+                                        PMI-CP® Exam Fee (PMI)
+                                        <div className="h-px flex-1 bg-slate-200"></div>
+                                    </h3>
+                                    <div className="grid grid-cols-2 gap-6">
+                                        <div className="p-6 bg-white rounded-3xl border border-slate-100 shadow-sm">
+                                            <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">PMI Member</p>
+                                            <p className="text-3xl font-black text-primary">US $405</p>
+                                        </div>
+                                        <div className="p-6 bg-white rounded-3xl border border-slate-100 shadow-sm">
+                                            <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Non-Member</p>
+                                            <p className="text-3xl font-black text-primary">US $655</p>
+                                        </div>
+                                    </div>
+                                    <p className="mt-4 text-xs font-medium text-slate-500 italic">
+                                        *PMI Membership (Approx. US $139) may reduce exam fees and provide extra resources.
+                                    </p>
+                                </div>
+
+                                <div className="pt-8 border-t border-slate-200">
+                                    <h3 className="text-2xl font-black text-primary mb-6">Course Fees & Discounts</h3>
+                                    <div className="space-y-4 mb-8">
+                                        <p className="text-slate-600 font-medium">Contact us for current fees, upcoming schedules, and corporate packages:</p>
+                                        <div className="flex flex-wrap gap-4">
+                                            <a href="mailto:contact@theagilenest.com" className="flex items-center gap-2 px-4 py-2 bg-white rounded-xl border border-slate-200 text-primary font-bold hover:border-accent transition-colors">
+                                                <Mail size={18} className="text-accent" /> contact@theagilenest.com
+                                            </a>
+                                            <a href="https://wa.me/64273537774" className="flex items-center gap-2 px-4 py-2 bg-white rounded-xl border border-slate-200 text-primary font-bold hover:border-accent transition-colors">
+                                                <Phone size={18} className="text-accent" /> +64 273537774
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div className="grid grid-cols-2 gap-x-8 gap-y-2">
+                                        {["Group bookings", "Corporate organisations", "Early bird registrations", "PMI Chapter members"].map((d, i) => (
+                                            <div key={i} className="flex items-center gap-2 text-sm font-bold text-slate-500">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-accent"></div> {d}
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="bg-accent/5 border border-accent/20 p-8 rounded-[32px] text-center max-w-4xl mx-auto">
+                            <p className="text-primary font-bold text-lg leading-relaxed flex flex-col md:flex-row items-center justify-center gap-2">
+                                <AlertCircle className="text-accent" size={24} />
+                                <span className="text-accent">Important Note:</span>
+                                The PMI-CP® exam fee is only payable after your application has been approved by PMI.
+                            </p>
+                        </div>
+                    </section>
+
                     <CourseSuccessQuotes />
 
                     <section id="register" className="grid md:grid-cols-5 gap-16 items-start">
@@ -348,7 +460,23 @@ export default function PmiCpPage() {
                 </div>
             </main>
             <TrainingSchedule />
-            <FAQ />
+            <FAQ 
+                title="PMI-CP® Exam FAQs"
+                subtitle="Construction Certification"
+                description="Everything You Need to Know About the Construction Professional (PMI-CP)® Certification"
+                items={[
+                    { question: "1. What is the PMI-CP® certification?", answer: "The PMI Construction Professional (PMI-CP)® is a globally recognized credential for professionals in the construction and built environment sectors. It validates your ability to manage complex construction projects using industry-best practices." },
+                    { question: "2. Who should apply for the PMI-CP®?", answer: "This certification is designed for engineers, project managers, coordinators, quantity surveyors, and construction leaders with 3-5 years of industry-specific project experience." },
+                    { question: "3. Does this course satisfy the 35 contact hour requirement?", answer: "Yes. The Agile Nest PMI-CP® course provides the required 35 contact hours of project management education needed for exam eligibility for both diploma and degree tracks." },
+                    { question: "4. What’s included with the PMI-CP® course?", answer: "Our training includes 35 Contact Hours Certificate, PMI-aligned construction content, Expert instructor-led sessions, construction-specific mock exams, workbook, and full application support." },
+                    { question: "5. How much does the PMI-CP® exam cost?", answer: "Typical fees are US $405 for PMI members and US $655 for non-members. PMI membership is approximately US $139/year." },
+                    { question: "6. Is PMI-CP® recognized in New Zealand?", answer: "Yes, it is highly valued by major contractors and government agencies as it specifically addresses the complexities of the built environment." },
+                    { question: "7. What are the eligibility tracks?", answer: "Track 1: Secondary diploma + 60 months experience. Track 2: Bachelor's/Associate degree + 36 months experience. Both require 35 contact hours of PM education." },
+                    { question: "8. Can I take the PMI-CP® exam online?", answer: "Yes, PMI offers both online proctored exams and authorized test center options." },
+                    { question: "9. How long is the PMI-CP® exam?", answer: "The exam consists of 170 questions to be completed within 230 minutes (3 hours 50 minutes), with two 10-minute breaks." },
+                    { question: "10. How do I get started?", answer: "Contact The Agile Nest to confirm your track, choose a session, and begin your journey to becoming a certified construction professional." }
+                ]}
+            />
             <Footer />
         </>
     );

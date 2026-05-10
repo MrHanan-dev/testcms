@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GraduationCap, Calculator, Briefcase, Menu, X, Phone, Mail, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const tabs = [
     { label: "Training", icon: GraduationCap, href: "/training" },
@@ -15,7 +16,6 @@ const menuLinks = [
     { label: "PMP® Training", href: "/pmp", desc: "PMI-accredited certification programs" },
     { label: "Project Delivery", href: "/project-management", desc: "Expert Project & Change Management" },
     { label: "Cost Estimation & QS", href: "/cost-estimation", desc: "Fast accurate estimating for projects" },
-    { label: "Construction Contract", href: "/contract-management", desc: "Contract management services" },
     { label: "Advisory & PMO", href: "/consulting", desc: "Strategic PMO & Consulting" },
     { label: "About TheAgileNest", href: "/about", desc: "Our story and mission" },
 ];
@@ -60,8 +60,13 @@ export default function MobileNav() {
                             </button>
 
                             <div className="mb-10">
-                                <h2 className="text-white text-2xl font-bold tracking-dense">TheAgileNest</h2>
-                                <p className="text-white/30 text-sm mt-1">Navigate. Estimate. Deliver.</p>
+                                <Image
+                                    src="/1.png"
+                                    alt="TheAgileNest Logo"
+                                    width={160}
+                                    height={50}
+                                    className="h-12 w-auto object-contain"
+                                />
                             </div>
 
                             <div className="flex flex-col gap-2 flex-1">

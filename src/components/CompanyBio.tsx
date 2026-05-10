@@ -16,17 +16,23 @@ const CompanyBio = () => {
                         viewport={{ once: true }}
                     >
                         <h2 className="text-3xl font-black text-primary mb-6 tracking-tight">
-                            TheAgileNest: Your Strategic Partner in <span className="text-slate-400">Project Excellence</span>
+                            The Agile Nest: Your Strategic Partner in <span className="text-slate-400">Project Management Excellence</span>
                         </h2>
                         <div className="space-y-4 text-slate-600 leading-relaxed text-base font-medium">
                             <p>
-                                Founded on the principles of precision, efficiency, and continuous value delivery, TheAgileNest has emerged as a leading authority in project management training and consultancy. Our mission is to bridge the gap between complex theoretical frameworks and the practical, high-stakes reality of modern industry. Whether you are navigating the intricate landscapes of construction management or leading digital transformations in the tech sector, we provide the tools and expertise to ensure your projects achieve their full potential.
+                                At The Agile Nest, we ensure organisations achieve project success by combining disciplined management, practical leadership, and hands-on expertise that directly address the challenges of balancing time, cost, quality, risk, and stakeholder demands.
                             </p>
                             <p>
-                                At TheAgileNest, we believe that true project excellence goes beyond simply meeting deadlines and staying within budget. It is about understanding the strategic business drivers, managing risks with foresight, and fostering a culture of high performance and adaptability. Our consultants bring decades of real-world experience across diverse sectors, including infrastructure, energy, IT, and commercial development, providing our clients with a unique blend of global best practices and local market insights.
+                                We help clients achieve measurable results on their most complex projects by providing clear strategic direction, robust governance, and agile delivery models that ensure value, mitigate risk, and drive outcomes beyond budgets and deadlines.
                             </p>
                             <p>
-                                Our comprehensive suite of services includes specialized training for PMP®, CAPM®, and PMI-CP® certifications, as well as bespoke consultancy for PMO establishment, cost estimation, and commercial contract management. We don't just teach project management; we live it. By partnering with TheAgileNest, you are investing in a legacy of project success that transforms knowledge into a sustainable competitive advantage for your team and your organization.
+                                Our team brings hands-on experience across construction, infrastructure, commercial developments, energy, technology, and transformation programs. We combine international best practices with local insights, helping clients navigate complexity while maintaining momentum and control.
+                            </p>
+                            <p>
+                                We offer project management services, including planning, scheduling, PMO setup, governance, stakeholder management, progress reporting, controls, recovery planning, and delivery assurance. Whether you need support for a capital project, business transformation, or underperforming initiative, we serve as a trusted extension of your team.
+                            </p>
+                            <p>
+                                At The Agile Nest, we don’t just advise we help organisations build capability, improve performance, and achieve lasting results. By partnering with us, you gain a reliable partner committed to project success.
                             </p>
                         </div>
                     </motion.div>

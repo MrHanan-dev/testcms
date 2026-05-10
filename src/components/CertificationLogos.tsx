@@ -1,6 +1,9 @@
+"use client";
+
 import Link from 'next/link';
 import Image from 'next/image';
-import { Award, Briefcase, HardHat } from 'lucide-react';
+import { Award, Briefcase, HardHat, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const certifications = [
     {
@@ -34,66 +37,78 @@ const certifications = [
 
 export default function CertificationLogos() {
     return (
-        <section className="py-20 md:py-32 bg-slate-50 relative overflow-hidden">
-            {/* Background design elements */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-100/40 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
-            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-teal-100/40 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2" />
+        <section className="py-32 md:py-48 bg-white relative overflow-hidden">
+            {/* Subtle elite background */}
+            <div className="absolute inset-0 pointer-events-none opacity-40">
+                <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[150px]" />
+                <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px]" />
+            </div>
 
             <div className="container-custom relative z-10">
-                <div className="mb-16 text-center max-w-3xl mx-auto">
-                    <span className="text-accent font-extrabold tracking-[0.2em] uppercase text-[10px] mb-4 block">
-                        Our Certifications
-                    </span>
-                    <h2 className="text-3xl md:text-5xl font-bold text-primary leading-tight mb-4">
-                        Click on a certification to view details
+                <div className="mb-24 text-center max-w-4xl mx-auto">
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-primary/5 text-[10px] font-black uppercase tracking-[0.4em] text-primary mb-8"
+                    >
+                        Elite Credentials
+                    </motion.div>
+                    <h2 className="text-[clamp(32px,5vw,56px)] font-black text-primary leading-[1.05] tracking-tight mb-8">
+                        Global Benchmarks <br />
+                        <span className="text-slate-400">for Project Leaders</span>
                     </h2>
-                    <p className="text-slate-500 text-lg">
-                        Elevate your career with globally recognized Project Management credentials tailored for every stage of your professional journey.
-                    </p>
+                    <div className="w-20 h-1 bg-accent mx-auto mb-10 rounded-full" />
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-8 lg:gap-12 justify-center">
-                    {certifications.map((cert) => (
-                        <Link
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+                    {certifications.map((cert, index) => (
+                        <motion.div
                             key={cert.name}
-                            href={cert.href}
-                            className={`group relative flex flex-col bg-white rounded-[40px] p-10 md:p-12 border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-500 ease-out hover:-translate-y-2 hover:border-transparent ${cert.shadowHover} hover:shadow-2xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-accent`}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                         >
-                            {/* Hover background effect */}
-                            <div className={`absolute inset-0 bg-gradient-to-br ${cert.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+                            <Link
+                                href={cert.href}
+                                className="group relative block h-full bg-white rounded-[56px] p-12 lg:p-14 border border-slate-100 shadow-[0_20px_50px_rgba(0,0,0,0.03)] transition-all duration-700 hover:shadow-[0_40px_80px_rgba(11,60,93,0.08)] hover:-translate-y-4 overflow-hidden"
+                            >
+                                {/* Elite Glow Effect */}
+                                <div className={`absolute inset-0 bg-gradient-to-br ${cert.color} opacity-0 group-hover:opacity-[0.04] transition-opacity duration-700`} />
+                                
+                                {/* Background Title for Texture */}
+                                <div className="absolute -bottom-10 -right-10 text-9xl font-black text-primary/[0.02] pointer-events-none group-hover:text-primary/[0.05] transition-colors duration-700 select-none">
+                                    {cert.name}
+                                </div>
 
-                            {/* Icon / Image Container */}
-                            {cert.image ? (
-                                <div className="w-32 h-32 mb-10 relative group-hover:scale-110 transition-transform duration-500 ease-out drop-shadow-xl mx-auto sm:mx-0">
+                                {/* Image / Logo Container */}
+                                <div className="relative mb-16 aspect-square max-w-[240px] mx-auto group-hover:scale-110 transition-transform duration-700 ease-out">
+                                    <div className="absolute inset-0 bg-primary/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                                     <Image
                                         src={cert.image}
                                         alt={`${cert.name} Badge`}
                                         fill
-                                        className="object-contain"
+                                        className="object-contain relative z-10 drop-shadow-[0_30px_60px_rgba(0,0,0,0.15)]"
                                     />
                                 </div>
-                            ) : (
-                                <div className={`w-20 h-20 rounded-3xl flex items-center justify-center bg-gradient-to-br ${cert.color} text-white shadow-lg mb-10 group-hover:scale-110 transition-transform duration-500 ease-out mx-auto sm:mx-0`}>
-                                    <cert.icon size={40} strokeWidth={1.5} />
-                                </div>
-                            )}
 
-                            <div className="flex-grow">
-                                <h3 className="text-4xl font-black text-primary mb-3 group-hover:text-accent transition-colors duration-300">
-                                    {cert.name}
-                                </h3>
-                                <div className="text-base md:text-lg font-semibold text-slate-500 leading-relaxed">
-                                    {cert.title}
+                                <div className="relative z-10">
+                                    <h3 className="text-5xl font-black text-primary mb-4 tracking-tighter transition-colors duration-500 group-hover:text-accent">
+                                        {cert.name}
+                                    </h3>
+                                    <p className="text-lg font-bold text-slate-500 leading-snug max-w-[200px]">
+                                        {cert.title}
+                                    </p>
                                 </div>
-                            </div>
 
-                            <div className="mt-10 flex items-center text-sm font-bold text-accent tracking-widest uppercase opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-out">
-                                View Details
-                                <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
-                                </svg>
-                            </div>
-                        </Link>
+                                {/* High-End Action Indicator */}
+                                <div className="mt-12 flex items-center justify-between">
+                                    <div className="w-12 h-[2px] bg-slate-100 group-hover:w-full group-hover:bg-accent transition-all duration-700 origin-left" />
+                                    <ArrowRight size={20} className="text-slate-200 group-hover:text-accent transition-colors duration-700 ml-4 shrink-0" />
+                                </div>
+                            </Link>
+                        </motion.div>
                     ))}
                 </div>
             </div>

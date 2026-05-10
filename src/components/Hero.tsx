@@ -128,7 +128,7 @@ export default function Hero() {
               className="absolute inset-0 bg-[#0B1D35]"
             >
               <Image
-                src="/images/certifications_collage.png"
+                src="/images/graph_analytics_hero.png"
                 alt={slide.alt}
                 fill
                 className="object-cover opacity-60"
@@ -147,7 +147,7 @@ export default function Hero() {
                 src={slide.src}
                 alt={slide.alt}
                 fill
-                className={slide.isInfographic ? "object-cover lg:object-contain" : "object-cover"}
+                className="object-cover w-full h-full"
                 sizes="100vw"
                 priority={current === 0}
                 unoptimized
@@ -158,8 +158,8 @@ export default function Hero() {
       </AnimatePresence>
 
       {/* Gradient overlays */}
-      <div className={`absolute inset-0 z-10 pointer-events-none ${slide.isCollage ? 'bg-gradient-to-r from-[#0B1D35]/40 via-[#0B1D35]/20 to-transparent' : 'bg-gradient-to-r from-[#0B1D35]/75 via-[#0B1D35]/35 to-transparent'}`} />
-      <div className={`absolute inset-0 z-10 pointer-events-none ${slide.isCollage ? 'bg-gradient-to-t from-[#0B1D35]/30 via-transparent to-[#0B1D35]/15' : 'bg-gradient-to-t from-[#0B1D35]/40 via-transparent to-[#0B1D35]/20'}`} />
+      <div className={`absolute inset-0 z-10 pointer-events-none ${slide.isCollage ? 'bg-gradient-to-r from-[#0B1D35]/30 via-[#0B1D35]/10 to-transparent' : 'bg-gradient-to-r from-[#0B1D35]/30 via-[#0B1D35]/10 to-transparent'}`} />
+      <div className={`absolute inset-0 z-10 pointer-events-none ${slide.isCollage ? 'bg-gradient-to-t from-[#0B1D35]/20 via-transparent to-[#0B1D35]/5' : 'bg-gradient-to-t from-[#0B1D35]/20 via-transparent to-transparent'}`} />
 
       {/* Content */}
       <div className="relative z-20 h-full flex items-center">
@@ -171,48 +171,77 @@ export default function Hero() {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="max-w-3xl bg-primary/40 p-6 sm:p-10 md:p-14 rounded-[32px] border border-white/10 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)] relative overflow-hidden"
+              className="max-w-4xl relative"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none" />
-              {/* Tag */}
-              <motion.span
-                variants={itemVariants}
-                className="label-tag mb-4 sm:mb-8 block w-fit border-white/10 bg-white/5"
-              >
-                {slide.tag}
-              </motion.span>
-
-              {/* Headline */}
-              <motion.h1
-                variants={itemVariants}
-                className="text-[clamp(32px,5vw,64px)] font-black leading-[1.06] tracking-tighter text-white mb-6 whitespace-pre-line"
-              >
-                {slide.headline}
-              </motion.h1>
-
-              {/* Description */}
-              <motion.p
-                variants={itemVariants}
-                className="text-white/70 text-[14px] sm:text-[clamp(15px,1.2vw,18px)] leading-relaxed sm:leading-[1.75] mb-8 sm:mb-10 max-w-lg"
-              >
-                {slide.description}
-              </motion.p>
-
-              {/* CTA Buttons */}
-              <motion.div variants={itemVariants} className="flex flex-wrap gap-3">
-                <ContactLink
-                  className="group inline-flex items-center gap-2 px-7 py-3.5 bg-accent text-primary text-[14px] font-semibold rounded-md hover:bg-accent/90 transition-all duration-300"
+              <div className="relative z-10 p-6 sm:p-10 md:p-16 rounded-[32px] md:rounded-[48px] overflow-hidden border border-white/10 backdrop-blur-sm bg-[#0B1D35]/10 shadow-xl">
+                {/* Internal Glow */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none" />
+                
+                {/* Tag */}
+                <motion.div
+                    variants={itemVariants}
+                    className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/10 border border-white/10 mb-6 md:mb-8"
                 >
-                  Discover More
-                  <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform duration-300" />
-                </ContactLink>
-                <Link
-                  href="#services"
-                  className="inline-flex items-center px-7 py-3.5 bg-white/[0.08] border border-white/[0.12] text-white/80 text-[14px] font-medium rounded-md hover:bg-white/[0.14] hover:text-white transition-all duration-300"
+                    <div className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                    <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/90">
+                        {slide.tag}
+                    </span>
+                </motion.div>
+
+                {/* Headline */}
+                <motion.h1
+                  variants={itemVariants}
+                  className="text-[clamp(36px,8vw,90px)] font-black leading-[0.95] md:leading-[0.92] tracking-tighter text-white mb-6 md:mb-8 whitespace-pre-line"
                 >
-                  Our Services
-                </Link>
-              </motion.div>
+                  {slide.headline.split('\n').map((line, i) => (
+                    <span key={i} className="block">
+                      {line.includes('.') ? (
+                        <>
+                          {line.split('.').map((part, j, arr) => (
+                            <span key={j}>
+                              {part}{j < arr.length - 1 && <span className="text-accent">.</span>}
+                            </span>
+                          ))}
+                        </>
+                      ) : line}
+                    </span>
+                  ))}
+                </motion.h1>
+
+                {/* Description */}
+                <motion.p
+                  variants={itemVariants}
+                  className="text-white/60 text-base sm:text-lg md:text-xl leading-relaxed mb-8 md:mb-12 max-w-xl font-medium"
+                >
+                  {slide.description}
+                </motion.p>
+
+                {/* CTA Buttons */}
+                <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
+                  <ContactLink
+                    className="group relative inline-flex items-center justify-center px-8 py-4 md:px-10 md:py-5 bg-accent text-primary text-xs md:text-sm font-black uppercase tracking-widest rounded-2xl hover:scale-105 transition-all duration-500 shadow-xl shadow-accent/20 overflow-hidden"
+                  >
+                    <span className="relative z-10 flex items-center gap-3">
+                        Initiate Strategy
+                        <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                    </span>
+                    <div className="absolute inset-0 bg-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 opacity-20" />
+                  </ContactLink>
+                  <Link
+                    href="#services"
+                    className="inline-flex items-center justify-center px-8 py-4 md:px-10 md:py-5 bg-white/5 border border-white/10 text-white text-xs md:text-sm font-black uppercase tracking-widest rounded-2xl hover:bg-white/10 hover:border-white/20 transition-all duration-500 backdrop-blur-sm"
+                  >
+                    Our Pillars
+                  </Link>
+                </motion.div>
+              </div>
+
+              {/* Decorative side element */}
+              <motion.div 
+                animate={{ y: [0, -15, 0] }}
+                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -right-12 top-1/2 -translate-y-1/2 w-24 h-96 bg-accent/20 blur-[100px] rounded-full pointer-events-none hidden lg:block" 
+              />
             </motion.div>
           </AnimatePresence>
         </div>
@@ -220,7 +249,7 @@ export default function Hero() {
 
       {/* Bottom bar with counter + controls */}
       <div className="absolute bottom-0 left-0 right-0 z-20">
-        <div className="container-custom flex items-center justify-between pb-8 md:pb-10">
+        <div className="container-custom flex items-center justify-between pb-6 md:pb-10">
           {/* Slide counter */}
           <div className="flex items-center gap-3">
             <span className="text-white/60 text-[13px] font-mono tabular-nums tracking-wider">

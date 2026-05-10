@@ -5,8 +5,8 @@
 :root {
   --background: #F4F7FA;
   --foreground: #0F172A;
-  --primary: #0B3C5D;
-  --accent: #55c5e7;
+  --primary: #0b5c92;
+  --accent: #00a9ce;
 }
 
 html {
@@ -78,8 +78,13 @@ body {
 }
 
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .animate-marquee {
@@ -98,4 +103,16 @@ h2,
 h3,
 h4 {
   font-feature-settings: "cv02", "cv05", "cv11", "ss01";
+}
+
+@layer utilities {
+  .bg-primary {
+    background-image: linear-gradient(to bottom right, #0b5c92, #1479be) !important;
+  }
+  .hover\:bg-primary:hover {
+    background-image: linear-gradient(to bottom right, #0b5c92, #1479be) !important;
+  }
+  .group:hover .group-hover\:bg-primary {
+    background-image: linear-gradient(to bottom right, #0b5c92, #1479be) !important;
+  }
 }

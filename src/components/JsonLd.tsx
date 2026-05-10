@@ -4,7 +4,7 @@ export default function JsonLd() {
         "@type": "ProfessionalService",
         "name": "TheAgileNest",
         "url": "https://theagilenest.com",
-        "logo": "https://theagilenest.com/logo.png",
+        "logo": "https://theagilenest.com/favicon.png",
         "image": "https://www.theagilenest.com/wp-content/uploads/2025/10/ag2-3.jpg",
         "description": "Premium PMP certification training and AI driven construction cost estimation services.",
         "telephone": "+64 9 620 7678",
