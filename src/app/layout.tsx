@@ -31,7 +31,7 @@ export const metadata: Metadata = {
         siteName: 'TheAgileNest',
         images: [
             {
-                url: '/images/TheAgileNest_hero_main_1771222013046.png',
+                url: '/favicon.png',
                 width: 1200,
                 height: 630,
                 alt: 'TheAgileNest Project Management & Cost Estimation',
@@ -42,6 +42,7 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         title: 'TheAgileNest',
         description: 'Premier PMP Training and AI Construction Estimation by TheAgileNest.',
+        images: ['/favicon.png'],
     },
     icons: {
         icon: '/favicon.png',

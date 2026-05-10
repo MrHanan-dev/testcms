@@ -53,7 +53,7 @@ export default function CertificationHero({
                                 <ChevronLeft className="w-8 h-8 sm:w-10 sm:h-10 group-hover:-translate-x-1 transition-transform" strokeWidth={2.5} />
                             </Link>
 
-                            <h1 className="text-2xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight text-center tracking-tight px-2">
+                            <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight text-center tracking-tight px-2">
                                 {title}
                             </h1>
 

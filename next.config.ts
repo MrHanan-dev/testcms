@@ -9,7 +9,15 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'www.theTheAgileNestnest.com',
+        hostname: 'media.licdn.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.theagilenest.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'theagilenest.com',
       },
       {
         protocol: 'https',

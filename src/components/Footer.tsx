@@ -10,7 +10,6 @@ const footerLinks = {
   ourServices: [
     { label: "Project Management", href: "/project-management" },
     { label: "Cost Estimation & Quality Surveying", href: "/cost-estimation" },
-    { label: "Contract Management", href: "/contract-management" },
     { label: "Advisory & PMO", href: "/consulting" },
     { label: "Training Services", href: "/training" },
   ],
@@ -97,23 +96,25 @@ function ClientsSection() {
   );
 }
 
-export default function Footer() {
+export default function Footer({ hideContactForm = false, hideClients = false }: { hideContactForm?: boolean, hideClients?: boolean }) {
   return (
     <footer className="w-full border-t border-slate-200">
       {/* Contact Section - Replaced Newsletter */}
-      <div id="contact" className="bg-slate-50 py-16 scroll-mt-20">
-        <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="label-tag mb-6 inline-block">Support & Enquiries</span>
-            <h3 className="h2 text-primary mb-6">How can we help?</h3>
-            <p className="text-slate-600 text-lg md:text-xl leading-relaxed font-medium">Reach out for custom corporate training, consulting enquiries, or certification guidance.</p>
+      {!hideContactForm && (
+        <div id="contact" className="bg-slate-50 py-16 scroll-mt-20">
+          <div className="container-custom">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <span className="label-tag mb-6 inline-block">Support & Enquiries</span>
+              <h3 className="h2 text-primary mb-6">How can we help?</h3>
+              <p className="text-slate-600 text-lg md:text-xl leading-relaxed font-medium">Reach out for custom corporate training, consulting enquiries, or certification guidance.</p>
+            </div>
+            <ContactForm />
           </div>
-          <ContactForm />
         </div>
-      </div>
+      )}
 
       {/* Clients Marquee */}
-      <ClientsSection />
+      {!hideClients && <ClientsSection />}
 
       {/* Company Bio Section */}
       <CompanyBio />
@@ -125,6 +126,15 @@ export default function Footer() {
             {/* Branding Column */}
             <div className="lg:col-span-4 flex flex-col gap-8 pr-4">
               <div className="space-y-6">
+                <Link href="/" className="inline-block group">
+                  <Image
+                    src="/1.png"
+                    alt="TheAgileNest Logo"
+                    width={200}
+                    height={70}
+                    className="h-20 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+                  />
+                </Link>
                 <p className="text-[15px] leading-relaxed font-medium">
                   At TheAgileNest, we're passionate about projects. We provide the full range of project services and training to increase your team's skills and capabilities.
                 </p>
@@ -136,15 +146,17 @@ export default function Footer() {
                 </p>
               </div>
 
-              {/* PMI Logo Container */}
-              <div className="mt-4 p-6 bg-white/5 rounded-3xl border border-white/10 w-fit group">
-                <Image
-                  src="/images/pmi_atp_atp_white_rgb.svg"
-                  alt="PMI Authorized Training Partner"
-                  width={200}
-                  height={192}
-                  className="h-48 w-auto transition-all duration-500 group-hover:scale-105"
-                />
+              {/* PMI Logo Container - Premier Partner - Large Square */}
+              <div className="mt-8 relative group w-64 h-64 md:w-72 md:h-72">
+                <div className="relative w-full h-full p-8 bg-white/20 backdrop-blur-md rounded-[32px] border border-white/30 shadow-2xl transition-all duration-500 group-hover:bg-white/30 group-hover:scale-[1.02] flex items-center justify-center">
+                  <Image
+                    src="/2.png"
+                    alt="PMI Authorized Training Partner Premier"
+                    width={400}
+                    height={400}
+                    className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
               </div>
             </div>
 

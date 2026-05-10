@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from 'react';
-import { Calendar, User, Mail, Phone, Send, CheckCircle2 } from 'lucide-react';
+import { User, Mail, Phone, Send, CheckCircle2 } from 'lucide-react';
 
 interface BookingFormProps {
     courseName: string;
-    availableDates: string[];
+    availableDates?: string[];
 }
 
-export default function BookingForm({ courseName, availableDates }: BookingFormProps) {
+export default function BookingForm({ courseName }: BookingFormProps) {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -20,10 +20,11 @@ export default function BookingForm({ courseName, availableDates }: BookingFormP
         const data = {
             formType: 'Course Booking',
             courseName,
-            fullName: formData.get('fullName'),
+            firstName: formData.get('firstName'),
+            lastName: formData.get('lastName'),
             email: formData.get('email'),
             phone: formData.get('phone'),
-            preferredBatch: formData.get('preferredBatch'),
+            enrollNow: formData.get('enrollNow'),
         };
 
         try {
@@ -78,17 +79,31 @@ export default function BookingForm({ courseName, availableDates }: BookingFormP
                 <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                         <label className="text-sm font-bold text-slate-700 flex items-center gap-2">
-                            <User size={16} className="text-accent" /> Full Name
+                            <User size={16} className="text-accent" /> First Name
                         </label>
                         <input
                             required
-                            name="fullName"
+                            name="firstName"
                             type="text"
-                            placeholder="John Doe"
+                            placeholder="John"
                             className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-primary/20 outline-none transition-all"
                         />
                     </div>
+                    <div className="space-y-2">
+                        <label className="text-sm font-bold text-slate-700 flex items-center gap-2">
+                            <User size={16} className="text-accent" /> Last Name
+                        </label>
+                        <input
+                            required
+                            name="lastName"
+                            type="text"
+                            placeholder="Doe"
+                            className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                        />
+                    </div>
+                </div>
 
+                <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                         <label className="text-sm font-bold text-slate-700 flex items-center gap-2">
                             <Mail size={16} className="text-accent" /> Email Address
@@ -101,9 +116,6 @@ export default function BookingForm({ courseName, availableDates }: BookingFormP
                             className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-primary/20 outline-none transition-all"
                         />
                     </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                         <label className="text-sm font-bold text-slate-700 flex items-center gap-2">
                             <Phone size={16} className="text-accent" /> Phone Number
@@ -116,21 +128,19 @@ export default function BookingForm({ courseName, availableDates }: BookingFormP
                             className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-primary/20 outline-none transition-all"
                         />
                     </div>
+                </div>
 
-                    <div className="space-y-2">
-                        <label className="text-sm font-bold text-slate-700 flex items-center gap-2">
-                            <Calendar size={16} className="text-accent" /> Preferred Batch
+                <div className="space-y-4 pt-4">
+                    <label className="text-sm font-bold text-slate-700">Would you like to enroll now?</label>
+                    <div className="grid grid-cols-2 gap-4">
+                        <label className="relative flex items-center justify-center p-4 rounded-xl border border-slate-200 bg-slate-50 cursor-pointer hover:bg-slate-100 transition-all has-[:checked]:bg-primary/5 has-[:checked]:border-primary has-[:checked]:ring-1 has-[:checked]:ring-primary">
+                            <input required type="radio" name="enrollNow" value="Yes" className="absolute opacity-0 peer" />
+                            <span className="font-bold text-slate-600 peer-checked:text-primary transition-colors">Yes</span>
                         </label>
-                        <select
-                            required
-                            name="preferredBatch"
-                            className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-primary/20 outline-none transition-all appearance-none cursor-pointer"
-                        >
-                            <option value="">Select a date</option>
-                            {availableDates.map(date => (
-                                <option key={date} value={date}>{date}</option>
-                            ))}
-                        </select>
+                        <label className="relative flex items-center justify-center p-4 rounded-xl border border-slate-200 bg-slate-50 cursor-pointer hover:bg-slate-100 transition-all has-[:checked]:bg-primary/5 has-[:checked]:border-primary has-[:checked]:ring-1 has-[:checked]:ring-primary">
+                            <input required type="radio" name="enrollNow" value="In the future" className="absolute opacity-0 peer" />
+                            <span className="font-bold text-slate-600 peer-checked:text-primary transition-colors">In the future</span>
+                        </label>
                     </div>
                 </div>
 
@@ -138,7 +148,7 @@ export default function BookingForm({ courseName, availableDates }: BookingFormP
                     <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full py-4 bg-primary text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:translate-y-0"
+                        className="w-full py-4 bg-primary text-white font-black text-lg rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:translate-y-0"
                     >
                         {isSubmitting ? "Processing..." : "Confirm Registration"}
                         {!isSubmitting && <Send size={18} />}
