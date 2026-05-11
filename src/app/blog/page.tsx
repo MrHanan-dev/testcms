@@ -8,7 +8,7 @@ import { blogPosts } from '@/data/blogPosts.tsx';
 
 export const metadata: Metadata = {
     title: "Blog & Resources | TheAgileNest",
-    description: "Latest insights, case studies, and resources on project management, cost estimation, and TheAgileNest transformation.",
+    description: "Latest insights, case studies, and resources on Project management, Cost estimation, and TheAgileNest transformation.",
 };
 
 export default function BlogPage() {
