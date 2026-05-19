@@ -103,8 +103,8 @@ export default function BentoGrid() {
                         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                         className="text-[clamp(36px,8vw,80px)] font-black leading-[0.95] tracking-tight text-primary mb-8 md:mb-12"
                     >
-                        Pillars of <br />
-                        <span className="text-slate-400">Professional Mastery</span>
+                        Our Expertise: <br />
+                        <span className="text-slate-400">Empowering Professionals. Transforming Projects</span>
                     </motion.h2>
                     
                     <motion.div
