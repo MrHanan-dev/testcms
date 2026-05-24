@@ -7,8 +7,8 @@ import { Target, Award, Users, BookOpen, Globe, ShieldCheck, Briefcase } from 'l
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "About Us",
-    description: "Our 17-year journey in Project Management excellence, from foundational PMBOK standards to modern AI driven ecosystems.",
+    title: "About TheAgileNest | PMP Training & Consulting Experts NZ",
+    description: "Learn about TheAgileNest's 17-year journey in PM excellence. PMI ATP, expert consultants, and training serving NZ, Australia & global clients.",
 };
 
 import Features from '@/components/Features';

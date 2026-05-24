@@ -83,7 +83,7 @@ function ClientsSection() {
               <div key={index} className="mx-12 w-48 h-24 relative transition-all duration-300 hover:scale-110">
                 <Image
                   src={src}
-                  alt="Client Logo"
+                  alt="Client company logo"
                   fill
                   className="object-contain"
                 />

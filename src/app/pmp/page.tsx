@@ -10,16 +10,29 @@ import BookingForm from '@/components/BookingForm';
 import CourseSuccessQuotes from '@/components/CourseSuccessQuotes';
 import ScrollButton from '@/components/ScrollButton';
 import ContactLink from '@/components/ContactLink';
+import JsonLdCourse from '@/components/JsonLdCourse';
+import JsonLdFaq from '@/components/JsonLdFaq';
 
 export const metadata: Metadata = {
-    title: "TheAgileNest Premier PMP® Training | Global Certification",
-    description: "Join New Zealand, Australia, and Asia's most comprehensive PMP® training with expert practitioners. Pass on your first try!",
+    title: "PMP Certification Training NZ | PMI Authorised Partner",
+    description: "Join NZ's premier PMP® certification training. PMI ATP, 35 contact hours, live virtual classes, mock exams & first-attempt support. Enroll now!",
 };
 
 export default function PmpPage() {
     return (
         <>
             <Header variant="transparent" />
+            <JsonLdCourse
+                name="PMP® Certification Training"
+                description="Comprehensive PMP® certification training with 35 contact hours, expert-led live virtual classes, mock exams, and first-attempt support. PMI Authorised Training Partner."
+                url="https://theagilenest.com/pmp"
+                courseCode="PMP"
+                duration="P2M"
+                offers={[
+                    { price: "405", priceCurrency: "USD", description: "PMI Member exam fee" },
+                    { price: "655", priceCurrency: "USD", description: "Non-Member exam fee" }
+                ]}
+            />
             <main className="min-h-screen bg-white relative overflow-hidden">
                 <CertificationHero
                     title="PMP Training"
@@ -697,7 +710,7 @@ export default function PmpPage() {
                         <div className="lg:col-span-3">
                             <BookingForm
                                 courseName="PMP® Certification"
-                                availableDates={["March 2026", "April 2026", "May 2026"]}
+                                availableDates={["June 2026", "July 2026", "August 2026"]}
                             />
                         </div>
                         <div className="lg:col-span-2 space-y-10">
@@ -730,7 +743,30 @@ export default function PmpPage() {
                 </div>
             </main>
             <TrainingSchedule />
-            <FAQ 
+            <JsonLdFaq items={[
+                { question: "1. What is the PMP® certification?", answer: "The PMP® (Project Management Professional) certification is a globally recognised credential awarded by PMI for experienced project professionals. It validates your ability to lead projects, manage teams, and deliver successful outcomes across industries." },
+                { question: "2. Who should take the PMP® exam?", answer: "The PMP® exam is ideal for project managers, engineers, coordinators, team leaders, consultants, and professionals responsible for managing projects or leading teams." },
+                { question: "3. Is PMP® recognised in New Zealand?", answer: "Yes. PMP® is highly respected by employers in New Zealand and internationally across construction, infrastructure, IT, finance, healthcare, engineering, government, and many other sectors." },
+                { question: "4. What are the eligibility requirements for the PMP® exam?", answer: "Candidates must meet PMI education and project management experience requirements. In addition, all applicants must complete 35 hours of formal project management training aligned with the PMP Examination Content Outline (ECO)." },
+                { question: "5. Does The Agile Nest provide the required 35 contact hours?", answer: "Yes. The Agile Nest PMP® course provides the required 35 contact hours / PDUs and a completion certificate to support your PMP® application." },
+                { question: "6. How much does the PMP® exam cost?", answer: "Current PMI fees are typically: PMI Member: US $405; Non-Member: US $655; PMI Membership: Approx. US $139. Exam fees are payable after your application has been approved and you are ready to schedule the exam." },
+                { question: "7. Can I take the PMP® exam online?", answer: "Yes. PMI offers the PMP® exam at authorised test centres and through secure online proctored exam options, subject to availability." },
+                { question: "8. How difficult is the PMP® exam?", answer: "The PMP® exam is challenging and requires structured preparation. With quality training, a study plan, and regular mock exam practice, candidates can approach the exam confidently." },
+                { question: "9. How many questions are in the PMP® exam?", answer: "The PMP® exam currently includes 180 questions (170 scored, 10 unscored pretest) to be completed within 240 minutes." },
+                { question: "10. What topics are covered in the PMP® exam?", answer: "The exam covers three key domains: People (33%), Process (41%), and Business Environment (26%). It is approximately 60% Agile/Hybrid and 40% Predictive." },
+                { question: "11. How long should I study for PMP®?", answer: "Preparation time depends on your experience and background, but many candidates study for 6 to 12 weeks using a structured learning plan." },
+                { question: "12. Do you provide mock exams and practice questions?", answer: "Yes. The Agile Nest includes high-quality mock exams, practice questions, exercises, and study guidance." },
+                { question: "13. Can The Agile Nest help with the PMP® application?", answer: "Yes. We provide support with application preparation, documentation guidance, and PMI audit assistance if required." },
+                { question: "14. What happens if I fail the PMP® exam?", answer: "If you do not pass, PMI generally allows candidates to retake the exam within their one-year eligibility period, subject to PMI policies and applicable retake fees." },
+                { question: "15. How many times can I attempt the PMP® exam?", answer: "Once approved, candidates may generally attempt the exam up to three times within the one-year eligibility period, subject to PMI rules." },
+                { question: "16. What happens after I pass the PMP® exam?", answer: "After passing, you earn the PMP® credential, which can improve career opportunities, leadership prospects, and earning potential." },
+                { question: "17. How do I maintain my PMP® certification?", answer: "To maintain certification, PMI requires PMP® holders to earn 60 PDUs every three years through continuous professional development." },
+                { question: "18. Do I need to retake the exam to renew PMP®?", answer: "No. In most cases, certification is maintained through earning PDUs and renewing with PMI rather than retaking the exam." },
+                { question: "19. Can I attend PMP® training online or on-site?", answer: "Yes. The Agile Nest offers live online, classroom, and corporate on-site PMP® training options in New Zealand and internationally." },
+                { question: "20. Why choose The Agile Nest for PMP® training? ", answer: "We provide 35 Contact Hours, PMI-aligned training, Expert instructors, Mock exams & study support, Application & audit assistance, Real-world project examples, and Flexible learning options." },
+                { question: "21. How do I get started?", answer: "Contact The Agile Nest to confirm your eligibility, choose a training option, and begin your PMP® certification journey with confidence." }
+            ]} />
+            <FAQ
                 title="PMP® Exam FAQs"
                 subtitle="Certification Journey"
                 description="Everything You Need to Know About PMP® Training, Exam, Fees & Renewal"

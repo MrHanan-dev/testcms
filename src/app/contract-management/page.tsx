@@ -7,8 +7,8 @@ import Link from 'next/link';
 import ContactLink from '@/components/ContactLink';
 
 export const metadata: Metadata = {
-    title: "Construction Contracts",
-    description: "Expert contract management, formulation, and dispute resolution for complex construction projects.",
+    title: "Construction Contract Management NZ | Dispute Resolution",
+    description: "Expert construction contract management, formulation, and dispute resolution services in NZ for complex infrastructure and commercial projects.",
 };
 
 export default function ContractManagementPage() {

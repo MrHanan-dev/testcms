@@ -11,16 +11,29 @@ import BookingForm from '@/components/BookingForm';
 import Features from '@/components/Features';
 import CourseSuccessQuotes from '@/components/CourseSuccessQuotes';
 import ScrollButton from '@/components/ScrollButton';
+import JsonLdCourse from '@/components/JsonLdCourse';
+import JsonLdFaq from '@/components/JsonLdFaq';
 
 export const metadata: Metadata = {
-    title: "CAPM Certification Training & Exam Prep",
-    description: "Kickstart your project management career with the CAPM certification. Validate your understanding of the fundamental knowledge, terminology, and processes of effective project management.",
+    title: "CAPM Certification Training NZ | PMI Entry-Level Credential",
+    description: "Start your project management career with CAPM® certification in NZ. 23 contact hours, live training, no experience needed. Enroll today!",
 };
 
 export default function CapmPage() {
     return (
         <>
             <Header variant="transparent" />
+            <JsonLdCourse
+                name="CAPM® Certification Training"
+                description="Entry-level CAPM® certification training with 23 contact hours, expert-led classes, and exam preparation. No experience needed to start."
+                url="https://theagilenest.com/capm"
+                courseCode="CAPM"
+                duration="P1M"
+                offers={[
+                    { price: "225", priceCurrency: "USD", description: "PMI Member exam fee" },
+                    { price: "300", priceCurrency: "USD", description: "Non-Member exam fee" }
+                ]}
+            />
             <main className="min-h-screen bg-slate-50 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-teal-100/30 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
@@ -432,7 +445,7 @@ export default function CapmPage() {
                         <div className="md:col-span-3">
                             <BookingForm
                                 courseName="CAPM® Certification"
-                                availableDates={["March 2026", "April 2026", "May 2026"]}
+                                availableDates={["June 2026", "July 2026", "August 2026"]}
                             />
                         </div>
                         <div className="md:col-span-2 space-y-8">
@@ -459,7 +472,19 @@ export default function CapmPage() {
                 </div>
             </main>
             <TrainingSchedule />
-            <FAQ 
+            <JsonLdFaq items={[
+                { question: "1. Does this course satisfy the 23 contact hour requirement for the CAPM® exam?", answer: "Yes. The Agile Nest CAPM® course provides the required 23 contact hours of project management education needed for CAPM® exam eligibility. Upon successful completion, you will receive a Certificate of Completion to support your exam application." },
+                { question: "2. Do I need project management experience to take this course or the CAPM® exam?", answer: "No. The CAPM® certification is designed for individuals who are new to project management or looking to start a career in the field. Unlike PMP®, CAPM® does not require prior project leadership experience, making it an ideal entry-level certification." },
+                { question: "3. Is this course enough to pass the CAPM® exam?", answer: "This course is designed to give you a strong foundation for exam success. It includes PMI-aligned content, structured lessons, practice questions, mock exams, and instructor guidance. Your success will also depend on your study commitment and revision plan." },
+                { question: "4. What's included with the CAPM® course?", answer: "Our CAPM® training includes 23 Contact Hours Certificate, PMI-aligned training content, Expert instructor-led sessions, Practice questions and mock exams, Course workbook and study materials, Real-world project management examples, Exam guidance and support, and Flexible online and classroom options." },
+                { question: "5. Who should take the CAPM® course?", answer: "This course is ideal for students, graduates, coordinators, administrators, aspiring project managers, and professionals looking to build a career in project management." },
+                { question: "6. Is CAPM® recognised internationally?", answer: "Yes. CAPM® is awarded by PMI and recognised globally by employers across many industries." },
+                { question: "7. Can CAPM® help my career growth?", answer: "Yes. CAPM® can improve your employability, strengthen your resume, and help you qualify for project management roles." },
+                { question: "8. Can I take this course online?", answer: "Yes. The Agile Nest offers live online, classroom, and corporate training options." },
+                { question: "9. What happens after CAPM®?", answer: "Many professionals use CAPM® as a stepping stone toward higher-level certifications, such as PMP®, as they gain experience." },
+                { question: "10. How do I get started?", answer: "Contact The Agile Nest to confirm your eligibility, choose a course option, and begin your CAPM® certification journey with confidence." }
+            ]} />
+            <FAQ
                 title="CAPM® Exam FAQs"
                 subtitle="Certification Journey"
                 description="Everything You Need to Know About CAPM® Training, Exam, Fees & Eligibility"
