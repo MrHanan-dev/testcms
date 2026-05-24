@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import JsonLd from "@/components/JsonLd";
 import WhatsAppFAB from "@/components/WhatsAppFAB";
@@ -64,6 +65,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
+            <head>
+                <Script src="https://analytics.ahrefs.com/analytics.js" data-key="C3Lwx1SjSRD/434Thq3gkw" strategy="afterInteractive" />
+            </head>
             <body className={`${inter.variable} ${outfit.variable} antialiased`} suppressHydrationWarning={true}>
                 <JsonLd />
                 {children}
