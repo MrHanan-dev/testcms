@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Star, ExternalLink } from 'lucide-react';
 
-const GOOGLE_REVIEW_URL = "https://share.google/0CMi5wamUGUw5L0Xn";
+const GOOGLE_REVIEW_URL = "https://share.google/BUIGYwUdbDVHdO67Y";
 
 export default function GoogleReviews() {
     return (

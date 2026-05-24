@@ -24,7 +24,7 @@ export const blogPosts: BlogPost[] = [
         category: "Project Management",
         imageUrl: "/images/blog/impact-construction-realistic.png",
         readTime: "12 min read",
-        slug: "agile-project-management-construction-2026",
+        slug: "theagilenest-impact-construction",
         content: (
             <div className="not-prose bg-white rounded-[2rem] p-8 md:p-12 border border-slate-100 shadow-sm">
                 <p className="mb-6">The construction industry, traditionally known for its rigid waterfall methodologies, is undergoing a significant transformation. As projects become more complex and client expectations shift towards flexibility, TheAgileNest methodologies are proving to be a game changer in the built environment. This evolution is not just about changing tools; it's about a fundamental shift in how we perceive project value and stakeholder engagement.</p>
@@ -65,7 +65,7 @@ export const blogPosts: BlogPost[] = [
         category: "PMP Certification",
         imageUrl: "/images/blog/pmicp-journey-realistic.png",
         readTime: "15 min read",
-        slug: "pmi-cp-certification-guide-nz",
+        slug: "navigating-pmicp-journey",
         content: (
             <div className="not-prose bg-white rounded-[2rem] p-8 md:p-12 border border-slate-100 shadow-sm">
                 <p className="mb-6">The Project Management Institute's Construction Professional (PMI-CP)® certification is rapidly becoming the benchmark for excellence in the construction sector. Designed specifically for construction professionals, it addresses the unique challenges of the built environment, from complex contract management to high-stakes stakeholder engagement.</p>
@@ -119,7 +119,7 @@ export const blogPosts: BlogPost[] = [
         category: "Construction Cost Estimation",
         imageUrl: "/images/blog/cost-estimation-realistic.png",
         readTime: "10 min read",
-        slug: "construction-cost-estimation-pitfalls",
+        slug: "mastering-cost-estimation-pitfalls",
         content: (
             <div className="not-prose bg-white rounded-[2rem] p-8 md:p-12 border border-slate-100 shadow-sm">
                 <p className="mb-6">Cost overruns are an industry plague, and they almost always stem from the earliest phases of a project: estimation. Accurate cost estimation and quality surveying are not just about numbers; they are about understanding risk, anticipating fluctuations, and providing a realistic roadmap for project viability.</p>
@@ -166,7 +166,7 @@ export const blogPosts: BlogPost[] = [
         category: "Project Management",
         imageUrl: "/images/blog/pmbok-evolution-realistic.png",
         readTime: "14 min read",
-        slug: "pmbok-7th-vs-8th-edition-changes-pmp-exam",
+        slug: "pmbok-7th-vs-8th-changes",
         content: (
             <div className="not-prose bg-white rounded-[2rem] p-8 md:p-12 border border-slate-100 shadow-sm">
                 <p className="mb-6">The transition from the 6th to the 7th Edition of the PMBOK® Guide marked a monumental shift from process-based management to principle-based management. This set the stage for an even more adaptive future. As we look toward the 8th Edition, this paradigm shift is expected to deepen, reflecting a global economy that demands speed, agility, and measurable impact.</p>
@@ -204,7 +204,7 @@ export const blogPosts: BlogPost[] = [
         category: "PMO & Governance",
         imageUrl: "/images/blog/case-study-scaling-pmo.png",
         readTime: "18 min read",
-        slug: "how-to-scale-pmo-case-study",
+        slug: "case-study-scaling-pmo",
         content: (
             <div className="not-prose bg-white rounded-[2rem] p-8 md:p-12 border border-slate-100 shadow-sm">
                 <p className="mb-6">When 'TechGrow Inc.' (name changed for confidentiality) reached out to TheAgileNest, they were experiencing the classic growing pains of a successful scale-up: missed deadlines, misaligned priorities, and burned-out teams. They needed structure without losing the agile spirit that fueled their initial growth. They needed a strategic partner to help them transition from a startup to an enterprise-grade organization.</p>
@@ -257,7 +257,7 @@ export const blogPosts: BlogPost[] = [
         category: "Project Management",
         imageUrl: "/images/blog/project-timeline.png",
         readTime: "14 min read",
-        slug: "project-timeline-management-pmp-techniques",
+        slug: "project-without-timeline-only-intention",
         content: (
             <div className="not-prose bg-white rounded-[2rem] p-8 md:p-12 border border-slate-100 shadow-sm">
                 <p className="mb-6">Every great achievement begins as an idea, but an idea without a plan is merely a wish, and a plan without a <strong>project timeline</strong> is only an intention. In the world of <strong>project management</strong>, the difference between a successful delivery and a spectacular failure almost always traces back to one discipline: scheduling. Whether you're overseeing a multi-million dollar infrastructure build or launching a new software product, the timeline is your compass, your contract with reality, and your most powerful tool for turning ambition into outcome.</p>
@@ -393,7 +393,7 @@ export const blogPosts: BlogPost[] = [
         category: "Project Management",
         imageUrl: "/images/blog/planning-direction.png",
         readTime: "13 min read",
-        slug: "project-planning-vs-execution-pmp-strategies",
+        slug: "planning-creates-direction-execution-creates-results",
         content: (
             <div className="not-prose bg-white rounded-[2rem] p-8 md:p-12 border border-slate-100 shadow-sm">
                 <p className="mb-6">In the high-stakes world of modern industry, a common paradox persists: organizations spend months crafting immaculate strategies only to see them crumble during the first week of physical implementation. The reason is simple yet profound: while <strong>planning creates direction</strong>, it is only <strong>execution that creates results</strong>. This fundamental truth is the cornerstone of effective <strong>project management</strong>. Without a clear direction, execution is chaotic; without rigorous execution, planning is merely academic exercise. At TheAgileNest, we specialize in bridging this gap, ensuring that every strategic roadmap translates into tangible, high-quality outcomes.</p>
@@ -496,7 +496,7 @@ export const blogPosts: BlogPost[] = [
         category: "Project Management",
         imageUrl: "/images/blog/reduce-chaos.png",
         readTime: "11 min read",
-        slug: "proactive-project-planning-prevent-chaos",
+        slug: "clear-plans-reduce-chaos",
         content: (
             <div className="not-prose bg-white rounded-[2rem] p-8 md:p-12 border border-slate-100 shadow-sm">
                 <p className="mb-6">In the fast-paced world of project management, chaos is the enemy of success. Whether you're overseeing a complex construction project, launching a new software product, or managing organizational change, the difference between triumph and disaster often lies in one fundamental principle: <strong>clear plans reduce chaos before it begins</strong>. At TheAgileNest, we believe that effective planning is not just a preliminary step; it's the strategic foundation that transforms uncertainty into controlled progress. This article explores why comprehensive planning is essential and how PMP-certified professionals leverage it to deliver exceptional results.</p>
@@ -607,7 +607,7 @@ export const blogPosts: BlogPost[] = [
         category: "Project Management",
         imageUrl: "/images/blog/strategy-action.png",
         readTime: "13 min read",
-        slug: "strategy-to-delivery-pmp-framework",
+        slug: "strategy-turns-ambition-into-structured-action",
         content: (
             <div className="not-prose bg-white rounded-[2rem] p-8 md:p-12 border border-slate-100 shadow-sm">
                 <p className="mb-6">A strong vision is only the beginning. <strong>Strategy turns ambition into structured action</strong> when leaders pair their goals with a disciplined project execution framework. In today’s competitive construction, consulting, and certification markets, the gap between ambition and outcome is bridged by effective <strong>project management</strong>, rigorous <strong>cost estimation</strong>, and a clear focus on value delivery.</p>
@@ -719,7 +719,7 @@ export const blogPosts: BlogPost[] = [
         category: "Project Management",
         imageUrl: "/images/blog/strong-foundations.png",
         readTime: "14 min read",
-        slug: "planning-foundations-prevent-costly-corrections",
+        slug: "strong-foundations-planning-prevent-costly-corrections",
         content: (
             <div className="not-prose bg-white rounded-[2rem] p-8 md:p-12 border border-slate-100 shadow-sm">
                 <p className="mb-6">In construction, the phrase "get it right the first time" is more than a quality motto; it is a financial imperative. Strong foundations in planning prevent costly corrections later, and this truth applies with equal force whether you are pouring a concrete slab or launching a multi-million dollar programme of work. Every hour invested in rigorous <strong>project management</strong> planning during the early stages of a project pays back manifold during execution. At TheAgileNest, we have seen it time and again: organisations that rush into action without a solid planning foundation end up paying the price: in rework, in overruns, and in reputational damage that lingers long after the project closes.</p>

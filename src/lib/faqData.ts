@@ -4,7 +4,7 @@ export type FAQItem = {
 };
 
 export const blogFaqs: Record<string, FAQItem[]> = {
-    "agile-project-management-construction-2026": [
+    "theagilenest-impact-construction": [
         {
             question: "What is agile project management in construction?",
             answer: "Agile project management in construction adapts iterative planning, continuous collaboration, and rapid response to change from software methodologies to the built environment. While physical construction can't be 'refactored' like code, agile principles are applied effectively in pre-construction, design phases, and trade execution to reduce waste and improve project value delivery."
@@ -22,7 +22,7 @@ export const blogFaqs: Record<string, FAQItem[]> = {
             answer: "While not mandatory, PMP certification provides the formal framework needed to integrate agile practices with traditional construction governance. The PMP exam now covers agile, hybrid, and predictive approaches, making it ideal for construction professionals who want to lead modern, adaptive project teams."
         }
     ],
-    "pmi-cp-certification-guide-nz": [
+    "navigating-pmicp-journey": [
         {
             question: "What are the prerequisites for PMI-CP certification?",
             answer: "The PMI-CP certification requires a secondary degree (high school diploma or equivalent) along with 60 months of unique professional construction project management experience within the last 8 years, or a four-year degree with 36 months of experience. You also need 35 hours of construction project management education."
@@ -40,7 +40,7 @@ export const blogFaqs: Record<string, FAQItem[]> = {
             answer: "Yes. With New Zealand's growing infrastructure pipeline and increasing demand for qualified construction managers, PMI-CP certification signals advanced expertise to employers and clients. It's particularly valuable for professionals working on large-scale commercial, infrastructure, and industrial projects."
         }
     ],
-    "construction-cost-estimation-pitfalls": [
+    "mastering-cost-estimation-pitfalls": [
         {
             question: "What is the most common cost estimation mistake in construction?",
             answer: "Optimism bias is the most common and costly estimation mistake. Estimators often assume best-case scenarios for productivity, weather, and material delivery, leading to under-budgeted projects. Using historical data from similar projects and applying realistic contingency based on formal risk assessment is the best countermeasure."
@@ -58,7 +58,7 @@ export const blogFaqs: Record<string, FAQItem[]> = {
             answer: "TheAgileNest provides professional cost estimation and quantity surveying services tailored to the New Zealand construction market. Our experts use current local market data, comprehensive risk assessment, and decades of industrial experience to deliver accurate, reliable estimates that help you bid with confidence and build with certainty."
         }
     ],
-    "pmbok-7th-vs-8th-edition-changes-pmp-exam": [
+    "pmbok-7th-vs-8th-changes": [
         {
             question: "What is the main difference between PMBOK 7th and 8th edition?",
             answer: "The PMBOK 7th Edition shifted from process-based to principle-based management with 12 project management principles. The 8th Edition is expected to deepen this shift with greater emphasis on value delivery, AI and automation integration, sustainability (ESG criteria), and systems thinking. Both editions focus on outcomes over outputs."
@@ -76,7 +76,7 @@ export const blogFaqs: Record<string, FAQItem[]> = {
             answer: "Yes. PMP certification is based on the Exam Content Outline, not directly on a specific PMBOK edition. The fundamental principles of project management remain stable across editions. TheAgileNest's training covers core PMP concepts that transcend edition changes, while incorporating the latest thinking on value delivery, agile methodologies, and emerging trends."
         }
     ],
-    "how-to-scale-pmo-case-study": [
+    "case-study-scaling-pmo": [
         {
             question: "What is a PMO and why do growing companies need one?",
             answer: "A Project Management Office (PMO) is a centralized department that establishes and maintains project management standards across an organization. Growing companies need PMOs to prevent missed deadlines, misaligned priorities, and resource conflicts that commonly emerge as teams scale beyond informal coordination."
@@ -94,7 +94,7 @@ export const blogFaqs: Record<string, FAQItem[]> = {
             answer: "Yes. TheAgileNest specializes in designing and implementing PMOs and VMOs tailored to your organisation's size, industry, and strategic goals. Our consultants bring decades of experience across construction, technology, and infrastructure sectors to build governance models that empower teams rather than restrict them."
         }
     ],
-    "project-timeline-management-pmp-techniques": [
+    "project-without-timeline-only-intention": [
         {
             question: "What is project timeline management?",
             answer: "Project timeline management is the process of defining, sequencing, estimating, and controlling the duration of project activities to ensure timely delivery. It includes creating a Work Breakdown Structure, identifying dependencies, determining the critical path, and continuously monitoring progress against the schedule baseline."
@@ -112,7 +112,7 @@ export const blogFaqs: Record<string, FAQItem[]> = {
             answer: "The five most common scheduling mistakes are: building optimistic 'happy path' schedules, ignoring resource constraints, failing to establish a baseline schedule, treating the schedule as a static document, and disconnecting the schedule from cost management. TheAgileNest's training addresses all five pitfalls with practical solutions."
         }
     ],
-    "project-planning-vs-execution-pmp-strategies": [
+    "planning-creates-direction-execution-creates-results": [
         {
             question: "Why is execution harder than planning in project management?",
             answer: "Execution is harder because it involves coordinating real people, materials, and systems under uncertain conditions. While planning deals with theoretical models, execution faces weather delays, supply chain disruptions, labour shortages, and stakeholder conflicts. PMP-certified professionals are trained to maintain strategic direction while adapting execution tactics."
@@ -130,7 +130,7 @@ export const blogFaqs: Record<string, FAQItem[]> = {
             answer: "TheAgileNest's training combines PMP certification preparation with practical execution masterclasses. Our programs cover advanced planning workshops, integrated cost-schedule management, and real-world case studies from construction and consulting. We prepare professionals not just to pass exams but to deliver multi-million dollar projects successfully."
         }
     ],
-    "proactive-project-planning-prevent-chaos": [
+    "clear-plans-reduce-chaos": [
         {
             question: "What is proactive planning in project management?",
             answer: "Proactive planning is the systematic process of anticipating project challenges and preparing responses before they occur. It includes comprehensive scope definition, realistic schedule development, accurate cost estimation, and thorough risk management. PMP-certified professionals use proactive planning to prevent chaos rather than react to it."
@@ -148,7 +148,7 @@ export const blogFaqs: Record<string, FAQItem[]> = {
             answer: "TheAgileNest offers comprehensive PMP certification training and consulting services focused on practical planning skills. Our programs cover scope definition, schedule development, cost estimation, risk management, and stakeholder engagement. We emphasize real-world application through case studies and hands-on workshops."
         }
     ],
-    "strategy-to-delivery-pmp-framework": [
+    "strategy-turns-ambition-into-structured-action": [
         {
             question: "How do you turn strategy into actionable project plans?",
             answer: "Turning strategy into action requires translating high-level goals into a clear project scope, delivery plan, and measurable outcomes. This involves defining specific outcomes, structuring work packages using proven project management practices, executing with disciplined review cadences, and using performance metrics to refine the approach in real time."
@@ -166,7 +166,7 @@ export const blogFaqs: Record<string, FAQItem[]> = {
             answer: "Cost estimation is critical for strategic delivery because it links strategic objectives to financial reality. Accurate construction cost estimation ensures that strategic ambitions are grounded in commercial viability. Professional quantity surveying provides the financial discipline needed to deliver projects within budget while achieving strategic goals."
         }
     ],
-    "planning-foundations-prevent-costly-corrections": [
+    "strong-foundations-planning-prevent-costly-corrections": [
         {
             question: "What is front-end loading (FEL) in project planning?",
             answer: "Front-End Loading (FEL) is the practice of investing disproportionately in planning, design, and stakeholder alignment before committing to full execution. Projects with high FEL scores statistically outperform their peers by 20–40% in cost and schedule performance. TheAgileNest teaches FEL as a core project management discipline."
