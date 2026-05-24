@@ -8,8 +8,8 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-    title: "Professional Training Services",
-    description: "Equipping organizations and individuals with the skills to achieve project outcomes through certification and bespoke training.",
+    title: "PMP & PMI Certification Training NZ | Professional Development",
+    description: "PMI Authorised Training Partner offering PMP, CAPM & PMI-CP certification training in NZ. Live online & classroom. Enroll in our next cohort!",
 };
 
 export default function TrainingPage() {

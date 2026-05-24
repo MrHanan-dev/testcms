@@ -11,8 +11,8 @@ import CostEstimationForm from '@/components/CostEstimationForm';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Quantity Surveying & Cost Management",
-    description: "Your trusted partner in New Zealand's construction industry. Precision cost estimation and project success services.",
+    title: "Quantity Surveying NZ | Construction Cost Estimation",
+    description: "NZ quantity surveying & construction cost estimation services. BOQ, tendering, value engineering & cost management for builders and developers.",
 };
 
 interface IService {

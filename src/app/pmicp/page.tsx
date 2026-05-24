@@ -10,16 +10,30 @@ import Features from '@/components/Features';
 import CourseSuccessQuotes from '@/components/CourseSuccessQuotes';
 import ScrollButton from '@/components/ScrollButton';
 import ContactLink from '@/components/ContactLink';
+import type { Metadata } from 'next';
+import JsonLdCourse from '@/components/JsonLdCourse';
+import JsonLdFaq from '@/components/JsonLdFaq';
 
-export const metadata = {
-    title: "PMI Construction Professional (PMI-CP)® Certification",
-    description: "Validate your ability to manage and deliver complex construction projects with the globally recognised PMI-CP® certification.",
+export const metadata: Metadata = {
+    title: "PMI-CP Certification NZ | Construction Management Credential",
+    description: "Earn the PMI Construction Professional (PMI-CP)® certification in NZ. 35 contact hours, construction-specific training, exam support. Enroll now!",
 };
 
 export default function PmiCpPage() {
     return (
         <>
             <Header variant="transparent" />
+            <JsonLdCourse
+                name="PMI Construction Professional (PMI-CP)® Certification"
+                description="Construction-specific PMI-CP® certification training with 35+ contact hours, expert-led sessions, and comprehensive exam support."
+                url="https://theagilenest.com/pmicp"
+                courseCode="PMI-CP"
+                duration="P2M"
+                offers={[
+                    { price: "405", priceCurrency: "USD", description: "PMI Member exam fee" },
+                    { price: "655", priceCurrency: "USD", description: "Non-Member exam fee" }
+                ]}
+            />
             <main className="min-h-screen bg-slate-50 relative overflow-hidden">
                 {/* Background decorative elements */}
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-amber-100/30 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
@@ -433,7 +447,7 @@ export default function PmiCpPage() {
                         <div className="md:col-span-3">
                             <BookingForm
                                 courseName="PMI-CP® Certification"
-                                availableDates={["March 2026", "April 2026", "May 2026"]}
+                                availableDates={["June 2026", "July 2026", "August 2026"]}
                             />
                         </div>
                         <div className="md:col-span-2 space-y-8">
@@ -460,7 +474,19 @@ export default function PmiCpPage() {
                 </div>
             </main>
             <TrainingSchedule />
-            <FAQ 
+            <JsonLdFaq items={[
+                { question: "1. What is the PMI-CP® certification?", answer: "The PMI Construction Professional (PMI-CP)® is a globally recognized credential for professionals in the construction and built environment sectors. It validates your ability to manage complex construction projects using industry-best practices." },
+                { question: "2. Who should apply for the PMI-CP®?", answer: "This certification is designed for engineers, project managers, coordinators, quantity surveyors, and construction leaders with 3-5 years of industry-specific project experience." },
+                { question: "3. Does this course satisfy the 35 contact hour requirement?", answer: "Yes. The Agile Nest PMI-CP® course provides the required 35 contact hours of project management education needed for exam eligibility for both diploma and degree tracks." },
+                { question: "4. What's included with the PMI-CP® course?", answer: "Our training includes 35 Contact Hours Certificate, PMI-aligned construction content, Expert instructor-led sessions, construction-specific mock exams, workbook, and full application support." },
+                { question: "5. How much does the PMI-CP® exam cost?", answer: "Typical fees are US $405 for PMI members and US $655 for non-members. PMI membership is approximately US $139/year." },
+                { question: "6. Is PMI-CP® recognized in New Zealand?", answer: "Yes, it is highly valued by major contractors and government agencies as it specifically addresses the complexities of the built environment." },
+                { question: "7. What are the eligibility tracks?", answer: "Track 1: Secondary diploma + 60 months experience. Track 2: Bachelor's/Associate degree + 36 months experience. Both require 35 contact hours of PM education." },
+                { question: "8. Can I take the PMI-CP® exam online?", answer: "Yes, PMI offers both online proctored exams and authorized test center options." },
+                { question: "9. How long is the PMI-CP® exam?", answer: "The exam consists of 170 questions to be completed within 230 minutes (3 hours 50 minutes), with two 10-minute breaks." },
+                { question: "10. How do I get started?", answer: "Contact The Agile Nest to confirm your track, choose a session, and begin your journey to becoming a certified construction professional." }
+            ]} />
+            <FAQ
                 title="PMI-CP® Exam FAQs"
                 subtitle="Construction Certification"
                 description="Everything You Need to Know About the Construction Professional (PMI-CP)® Certification"

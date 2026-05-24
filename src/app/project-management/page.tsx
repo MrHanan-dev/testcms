@@ -8,8 +8,8 @@ import { Check, Users, Target, Briefcase, BarChart3, ShieldCheck, Network, Layou
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Project Management for Construction Project",
-    description: "Expert project delivery professionals and customized project management solutions for construction projects to help your organization achieve business outcomes.",
+    title: "Construction Project Management NZ | PM Services",
+    description: "End-to-end construction project management services in NZ. Planning, feasibility, delivery, and PMO support for infrastructure and commercial projects.",
 };
 
 export default function ProjectManagementPage() {

@@ -20,9 +20,9 @@ export const metadata: Metadata = {
     metadataBase: new URL("https://theagilenest.com"),
     title: {
         template: '%s | TheAgileNest',
-        default: 'TheAgileNest Project Management, Cost Estimation & Professional Training',
+        default: 'PMP Training & Project Management Consulting NZ | TheAgileNest',
     },
-    description: "TheAgileNest delivers expert PMP certification training, precision AI driven construction cost estimation, and strategic project management consulting. Empowering professionals and optimizing project outcomes globally.",
+    description: "NZ-based PMP certification training, construction cost estimation & project management consulting. PMI Authorised Training Partner serving professionals globally.",
     keywords: ["TheAgileNest", "PMP Certification Training", "Construction Cost Estimation", "Project Management Consulting", "PMO Services", "AI Cost Advisory", "Professional Project Training"],
     openGraph: {
         title: "TheAgileNest | Professional Project Management Services",

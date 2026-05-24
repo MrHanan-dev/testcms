@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { blogPosts, BlogPost } from '@/data/blogPosts.tsx'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://TheAgileNest.com'
+    const baseUrl = 'https://theagilenest.com'
 
     // Static pages
     const staticRoutes: MetadataRoute.Sitemap = [

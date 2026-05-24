@@ -36,37 +36,37 @@ const CARD_VARIANTS = {
 
 const schedules = [
     {
-        month: "March 2026",
+        month: "June 2026",
         course: "PMP® Certification Bootcamp",
-        dates: "March 14, 15, 21, 22",
-        time: "9:00 AM - 5:00 PM (NZDT)",
+        dates: "June 13, 14, 20, 21",
+        time: "9:00 AM - 5:00 PM (NZST)",
         format: "Live Virtual",
         status: "Filling Fast",
         link: "#register"
     },
     {
-        month: "April 2026",
-        course: "PMP® Certification Bootcamp",
-        dates: "April 11, 12, 18, 19",
-        time: "9:00 AM - 5:00 PM (NZDT)",
-        format: "Live Virtual",
-        status: "Open",
-        link: "#register"
-    },
-    {
-        month: "May 2026",
-        course: "PMP® Certification Bootcamp",
-        dates: "May 9, 10, 16, 17",
-        time: "9:00 AM - 5:00 PM (NZDT)",
-        format: "Live Virtual",
-        status: "Open",
-        link: "#register"
-    },
-    {
-        month: "May 2026",
+        month: "June 2026",
         course: "CAPM® Foundation Course",
-        dates: "May 23, 24",
-        time: "9:00 AM - 5:00 PM (NZDT)",
+        dates: "June 27, 28",
+        time: "9:00 AM - 5:00 PM (NZST)",
+        format: "Live Virtual",
+        status: "Open",
+        link: "#register"
+    },
+    {
+        month: "July 2026",
+        course: "PMP® Certification Bootcamp",
+        dates: "July 11, 12, 18, 19",
+        time: "9:00 AM - 5:00 PM (NZST)",
+        format: "Live Virtual",
+        status: "Open",
+        link: "#register"
+    },
+    {
+        month: "July 2026",
+        course: "PMI-CP® Certification Bootcamp",
+        dates: "July 25, 26",
+        time: "9:00 AM - 5:00 PM (NZST)",
         format: "Live Virtual",
         status: "Open",
         link: "#register"

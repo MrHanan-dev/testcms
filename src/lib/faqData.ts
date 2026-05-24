@@ -3,6 +3,189 @@ export type FAQItem = {
     answer: string;
 };
 
+export const blogFaqs: Record<string, FAQItem[]> = {
+    "agile-project-management-construction-2026": [
+        {
+            question: "What is agile project management in construction?",
+            answer: "Agile project management in construction adapts iterative planning, continuous collaboration, and rapid response to change from software methodologies to the built environment. While physical construction can't be 'refactored' like code, agile principles are applied effectively in pre-construction, design phases, and trade execution to reduce waste and improve project value delivery."
+        },
+        {
+            question: "How can agile methods be applied to construction projects?",
+            answer: "Agile methods work well in construction during design sprints, daily stand-up coordination meetings, iterative stakeholder reviews, and adaptive procurement planning. Key applications include breaking large phases into smaller sprints, implementing continuous feedback loops, and using rolling wave planning for uncertain future work packages."
+        },
+        {
+            question: "What are the benefits of agile in construction?",
+            answer: "Construction teams using agile principles report improved adaptability to supply chain disruptions, enhanced communication between site managers and subcontractors, reduced delays through early bottleneck identification, and real-time risk mitigation. These benefits translate directly to better cost control and schedule performance on complex projects."
+        },
+        {
+            question: "Do I need PMP certification to implement agile construction methods?",
+            answer: "While not mandatory, PMP certification provides the formal framework needed to integrate agile practices with traditional construction governance. The PMP exam now covers agile, hybrid, and predictive approaches, making it ideal for construction professionals who want to lead modern, adaptive project teams."
+        }
+    ],
+    "pmi-cp-certification-guide-nz": [
+        {
+            question: "What are the prerequisites for PMI-CP certification?",
+            answer: "The PMI-CP certification requires a secondary degree (high school diploma or equivalent) along with 60 months of unique professional construction project management experience within the last 8 years, or a four-year degree with 36 months of experience. You also need 35 hours of construction project management education."
+        },
+        {
+            question: "How is PMI-CP different from PMP certification?",
+            answer: "While PMP is a general project management certification applicable across all industries, PMI-CP is specifically designed for the construction sector. PMI-CP focuses on construction-specific domains including contracts management, construction stakeholder engagement, scope management for built environments, and construction project execution with lean principles."
+        },
+        {
+            question: "How long does it take to prepare for the PMI-CP exam?",
+            answer: "Most candidates need 8–12 weeks of structured study to prepare for the PMI-CP exam. TheAgileNest's training programs are designed to be completed in 4–6 weeks with live instruction, mock exams, and practical case studies focused on real construction scenarios."
+        },
+        {
+            question: "Is the PMI-CP certification worth it for NZ construction professionals?",
+            answer: "Yes. With New Zealand's growing infrastructure pipeline and increasing demand for qualified construction managers, PMI-CP certification signals advanced expertise to employers and clients. It's particularly valuable for professionals working on large-scale commercial, infrastructure, and industrial projects."
+        }
+    ],
+    "construction-cost-estimation-pitfalls": [
+        {
+            question: "What is the most common cost estimation mistake in construction?",
+            answer: "Optimism bias is the most common and costly estimation mistake. Estimators often assume best-case scenarios for productivity, weather, and material delivery, leading to under-budgeted projects. Using historical data from similar projects and applying realistic contingency based on formal risk assessment is the best countermeasure."
+        },
+        {
+            question: "How can I improve my construction cost estimation accuracy?",
+            answer: "Improve accuracy by using detailed Work Breakdown Structures (WBS), implementing rigorous peer review processes, leveraging historical data from comparable projects, accounting for market volatility with escalation clauses, and engaging professional quantity surveyors early in the project lifecycle."
+        },
+        {
+            question: "What is quantity surveying and why is it important?",
+            answer: "Quantity surveying is the professional discipline of managing construction project costs throughout the project lifecycle. A quantity surveyor provides accurate cost estimates, prepares Bills of Quantities, manages valuations, and advises on value engineering opportunities. Professional QS involvement is critical for preventing cost overruns and ensuring commercial viability."
+        },
+        {
+            question: "How does TheAgileNest help with cost estimation in NZ?",
+            answer: "TheAgileNest provides professional cost estimation and quantity surveying services tailored to the New Zealand construction market. Our experts use current local market data, comprehensive risk assessment, and decades of industrial experience to deliver accurate, reliable estimates that help you bid with confidence and build with certainty."
+        }
+    ],
+    "pmbok-7th-vs-8th-edition-changes-pmp-exam": [
+        {
+            question: "What is the main difference between PMBOK 7th and 8th edition?",
+            answer: "The PMBOK 7th Edition shifted from process-based to principle-based management with 12 project management principles. The 8th Edition is expected to deepen this shift with greater emphasis on value delivery, AI and automation integration, sustainability (ESG criteria), and systems thinking. Both editions focus on outcomes over outputs."
+        },
+        {
+            question: "Will PMBOK 8th edition affect my PMP exam preparation?",
+            answer: "PMI typically provides a transition period when new editions are released. Current PMP exam content is based on the Exam Content Outline (ECO), which is updated periodically. TheAgileNest continuously updates its curriculum to align with the latest PMI standards, ensuring your training remains relevant regardless of edition changes."
+        },
+        {
+            question: "How is AI changing project management according to the new PMBOK?",
+            answer: "AI and automation are shifting the project manager's role from tactical scheduler to strategic advisor. The PMBOK 8th Edition framework is expected to provide guidelines on ethically integrating AI for predictive analytics, risk modeling, and routine administrative tasks, freeing project managers to focus on leadership, emotional intelligence, and complex problem-solving."
+        },
+        {
+            question: "Is my current PMP training still valid with the new PMBOK edition?",
+            answer: "Yes. PMP certification is based on the Exam Content Outline, not directly on a specific PMBOK edition. The fundamental principles of project management remain stable across editions. TheAgileNest's training covers core PMP concepts that transcend edition changes, while incorporating the latest thinking on value delivery, agile methodologies, and emerging trends."
+        }
+    ],
+    "how-to-scale-pmo-case-study": [
+        {
+            question: "What is a PMO and why do growing companies need one?",
+            answer: "A Project Management Office (PMO) is a centralized department that establishes and maintains project management standards across an organization. Growing companies need PMOs to prevent missed deadlines, misaligned priorities, and resource conflicts that commonly emerge as teams scale beyond informal coordination."
+        },
+        {
+            question: "How does a PMO improve project delivery?",
+            answer: "A well-implemented PMO improves delivery by standardizing tooling and processes, providing executive visibility into project health, enabling data-driven resource allocation, and creating knowledge-sharing frameworks that prevent repeated mistakes. TheAgileNest's case study showed a 30% improvement in on-time delivery within six months."
+        },
+        {
+            question: "What is a Value Management Office (VMO)?",
+            answer: "A VMO is a modern evolution of the traditional PMO that focuses specifically on the continuous flow of business value rather than just administrative compliance. It emphasizes strategic alignment, value measurement, and adaptive governance to ensure project portfolios deliver measurable business outcomes."
+        },
+        {
+            question: "Can TheAgileNest help establish a PMO for my organisation?",
+            answer: "Yes. TheAgileNest specializes in designing and implementing PMOs and VMOs tailored to your organisation's size, industry, and strategic goals. Our consultants bring decades of experience across construction, technology, and infrastructure sectors to build governance models that empower teams rather than restrict them."
+        }
+    ],
+    "project-timeline-management-pmp-techniques": [
+        {
+            question: "What is project timeline management?",
+            answer: "Project timeline management is the process of defining, sequencing, estimating, and controlling the duration of project activities to ensure timely delivery. It includes creating a Work Breakdown Structure, identifying dependencies, determining the critical path, and continuously monitoring progress against the schedule baseline."
+        },
+        {
+            question: "What is the critical path method in project scheduling?",
+            answer: "The Critical Path Method (CPM) identifies the longest sequence of dependent activities in a project schedule. Any delay on the critical path directly delays the entire project. CPM is essential for focusing management attention on the activities that truly determine project completion date."
+        },
+        {
+            question: "How does PMP certification help with schedule management?",
+            answer: "PMP certification provides a structured framework for schedule management, including tools like Earned Value Management (EVM), schedule network analysis, Monte Carlo simulation, and schedule compression techniques (crashing and fast-tracking). These tools enable PMP-certified professionals to build realistic schedules and respond effectively to delays."
+        },
+        {
+            question: "What are the most common scheduling mistakes?",
+            answer: "The five most common scheduling mistakes are: building optimistic 'happy path' schedules, ignoring resource constraints, failing to establish a baseline schedule, treating the schedule as a static document, and disconnecting the schedule from cost management. TheAgileNest's training addresses all five pitfalls with practical solutions."
+        }
+    ],
+    "project-planning-vs-execution-pmp-strategies": [
+        {
+            question: "Why is execution harder than planning in project management?",
+            answer: "Execution is harder because it involves coordinating real people, materials, and systems under uncertain conditions. While planning deals with theoretical models, execution faces weather delays, supply chain disruptions, labour shortages, and stakeholder conflicts. PMP-certified professionals are trained to maintain strategic direction while adapting execution tactics."
+        },
+        {
+            question: "How do PMP-certified managers bridge planning and execution?",
+            answer: "PMP professionals use tools like real-time performance tracking, unified communication protocols, technical leadership delegation, and quality control gates to ensure execution aligns with planning. They establish feedback loops that detect divergence early and enable corrective action before small issues become costly problems."
+        },
+        {
+            question: "What are the key components of a project execution strategy?",
+            answer: "An effective execution strategy includes strategic alignment with business goals, risk anticipation processes, resource optimization frameworks, stakeholder consensus on success metrics, and continuous performance monitoring using metrics like Schedule Variance (SV) and Cost Performance Index (CPI)."
+        },
+        {
+            question: "How does TheAgileNest train professionals for project execution?",
+            answer: "TheAgileNest's training combines PMP certification preparation with practical execution masterclasses. Our programs cover advanced planning workshops, integrated cost-schedule management, and real-world case studies from construction and consulting. We prepare professionals not just to pass exams but to deliver multi-million dollar projects successfully."
+        }
+    ],
+    "proactive-project-planning-prevent-chaos": [
+        {
+            question: "What is proactive planning in project management?",
+            answer: "Proactive planning is the systematic process of anticipating project challenges and preparing responses before they occur. It includes comprehensive scope definition, realistic schedule development, accurate cost estimation, and thorough risk management. PMP-certified professionals use proactive planning to prevent chaos rather than react to it."
+        },
+        {
+            question: "How does clear planning reduce project chaos?",
+            answer: "Clear planning reduces chaos by establishing a shared understanding of project scope, timelines, budgets, and responsibilities. It prevents scope creep, resource conflicts, and communication breakdowns. Well-planned projects have the flexibility to adapt to changes without descending into crisis management mode."
+        },
+        {
+            question: "What are the signs of poor project planning?",
+            answer: "Common signs include uncontrolled scope creep, frequent resource conflicts, unidentified risks emerging as major obstacles, stakeholders working with different expectations, and budget overruns due to unforeseen complications. Organizations that rush into execution without adequate planning typically experience these warning signs within the first 30% of project completion."
+        },
+        {
+            question: "How can TheAgileNest help improve my project planning skills?",
+            answer: "TheAgileNest offers comprehensive PMP certification training and consulting services focused on practical planning skills. Our programs cover scope definition, schedule development, cost estimation, risk management, and stakeholder engagement. We emphasize real-world application through case studies and hands-on workshops."
+        }
+    ],
+    "strategy-to-delivery-pmp-framework": [
+        {
+            question: "How do you turn strategy into actionable project plans?",
+            answer: "Turning strategy into action requires translating high-level goals into a clear project scope, delivery plan, and measurable outcomes. This involves defining specific outcomes, structuring work packages using proven project management practices, executing with disciplined review cadences, and using performance metrics to refine the approach in real time."
+        },
+        {
+            question: "What are the four pillars of actionable strategy?",
+            answer: "The four pillars are: (1) Purposeful Planning — translating goals into clear scope and delivery plans; (2) Value-Based Prioritization — focusing effort on high-value work; (3) Integrated Delivery — aligning planning, execution, and financial controls; and (4) Continuous Adaptation — updating the approach as new information arrives without losing sight of the original ambition."
+        },
+        {
+            question: "How does PMP certification help with strategic project delivery?",
+            answer: "PMP certification teaches professionals to translate project objectives into plans that can be executed, monitored, and controlled. The PMBOK framework provides the structure, while TheAgileNest's training adds the practical skills: stakeholder alignment, rigorous cost management, and integrated execution governance."
+        },
+        {
+            question: "What is the role of cost estimation in strategic delivery?",
+            answer: "Cost estimation is critical for strategic delivery because it links strategic objectives to financial reality. Accurate construction cost estimation ensures that strategic ambitions are grounded in commercial viability. Professional quantity surveying provides the financial discipline needed to deliver projects within budget while achieving strategic goals."
+        }
+    ],
+    "planning-foundations-prevent-costly-corrections": [
+        {
+            question: "What is front-end loading (FEL) in project planning?",
+            answer: "Front-End Loading (FEL) is the practice of investing disproportionately in planning, design, and stakeholder alignment before committing to full execution. Projects with high FEL scores statistically outperform their peers by 20–40% in cost and schedule performance. TheAgileNest teaches FEL as a core project management discipline."
+        },
+        {
+            question: "How much does poor planning cost in construction?",
+            answer: "The construction industry loses billions annually to rework, with 5–15% of total project costs consumed by correcting work done incorrectly the first time. Defects caught in the planning phase cost a fraction of what they cost to correct during execution, and a tiny fraction of what they cost if they reach the client during handover."
+        },
+        {
+            question: "What is an integrated baseline review (IBR)?",
+            answer: "An Integrated Baseline Review (IBR) is a structured process that validates alignment between a project's scope, schedule, and budget before execution begins. It ensures the delivery team has a shared, documented understanding of success metrics. TheAgileNest recommends scheduling an IBR within 90 days of project authorization."
+        },
+        {
+            question: "How does PMP certification improve planning outcomes?",
+            answer: "PMP certification equips professionals with scope baseline development, schedule network analysis, cost baseline integration with EVM, quality management planning, and risk response planning capabilities. These competencies ensure that planning foundations are robust enough to prevent costly corrections during execution."
+        }
+    ]
+};
+
 export const globalFaqs: Record<string, FAQItem[]> = {
     default: [
         {

@@ -19,14 +19,14 @@ type Slide = {
 
 const slides: Slide[] = [
   {
-    src: "https://www.theagilenest.com/wp-content/uploads/2025/10/ag2-3.jpg",
+    src: "/images/TheAgileNest_hero_main_1771222013046.png",
     alt: "Expert Project Management Consulting",
     tag: "Project Management",
     headline: "Strategic Planning.\nPrecision Delivery. Total Control.",
     description: "From inception to completion, we provide the leadership and expertise required to navigate high-stakes projects and achieve outstanding business outcomes.",
   },
   {
-    src: "https://www.theagilenest.com/wp-content/uploads/2025/10/ag1-3.jpg",
+    src: "/images/TheAgileNest_pmp_training_1771222055265.png",
     alt: "Professional training session backdrop from TheAgileNest",
     tag: "Professional Training",
     headline: "Hands On Training.\nReal Results. Certified Success.",

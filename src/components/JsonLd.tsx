@@ -1,35 +1,53 @@
 export default function JsonLd() {
     const jsonLd = {
         "@context": "https://schema.org",
-        "@type": "ProfessionalService",
+        "@type": "Organization",
         "name": "TheAgileNest",
         "url": "https://theagilenest.com",
         "logo": "https://theagilenest.com/favicon.png",
-        "image": "https://www.theagilenest.com/wp-content/uploads/2025/10/ag2-3.jpg",
-        "description": "Premium PMP certification training and AI driven construction cost estimation services.",
+        "image": "https://theagilenest.com/images/TheAgileNest_hero_main_1771222013046.png",
+        "description": "Premium PMP certification training, quantity surveying, and project management consulting services.",
         "telephone": "+64 9 620 7678",
         "priceRange": "$$",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "15 Idlewild Ave Mangere",
-            "addressLocality": "Auckland",
-            "addressRegion": "Auckland",
-            "addressCountry": "NZ"
-        },
+        "address": [
+            {
+                "@type": "PostalAddress",
+                "addressCountry": "NZ",
+                "addressLocality": "Auckland",
+                "addressRegion": "Auckland",
+                "streetAddress": "15 Idlewild Ave Mangere",
+                "postalCode": "2022"
+            },
+            {
+                "@type": "PostalAddress",
+                "addressCountry": "AU",
+                "addressLocality": "Perth",
+                "addressRegion": "WA"
+            },
+            {
+                "@type": "PostalAddress",
+                "addressCountry": "PK",
+                "addressLocality": "Islamabad",
+                "addressRegion": "Islamabad"
+            }
+        ],
+        "areaServed": ["NZ", "AU", "PK"],
         "contactPoint": [
             {
                 "@type": "ContactPoint",
                 "telephone": "+64 9 620 7678",
-                "contactType": "customer service"
+                "contactType": "customer service",
+                "areaServed": "NZ"
             },
             {
                 "@type": "ContactPoint",
                 "telephone": "+64 27 353 7774",
-                "contactType": "customer service"
+                "contactType": "customer service",
+                "areaServed": "NZ"
             }
         ],
         "sameAs": [
-            "https://www.linkedin.com/company/theagilenest",
+            "https://www.linkedin.com/company/theagilenest"
         ],
         "offers": [
             {
@@ -39,8 +57,23 @@ export default function JsonLd() {
             },
             {
                 "@type": "Offer",
+                "name": "CAPM Certification Training",
+                "description": "Entry-level project management certification"
+            },
+            {
+                "@type": "Offer",
+                "name": "PMI-CP Certification Training",
+                "description": "Construction project management certification"
+            },
+            {
+                "@type": "Offer",
                 "name": "Construction Cost Management",
                 "description": "Precision cost management and quantity surveying"
+            },
+            {
+                "@type": "Offer",
+                "name": "Project Management Consulting",
+                "description": "Expert PM advisory and consulting services"
             }
         ]
     };

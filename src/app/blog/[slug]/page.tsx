@@ -3,9 +3,12 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowLeft, Tag, Calendar, User } from 'lucide-react';
+import { ArrowLeft, Tag, Calendar, User, ChevronDown } from 'lucide-react';
 import { blogPosts } from '@/data/blogPosts.tsx';
 import { notFound } from 'next/navigation';
+import JsonLdArticle from '@/components/JsonLdArticle';
+import JsonLdFaq from '@/components/JsonLdFaq';
+import { blogFaqs } from '@/lib/faqData';
 
 interface Props {
     params: Promise<{ slug: string }>;
@@ -29,6 +32,20 @@ export default async function BlogPostPage({ params }: Props) {
     return (
         <div className="min-h-screen bg-white font-sans text-slate-900">
             <Header />
+
+            <JsonLdArticle
+                title={post.title}
+                description={post.abstract}
+                url={`https://theagilenest.com/blog/${post.slug}`}
+                imageUrl={post.imageUrl}
+                datePublished={post.date}
+                authorName={post.author}
+                category={post.category}
+            />
+
+            {blogFaqs[post.slug] && blogFaqs[post.slug].length > 0 && (
+                <JsonLdFaq items={blogFaqs[post.slug]} />
+            )}
 
             <main className="pt-28 pb-24">
                 <article className="container-custom max-w-3xl">
@@ -81,6 +98,28 @@ export default async function BlogPostPage({ params }: Props) {
                     <div className="prose prose-lg max-w-none prose-slate prose-headings:text-primary prose-headings:font-black prose-a:text-accent hover:prose-a:text-primary prose-strong:text-primary">
                         {post!.content ?? <p>Full article content coming soon.</p>}
                     </div>
+
+                    {/* FAQ Section */}
+                    {blogFaqs[post.slug] && blogFaqs[post.slug].length > 0 && (
+                        <div className="mt-16 pt-12 border-t border-slate-100">
+                            <h2 className="text-2xl md:text-3xl font-black text-primary mb-8">
+                                Frequently Asked Questions
+                            </h2>
+                            <div className="space-y-4">
+                                {blogFaqs[post.slug].map((faq, idx) => (
+                                    <details key={idx} className="group bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden open:shadow-sm transition-all">
+                                        <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none font-bold text-primary hover:text-accent transition-colors">
+                                            <span className="text-[15px] leading-snug">{faq.question}</span>
+                                            <ChevronDown size={18} className="text-slate-400 shrink-0 group-open:rotate-180 transition-transform" />
+                                        </summary>
+                                        <div className="px-6 pb-5 text-[15px] text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
+                                            {faq.answer}
+                                        </div>
+                                    </details>
+                                ))}
+                            </div>
+                        </div>
+                    )}
                 </article>
             </main>
 

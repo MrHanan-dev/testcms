@@ -21,7 +21,7 @@ export default function TrustBar() {
               <div key={index} className="mx-16 w-40 h-16 relative transition-all duration-500 hover:scale-110">
                 <Image
                   src={src}
-                  alt="Client Logo"
+                  alt="Client organization logo"
                   fill
                   className="object-contain"
                 />
