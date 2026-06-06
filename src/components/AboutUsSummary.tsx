@@ -83,7 +83,7 @@ export default function AboutUsSummary() {
                         
                         <div className="mt-8 md:mt-10 pt-8 md:pt-10 border-t border-slate-200/60 grid md:grid-cols-2 gap-8 md:gap-10">
                             <div>
-                                <h4 className="text-primary font-black uppercase tracking-widest text-xs mb-4">Certification Training</h4>
+                                <h4 className="text-primary font-black uppercase tracking-widest text-base mb-4">Certification Training</h4>
                                 <div className="space-y-3">
                                     {["PMP® Certification", "CAPM® Certification", "PMI-CP® Construction"].map((c, i) => (
                                         <div key={i} className="flex items-center gap-2 text-sm font-bold text-slate-600">
@@ -93,7 +93,7 @@ export default function AboutUsSummary() {
                                 </div>
                             </div>
                             <div>
-                                <h4 className="text-primary font-black uppercase tracking-widest text-xs mb-4">Tailored Consultancy</h4>
+                                <h4 className="text-primary font-black uppercase tracking-widest text-base mb-4">Tailored Consultancy</h4>
                                 <div className="space-y-3 text-sm font-bold text-slate-600">
                                     <p>PMO Setup • Project Controls • Cost Estimation • Commercial Advisory • Contract Management</p>
                                 </div>

@@ -75,7 +75,7 @@ function ClientsSection() {
     <div className="bg-white py-12 border-t border-slate-100 overflow-hidden">
       <div className="container-custom">
         <div className="text-center mb-8">
-          <h4 className="text-primary font-black text-xs uppercase tracking-[0.2em] opacity-60">Our Clients belong to</h4>
+          <h4 className="text-primary font-black text-3xl md:text-4xl uppercase tracking-[0.2em] opacity-60">Our Clients belong to</h4>
         </div>
         <div className="relative flex overflow-x-hidden group marquee-mask">
           <div className="flex animate-marquee whitespace-nowrap py-4">
@@ -163,7 +163,7 @@ export default function Footer({ hideContactForm = false, hideClients = false }:
             {/* Links Columns */}
             <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12">
               <div>
-                <h4 className="text-white font-black mb-8 text-xs uppercase tracking-[0.2em] opacity-50">Our services</h4>
+                <h4 className="text-white font-black mb-8 text-base uppercase tracking-[0.2em] opacity-50">Our services</h4>
                 <ul className="space-y-4">
                   {footerLinks.ourServices.map((link) => (
                     <li key={link.label}>
@@ -174,7 +174,7 @@ export default function Footer({ hideContactForm = false, hideClients = false }:
               </div>
 
               <div>
-                <h4 className="text-white font-black mb-8 text-xs uppercase tracking-[0.2em] opacity-50">Training</h4>
+                <h4 className="text-white font-black mb-8 text-base uppercase tracking-[0.2em] opacity-50">Training</h4>
                 <ul className="space-y-4">
                   {footerLinks.trainingServices.map((link) => (
                     <li key={link.label}>
@@ -185,7 +185,7 @@ export default function Footer({ hideContactForm = false, hideClients = false }:
               </div>
 
               <div>
-                <h4 className="text-white font-black mb-8 text-xs uppercase tracking-[0.2em] opacity-50">Resources</h4>
+                <h4 className="text-white font-black mb-8 text-base uppercase tracking-[0.2em] opacity-50">Resources</h4>
                 <ul className="space-y-4">
                   {footerLinks.resources.map((link) => (
                     <li key={link.label}>
@@ -196,7 +196,7 @@ export default function Footer({ hideContactForm = false, hideClients = false }:
               </div>
 
               <div>
-                <h4 className="text-white font-black mb-8 text-xs uppercase tracking-[0.2em] opacity-50">Contact</h4>
+                <h4 className="text-white font-black mb-8 text-base uppercase tracking-[0.2em] opacity-50">Contact</h4>
                 <div className="space-y-8">
                   <div className="flex gap-4">
                     <MapPin size={20} className="text-accent shrink-0 mt-1" />

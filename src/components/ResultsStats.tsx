@@ -31,7 +31,7 @@ export default function ResultsStats() {
                             <div className="text-4xl md:text-6xl lg:text-7xl font-black text-accent mb-4 tracking-tighter">
                                 {stat.value}{stat.suffix}
                             </div>
-                            <div className="text-white/60 text-xs md:text-sm font-black uppercase tracking-[0.3em]">
+                            <div className="text-white/60 text-base md:text-xl font-black uppercase tracking-[0.2em]">
                                 {stat.label}
                             </div>
                         </motion.div>
