@@ -93,7 +93,7 @@ export default function BentoGrid() {
                         className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white border border-slate-200 shadow-sm mb-6 md:mb-10"
                     >
                         <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                        <span className="text-[11px] font-black uppercase tracking-[0.3em] text-primary">Our Expertise</span>
+                        <span className="text-2xl md:text-3xl font-black uppercase tracking-[0.3em] text-primary">Our Expertise</span>
                     </motion.div>
                     
                     <motion.h2 
@@ -149,7 +149,7 @@ export default function BentoGrid() {
                             {/* Content Hierarchy */}
                             <div className="relative z-10 flex-1">
                                 <motion.span 
-                                    className={`text-[10px] font-black uppercase tracking-[0.4em] mb-4 block transition-colors duration-500 ${service.isDark ? 'text-accent' : 'text-accent'}`}
+                                    className={`text-sm font-black uppercase tracking-[0.4em] mb-4 block transition-colors duration-500 ${service.isDark ? 'text-accent' : 'text-accent'}`}
                                 >
                                     {service.subtitle}
                                 </motion.span>

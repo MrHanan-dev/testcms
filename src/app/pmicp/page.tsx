@@ -55,7 +55,7 @@ export default function PmiCpPage() {
                     {/* Description Section - matches PMP/CAPM layout */}
                     <section id="details" className="grid md:grid-cols-2 gap-16 items-center">
                         <div>
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/20 text-primary font-bold text-sm mb-6">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/20 text-primary font-bold text-2xl md:text-3xl mb-6">
                                 <HardHat size={16} /> Construction Excellence
                             </div>
                             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6 leading-tight">
@@ -109,10 +109,7 @@ export default function PmiCpPage() {
                     {/* ── PMI-CP Eligibility Requirements ── */}
                     <section className="bg-white rounded-3xl border border-slate-100 shadow-sm p-10 md:p-14">
                         <div className="mb-10">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/20 text-primary font-bold text-sm mb-4">
-                                <Check size={16} /> Eligibility Requirements
-                            </div>
-                            <h2 className="text-3xl md:text-4xl font-black text-primary mb-3">Who Can Apply for the PMI-CP?</h2>
+                            <h2 className="text-3xl md:text-5xl font-black text-primary mb-4">Eligibility Requirements</h2>
                             <p className="text-slate-500 text-lg font-medium max-w-2xl">
                                 The PMI-CP requires construction-specific project experience. Choose the pathway matching your education background.
                             </p>
@@ -298,7 +295,7 @@ export default function PmiCpPage() {
                         <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary via-accent to-primary"></div>
                         
                         <div className="max-w-4xl mx-auto mb-20">
-                            <span className="text-accent font-black tracking-[0.3em] uppercase text-xs mb-6 block">TheAgileNest Advantage</span>
+                            <span className="text-accent font-black tracking-[0.3em] uppercase text-2xl md:text-3xl mb-6 block">TheAgileNest Advantage</span>
                             <h2 className="text-4xl md:text-5xl font-black text-primary mb-8">Why Train with TheAgileNest</h2>
                             <p className="text-slate-600 text-xl leading-relaxed font-bold italic mb-6">
                                 We are a Premium Authorised Training Partner (A.T.P.) for the global Project Management Institute (PMI).

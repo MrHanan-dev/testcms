@@ -84,7 +84,7 @@ export default function TrainingSchedule() {
                     variants={FADE_IN_UP}
                     className="max-w-3xl mb-16"
                 >
-                    <span className="text-accent font-extrabold tracking-[0.2em] uppercase text-[10px] mb-6 block">Upcoming Batches</span>
+                    <span className="text-accent font-extrabold tracking-[0.2em] uppercase text-2xl md:text-3xl mb-6 block">Upcoming Batches</span>
                     <h2 className="text-4xl md:text-5xl font-black text-primary leading-tight">
                         Monthly Training Schedule
                     </h2>

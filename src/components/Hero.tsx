@@ -183,7 +183,7 @@ export default function Hero() {
                     className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/10 border border-white/10 mb-6 md:mb-8"
                 >
                     <div className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-                    <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/90">
+                    <span className="text-sm font-black uppercase tracking-[0.3em] text-white/90">
                         {slide.tag}
                     </span>
                 </motion.div>

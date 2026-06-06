@@ -51,7 +51,7 @@ export default function PmpPage() {
                     {/* Description Section - Adapted from PMI-CP */}
                     <section id="details" className="grid lg:grid-cols-5 gap-16 lg:gap-24 items-start">
                         <div className="lg:col-span-3">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/20 text-primary font-bold text-sm mb-6">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/20 text-primary font-bold text-2xl md:text-3xl mb-6">
                                 <ShieldCheck size={16} /> Project Excellence
                             </div>
                             <h2 className="text-3xl md:text-5xl font-black text-primary mb-4 leading-tight">
@@ -144,11 +144,8 @@ export default function PmpPage() {
                     {/* ── PMP Eligibility Requirements ── */}
                     <section className="bg-white rounded-[32px] md:rounded-[40px] border border-slate-100 shadow-sm p-6 sm:p-10 md:p-16">
                         <div className="mb-12">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/20 text-primary font-bold text-sm mb-4">
-                                <Check size={16} /> Eligibility Criteria
-                            </div>
-                            <h2 className="text-3xl md:text-5xl font-black text-primary mb-4">Who Can Apply for the PMP?</h2>
-                            <p className="text-slate-500 text-lg font-medium max-w-3xl">
+                            <h2 className="text-3xl md:text-5xl font-black text-primary mb-4">Eligibility Criteria</h2>
+                            <p className="text-slate-500 text-lg font-medium max-w-3xl mt-4">
                                 The PMP requires both project management education and documented experience. Choose the pathway that matches your background.
                             </p>
                         </div>
@@ -484,7 +481,7 @@ export default function PmpPage() {
                         <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary via-accent to-primary"></div>
                         
                         <div className="max-w-4xl mx-auto mb-20">
-                            <span className="text-accent font-black tracking-[0.3em] uppercase text-xs mb-6 block">Why Choose Agile Nest</span>
+                            <span className="text-accent font-black tracking-[0.3em] uppercase text-2xl md:text-3xl mb-6 block">Why Choose Agile Nest</span>
                             <h2 className="text-4xl md:text-5xl font-black text-primary mb-8">PMP® Training Features</h2>
                             <h3 className="text-xl font-bold text-slate-400 mb-10 uppercase tracking-widest">Why Train with TheAgileNest</h3>
                             

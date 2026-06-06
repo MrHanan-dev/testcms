@@ -50,7 +50,7 @@ export default function CertificationLogos() {
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-primary/5 text-[10px] font-black uppercase tracking-[0.4em] text-primary mb-8"
+                        className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-primary/5 text-2xl md:text-3xl font-black uppercase tracking-[0.4em] text-primary mb-8"
                     >
                         Elite Credentials
                     </motion.div>
