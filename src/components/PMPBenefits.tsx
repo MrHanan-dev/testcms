@@ -136,7 +136,7 @@ export default function PMPBenefits() {
                     <div className="bg-white p-10 rounded-[40px] border border-slate-100 shadow-sm flex flex-col justify-center items-center text-center space-y-6">
                         <h4 className="text-xl font-bold text-primary">Need more info?</h4>
                         <p className="text-slate-500 font-medium">Download the latest PMP® Examination Content Outline (ECO).</p>
-                        <a href="/pmp-examination-content-outline.pdf" className="text-accent font-black hover:underline inline-flex items-center gap-2 group">
+                        <a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf?rev=b274ffaa9ffa4635924169cbc6bcdfae" target="_blank" className="text-accent font-black hover:underline inline-flex items-center gap-2 group">
                             Download PDF
                             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                         </a>
