@@ -88,26 +88,26 @@ export default function ProjectManagementPage() {
         }
     ];
 
-    const valueProps = [
+    const consultancyServices = [
         {
-            title: "Collective Experience",
-            desc: "17 years of collective project experience and a reputation for delivering outcomes.",
-            icon: Star
+            title: "Project Management Consultancy",
+            desc: "We help improve project delivery with planning, governance, controls, reporting, and leadership from start to finish.",
+            icon: Briefcase
         },
         {
-            title: "Safe Pair of Hands",
-            desc: "A proven track record of delivering successful outcomes for our global clients.",
-            icon: Award
+            title: "Construction Consultancy",
+            desc: "Expert advice across construction projects, including contract administration, budgeting, procurement, programme management, delays, claims, and delivery strategy. We help clients reduce risk and improve project outcomes.",
+            icon: Network
         },
         {
-            title: "Breadth of Services",
-            desc: "The sheer breadth of our services helps to de-risk client projects through every phase.",
-            icon: Globe
+            title: "Digital / AI Advisory",
+            desc: "We modernise operations with AI tools, automation, dashboards, and digital reporting systems.",
+            icon: Zap
         },
         {
-            title: "People-Centric",
-            desc: "Recognised as global thought leaders with a 100% focus on client success and momentum.",
-            icon: Heart
+            title: "Contract Administration",
+            desc: "We manage contracts, obligations, variations, payments, compliance, and correspondence to protect performance.",
+            icon: FileCheck
         }
     ];
 
@@ -203,31 +203,31 @@ export default function ProjectManagementPage() {
                     </div>
                 </section>
 
-                {/* Why TheAgileNest Section */}
+                {/* Consultancy Services Section */}
                 <section className="py-32 bg-white">
                     <div className="container-custom">
                         <div className="grid lg:grid-cols-5 gap-16 items-start">
                             <div className="lg:col-span-2 space-y-8">
-                                <span className="label-tag">Why TheAgileNest</span>
+                                <span className="label-tag">Consultancy Services</span>
                                 <h2 className="text-4xl md:text-5xl font-black text-primary leading-[1.1] tracking-tight">
-                                    Proven expertise.<br />We love what we do
+                                    Practical &<br />Outcome-Focused Advice
                                 </h2>
                                 <p className="text-slate-500 text-lg leading-relaxed">
-                                    With decades of collective project experience and a reputation for delivering outcomes, we’ve built a legacy that’s only growing.
+                                    We deliver practical consultancy services that help organisations overcome challenges, boost performance, and achieve measurable results. Drawing on real-world commercial experience and strategic thinking, we guide clients through project delivery, construction, governance, operations, and business transformation.
                                 </p>
                                 <p className="text-slate-500 text-lg leading-relaxed">
-                                    Some of the largest and most successful organisations use TheAgileNest because we offer a safe pair of hands and a people-centric culture.
+                                    We tailor our practical, outcome-focused advice to each organisation’s goals. We partner with clients to seize opportunities, mitigate risks, strengthen systems, and generate sustainable outcomes that drive long-term value.
                                 </p>
                             </div>
 
                             <div className="lg:col-span-3 grid sm:grid-cols-2 gap-8">
-                                {valueProps.map((prop, i) => (
+                                {consultancyServices.map((service, i) => (
                                     <div key={i} className="p-8 rounded-[40px] bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-xl transition-all group">
                                         <div className="bg-white p-4 w-16 h-16 rounded-2xl shadow-sm mb-6 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
-                                            <prop.icon size={28} />
+                                            <service.icon size={28} />
                                         </div>
-                                        <h3 className="text-xl font-black text-primary mb-3">{prop.title}</h3>
-                                        <p className="text-slate-500 leading-relaxed text-sm font-medium">{prop.desc}</p>
+                                        <h3 className="text-xl font-black text-primary mb-3">{service.title}</h3>
+                                        <p className="text-slate-500 leading-relaxed text-sm font-medium">{service.desc}</p>
                                     </div>
                                 ))}
                             </div>

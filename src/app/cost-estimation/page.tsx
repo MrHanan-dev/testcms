@@ -20,6 +20,7 @@ interface IService {
     desc: string;
     image: string;
     icon?: LucideIcon;
+    containImage?: boolean;
 }
 
 export default function CostEstimationPage() {
@@ -43,6 +44,7 @@ export default function CostEstimationPage() {
             title: "Fully Tendered Jobs",
             desc: "Looking for a reliable and quality driven construction contractor? TheAgileNest has you covered. We offer comprehensive tendering services to ensure you get the best value for your investment. We transform design concepts into detailed bid documents and facilitate subcontractor interviews.",
             image: "/images/constructionTenderProcess.png",
+            containImage: true,
         },
         {
             title: "Contract Admin Services",
@@ -99,7 +101,7 @@ export default function CostEstimationPage() {
                                                         src={service.image}
                                                         alt={service.title}
                                                         fill
-                                                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                                        className={`transition-transform duration-700 group-hover:scale-105 ${service.containImage ? 'object-contain p-4' : 'object-cover'}`}
                                                     />
                                                 </div>
                                             </div>

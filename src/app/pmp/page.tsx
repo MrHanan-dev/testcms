@@ -43,7 +43,7 @@ export default function PmpPage() {
                     gradientClass="from-primary to-primary-700"
                     buttonColorText="text-primary"
                     badgeImage="/certifications/pmp.webp"
-                    downloadLink="/pmp-examination-content-outline.pdf"
+                    downloadLink="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf?rev=b274ffaa9ffa4635924169cbc6bcdfae"
                 />
 
                 <div className="container-custom mt-12 md:mt-20 space-y-20 md:space-y-32">
@@ -181,7 +181,7 @@ export default function PmpPage() {
                                         <div>
                                             <h4 className="font-bold text-primary mb-1 text-sm uppercase tracking-wider">Mandatory Training</h4>
                                             <p className="text-slate-500 text-xs leading-relaxed">
-                                                Must also complete 35 hours of formal training aligned with the <a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/project-management-professional-exam-outline.pdf" target="_blank" className="text-accent font-bold hover:underline">PMP Certification Exam Content Outline (ECO)</a>.
+                                                Must also complete 35 hours of formal training aligned with the <a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf?rev=b274ffaa9ffa4635924169cbc6bcdfae" target="_blank" className="text-accent font-bold hover:underline">PMP Certification Exam Content Outline (ECO)</a>.
                                             </p>
                                             <p className="text-[10px] text-primary font-bold mt-2 flex items-center gap-1">
                                                 <Check size={10} strokeWidth={4} /> The Agile Nest provides 35 contact hours & completion certificate.
@@ -221,7 +221,7 @@ export default function PmpPage() {
                                         <div>
                                             <h4 className="font-bold text-primary mb-1 text-sm uppercase tracking-wider">Mandatory Training</h4>
                                             <p className="text-slate-500 text-xs leading-relaxed">
-                                                Must also complete 35 hours of formal training aligned with the <a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/project-management-professional-exam-outline.pdf" target="_blank" className="text-accent font-bold hover:underline">PMP Certification Exam Content Outline (ECO)</a>.
+                                                Must also complete 35 hours of formal training aligned with the <a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf?rev=b274ffaa9ffa4635924169cbc6bcdfae" target="_blank" className="text-accent font-bold hover:underline">PMP Certification Exam Content Outline (ECO)</a>.
                                             </p>
                                             <p className="text-[10px] text-primary font-bold mt-2 flex items-center gap-1">
                                                 <Check size={10} strokeWidth={4} /> The Agile Nest provides 35 contact hours & completion certificate.
@@ -261,7 +261,7 @@ export default function PmpPage() {
                                         <div>
                                             <h4 className="font-bold text-primary mb-1 text-sm uppercase tracking-wider">Mandatory Training</h4>
                                             <p className="text-slate-500 text-xs leading-relaxed">
-                                                Must also complete 35 hours of formal training aligned with the <a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/project-management-professional-exam-outline.pdf" target="_blank" className="text-accent font-bold hover:underline">PMP Certification Exam Content Outline (ECO)</a>.
+                                                Must also complete 35 hours of formal training aligned with the <a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf?rev=b274ffaa9ffa4635924169cbc6bcdfae" target="_blank" className="text-accent font-bold hover:underline">PMP Certification Exam Content Outline (ECO)</a>.
                                             </p>
                                             <p className="text-[10px] text-primary font-bold mt-2 flex items-center gap-1">
                                                 <Check size={10} strokeWidth={4} /> The Agile Nest provides 35 contact hours & completion certificate.
@@ -301,7 +301,7 @@ export default function PmpPage() {
                                         <div>
                                             <h4 className="font-bold text-primary mb-1 text-sm uppercase tracking-wider">Mandatory Training</h4>
                                             <p className="text-slate-500 text-xs leading-relaxed">
-                                                Must also complete 35 hours of formal training aligned with the <a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/project-management-professional-exam-outline.pdf" target="_blank" className="text-accent font-bold hover:underline">PMP Certification Exam Content Outline (ECO)</a>.
+                                                Must also complete 35 hours of formal training aligned with the <a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf?rev=b274ffaa9ffa4635924169cbc6bcdfae" target="_blank" className="text-accent font-bold hover:underline">PMP Certification Exam Content Outline (ECO)</a>.
                                             </p>
                                             <p className="text-[10px] text-primary font-bold mt-2 flex items-center gap-1">
                                                 <Check size={10} strokeWidth={4} /> The Agile Nest provides 35 contact hours & completion certificate.
@@ -389,7 +389,7 @@ export default function PmpPage() {
                                 <div className="absolute bottom-0 left-0 w-32 h-32 bg-accent/10 rounded-full blur-2xl -ml-10 -mb-10"></div>
 
                                 <h3 className="text-3xl font-black mb-8 relative z-10 flex items-center gap-3">
-                                    What's Included
+                                    What We Offer
                                     <div className="h-1 w-12 bg-accent rounded-full"></div>
                                 </h3>
                                 <ul className="space-y-6 relative z-10">
