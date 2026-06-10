@@ -30,7 +30,7 @@ const CONTAINER_VARIANTS = {
 const services = [
     {
         icon: Network,
-        title: "Project Mannnnngement Consultancy",
+        title: "Project Management Consultancy",
         subtitle: "Precision Execution",
         description: "Planning, leadership, controls, and delivery support for successful outcomes.",
         href: "/project-management",
