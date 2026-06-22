@@ -23,6 +23,7 @@ import { BoldFeatureClient as BoldFeatureClient_e70f5e05f09f93e00b997edb1ef0c864
 import { ItalicFeatureClient as ItalicFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
 import { Icon as Icon_bb4a6dfe2e3bc47281e927a2d94b700c } from '../../../components/payload/Brand'
 import { Logo as Logo_bb4a6dfe2e3bc47281e927a2d94b700c } from '../../../components/payload/Brand'
+import { CrmDashboard as CrmDashboard_126605c836679a9195dd3b4607a47223 } from '../../../components/payload/CrmDashboard'
 import { CollectionCards as CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1 } from '@payloadcms/next/rsc'
 
 /** @type import('payload').ImportMap */
@@ -52,5 +53,6 @@ export const importMap = {
   "@payloadcms/richtext-lexical/client#ItalicFeatureClient": ItalicFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "/components/payload/Brand#Icon": Icon_bb4a6dfe2e3bc47281e927a2d94b700c,
   "/components/payload/Brand#Logo": Logo_bb4a6dfe2e3bc47281e927a2d94b700c,
+  "/components/payload/CrmDashboard#CrmDashboard": CrmDashboard_126605c836679a9195dd3b4607a47223,
   "@payloadcms/next/rsc#CollectionCards": CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1
 }

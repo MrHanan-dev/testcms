@@ -13,10 +13,14 @@ export const Leads: CollectionConfig = {
   admin: {
     group: "CRM",
     useAsTitle: "name",
-    defaultColumns: ["name", "email", "status", "formType", "createdAt"],
-    // Newest enquiries first.
+    // Show the message preview right in the list so the team can triage at a glance.
+    defaultColumns: ["name", "email", "message", "status", "formType", "createdAt"],
+    // Search across the things you'd actually search a CRM by.
+    listSearchableFields: ["name", "email", "phone", "company", "subject", "message"],
     pagination: { defaultLimit: 25 },
   },
+  // Newest enquiries first in the list.
+  defaultSort: "-createdAt",
   access: {
     read: ({ req: { user } }) => Boolean(user),
     create: ({ req: { user } }) => Boolean(user), // server persists via overrideAccess
@@ -24,81 +28,85 @@ export const Leads: CollectionConfig = {
     delete: ({ req: { user } }) => Boolean(user),
   },
   fields: [
+    // ── Main column: who they are + what they said ──────────────────────────
     {
       type: "row",
       fields: [
         { name: "name", type: "text", admin: { width: "50%" } },
-        {
-          name: "status",
-          type: "select",
-          defaultValue: "new",
-          admin: { width: "50%" },
-          options: [
-            { label: "New", value: "new" },
-            { label: "Contacted", value: "contacted" },
-            { label: "Qualified", value: "qualified" },
-            { label: "Won", value: "won" },
-            { label: "Lost", value: "lost" },
-          ],
-        },
-      ],
-    },
-    {
-      type: "row",
-      fields: [
-        // Plain text (not validated 'email') so a malformed address never causes
-        // a lead to be lost on capture.
         { name: "email", type: "text", admin: { width: "50%" } },
-        { name: "phone", type: "text", admin: { width: "50%" } },
       ],
     },
     {
       type: "row",
       fields: [
+        { name: "phone", type: "text", admin: { width: "50%" } },
         { name: "company", type: "text", admin: { width: "50%" } },
-        {
-          name: "formType",
-          type: "text",
-          admin: { width: "50%", description: "Which form the enquiry came from." },
-        },
       ],
     },
-    { name: "subject", type: "text", admin: { description: "Course / project / batch of interest." } },
-    { name: "message", type: "textarea" },
     {
-      name: "assignedTo",
-      type: "relationship",
-      relationTo: "users",
-      admin: { description: "Team member responsible for following up." },
+      name: "subject",
+      type: "text",
+      admin: { description: "Course / project / batch of interest." },
+    },
+    {
+      name: "message",
+      type: "textarea",
+      admin: { description: "The enquiry message the visitor submitted.", rows: 6 },
     },
     {
       name: "notes",
       type: "array",
       labels: { singular: "Note", plural: "Notes" },
-      admin: { description: "Internal follow-up notes / activity." },
+      admin: { description: "Internal follow-up notes / activity log." },
       fields: [
         { name: "note", type: "textarea", required: true },
         {
-          name: "addedBy",
-          type: "relationship",
-          relationTo: "users",
-          admin: { width: "50%" },
-        },
-        {
-          name: "at",
-          type: "date",
-          defaultValue: () => new Date().toISOString(),
-          admin: { width: "50%", date: { pickerAppearance: "dayAndTime" } },
+          type: "row",
+          fields: [
+            { name: "addedBy", type: "relationship", relationTo: "users", admin: { width: "50%" } },
+            {
+              name: "at",
+              type: "date",
+              defaultValue: () => new Date().toISOString(),
+              admin: { width: "50%", date: { pickerAppearance: "dayAndTime" } },
+            },
+          ],
         },
       ],
     },
     {
       name: "raw",
       type: "json",
+      label: "Raw submission",
       admin: {
         description: "Full submitted payload (reference).",
         readOnly: true,
       },
+    },
+    // ── Sidebar: pipeline / triage ──────────────────────────────────────────
+    {
+      name: "status",
+      type: "select",
+      defaultValue: "new",
+      admin: { position: "sidebar", description: "Where this lead is in your pipeline." },
+      options: [
+        { label: "🟦 New", value: "new" },
+        { label: "🟨 Contacted", value: "contacted" },
+        { label: "🟧 Qualified", value: "qualified" },
+        { label: "🟩 Won", value: "won" },
+        { label: "⬜ Lost", value: "lost" },
+      ],
+    },
+    {
+      name: "assignedTo",
+      type: "relationship",
+      relationTo: "users",
+      admin: { position: "sidebar", description: "Owner responsible for follow-up." },
+    },
+    {
+      name: "formType",
+      type: "text",
+      admin: { position: "sidebar", readOnly: true, description: "Form the enquiry came from." },
     },
   ],
 };
