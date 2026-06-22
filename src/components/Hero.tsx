@@ -17,7 +17,9 @@ type Slide = {
   isCollage?: boolean;
 };
 
-const slides: Slide[] = [
+// Built-in default slides — used when the CMS Home global has no hero slides,
+// so the live hero is identical until the client edits it.
+const FALLBACK_SLIDES: Slide[] = [
   {
     src: "/images/TheAgileNest_hero_main_1771222013046.png",
     alt: "Expert Project Management Consulting",
@@ -89,16 +91,18 @@ const itemVariants: Variants = {
   },
 };
 
-export default function Hero() {
+export default function Hero({ slides: cmsSlides }: { slides?: Slide[] } = {}) {
+  // Use CMS-managed slides when provided, otherwise the built-in defaults.
+  const slides = cmsSlides && cmsSlides.length > 0 ? cmsSlides : FALLBACK_SLIDES;
   const [current, setCurrent] = useState(0);
 
   const next = useCallback(() => {
     setCurrent((prev) => (prev + 1) % slides.length);
-  }, []);
+  }, [slides.length]);
 
   const prev = useCallback(() => {
     setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
-  }, []);
+  }, [slides.length]);
 
   useEffect(() => {
     const timer = setInterval(next, 6000);

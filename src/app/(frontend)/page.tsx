@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
+import { getHome } from '@/lib/payload';
 import FeatureStrip from '@/components/FeatureStrip';
 import TrustBar from '@/components/TrustBar';
 import BentoGrid from '@/components/BentoGrid';
@@ -13,12 +14,33 @@ import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
 import JsonLdFaq from '@/components/JsonLdFaq';
 
-export default function Home() {
+type HeroSlideDoc = {
+    variant?: 'image' | 'infographic' | 'collage';
+    image?: { url?: string } | string | null;
+    alt?: string;
+    tag?: string;
+    headline?: string;
+    description?: string;
+};
+
+export default async function Home() {
+    // Editable hero slides from the CMS; Hero falls back to its defaults if empty.
+    const home = await getHome();
+    const heroSlides = ((home?.heroSlides as HeroSlideDoc[]) ?? []).map((s) => ({
+        src: s.image && typeof s.image === 'object' ? s.image.url ?? '' : '',
+        alt: s.alt ?? '',
+        tag: s.tag ?? '',
+        headline: s.headline ?? '',
+        description: s.description ?? '',
+        isInfographic: s.variant === 'infographic',
+        isCollage: s.variant === 'collage',
+    }));
+
     return (
         <>
             <Header variant="transparent" />
             <main>
-                <Hero />
+                <Hero slides={heroSlides} />
                 <FeatureStrip />
                 {/* <TrustBar /> */}
                 <BentoGrid />
