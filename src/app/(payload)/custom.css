@@ -1,0 +1,23 @@
+/* Brand overrides for the Payload admin — nudges the default monochrome theme
+ * toward TheAgileNest navy/cyan so the CMS/CRM feels on-brand. Scoped to admin
+ * via this file being imported only in the (payload) layout. */
+:root,
+[data-theme="light"] {
+  /* Accent / interactive colour used for links, active states, focus. */
+  --theme-success-500: #0b3c5d;
+  --theme-success-600: #072a40;
+  /* Focus ring + selection lean to the brand cyan. */
+  --color-blue-500: #55c5e7;
+}
+
+/* Primary action buttons in the brand navy. */
+[data-theme="light"] .btn--style-primary {
+  --color-base-1000: #0b3c5d;
+  --color-base-800: #072a40;
+}
+
+/* Brand-tint the active nav item. */
+.nav__link--active,
+.nav a[aria-current="page"] {
+  color: #0b3c5d;
+}
