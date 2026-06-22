@@ -8,6 +8,17 @@ import config from "@payload-config";
  * Wrapped defensively: if Payload/DB is unreachable, page lookups return null so
  * the caller can fall back rather than crashing the site.
  */
+/** Site-wide settings global (logo, contact, socials). Null-safe. */
+export async function getSiteSettings() {
+  try {
+    const payload = await getPayload({ config });
+    return await payload.findGlobal({ slug: "siteSettings", depth: 1 });
+  } catch (err) {
+    console.error("[payload] getSiteSettings failed:", (err as Error).message);
+    return null;
+  }
+}
+
 export async function getPageBySlug(slug: string, draft = false) {
   try {
     const payload = await getPayload({ config });
