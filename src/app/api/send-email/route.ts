@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { getPayload } from 'payload';
+import config from '@payload-config';
 
 // Configure the Gmail SMTP transporter with more robust settings
 const transporter = nodemailer.createTransport({
@@ -28,6 +30,35 @@ export async function POST(req: Request) {
             ...data,
             files: data.files?.map((f: any) => ({ name: f.name, size: f.size, type: f.type })) || []
         };
+
+        // Persist the enquiry into the CRM (Leads). Wrapped so a CMS/DB hiccup can
+        // never break the visitor-facing form — the email + response are unchanged.
+        try {
+            const payload = await getPayload({ config });
+            const name =
+                data.fullName ||
+                [data.firstName, data.lastName].filter(Boolean).join(' ').trim() ||
+                data.email ||
+                'Unknown';
+            await payload.create({
+                collection: 'leads',
+                overrideAccess: true,
+                data: {
+                    name,
+                    email: data.email,
+                    phone: data.phone,
+                    company: data.organization || data.company,
+                    formType: data.formType,
+                    subject: data.courseName || data.projectName || data.preferredBatch,
+                    message: data.message,
+                    status: 'new',
+                    raw: cleanData,
+                },
+            });
+            console.log('✓ Lead saved to CRM');
+        } catch (crmError: any) {
+            console.error('Lead persistence failed (non-fatal):', crmError?.message);
+        }
 
         // If credentials are provided, send the actual email
         if (gmailUser && gmailPass) {
