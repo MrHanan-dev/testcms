@@ -25,8 +25,19 @@ const dirname = path.dirname(filename);
 export default buildConfig({
   admin: {
     user: Users.slug,
+    // Resolve custom admin component paths relative to /src.
+    importMap: {
+      baseDir: path.resolve(dirname),
+    },
     meta: {
-      titleSuffix: "— TheAgileNest",
+      titleSuffix: " — TheAgileNest CMS",
+      icons: [{ rel: "icon", url: "/favicon.png" }],
+    },
+    components: {
+      graphics: {
+        Logo: "/components/payload/Brand#Logo",
+        Icon: "/components/payload/Brand#Icon",
+      },
     },
   },
   collections: [Pages, Users, Media],
