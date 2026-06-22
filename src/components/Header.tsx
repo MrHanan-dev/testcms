@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ContactLink from './ContactLink';
+import { useSiteSettings } from './site/SiteSettingsProvider';
 
 const HEADER_VARIANTS = {
   hidden: { y: -20, opacity: 0 },
@@ -127,6 +128,8 @@ export default function Header({ variant = "solid" }: { variant?: "solid" | "tra
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const dropdownTimeout = useRef<NodeJS.Timeout | null>(null);
+  // Logo is editable via Site Settings in the CMS; fall back to the bundled logo.
+  const { logoUrl } = useSiteSettings();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -157,11 +160,12 @@ export default function Header({ variant = "solid" }: { variant?: "solid" | "tra
         <Link href="/" className="relative z-50 flex items-center group">
           <div className="relative flex-shrink-0 flex items-center justify-center">
             <Image
-              src="/1.png"
+              src={logoUrl || "/1.png"}
               alt="TheAgileNest Logo"
               width={180}
               height={56}
               className="w-auto h-12 md:h-14 object-contain transition-transform duration-500 group-hover:scale-105"
+              unoptimized={Boolean(logoUrl)}
             />
           </div>
         </Link>
