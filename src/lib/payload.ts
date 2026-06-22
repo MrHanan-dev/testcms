@@ -8,6 +8,17 @@ import config from "@payload-config";
  * Wrapped defensively: if Payload/DB is unreachable, page lookups return null so
  * the caller can fall back rather than crashing the site.
  */
+/** Editable Home page content (hero slides, …). Null-safe. */
+export async function getHome() {
+  try {
+    const payload = await getPayload({ config });
+    return await payload.findGlobal({ slug: "home", depth: 1 });
+  } catch (err) {
+    console.error("[payload] getHome failed:", (err as Error).message);
+    return null;
+  }
+}
+
 /** Site-wide settings global (logo, contact, socials). Null-safe. */
 export async function getSiteSettings() {
   try {
