@@ -12,7 +12,7 @@ export const Home: GlobalConfig = {
   slug: "home",
   label: "Home Page",
   access: { read: () => true },
-  admin: { group: "Pages" },
+  admin: { group: "Site Content" },
   fields: [
     {
       name: "heroSlides",
