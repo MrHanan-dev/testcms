@@ -14,6 +14,7 @@ export const SiteSettings: GlobalConfig = {
   access: {
     read: () => true,
   },
+  admin: { group: "Site Content" },
   fields: [
     {
       type: "tabs",
