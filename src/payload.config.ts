@@ -39,6 +39,8 @@ export default buildConfig({
         Logo: "/components/payload/Brand#Logo",
         Icon: "/components/payload/Brand#Icon",
       },
+      // Branded CRM summary at the top of the admin dashboard.
+      beforeDashboard: ["/components/payload/CrmDashboard#CrmDashboard"],
     },
   },
   collections: [Pages, Leads, Users, Media],
