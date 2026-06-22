@@ -6,20 +6,29 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "types-check": "tsc --noEmit"
+    "types-check": "tsc --noEmit",
+    "payload": "payload",
+    "generate:types": "payload generate:types",
+    "generate:importmap": "payload generate:importmap"
   },
   "dependencies": {
+    "@payloadcms/db-postgres": "^3.85.1",
+    "@payloadcms/next": "^3.85.1",
+    "@payloadcms/richtext-lexical": "^3.85.1",
     "clsx": "^2.1.1",
     "framer-motion": "^11.18.2",
+    "graphql": "^16.14.2",
     "lucide-react": "^0.564.0",
     "motion-dom": "^12.34.3",
     "motion-utils": "^12.29.2",
-    "next": "16.1.6",
+    "next": "^16.2.9",
     "nodemailer": "^8.0.1",
+    "payload": "^3.85.1",
     "pdfmake": "^0.3.9",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "resend": "^6.9.2",
+    "sharp": "^0.35.2",
     "tailwind-merge": "^3.4.1"
   },
   "devDependencies": {

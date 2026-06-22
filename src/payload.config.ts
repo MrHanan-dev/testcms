@@ -1,0 +1,43 @@
+import path from "path";
+import { fileURLToPath } from "url";
+
+import { postgresAdapter } from "@payloadcms/db-postgres";
+import { lexicalEditor } from "@payloadcms/richtext-lexical";
+import { buildConfig } from "payload";
+import sharp from "sharp";
+
+import { Users } from "./collections/Users";
+import { Media } from "./collections/Media";
+
+const filename = fileURLToPath(import.meta.url);
+const dirname = path.dirname(filename);
+
+/**
+ * Payload CMS configuration — the WordPress-like admin for the whole site.
+ *
+ * Phase 0 (this commit) stands up the foundation: Postgres (Neon) connection,
+ * authentication (Users), and a Media library, with the admin served at /admin
+ * inside this same Next.js app. Page-builder blocks, the blog, and the CRM
+ * collections are layered on in later phases.
+ */
+export default buildConfig({
+  admin: {
+    user: Users.slug,
+    meta: {
+      titleSuffix: "— TheAgileNest",
+    },
+  },
+  collections: [Users, Media],
+  editor: lexicalEditor(),
+  secret: process.env.PAYLOAD_SECRET || "",
+  typescript: {
+    outputFile: path.resolve(dirname, "payload-types.ts"),
+  },
+  db: postgresAdapter({
+    pool: {
+      connectionString: process.env.DATABASE_URI || "",
+    },
+  }),
+  // Sharp powers image resizing for the media library.
+  sharp,
+});
