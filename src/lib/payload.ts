@@ -72,3 +72,37 @@ export async function getPageBySlug(slug: string, draft = false) {
     return null;
   }
 }
+
+/** All blog posts for the listing page. Null-safe — returns [] on failure. */
+export async function getPosts() {
+  try {
+    const payload = await getPayload({ config });
+    const result = await payload.find({
+      collection: "posts",
+      limit: 100,
+      depth: 1,
+      sort: "-createdAt",
+    });
+    return result.docs as Record<string, unknown>[];
+  } catch (err) {
+    console.error("[payload] getPosts failed:", (err as Error).message);
+    return [];
+  }
+}
+
+/** Single blog post by slug. Null-safe. */
+export async function getPostBySlug(slug: string) {
+  try {
+    const payload = await getPayload({ config });
+    const result = await payload.find({
+      collection: "posts",
+      where: { slug: { equals: slug } },
+      limit: 1,
+      depth: 1,
+    });
+    return (result.docs[0] as Record<string, unknown> | undefined) ?? null;
+  } catch (err) {
+    console.error("[payload] getPostBySlug failed:", (err as Error).message);
+    return null;
+  }
+}

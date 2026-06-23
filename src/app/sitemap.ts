@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next'
-import { blogPosts, BlogPost } from '@/data/blogPosts.tsx'
+import { blogPostsMeta } from '@/data/blogPostsMeta'
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://theagilenest.com'
@@ -26,7 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
 
     // Dynamic blog posts
-    const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((post: BlogPost) => ({
+    const blogRoutes: MetadataRoute.Sitemap = blogPostsMeta.map((post) => ({
         url: `${baseUrl}/blog/${post.slug}`,
         lastModified: new Date(),
         changeFrequency: 'weekly',

@@ -9,6 +9,7 @@ import sharp from "sharp";
 import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";
 import { Pages } from "./collections/Pages";
+import { Posts } from "./collections/Posts";
 import { Leads } from "./collections/Leads";
 import { SiteSettings } from "./globals/SiteSettings";
 import { Home } from "./globals/Home";
@@ -54,7 +55,7 @@ export default buildConfig({
       beforeDashboard: ["/components/payload/CrmDashboard#CrmDashboard"],
     },
   },
-  collections: [Pages, Leads, Users, Media],
+  collections: [Pages, Posts, Leads, Users, Media],
   globals: [SiteSettings, Home, About, Consulting, ProjectManagement, CostEstimation, ContractManagement, Training, Pmp, Capm, PmiCp, Partner],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
