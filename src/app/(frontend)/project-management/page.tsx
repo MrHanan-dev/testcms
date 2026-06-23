@@ -1,152 +1,117 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ServiceHero from '@/components/ServiceHero';
-import Link from 'next/link';
 import ContactLink from '@/components/ContactLink';
 import PMFAQ from '@/components/PMFAQ';
-import { Check, Users, Target, Briefcase, BarChart3, ShieldCheck, Network, Layout, RefreshCw, Zap, Search, FileCheck, Star, Heart, Award, Globe } from 'lucide-react';
+import { Check, Users, Target, Briefcase, BarChart3, ShieldCheck, Network, Layout, RefreshCw, Zap, Search, FileCheck } from 'lucide-react';
 import { Metadata } from 'next';
+import { getGlobal } from '@/lib/payload';
+import { PM_CONTENT } from '@/data/pmContent';
 
 export const metadata: Metadata = {
     title: "Construction Project Management NZ | PM Services",
     description: "End-to-end construction project management services in NZ. Planning, feasibility, delivery, and PMO support for infrastructure and commercial projects.",
 };
 
-export default function ProjectManagementPage() {
-    const subServices = [
-        {
-            title: "Project Planning & Feasibility",
-            desc: "Projects succeed with clear planning, sound assumptions, and early decisions. We help shape projects from concept to feasibility by testing options, defining scope, setting budgets, and making delivery strategies realistic.",
-            bullets: ["Project scoping and objectives definition", "Feasibility studies and option analysis", "Budget development and cost planning", "Site due diligence reviews", "Delivery strategy development", "Business case preparation", "Early risk identification", "Programme and milestone planning"],
-            icon: Target,
-            color: "text-blue-600",
-            bgColor: "bg-blue-50"
-        },
-        {
-            title: "Design & Pre-Construction Management",
-            desc: "Effective design and pre-construction coordination reduce delays, prevent redesign, and improve buildability. We coordinate consultants, approvals, budgets, and programmes to prepare projects for construction.",
-            bullets: ["Consultant team coordination", "Design programme management", "Value engineering workshops", "Buildability reviews", "Resource and procurement planning", "Authority consent coordination", "Scope alignment and design control", "Pre-construction readiness planning"],
-            icon: Layout,
-            color: "text-teal-600",
-            bgColor: "bg-teal-50"
-        },
-        {
-            title: "Procurement & Tender Management",
-            desc: "Selecting the right contractors and suppliers is key. We manage procurement to create competition, lower risk, and secure value.",
-            bullets: ["Procurement strategy development", "Contractor prequalification", "Tender documentation preparation", "Bid management and clarifications", "Tender evaluation and scoring", "Supplier selection", "Contract negotiations", "Award recommendations"],
-            icon: Search,
-            color: "text-purple-600",
-            bgColor: "bg-purple-50"
-        },
-        {
-            title: "Construction Delivery Management",
-            desc: "During construction, strong leadership and control are essential to achieving time, cost, quality, and safety objectives. We provide hands-on project management support throughout delivery to keep work progressing efficiently.",
-            bullets: ["Principal’s representative services", "Contractor coordination", "Site progress monitoring", "Quality oversight", "Programme tracking", "Issue and change management", "Performance reporting", "Delivery assurance reviews"],
-            icon: Briefcase,
-            color: "text-orange-600",
-            bgColor: "bg-orange-50"
-        },
-        {
-            title: "Cost Control & Commercial Management",
-            desc: "We protect project budgets with active management from start to finish. Our accurate cost tracking and oversight let clients stay confident and in control.",
-            bullets: ["Budget tracking and reporting", "Variations management", "Payment claim assessments", "Forecast final cost reporting", "Cashflow planning and monitoring", "Claims management", "Contract administration support", "Final account negotiations"],
-            icon: BarChart3,
-            color: "text-green-600",
-            bgColor: "bg-green-50"
-        },
-        {
-            title: "Programme & Schedule Control",
-            desc: "Time certainty is critical. Our controls team sets realistic programmes and tracks milestones to meet timelines. We spot delays early, analyse impacts, and apply recovery plans to safeguard project timelines.",
-            bullets: ["Master programme development", "Baseline schedule setup", "Progress monitoring", "Critical path analysis", "Delay impact assessments", "Recovery planning", "Milestone reporting", "Executive dashboard reporting"],
-            icon: RefreshCw,
-            color: "text-red-600",
-            bgColor: "bg-red-50"
-        },
-        {
-            title: "Risk Management",
-            desc: "Risk management protects project outcomes, budgets, and certainty. Our team covers cost, programme, commercial, operational, and delivery risks across the lifecycle.",
-            bullets: ["Risk identification workshops", "Risk registers", "Qualitative and quantitative assessments", "Contingency modelling", "Mitigation planning", "Risk ownership allocation", "Contract risk reviews", "Ongoing risk monitoring"],
-            icon: ShieldCheck,
-            color: "text-indigo-600",
-            bgColor: "bg-indigo-50"
-        },
-        {
-            title: "Stakeholder & Governance Management",
-            desc: "Good governance and strong communication support fast decisions and effective project leadership. We set frameworks that give clients confidence and control.",
-            bullets: ["Client reporting frameworks", "Steering committee packs", "Governance meeting management", "Stakeholder communication plans", "Council/authority liaison", "Decision tracking", "Executive dashboards", "Project assurance reviews"],
-            icon: Users,
-            color: "text-pink-600",
-            bgColor: "bg-pink-50"
-        },
-        {
-            title: "Handover & Closeout",
-            desc: "The final delivery stage secures project value. We manage handover and closeout to ensure assets are operational, defects are resolved, and contracts are wrapped up efficiently.",
-            bullets: ["Defects management", "Commissioning coordination", "Practical completion management", "O&M manuals coordination", "Final accounts closeout", "Contract completion reviews", "Lessons learned workshops", "Operational readiness support"],
-            icon: FileCheck,
-            color: "text-cyan-600",
-            bgColor: "bg-cyan-50"
-        }
-    ];
+const orUndef = (v: unknown): string | undefined => (typeof v === 'string' && v.length > 0 ? v : undefined);
 
-    const consultancyServices = [
-        {
-            title: "Project Management Consultancy",
-            desc: "We help improve project delivery with planning, governance, controls, reporting, and leadership from start to finish.",
-            icon: Briefcase
-        },
-        {
-            title: "Construction Consultancy",
-            desc: "Expert advice across construction projects, including contract administration, budgeting, procurement, programme management, delays, claims, and delivery strategy. We help clients reduce risk and improve project outcomes.",
-            icon: Network
-        },
-        {
-            title: "Digital / AI Advisory",
-            desc: "We modernise operations with AI tools, automation, dashboards, and digital reporting systems.",
-            icon: Zap
-        },
-        {
-            title: "Contract Administration",
-            desc: "We manage contracts, obligations, variations, payments, compliance, and correspondence to protect performance.",
-            icon: FileCheck
-        }
-    ];
+// Icons/colours are the design (fixed by position); all text comes from PM_CONTENT.
+const SUB_META = [
+    { icon: Target, color: "text-blue-600", bgColor: "bg-blue-50" },
+    { icon: Layout, color: "text-teal-600", bgColor: "bg-teal-50" },
+    { icon: Search, color: "text-purple-600", bgColor: "bg-purple-50" },
+    { icon: Briefcase, color: "text-orange-600", bgColor: "bg-orange-50" },
+    { icon: BarChart3, color: "text-green-600", bgColor: "bg-green-50" },
+    { icon: RefreshCw, color: "text-red-600", bgColor: "bg-red-50" },
+    { icon: ShieldCheck, color: "text-indigo-600", bgColor: "bg-indigo-50" },
+    { icon: Users, color: "text-pink-600", bgColor: "bg-pink-50" },
+    { icon: FileCheck, color: "text-cyan-600", bgColor: "bg-cyan-50" },
+];
+const CONS_ICONS = [Briefcase, Network, Zap, FileCheck];
+
+export default async function ProjectManagementPage() {
+    const c = await getGlobal('projectManagementPage');
+
+    const heroTitle = orUndef(c.heroTitle) ?? PM_CONTENT.heroTitle;
+    const heroDescription = orUndef(c.heroDescription) ?? PM_CONTENT.heroDescription;
+    const heroBreadcrumb = orUndef(c.heroBreadcrumb) ?? PM_CONTENT.heroBreadcrumb;
+    const helpEyebrow = orUndef(c.helpEyebrow) ?? PM_CONTENT.helpEyebrow;
+    const helpHeadingLine1 = orUndef(c.helpHeadingLine1) ?? PM_CONTENT.helpHeadingLine1;
+    const helpHeadingLine2 = orUndef(c.helpHeadingLine2) ?? PM_CONTENT.helpHeadingLine2;
+    const helpIntro = orUndef(c.helpIntro) ?? PM_CONTENT.helpIntro;
+    const helpLeftPara1 = orUndef(c.helpLeftPara1) ?? PM_CONTENT.helpLeftPara1;
+    const helpLeftPara2 = orUndef(c.helpLeftPara2) ?? PM_CONTENT.helpLeftPara2;
+    const helpButtonText = orUndef(c.helpButtonText) ?? PM_CONTENT.helpButtonText;
+    const sectorTitle = orUndef(c.sectorTitle) ?? PM_CONTENT.sectorTitle;
+    const sectorText = orUndef(c.sectorText) ?? PM_CONTENT.sectorText;
+
+    const gridHeading = orUndef(c.gridHeading) ?? PM_CONTENT.gridHeading;
+    const gridSubtitle = orUndef(c.gridSubtitle) ?? PM_CONTENT.gridSubtitle;
+    const cmsSub = c.subServices as { title?: string; desc?: string; bullets?: { text: string }[] }[] | undefined;
+    const subServices = PM_CONTENT.subServices.map((base, i) => {
+        const s = cmsSub?.[i];
+        const meta = SUB_META[i];
+        return {
+            ...meta,
+            title: s?.title || base.title,
+            desc: s?.desc || base.desc,
+            bullets: s?.bullets && s.bullets.length > 0 ? s.bullets.map((b) => b.text) : base.bullets,
+        };
+    });
+
+    const consEyebrow = orUndef(c.consEyebrow) ?? PM_CONTENT.consEyebrow;
+    const consHeadingLine1 = orUndef(c.consHeadingLine1) ?? PM_CONTENT.consHeadingLine1;
+    const consHeadingLine2 = orUndef(c.consHeadingLine2) ?? PM_CONTENT.consHeadingLine2;
+    const consPara1 = orUndef(c.consPara1) ?? PM_CONTENT.consPara1;
+    const consPara2 = orUndef(c.consPara2) ?? PM_CONTENT.consPara2;
+    const cmsCons = c.consCards as { title?: string; desc?: string }[] | undefined;
+    const consultancyServices = PM_CONTENT.consCards.map((base, i) => ({
+        icon: CONS_ICONS[i],
+        title: cmsCons?.[i]?.title || base.title,
+        desc: cmsCons?.[i]?.desc || base.desc,
+    }));
+
+    const faqItems = (c.faqItems as { question: string; answer: string }[] | undefined);
+    const ctaHeading = orUndef(c.ctaHeading) ?? PM_CONTENT.ctaHeading;
+    const ctaParagraph = orUndef(c.ctaParagraph) ?? PM_CONTENT.ctaParagraph;
+    const ctaButtonText = orUndef(c.ctaButtonText) ?? PM_CONTENT.ctaButtonText;
 
     return (
         <>
             <Header variant="transparent" />
             <main className="min-h-screen bg-white">
                 <ServiceHero
-                    title="Project Management for Construction Project"
-                    description="We offer end-to-end project management, turning ideas into outcomes. From planning and feasibility to procurement, construction, handover, and closeout, we provide structure, clarity, and control."
+                    title={heroTitle}
+                    description={heroDescription}
                     gradientClass="bg-gradient-to-br from-[#0b5c92] to-[#1479be]"
-                    breadcrumb="Our Services"
+                    breadcrumb={heroBreadcrumb}
                 />
 
                 {/* How We Can Help Section */}
                 <section className="py-24 bg-white">
                     <div className="container-custom">
                         <div className="text-center space-y-8 mb-20">
-                            <span className="label-tag mx-auto">How we can help</span>
+                            <span className="label-tag mx-auto">{helpEyebrow}</span>
                             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-primary leading-tight tracking-tight">
-                                Project Management for<br className="hidden md:block" /> Construction Project
+                                {helpHeadingLine1}<br className="hidden md:block" /> {helpHeadingLine2}
                             </h2>
                             <p className="text-slate-600 text-xl md:text-2xl leading-relaxed font-medium max-w-4xl mx-auto">
-                                We offer end-to-end project management, turning ideas into outcomes. From planning and feasibility to procurement, construction, handover, and closeout, we provide structure, clarity, and control.
+                                {helpIntro}
                             </p>
                         </div>
 
                         <div className="grid md:grid-cols-2 gap-12 items-center">
                             <div className="space-y-6">
                                 <p className="text-slate-500 text-lg leading-relaxed">
-                                    Our team works closely with clients, consultants, contractors, and stakeholders to manage scope, programme, cost, risk, quality, and governance across the project lifecycle. By combining strategic oversight and practical delivery, we ensure efficient project completion aligned with business goals.
+                                    {helpLeftPara1}
                                 </p>
                                 <p className="text-slate-500 text-lg leading-relaxed">
-                                    For construction, infrastructure, transformation, or operational projects, we tailor our approach to each project's scale and complexity. Our focus: reduce risk, aid decisions, control costs, and deliver results.
+                                    {helpLeftPara2}
                                 </p>
                                 <ContactLink
                                     className="inline-flex items-center justify-center py-5 px-10 bg-primary text-white font-black rounded-2xl hover:opacity-90 transition-all hover:scale-105 shadow-xl"
                                 >
-                                    Enquire Now
+                                    {helpButtonText}
                                 </ContactLink>
                             </div>
                             <div className="bg-slate-50 p-12 rounded-[50px] border border-slate-100 relative overflow-hidden group">
@@ -155,8 +120,8 @@ export default function ProjectManagementPage() {
                                     <div className="w-20 h-20 bg-white rounded-3xl shadow-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                                         <Briefcase size={40} className="text-blue-600" />
                                     </div>
-                                    <h3 className="text-2xl font-black text-primary mb-4">Sector Expertise</h3>
-                                    <p className="text-slate-500 font-medium">Delivering projects on time, within budget, and built for long-term success.</p>
+                                    <h3 className="text-2xl font-black text-primary mb-4">{sectorTitle}</h3>
+                                    <p className="text-slate-500 font-medium">{sectorText}</p>
                                 </div>
                             </div>
                         </div>
@@ -168,9 +133,9 @@ export default function ProjectManagementPage() {
                     <div className="container-custom">
                         <div className="mb-16">
                             <h2 className="text-3xl md:text-5xl font-black text-primary tracking-tight">
-                                Our project management services
+                                {gridHeading}
                             </h2>
-                            <p className="text-slate-500 mt-4 text-xl font-medium">Helping clients through the delivery of:</p>
+                            <p className="text-slate-500 mt-4 text-xl font-medium">{gridSubtitle}</p>
                         </div>
 
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -185,7 +150,7 @@ export default function ProjectManagementPage() {
                                     <p className="text-slate-500 leading-relaxed font-medium mb-8">
                                         {service.desc}
                                     </p>
-                                    
+
                                     <div className="mt-auto pt-6 border-t border-slate-100">
                                         <p className="text-sm font-bold text-slate-800 mb-4">Our services include:</p>
                                         <ul className="space-y-3">
@@ -208,15 +173,15 @@ export default function ProjectManagementPage() {
                     <div className="container-custom">
                         <div className="grid lg:grid-cols-5 gap-16 items-start">
                             <div className="lg:col-span-2 space-y-8">
-                                <span className="label-tag">Consultancy Services</span>
+                                <span className="label-tag">{consEyebrow}</span>
                                 <h2 className="text-4xl md:text-5xl font-black text-primary leading-[1.1] tracking-tight">
-                                    Practical &<br />Outcome-Focused Advice
+                                    {consHeadingLine1}<br />{consHeadingLine2}
                                 </h2>
                                 <p className="text-slate-500 text-lg leading-relaxed">
-                                    We deliver practical consultancy services that help organisations overcome challenges, boost performance, and achieve measurable results. Drawing on real-world commercial experience and strategic thinking, we guide clients through project delivery, construction, governance, operations, and business transformation.
+                                    {consPara1}
                                 </p>
                                 <p className="text-slate-500 text-lg leading-relaxed">
-                                    We tailor our practical, outcome-focused advice to each organisation’s goals. We partner with clients to seize opportunities, mitigate risks, strengthen systems, and generate sustainable outcomes that drive long-term value.
+                                    {consPara2}
                                 </p>
                             </div>
 
@@ -236,7 +201,12 @@ export default function ProjectManagementPage() {
                 </section>
 
                 {/* FAQ Section */}
-                <PMFAQ />
+                <PMFAQ
+                    eyebrow={orUndef(c.faqEyebrow)}
+                    headingLine1={orUndef(c.faqHeadingLine1)}
+                    headingLine2={orUndef(c.faqHeadingLine2)}
+                    items={faqItems}
+                />
 
                 {/* Get In Touch CTA */}
                 <section className="py-24 container-custom px-4">
@@ -244,16 +214,16 @@ export default function ProjectManagementPage() {
                         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-blue-400/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
                         <div className="relative z-10 max-w-4xl mx-auto space-y-10">
                             <h2 className="text-4xl md:text-6xl font-black leading-tight tracking-tight">
-                                Create the momentum you need to move forward
+                                {ctaHeading}
                             </h2>
                             <p className="text-blue-100 text-xl md:text-2xl font-medium">
-                                Contact us to see how we can help your organisation; we’d love to hear from you.
+                                {ctaParagraph}
                             </p>
                             <div className="pt-4">
                                 <ContactLink
                                     className="inline-flex items-center justify-center py-6 px-16 bg-white text-primary font-black text-xl rounded-2xl hover:scale-105 transition-all shadow-2xl"
                                 >
-                                    Get In Touch
+                                    {ctaButtonText}
                                 </ContactLink>
                             </div>
                         </div>

@@ -14,6 +14,7 @@ import { SiteSettings } from "./globals/SiteSettings";
 import { Home } from "./globals/Home";
 import { About } from "./globals/About";
 import { Consulting } from "./globals/Consulting";
+import { ProjectManagement } from "./globals/ProjectManagement";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -47,7 +48,7 @@ export default buildConfig({
     },
   },
   collections: [Pages, Leads, Users, Media],
-  globals: [SiteSettings, Home, About, Consulting],
+  globals: [SiteSettings, Home, About, Consulting, ProjectManagement],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {

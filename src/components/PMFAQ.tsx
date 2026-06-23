@@ -5,7 +5,9 @@ import { ChevronDown, Mail } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ContactLink from '@/components/ContactLink';
 
-const faqs = [
+interface FAQItem { question: string; answer: string; }
+
+const DEFAULT_FAQS: FAQItem[] = [
     {
         question: "1. What is project management?",
         answer: "Project management is the structured process of planning, coordinating, controlling, and delivering projects successfully within scope, time, cost, and quality targets."
@@ -36,17 +38,30 @@ const faqs = [
     }
 ];
 
-export default function PMFAQ() {
+interface PMFAQProps {
+    eyebrow?: string;
+    headingLine1?: string;
+    headingLine2?: string;
+    items?: FAQItem[];
+}
+
+export default function PMFAQ({
+    eyebrow = "PROJECT MANAGEMENT FAQ",
+    headingLine1 = "Got Questions? ",
+    headingLine2 = "We've Got Answers",
+    items,
+}: PMFAQProps = {}) {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
+    const faqs = items && items.length > 0 ? items : DEFAULT_FAQS;
 
     return (
         <section className="py-32 bg-slate-50 relative overflow-hidden">
             <div className="container-custom relative z-10">
                 <div className="mb-20 text-center max-w-3xl mx-auto">
-                    <span className="label-tag mb-4 block mx-auto">PROJECT MANAGEMENT FAQ</span>
+                    <span className="label-tag mb-4 block mx-auto">{eyebrow}</span>
                     <h2 className="text-4xl md:text-6xl font-black text-primary tracking-tight mb-6">
-                        Got Questions? <br />
-                        <span className="text-slate-400">We've Got Answers</span>
+                        {headingLine1}<br />
+                        <span className="text-slate-400">{headingLine2}</span>
                     </h2>
                 </div>
 
