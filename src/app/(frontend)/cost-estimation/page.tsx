@@ -11,11 +11,17 @@ import CostEstimationForm from '@/components/CostEstimationForm';
 import type { Metadata } from 'next';
 import { getGlobal } from '@/lib/payload';
 import { CE_CONTENT } from '@/data/ceContent';
+import { generateSeoMetadata } from '@/lib/generateSeoMetadata';
 
-export const metadata: Metadata = {
-    title: "Quantity Surveying NZ | Construction Cost Estimation",
-    description: "NZ quantity surveying & construction cost estimation services. BOQ, tendering, value engineering & cost management for builders and developers.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+    const c = await getGlobal('costEstimationPage');
+    return generateSeoMetadata({
+        data: c,
+        fallbackTitle: "Quantity Surveying NZ | Construction Cost Estimation",
+        fallbackDescription: "NZ quantity surveying & construction cost estimation services. BOQ, tendering, value engineering & cost management for builders and developers.",
+        path: "/cost-estimation",
+    });
+}
 
 const orUndef = (v: unknown): string | undefined => (typeof v === 'string' && v.length > 0 ? v : undefined);
 const mediaUrl = (v: unknown): string | undefined => (v && typeof v === 'object' && 'url' in v ? (v as { url?: string }).url ?? undefined : undefined);

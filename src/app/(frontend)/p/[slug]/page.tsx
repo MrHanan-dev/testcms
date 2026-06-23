@@ -19,14 +19,32 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
+type PageDoc = { 
+  title: string; 
+  metaTitle?: string; 
+  metaDescription?: string;
+  ogImage?: { url?: string };
+  noIndex?: boolean;
+  showHeader?: boolean;
+  showFooter?: boolean;
+  hideContactForm?: boolean;
+  customCss?: string;
+  layout?: { blockType: string; [key: string]: unknown }[];
+};
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const page = await getPageBySlug(slug);
   if (!page) return { title: "Page Not Found | TheAgileNest" };
-  const p = page as unknown as { title: string; metaTitle?: string; metaDescription?: string };
+  const p = page as unknown as PageDoc;
+  
   return {
-    title: p.metaTitle || p.title,
-    ...(p.metaDescription ? { description: p.metaDescription } : {}),
+    title: p.metaTitle || `${p.title} | TheAgileNest`,
+    description: p.metaDescription,
+    openGraph: p.ogImage?.url ? {
+      images: [{ url: p.ogImage.url, width: 1200, height: 630 }],
+    } : undefined,
+    robots: p.noIndex ? "noindex, nofollow" : undefined,
   };
 }
 
@@ -34,15 +52,19 @@ export default async function CmsPage({ params }: Props) {
   const { slug } = await params;
   const page = await getPageBySlug(slug);
   if (!page) notFound();
-  const p = page as unknown as { layout?: { blockType: string; [key: string]: unknown }[] };
+  const p = page as unknown as PageDoc;
+
+  const showHeader = p.showHeader !== false;
+  const showFooter = p.showFooter !== false;
 
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900">
-      <Header />
+      {p.customCss && <style dangerouslySetInnerHTML={{ __html: p.customCss }} />}
+      {showHeader && <Header />}
       <main>
         <RenderBlocks blocks={p.layout} />
       </main>
-      <Footer />
+      {showFooter && <Footer hideContactForm={p.hideContactForm} />}
     </div>
   );
 }

@@ -4,6 +4,9 @@ import type { CollectionAfterChangeHook, GlobalAfterChangeHook } from "payload";
 /** Frontend paths to refresh when a global is saved in the CMS. */
 const GLOBAL_PATHS: Record<string, string[]> = {
   siteSettings: ["/"],
+  appearance: ["/"],
+  customCode: ["/"],
+  readingSettings: ["/blog"],
   home: ["/"],
   about: ["/about"],
   consultingPage: ["/consulting"],
@@ -15,6 +18,8 @@ const GLOBAL_PATHS: Record<string, string[]> = {
   capmPage: ["/capm"],
   pmicpPage: ["/pmicp"],
   partnerPage: ["/partner"],
+  privacyPage: ["/privacy"],
+  termsPage: ["/terms"],
 };
 
 const revalidate = (paths: string[]) => {

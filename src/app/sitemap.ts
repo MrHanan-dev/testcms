@@ -17,7 +17,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/pmp',
         '/capm',
         '/pmicp',
-        '/partner'
+        '/partner',
+        '/privacy',
+        '/terms'
     ].map(route => ({
         url: `${baseUrl}${route}`,
         lastModified: new Date(),

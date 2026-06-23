@@ -1,4 +1,5 @@
 import type { GlobalConfig } from "payload";
+import { seoTab } from "@/lib/seoFields";
 
 /**
  * Editable Cost Estimation page. Every field optional with page-level fallbacks
@@ -7,15 +8,19 @@ import type { GlobalConfig } from "payload";
  */
 export const CostEstimation: GlobalConfig = {
   slug: "costEstimationPage",
-  label: "Cost Estimation Page",
+  label: "Cost Estimation",
   access: { read: () => true },
-  admin: { group: "Service Pages" },
+  admin: {
+    group: "💼 Service Pages",
+    description: "Edit the Cost Estimation page — services, industries, testimonials, and quote form.",
+  },
   fields: [
     {
       type: "tabs",
       tabs: [
         {
-          label: "Hero",
+          label: "🎯 Hero Section",
+          description: "The banner at the top",
           fields: [
             { name: "heroTitle", type: "text" },
             { name: "heroDescription", type: "textarea" },
@@ -23,7 +28,8 @@ export const CostEstimation: GlobalConfig = {
           ],
         },
         {
-          label: "Intro",
+          label: "📝 Introduction",
+          description: "Opening section",
           fields: [
             { name: "introEyebrow", type: "text" },
             { name: "introHeading", type: "textarea" },
@@ -31,7 +37,8 @@ export const CostEstimation: GlobalConfig = {
           ],
         },
         {
-          label: "Services",
+          label: "💼 Services",
+          description: "Service offerings with images",
           fields: [
             {
               name: "mainServices",
@@ -48,7 +55,8 @@ export const CostEstimation: GlobalConfig = {
           ],
         },
         {
-          label: "Why choose",
+          label: "🏆 Why Choose Us",
+          description: "Key differentiators",
           fields: [
             { name: "whyEyebrow", type: "text" },
             { name: "whyHeadingLine1", type: "text" },
@@ -62,7 +70,8 @@ export const CostEstimation: GlobalConfig = {
           ],
         },
         {
-          label: "Industries",
+          label: "🏭 Industries",
+          description: "Sectors we serve",
           fields: [
             { name: "sectorsEyebrow", type: "text" },
             { name: "sectorsHeadingLead", type: "text" },
@@ -77,7 +86,8 @@ export const CostEstimation: GlobalConfig = {
           ],
         },
         {
-          label: "Testimonials",
+          label: "💬 Testimonials",
+          description: "Client feedback",
           fields: [
             { name: "testEyebrow", type: "text" },
             { name: "testHeading", type: "text" },
@@ -92,7 +102,8 @@ export const CostEstimation: GlobalConfig = {
           ],
         },
         {
-          label: "FAQ",
+          label: "❓ FAQ",
+          description: "Frequently asked questions",
           fields: [
             { name: "faqTitle", type: "text" },
             { name: "faqSubtitle", type: "text" },
@@ -107,7 +118,8 @@ export const CostEstimation: GlobalConfig = {
           ],
         },
         {
-          label: "Quote form",
+          label: "📋 Quote Form",
+          description: "Request a quote section",
           fields: [
             { name: "formEyebrow", type: "text" },
             { name: "formHeading", type: "text" },
@@ -122,7 +134,8 @@ export const CostEstimation: GlobalConfig = {
           ],
         },
         {
-          label: "Career",
+          label: "💼 Career CTA",
+          description: "Join our team section",
           fields: [
             { name: "careerEyebrow", type: "text" },
             { name: "careerHeading", type: "text" },
@@ -130,6 +143,7 @@ export const CostEstimation: GlobalConfig = {
             { name: "careerButtonText", type: "text" },
           ],
         },
+        seoTab,
       ],
     },
   ],

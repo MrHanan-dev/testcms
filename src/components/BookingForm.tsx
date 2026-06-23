@@ -6,11 +6,28 @@ import { User, Mail, Phone, Send, CheckCircle2 } from 'lucide-react';
 interface BookingFormProps {
     courseName: string;
     availableDates?: string[];
+    formTitle?: string;
+    formSubtitle?: string;
+    submitButtonText?: string;
+    successTitle?: string;
+    successMessage?: string;
+    footerNote?: string;
 }
 
-export default function BookingForm({ courseName }: BookingFormProps) {
+export default function BookingForm({ 
+    courseName,
+    formTitle = "Register Now",
+    formSubtitle,
+    submitButtonText = "Confirm Registration",
+    successTitle = "Booking Received!",
+    successMessage,
+    footerNote = "No upfront payment required to register",
+}: BookingFormProps) {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    
+    const defaultSubtitle = `Secure your spot for the ${courseName} certification training.`;
+    const defaultSuccessMessage = `Thank you for registering for the ${courseName} training. Our team will contact you shortly with further details and payment instructions.`;
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -53,11 +70,8 @@ export default function BookingForm({ courseName }: BookingFormProps) {
                 <div className="w-20 h-20 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto scale-110">
                     <CheckCircle2 size={40} />
                 </div>
-                <h3 className="text-2xl font-bold text-primary">Booking Received!</h3>
-                <p className="text-slate-600">
-                    Thank you for registering for the <strong>{courseName}</strong> training.
-                    Our team will contact you shortly with further details and payment instructions.
-                </p>
+                <h3 className="text-2xl font-bold text-primary">{successTitle}</h3>
+                <p className="text-slate-600">{successMessage || defaultSuccessMessage}</p>
                 <button
                     onClick={() => setIsSubmitted(false)}
                     className="text-primary font-bold hover:underline"
@@ -71,8 +85,8 @@ export default function BookingForm({ courseName }: BookingFormProps) {
     return (
         <div className="bg-white rounded-3xl shadow-premium border border-slate-100 overflow-hidden">
             <div className="bg-primary p-8 text-white">
-                <h3 className="text-2xl font-bold mb-2">Register Now</h3>
-                <p className="text-blue-100/80 text-sm">Secure your spot for the {courseName} certification training.</p>
+                <h3 className="text-2xl font-bold mb-2">{formTitle}</h3>
+                <p className="text-blue-100/80 text-sm">{formSubtitle || defaultSubtitle}</p>
             </div>
 
             <form className="p-8 space-y-6" onSubmit={handleSubmit}>
@@ -150,12 +164,14 @@ export default function BookingForm({ courseName }: BookingFormProps) {
                         disabled={isSubmitting}
                         className="w-full py-4 bg-primary text-white font-black text-lg rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:translate-y-0"
                     >
-                        {isSubmitting ? "Processing..." : "Confirm Registration"}
+                        {isSubmitting ? "Processing..." : submitButtonText}
                         {!isSubmitting && <Send size={18} />}
                     </button>
-                    <p className="text-[10px] text-slate-400 text-center mt-4 uppercase tracking-widest font-bold">
-                        No upfront payment required to register
-                    </p>
+                    {footerNote && (
+                        <p className="text-[10px] text-slate-400 text-center mt-4 uppercase tracking-widest font-bold">
+                            {footerNote}
+                        </p>
+                    )}
                 </div>
             </form>
         </div>

@@ -7,11 +7,18 @@ import type { Metadata } from 'next';
 import Features from '@/components/Features';
 import CourseSuccessQuotes from '@/components/CourseSuccessQuotes';
 import { getAbout } from '@/lib/payload';
+import { generateSeoMetadata } from '@/lib/generateSeoMetadata';
 
-export const metadata: Metadata = {
-    title: "About TheAgileNest | PMP Training & Consulting Experts NZ",
-    description: "Learn about TheAgileNest's 17-year journey in PM excellence. PMI ATP, expert consultants, and training serving NZ, Australia & global clients.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+    const about = await getAbout();
+    return generateSeoMetadata({
+        data: about,
+        fallbackTitle: "About TheAgileNest | PMP Training & Consulting Experts NZ",
+        fallbackDescription: "Learn about TheAgileNest's 17-year journey in PM excellence. PMI ATP, expert consultants, and training serving NZ, Australia & global clients.",
+        path: "/about",
+        keywords: ["about TheAgileNest", "project management experts", "PMP training NZ", "PMI authorized training partner"],
+    });
+}
 
 const orUndef = (v: unknown): string | undefined => (typeof v === 'string' && v.length > 0 ? v : undefined);
 
@@ -46,6 +53,7 @@ export default async function AboutPage() {
     const evoEyebrow = orUndef(a.evoEyebrow) ?? "Our Evolution";
     const evoHeading = orUndef(a.evoHeading) ?? "A 17-Year Journey in Project Management";
     const evoSubtitle = orUndef(a.evoSubtitle) ?? "From PMBOK 3rd to 8th Edition. Embracing Passion, Purpose, and Technology.";
+    const evoMilestones = (a.evoMilestones as { year: string; title: string; description: string; color?: string }[] | undefined) ?? undefined;
     const featuresImage = a.featuresImage && typeof a.featuresImage === 'object' ? (a.featuresImage as { url?: string }).url : undefined;
     const featuresCards = (a.featuresCards as { title?: string; description?: string }[] | undefined) ?? undefined;
     const quoteCards = (a.quoteCards as { quote: string; subtitle?: string }[] | undefined) ?? undefined;
@@ -162,7 +170,7 @@ export default async function AboutPage() {
                             </p>
                         </div>
 
-                        <EvolutionTimeline />
+                        <EvolutionTimeline milestones={evoMilestones} />
 
 
                     </div>

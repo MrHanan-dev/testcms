@@ -1,4 +1,5 @@
 import type { GlobalConfig } from "payload";
+import { seoTab } from "@/lib/seoFields";
 
 const list = (name: string, label?: string) => ({
   name,
@@ -13,15 +14,19 @@ const list = (name: string, label?: string) => ({
  */
 export const Partner: GlobalConfig = {
   slug: "partnerPage",
-  label: "Partner Page",
+  label: "Partner Program",
   access: { read: () => true },
-  admin: { group: "Site Content" },
+  admin: {
+    group: "🏠 Main Pages",
+    description: "Edit the Training Partner application page — benefits, requirements, and form text.",
+  },
   fields: [
     {
       type: "tabs",
       tabs: [
         {
-          label: "Hero",
+          label: "🎯 Hero Section",
+          description: "The banner at the top",
           fields: [
             { name: "heroEyebrow", type: "text" },
             { name: "heroTitleLead", type: "text" },
@@ -31,7 +36,8 @@ export const Partner: GlobalConfig = {
           ],
         },
         {
-          label: "Introduction",
+          label: "📝 Introduction",
+          description: "Opening content",
           fields: [
             { name: "introHeading", type: "text" },
             { name: "introPara1", type: "textarea" },
@@ -41,7 +47,8 @@ export const Partner: GlobalConfig = {
           ],
         },
         {
-          label: "Who should apply",
+          label: "👥 Who Should Apply",
+          description: "Target audience",
           fields: [
             { name: "whoEyebrow", type: "text" },
             { name: "whoHeading", type: "text" },
@@ -59,7 +66,8 @@ export const Partner: GlobalConfig = {
           ],
         },
         {
-          label: "Benefits",
+          label: "🎁 Benefits",
+          description: "Partnership advantages",
           fields: [
             { name: "benefitsEyebrow", type: "text" },
             { name: "benefitsHeading", type: "text" },
@@ -75,7 +83,8 @@ export const Partner: GlobalConfig = {
           ],
         },
         {
-          label: "Lead CTA",
+          label: "🚀 Call to Action",
+          description: "Encourage applications",
           fields: [
             { name: "leadHeading", type: "text" },
             { name: "leadPara", type: "textarea" },
@@ -83,7 +92,8 @@ export const Partner: GlobalConfig = {
           ],
         },
         {
-          label: "Application form",
+          label: "📋 Application Form",
+          description: "Form text and success messages",
           fields: [
             { name: "formHeading", type: "text" },
             { name: "formIntro", type: "textarea" },
@@ -95,6 +105,7 @@ export const Partner: GlobalConfig = {
             { name: "submittingButton", type: "text" },
           ],
         },
+        seoTab,
       ],
     },
   ],

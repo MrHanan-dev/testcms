@@ -7,11 +7,17 @@ import { Check, Users, Target, Briefcase, BarChart3, ShieldCheck, Network, Layou
 import { Metadata } from 'next';
 import { getGlobal } from '@/lib/payload';
 import { PM_CONTENT } from '@/data/pmContent';
+import { generateSeoMetadata } from '@/lib/generateSeoMetadata';
 
-export const metadata: Metadata = {
-    title: "Construction Project Management NZ | PM Services",
-    description: "End-to-end construction project management services in NZ. Planning, feasibility, delivery, and PMO support for infrastructure and commercial projects.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+    const c = await getGlobal('projectManagementPage');
+    return generateSeoMetadata({
+        data: c,
+        fallbackTitle: "Construction Project Management NZ | PM Services",
+        fallbackDescription: "End-to-end construction project management services in NZ. Planning, feasibility, delivery, and PMO support for infrastructure and commercial projects.",
+        path: "/project-management",
+    });
+}
 
 const orUndef = (v: unknown): string | undefined => (typeof v === 'string' && v.length > 0 ? v : undefined);
 

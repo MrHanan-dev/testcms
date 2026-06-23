@@ -5,7 +5,8 @@ import "./globals.css";
 import JsonLd from "@/components/JsonLd";
 import WhatsAppFAB from "@/components/WhatsAppFAB";
 import { SiteSettingsProvider } from "@/components/site/SiteSettingsProvider";
-import { getSiteSettings } from "@/lib/payload";
+import { CustomCodeHead, CustomCodeBodyStart, CustomCodeFooter } from "@/components/CustomCodeInjector";
+import { getSiteSettings, getGlobal } from "@/lib/payload";
 import { resolveSiteSettings } from "@/lib/resolveSiteSettings";
 
 
@@ -71,18 +72,44 @@ export default async function RootLayout({
     // the existing hardcoded defaults.
     const settings = await getSiteSettings();
     const siteSettings = resolveSiteSettings(settings as Record<string, unknown> | null);
+    const customCode = await getGlobal("customCode") as Record<string, unknown> | null;
 
     return (
         <html lang="en">
             <head>
+                <CustomCodeHead data={customCode} />
                 <Script src="https://analytics.ahrefs.com/analytics.js" data-key="C3Lwx1SjSRD/434Thq3gkw" strategy="afterInteractive" />
             </head>
             <body className={`${inter.variable} ${outfit.variable} antialiased`} suppressHydrationWarning={true}>
+                <CustomCodeBodyStart data={customCode} />
                 <SiteSettingsProvider value={siteSettings}>
-                    <JsonLd />
+                    <JsonLd
+                        orgName={siteSettings.schemaOrgName}
+                        orgType={siteSettings.schemaOrgType}
+                        description={siteSettings.schemaOrgDescription}
+                        logoUrl={siteSettings.logoUrl || siteSettings.faviconUrl || undefined}
+                        imageUrl={siteSettings.schemaOrgImageUrl || undefined}
+                        phone={siteSettings.phone || siteSettings.footerPhones[0]}
+                        priceRange={siteSettings.schemaPriceRange}
+                        streetAddress={siteSettings.schemaStreetAddress}
+                        city={siteSettings.schemaCity}
+                        region={siteSettings.schemaRegion}
+                        postalCode={siteSettings.schemaPostalCode}
+                        country={siteSettings.schemaCountry}
+                        latitude={siteSettings.schemaLatitude || undefined}
+                        longitude={siteSettings.schemaLongitude || undefined}
+                        foundingDate={siteSettings.schemaFoundingDate}
+                        founderName={siteSettings.schemaFounderName}
+                        ratingValue={siteSettings.schemaRatingValue}
+                        reviewCount={siteSettings.schemaReviewCount}
+                        bestRating={siteSettings.schemaBestRating}
+                        services={siteSettings.schemaServices}
+                        socialLinks={siteSettings.socials.map((x) => x.url!).filter(Boolean)}
+                    />
                     {children}
                     <WhatsAppFAB />
                 </SiteSettingsProvider>
+                <CustomCodeFooter data={customCode} />
             </body>
         </html>
     );

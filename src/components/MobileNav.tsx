@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { GraduationCap, Calculator, Briefcase, Menu, X, Phone, Mail, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useSiteSettings } from './site/SiteSettingsProvider';
 
 const tabs = [
     { label: "Training", icon: GraduationCap, href: "/training" },
@@ -21,6 +22,7 @@ const menuLinks = [
 ];
 
 export default function MobileNav() {
+    const s = useSiteSettings();
     const [activeTab, setActiveTab] = useState<string | null>(null);
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -61,11 +63,12 @@ export default function MobileNav() {
 
                             <div className="mb-10">
                                 <Image
-                                    src="/1.png"
-                                    alt="TheAgileNest Logo"
+                                    src={s.logoLightUrl || s.logoUrl || "/1.png"}
+                                    alt={s.companyName || "TheAgileNest Logo"}
                                     width={160}
                                     height={50}
                                     className="h-12 w-auto object-contain"
+                                    unoptimized={Boolean(s.logoLightUrl || s.logoUrl)}
                                 />
                             </div>
 
@@ -94,13 +97,13 @@ export default function MobileNav() {
 
                             <div className="flex gap-3 mt-auto">
                                 <a
-                                    href="tel:+64211234567"
+                                    href={`tel:${s.phone?.replace(/\s/g, '') || '+64211234567'}`}
                                     className="flex-1 flex items-center justify-center gap-2 py-4 rounded-lg bg-accent text-primary font-semibold text-sm"
                                 >
                                     <Phone size={16} /> Call Us
                                 </a>
                                 <a
-                                    href="mailto:info@TheAgileNest.com"
+                                    href={`mailto:${s.email || 'info@TheAgileNest.com'}`}
                                     className="flex-1 flex items-center justify-center gap-2 py-4 rounded-lg bg-white/10 text-white font-semibold text-sm"
                                 >
                                     <Mail size={16} /> Email

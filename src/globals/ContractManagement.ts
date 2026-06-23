@@ -1,17 +1,22 @@
 import type { GlobalConfig } from "payload";
+import { seoTab } from "@/lib/seoFields";
 
 /** Editable Contract Management page (same structure as Consulting). */
 export const ContractManagement: GlobalConfig = {
   slug: "contractManagementPage",
-  label: "Contract Management Page",
+  label: "Contract Management",
   access: { read: () => true },
-  admin: { group: "Service Pages" },
+  admin: {
+    group: "💼 Service Pages",
+    description: "Edit the Contract Management page — service cards and outcome section.",
+  },
   fields: [
     {
       type: "tabs",
       tabs: [
         {
-          label: "Hero",
+          label: "🎯 Hero Section",
+          description: "The banner at the top",
           fields: [
             { name: "heroTitle", type: "text" },
             { name: "heroDescription", type: "textarea" },
@@ -19,7 +24,8 @@ export const ContractManagement: GlobalConfig = {
           ],
         },
         {
-          label: "Intro",
+          label: "📝 Introduction",
+          description: "Opening section",
           fields: [
             { name: "introEyebrow", type: "text" },
             { name: "introHeadingLine1", type: "text" },
@@ -28,7 +34,8 @@ export const ContractManagement: GlobalConfig = {
           ],
         },
         {
-          label: "Services grid",
+          label: "💼 Services",
+          description: "Service offerings",
           fields: [
             {
               name: "serviceCards",
@@ -42,7 +49,8 @@ export const ContractManagement: GlobalConfig = {
           ],
         },
         {
-          label: "Outcome",
+          label: "🎯 Outcomes",
+          description: "What clients achieve",
           fields: [
             { name: "outcomeBadgeHeading", type: "text" },
             { name: "outcomeBadgeText", type: "textarea" },
@@ -56,6 +64,7 @@ export const ContractManagement: GlobalConfig = {
             { name: "outcomeButtonText", type: "text" },
           ],
         },
+        seoTab,
       ],
     },
   ],

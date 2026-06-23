@@ -1,3 +1,5 @@
+import { join } from "node:path";
+import { existsSync } from "node:fs";
 import { NextResponse, type NextRequest } from "next/server";
 import { getPayload } from "payload";
 import config from "@payload-config";
@@ -17,6 +19,16 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ skipped: true, reason: "Already seeded (use ?force=1)." });
     }
 
+    const uploadImage = async (dir: string, filename: string, alt: string) => {
+      const filePath = join(process.cwd(), "public", dir, filename);
+      if (!existsSync(filePath)) return undefined;
+      const found = await payload.find({ collection: "media", where: { filename: { equals: filename } }, limit: 1 });
+      const media = found.docs[0] ?? (await payload.create({ collection: "media", data: { alt }, filePath }));
+      return media.id;
+    };
+
+    const heroBadgeImage = await uploadImage("certifications", "pmi-cp.webp", "PMI-CP Certification Badge");
+
     const k = PMICP_CONTENT;
     const textList = (arr: readonly string[]) => arr.map((text) => ({ text }));
 
@@ -24,6 +36,7 @@ export async function GET(req: NextRequest) {
       slug: "pmicpPage",
       data: {
         heroTitle: k.heroTitle, heroSubtitle: k.heroSubtitle, heroDescription: k.heroDescription,
+        ...(heroBadgeImage ? { heroBadgeImage } : {}),
         detailsBadge: k.detailsBadge, detailsHeading: k.detailsHeading, detailsParagraph: k.detailsParagraph,
         benefits: k.benefits, whoHeading: k.whoHeading, whoIntro: k.whoIntro, whoAudience: textList(k.whoAudience),
         eligibilityHeading: k.eligibilityHeading, eligibilityIntro: k.eligibilityIntro,

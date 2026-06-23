@@ -5,11 +5,17 @@ import { Check, FileText, Scale, ShieldCheck, FileSearch, HelpCircle, Briefcase 
 import { Metadata } from 'next';
 import ContactLink from '@/components/ContactLink';
 import { getGlobal } from '@/lib/payload';
+import { generateSeoMetadata } from '@/lib/generateSeoMetadata';
 
-export const metadata: Metadata = {
-    title: "Construction Contract Management NZ | Dispute Resolution",
-    description: "Expert construction contract management, formulation, and dispute resolution services in NZ for complex infrastructure and commercial projects.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+    const c = await getGlobal('contractManagementPage');
+    return generateSeoMetadata({
+        data: c,
+        fallbackTitle: "Construction Contract Management NZ | Dispute Resolution",
+        fallbackDescription: "Expert construction contract management, formulation, and dispute resolution services in NZ for complex infrastructure and commercial projects.",
+        path: "/contract-management",
+    });
+}
 
 const orUndef = (v: unknown): string | undefined => (typeof v === 'string' && v.length > 0 ? v : undefined);
 

@@ -1,4 +1,5 @@
 import type { GlobalConfig } from "payload";
+import { seoTab } from "@/lib/seoFields";
 
 const list = (name: string, label?: string) => ({
   name,
@@ -15,23 +16,29 @@ const list = (name: string, label?: string) => ({
  */
 export const PmiCp: GlobalConfig = {
   slug: "pmicpPage",
-  label: "PMI-CP Page",
+  label: "PMI-CP Certification",
   access: { read: () => true },
-  admin: { group: "Certification Pages" },
+  admin: {
+    group: "🎓 Certification & Training",
+    description: "Edit the PMI-CP (Construction Professional) page — eligibility, curriculum, and pricing.",
+  },
   fields: [
     {
       type: "tabs",
       tabs: [
         {
-          label: "Hero",
+          label: "🎯 Hero Section",
+          description: "The banner at the top",
           fields: [
-            { name: "heroTitle", type: "text" },
-            { name: "heroSubtitle", type: "text" },
-            { name: "heroDescription", type: "textarea" },
+            { name: "heroTitle", type: "text", label: "Page Title", admin: { placeholder: "e.g. PMI-CP® Certification" } },
+            { name: "heroSubtitle", type: "text", label: "Subtitle" },
+            { name: "heroDescription", type: "textarea", label: "Description" },
+            { name: "heroBadgeImage", type: "upload", relationTo: "media", label: "Certification Badge", admin: { description: "💡 Upload the PMI-CP badge image" } },
           ],
         },
         {
-          label: "Overview",
+          label: "📋 Overview",
+          description: "What is PMI-CP and who is it for",
           fields: [
             { name: "detailsBadge", type: "text" },
             { name: "detailsHeading", type: "text" },
@@ -50,7 +57,8 @@ export const PmiCp: GlobalConfig = {
           ],
         },
         {
-          label: "Eligibility",
+          label: "✅ Eligibility",
+          description: "Requirements to qualify",
           fields: [
             { name: "eligibilityHeading", type: "text" },
             { name: "eligibilityIntro", type: "textarea" },
@@ -71,7 +79,8 @@ export const PmiCp: GlobalConfig = {
           ],
         },
         {
-          label: "Curriculum",
+          label: "📚 Curriculum",
+          description: "What we teach",
           fields: [
             { name: "curriculumHeading", type: "text" },
             { name: "curriculumSubtitle", type: "text" },
@@ -100,7 +109,7 @@ export const PmiCp: GlobalConfig = {
           ],
         },
         {
-          label: "Why train",
+          label: "🏆 Why Train With Us",
           fields: [
             { name: "whyTrainEyebrow", type: "text" },
             { name: "whyTrainHeading", type: "text" },
@@ -117,7 +126,7 @@ export const PmiCp: GlobalConfig = {
           ],
         },
         {
-          label: "Investment",
+          label: "💰 Investment & Pricing",
           fields: [
             { name: "investEyebrow", type: "text" },
             { name: "investHeading", type: "text" },
@@ -146,8 +155,21 @@ export const PmiCp: GlobalConfig = {
           ],
         },
         {
-          label: "Register",
+          label: "📋 Registration",
           fields: [
+            {
+              type: "collapsible",
+              label: "Booking Form",
+              fields: [
+                { name: "bookingFormTitle", type: "text", defaultValue: "Register Now" },
+                { name: "bookingFormSubtitle", type: "text" },
+                { name: "bookingSubmitButton", type: "text", defaultValue: "Confirm Registration" },
+                { name: "bookingFooterNote", type: "text", defaultValue: "No upfront payment required to register" },
+                { name: "bookingSuccessTitle", type: "text", defaultValue: "Booking Received!" },
+                { name: "bookingSuccessMessage", type: "textarea" },
+              ],
+            },
+            { name: "registerCardHeading", type: "text" },
             { name: "registerCardPara", type: "textarea" },
             { name: "registerCardButton", type: "text" },
             { name: "testimonialQuote", type: "textarea" },
@@ -155,7 +177,8 @@ export const PmiCp: GlobalConfig = {
           ],
         },
         {
-          label: "FAQ",
+          label: "❓ FAQ",
+          description: "Frequently asked questions",
           fields: [
             { name: "faqTitle", type: "text" },
             { name: "faqSubtitle", type: "text" },
@@ -170,6 +193,7 @@ export const PmiCp: GlobalConfig = {
             },
           ],
         },
+        seoTab,
       ],
     },
   ],

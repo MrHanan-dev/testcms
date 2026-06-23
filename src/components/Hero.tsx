@@ -91,7 +91,21 @@ const itemVariants: Variants = {
   },
 };
 
-export default function Hero({ slides: cmsSlides }: { slides?: Slide[] } = {}) {
+type HeroProps = {
+  slides?: Slide[];
+  primaryCtaText?: string;
+  primaryCtaUrl?: string;
+  secondaryCtaText?: string;
+  secondaryCtaUrl?: string;
+};
+
+export default function Hero({ 
+  slides: cmsSlides,
+  primaryCtaText = "Initiate Strategy",
+  primaryCtaUrl = "#contact",
+  secondaryCtaText = "Our Pillars",
+  secondaryCtaUrl = "#services",
+}: HeroProps = {}) {
   // Use CMS-managed slides when provided, otherwise the built-in defaults.
   const slides = cmsSlides && cmsSlides.length > 0 ? cmsSlides : FALLBACK_SLIDES;
   const [current, setCurrent] = useState(0);
@@ -222,20 +236,21 @@ export default function Hero({ slides: cmsSlides }: { slides?: Slide[] } = {}) {
 
                 {/* CTA Buttons */}
                 <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
-                  <ContactLink
+                  <Link
+                    href={primaryCtaUrl}
                     className="group relative inline-flex items-center justify-center px-8 py-4 md:px-10 md:py-5 bg-accent text-primary text-xs md:text-sm font-black uppercase tracking-widest rounded-2xl hover:scale-105 transition-all duration-500 shadow-xl shadow-accent/20 overflow-hidden"
                   >
                     <span className="relative z-10 flex items-center gap-3">
-                        Initiate Strategy
+                        {primaryCtaText}
                         <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                     </span>
                     <div className="absolute inset-0 bg-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 opacity-20" />
-                  </ContactLink>
+                  </Link>
                   <Link
-                    href="#services"
+                    href={secondaryCtaUrl}
                     className="inline-flex items-center justify-center px-8 py-4 md:px-10 md:py-5 bg-white/5 border border-white/10 text-white text-xs md:text-sm font-black uppercase tracking-widest rounded-2xl hover:bg-white/10 hover:border-white/20 transition-all duration-500 backdrop-blur-sm"
                   >
-                    Our Pillars
+                    {secondaryCtaText}
                   </Link>
                 </motion.div>
               </div>

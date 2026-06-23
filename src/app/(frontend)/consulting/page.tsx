@@ -2,14 +2,21 @@ import Header from '@/components/Header';
 import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
 import ServiceHero from '@/components/ServiceHero';
-import { Check, ShieldCheck, BarChart3, Search, FileSearch } from 'lucide-react';
+import { Check, ShieldCheck, BarChart3, Search, FileSearch, ListChecks } from 'lucide-react';
 import { Metadata } from 'next';
 import { getGlobal } from '@/lib/payload';
+import { generateSeoMetadata } from '@/lib/generateSeoMetadata';
 
-export const metadata: Metadata = {
-    title: "Project Management Consulting NZ | Expert PM Advisory",
-    description: "Expert project management consulting in NZ and globally. PMO setup, masterplanning, risk management, and contract administration for infrastructure projects.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+    const c = await getGlobal('consultingPage');
+    return generateSeoMetadata({
+        data: c,
+        fallbackTitle: "Project Management Consulting NZ | Expert PM Advisory",
+        fallbackDescription: "Expert project management consulting in NZ and globally. PMO setup, masterplanning, risk management, and contract administration for infrastructure projects.",
+        path: "/consulting",
+        keywords: ["project management consulting NZ", "PMO setup", "risk management", "contract administration"],
+    });
+}
 
 const orUndef = (v: unknown): string | undefined => (typeof v === 'string' && v.length > 0 ? v : undefined);
 
@@ -53,6 +60,13 @@ export default async function ConsultingPage() {
         ? (c.outcomeChecklist as { text: string }[]).map((x) => x.text)
         : DEFAULT_CHECKLIST;
     const outcomeButtonText = orUndef(c.outcomeButtonText) ?? "Discuss Your Roadmap";
+
+    const faqTitle = orUndef(c.faqTitle);
+    const faqSubtitle = orUndef(c.faqSubtitle);
+    const faqDescription = orUndef(c.faqDescription);
+    const faqItems = (c.faqItems as { question: string; answer: string }[] | undefined)?.length
+        ? (c.faqItems as { question: string; answer: string }[])
+        : undefined;
 
     return (
         <>
@@ -140,31 +154,8 @@ export default async function ConsultingPage() {
                     </div>
                 </section>
             </main>
-            <FAQ />
+            <FAQ items={faqItems} title={faqTitle} subtitle={faqSubtitle} description={faqDescription} />
             <Footer />
         </>
     );
-}
-
-// Helper icon since it was missing in lucide-react default imports for this block
-function ListChecks({ size, strokeWidth }: { size: number, strokeWidth: number }) {
-    return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width={size}
-            height={size}
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={strokeWidth}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        >
-            <path d="m3 17 2 2 4-4" />
-            <path d="m3 7 2 2 4-4" />
-            <path d="M13 6h8" />
-            <path d="M13 12h8" />
-            <path d="M13 18h8" />
-        </svg>
-    )
 }
