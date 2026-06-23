@@ -2,6 +2,10 @@
   "name": "TheAgileNest",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "npm@10.9.2",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "next dev --webpack",
     "build": "next build",
@@ -12,6 +16,8 @@
     "generate:importmap": "payload generate:importmap"
   },
   "dependencies": {
+    "@faceless-ui/modal": "3.0.0",
+    "@faceless-ui/scroll-info": "2.0.0",
     "@payloadcms/db-postgres": "^3.85.1",
     "@payloadcms/next": "^3.85.1",
     "@payloadcms/richtext-lexical": "^3.85.1",
