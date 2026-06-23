@@ -15,6 +15,7 @@ import { RichText } from '@payloadcms/richtext-lexical/react';
 import { getGlobal } from '@/lib/payload';
 import { PMP_CONTENT } from '@/data/pmpContent';
 import { generateSeoMetadata } from '@/lib/generateSeoMetadata';
+import { payloadUploadUrlWithFallback } from '@/lib/resolveMediaUrl';
 
 export async function generateMetadata(): Promise<Metadata> {
     const c = await getGlobal('pmpPage');
@@ -59,10 +60,8 @@ export default async function PmpPage() {
     const c = await getGlobal('pmpPage');
     const training = await getGlobal('trainingPage');
     const f = <T,>(key: string, fallback: T): T => (orUndef(c[key]) as T) ?? fallback;
-    const imageUrl = (key: string): string | undefined => {
-        const v = c[key];
-        return v && typeof v === 'object' && 'url' in v ? (v as { url: string }).url : undefined;
-    };
+    const imageUrl = (key: string, fallback?: string): string | undefined =>
+        payloadUploadUrlWithFallback(c[key], fallback);
     // Generic array fallback: prefer CMS array if non-empty.
     const arr = <T,>(key: string, fallback: T[]): T[] => {
         const v = c[key] as T[] | undefined;
@@ -115,7 +114,7 @@ export default async function PmpPage() {
                     next={{ name: "PMI-CP", href: "/pmicp" }}
                     gradientClass="from-primary to-primary-700"
                     buttonColorText="text-primary"
-                    badgeImage={imageUrl('heroBadgeImage') ?? "/certifications/pmp.webp"}
+                    badgeImage={imageUrl('heroBadgeImage', '/certifications/pmp.webp')}
                     downloadLink={ECO_LINK}
                 />
 

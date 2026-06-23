@@ -15,6 +15,7 @@ import FAQ from '@/components/FAQ';
 import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
 import JsonLdFaq from '@/components/JsonLdFaq';
+import { payloadUploadUrlWithFallback } from '@/lib/resolveMediaUrl';
 
 export async function generateMetadata(): Promise<Metadata> {
     const home = await getHome();
@@ -39,8 +40,8 @@ type HeroSlideDoc = {
 /** Empty string -> undefined so a component's built-in default takes over. */
 const orUndef = (v: unknown): string | undefined => (typeof v === 'string' && v.length > 0 ? v : undefined);
 /** Resolve a Payload upload field to its URL string. */
-const mediaUrl = (v: unknown): string | undefined =>
-    v && typeof v === 'object' && 'url' in v ? ((v as { url?: string }).url ?? undefined) : undefined;
+const mediaUrl = (v: unknown, fallback?: string): string | undefined =>
+    payloadUploadUrlWithFallback(v, fallback);
 
 export default async function Home() {
     // Every section reads from the CMS Home global; each component falls back to
@@ -61,11 +62,12 @@ export default async function Home() {
     }));
 
     const featureItems = (h.featureItems as { text: string }[] | undefined)?.map((f) => f.text);
-    const certItems = (h.certItems as Record<string, unknown>[] | undefined)?.map((c) => ({
+    const certDefaults = ['/certifications/pmp.webp', '/certifications/capm.webp', '/certifications/pmi-cp.webp'];
+    const certItems = (h.certItems as Record<string, unknown>[] | undefined)?.map((c, i) => ({
         name: c.name as string,
         title: c.title as string,
         href: c.href as string,
-        image: mediaUrl(c.image),
+        image: mediaUrl(c.image, certDefaults[i]),
     }));
     const col1Items = (h.aboutCol1Items as { text: string }[] | undefined)?.map((x) => x.text);
 
