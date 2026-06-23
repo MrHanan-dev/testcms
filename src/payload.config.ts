@@ -12,6 +12,7 @@ import { Pages } from "./collections/Pages";
 import { Leads } from "./collections/Leads";
 import { SiteSettings } from "./globals/SiteSettings";
 import { Home } from "./globals/Home";
+import { About } from "./globals/About";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -45,7 +46,7 @@ export default buildConfig({
     },
   },
   collections: [Pages, Leads, Users, Media],
-  globals: [SiteSettings, Home],
+  globals: [SiteSettings, Home, About],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {
