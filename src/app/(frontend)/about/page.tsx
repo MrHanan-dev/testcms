@@ -1,4 +1,4 @@
-import Image from 'next/image';
+﻿import Image from 'next/image';
 import Header from '@/components/Header';
 import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
@@ -20,7 +20,7 @@ const DEFAULT_WHY_CARDS = [
     { title: "Global Knowledge, Local Focus", description: "Trained at world leading universities like KTH (Sweden) and Massey University (New Zealand), we combine international best practices with local industry insight." },
     { title: "Practical, Impactful Learning", description: "Our training is designed around real projects, real tools, and real challenges   ensuring you can apply your learning immediately." },
     { title: "Personal Mentorship", description: "We guide every learner through their professional growth journey, offering support, mentoring, and career coaching beyond the classroom." },
-    { title: "Lifelong Learning Culture", description: "TheAgileNest is more than a training provider   it’s a learning community. We inspire continuous growth, innovation, and excellence." },
+    { title: "Lifelong Learning Culture", description: "TheAgileNest is more than a training provider   itâ€™s a learning community. We inspire continuous growth, innovation, and excellence." },
 ];
 
 export default async function AboutPage() {
@@ -38,7 +38,7 @@ export default async function AboutPage() {
     const founderTitle = orUndef(a.founderTitle) ?? "CEO & Certified Trainer";
     const whyEyebrow = orUndef(a.whyEyebrow) ?? "Who We Are";
     const whyHeading = orUndef(a.whyHeading) ?? "Why Choose TheAgileNest";
-    const whyIntro = orUndef(a.whyIntro) ?? "At TheAgileNest, we don’t just teach project management   we transform professionals into confident, TheAgileNest leaders ready to deliver real results.";
+    const whyIntro = orUndef(a.whyIntro) ?? "At TheAgileNest, we donâ€™t just teach project management   we transform professionals into confident, TheAgileNest leaders ready to deliver real results.";
     const whyCards = (a.whyCards as { title: string; description: string }[] | undefined)?.length
         ? (a.whyCards as { title: string; description: string }[])
         : DEFAULT_WHY_CARDS;
@@ -46,6 +46,10 @@ export default async function AboutPage() {
     const evoEyebrow = orUndef(a.evoEyebrow) ?? "Our Evolution";
     const evoHeading = orUndef(a.evoHeading) ?? "A 17-Year Journey in Project Management";
     const evoSubtitle = orUndef(a.evoSubtitle) ?? "From PMBOK 3rd to 8th Edition. Embracing Passion, Purpose, and Technology.";
+    const featuresImage = a.featuresImage && typeof a.featuresImage === 'object' ? (a.featuresImage as { url?: string }).url : undefined;
+    const featuresCards = (a.featuresCards as { title?: string; description?: string }[] | undefined) ?? undefined;
+    const quoteCards = (a.quoteCards as { quote: string; subtitle?: string }[] | undefined) ?? undefined;
+    const faqItems = (a.faqItems as { question: string; answer: string }[] | undefined) ?? undefined;
 
     return (
         <>
@@ -84,10 +88,10 @@ export default async function AboutPage() {
                                                 With over 17 years of professional experience in construction and project management, <strong>Engr. Syed Amjad Iqbal</strong> is a passionate leader, educator, and industry expert.
                                             </p>
                                             <p>
-                                                His unwavering dedication to empowering the next generation of project professionals is a source of inspiration and motivation for all who work with him. After earning his Bachelor’s in Engineering in 2003, Syed began his career in the construction industry, successfully delivering major infrastructure and commercial projects.
+                                                His unwavering dedication to empowering the next generation of project professionals is a source of inspiration and motivation for all who work with him. After earning his Bachelorâ€™s in Engineering in 2003, Syed began his career in the construction industry, successfully delivering major infrastructure and commercial projects.
                                             </p>
                                             <p>
-                                                In 2008, he completed his Master’s in Engineering. He pursued a <strong>Master’s in Project Management and Operational Management</strong> from <strong>KTH Royal Institute of Technology, Sweden</strong>, one of Europe’s top universities and a Nobel Prize institution. His academic journey, combined with hands-on industry experience, shaped a unique blend of practical and theoretical expertise. He later completed a <strong>Master’s in Construction Management</strong> at <strong>Massey University in New Zealand</strong>.
+                                                In 2008, he completed his Masterâ€™s in Engineering. He pursued a <strong>Masterâ€™s in Project Management and Operational Management</strong> from <strong>KTH Royal Institute of Technology, Sweden</strong>, one of Europeâ€™s top universities and a Nobel Prize institution. His academic journey, combined with hands-on industry experience, shaped a unique blend of practical and theoretical expertise. He later completed a <strong>Masterâ€™s in Construction Management</strong> at <strong>Massey University in New Zealand</strong>.
                                             </p>
                                             <p>
                                                 He achieved the <strong>PMI-CP (Construction Professional)</strong>, a globally recognised credential from the Project Management Institute (PMI), a prestigious certification focused on construction. As a CEO, consultant, and certified trainer, Syed has mentored hundreds of professionals worldwide in Project Management, Construction Management, and TheAgileNest practices.
@@ -164,10 +168,29 @@ export default async function AboutPage() {
                     </div>
                 </section>
             </main>
-            <Features titleSuffix="Certification Journey" descriptionSuffix="certification training programs" />
-            <CourseSuccessQuotes />
-            <FAQ />
+            <Features
+                eyebrow={orUndef(a.featuresEyebrow) ?? "The Advantage"}
+                titlePrefix={orUndef(a.featuresTitlePrefix) ?? "Why choose"}
+                highlightedName={orUndef(a.featuresHighlightedName) ?? "TheAgileNest"}
+                titleSuffix={orUndef(a.featuresTitleSuffix) ?? "Certification Journey"}
+                description={orUndef(a.featuresDescription) ?? "At TheAgileNest, we deliver one of New Zealand’s, Australia’s and Asia's most comprehensive and industry-ready certification training programs, designed to help you pass on your first attempt and excel in real-world project environments."}
+                cards={featuresCards}
+                imageSrc={featuresImage ?? "/images/TheAgileNest_hero_main_1771222013046.png"}
+                imageAlt={orUndef(a.featuresImageAlt) ?? "TheAgileNest Professional Excellence"}
+                badgeValue={orUndef(a.featuresBadgeValue) ?? "Proven"}
+                badgeLabel={orUndef(a.featuresBadgeLabel) ?? "Exam Success\nOn First Attempt"}
+            />
+            <CourseSuccessQuotes items={quoteCards} />
+            <FAQ
+                items={faqItems}
+                title={orUndef(a.faqTitle)}
+                subtitle={orUndef(a.faqSubtitle)}
+                description={orUndef(a.faqDescription)}
+                contactPrompt={orUndef(a.faqContactPrompt)}
+                contactLinkText={orUndef(a.faqContactLinkText)}
+            />
             <Footer />
         </>
     );
 }
+
