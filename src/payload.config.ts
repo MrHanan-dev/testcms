@@ -17,6 +17,7 @@ import { Consulting } from "./globals/Consulting";
 import { ProjectManagement } from "./globals/ProjectManagement";
 import { CostEstimation } from "./globals/CostEstimation";
 import { ContractManagement } from "./globals/ContractManagement";
+import { Training } from "./globals/Training";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -50,7 +51,7 @@ export default buildConfig({
     },
   },
   collections: [Pages, Leads, Users, Media],
-  globals: [SiteSettings, Home, About, Consulting, ProjectManagement, CostEstimation, ContractManagement],
+  globals: [SiteSettings, Home, About, Consulting, ProjectManagement, CostEstimation, ContractManagement, Training],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {

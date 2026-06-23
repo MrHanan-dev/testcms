@@ -3,63 +3,88 @@ import FAQ from '@/components/FAQ';
 import TrainingSchedule from '@/components/TrainingSchedule';
 import Footer from '@/components/Footer';
 import ServiceHero from '@/components/ServiceHero';
-import { Check, BookOpen, Users, Globe, Award, Laptop, GraduationCap, ArrowRight, MessageSquare, Files, Search, Star } from 'lucide-react';
+import { Files, Award, Star, Laptop, Users, Globe, GraduationCap, ArrowRight, MessageSquare, Search } from 'lucide-react';
 import { Metadata } from 'next';
-import Link from 'next/link';
+import { getGlobal } from '@/lib/payload';
+import { TR_CONTENT } from '@/data/trContent';
 
 export const metadata: Metadata = {
     title: "PMP & PMI Certification Training NZ | Professional Development",
     description: "PMI Authorised Training Partner offering PMP, CAPM & PMI-CP certification training in NZ. Live online & classroom. Enroll in our next cohort!",
 };
 
-export default function TrainingPage() {
-    const categories = [
-        {
-            title: "Course Catalogue",
-            desc: "Comprehensive project management courses available across New Zealand and Australia, tailored for local market needs.",
-            icon: Files,
-            links: ["NZ Course Catalogue", "Australia Course Catalogue"]
-        },
-        {
-            title: "PMI Certification",
-            desc: "The gold standard in project credentials. Full preparation for PMP®, CAPM®, and industry-specific certifications.",
-            icon: Award,
-            links: ["PMP® Prep", "CAPM® Entry", "PMI-CP® Construction"]
-        },
-        {
-            title: "Professional Development",
-            desc: "Advance your career with targeted skills in leadership, risk management, and strategic project delivery.",
-            icon: Star,
-            links: ["Leadership Workshops", "Risk Management", "TheAgileNest Methodologies"]
-        }
-    ];
+const orUndef = (v: unknown): string | undefined => (typeof v === 'string' && v.length > 0 ? v : undefined);
 
-    const bespokeServices = [
-        { title: "Custom Training", icon: Laptop, desc: "Training designed around your specific corporate methodologies." },
-        { title: "Coaching & Mentoring", icon: Users, desc: "1-on-1 and group support for project leaders and teams." },
-        { title: "Global Delivery", icon: Globe, desc: "Seamless training delivery across multiple timezones and regions." }
-    ];
+const CATEGORY_ICONS = [Files, Award, Star];
+const BESPOKE_ICONS = [Laptop, Users, Globe];
+const RESOURCE_META = [
+    { icon: MessageSquare, box: "bg-blue-50 text-blue-600" },
+    { icon: Search, box: "bg-teal-50 text-teal-600" },
+    { icon: Files, box: "bg-purple-50 text-purple-600" },
+];
+
+export default async function TrainingPage() {
+    const c = await getGlobal('trainingPage');
+
+    const heroTitle = orUndef(c.heroTitle) ?? TR_CONTENT.heroTitle;
+    const heroDescription = orUndef(c.heroDescription) ?? TR_CONTENT.heroDescription;
+    const heroBreadcrumb = orUndef(c.heroBreadcrumb) ?? TR_CONTENT.heroBreadcrumb;
+    const introEyebrow = orUndef(c.introEyebrow) ?? TR_CONTENT.introEyebrow;
+    const introHeadingLine1 = orUndef(c.introHeadingLine1) ?? TR_CONTENT.introHeadingLine1;
+    const introHeadingLine2 = orUndef(c.introHeadingLine2) ?? TR_CONTENT.introHeadingLine2;
+    const introParagraph = orUndef(c.introParagraph) ?? TR_CONTENT.introParagraph;
+
+    const cmsCats = c.categories as { title?: string; desc?: string; links?: { text: string }[] }[] | undefined;
+    const categories = TR_CONTENT.categories.map((base, i) => {
+        const s = cmsCats?.[i];
+        return {
+            icon: CATEGORY_ICONS[i],
+            title: s?.title || base.title,
+            desc: s?.desc || base.desc,
+            links: s?.links && s.links.length > 0 ? s.links.map((l) => l.text) : base.links,
+        };
+    });
+
+    const bespokeHeading = orUndef(c.bespokeHeading) ?? TR_CONTENT.bespokeHeading;
+    const bespokeParagraph = orUndef(c.bespokeParagraph) ?? TR_CONTENT.bespokeParagraph;
+    const cmsBespoke = c.bespokeServices as { title?: string; desc?: string }[] | undefined;
+    const bespokeServices = TR_CONTENT.bespokeServices.map((base, i) => ({
+        icon: BESPOKE_ICONS[i],
+        title: cmsBespoke?.[i]?.title || base.title,
+        desc: cmsBespoke?.[i]?.desc || base.desc,
+    }));
+    const bespokeBadgeTitle = orUndef(c.bespokeBadgeTitle) ?? TR_CONTENT.bespokeBadgeTitle;
+    const bespokeBadgeText = orUndef(c.bespokeBadgeText) ?? TR_CONTENT.bespokeBadgeText;
+
+    const cmsRes = c.resources as { title?: string; desc?: string }[] | undefined;
+    const resources = RESOURCE_META.map((meta, i) => ({
+        ...meta,
+        title: cmsRes?.[i]?.title || TR_CONTENT.resources[i].title,
+        desc: cmsRes?.[i]?.desc || TR_CONTENT.resources[i].desc,
+    }));
+
+    const scheduleItems = c.scheduleItems as { month: string; course: string; dates: string; time: string; format: string; status: string }[] | undefined;
 
     return (
         <>
             <Header variant="transparent" />
             <main className="min-h-screen bg-white">
                 <ServiceHero
-                    title="Professional Training"
-                    description="Equipping organisations and individuals with the skills to achieve project outcomes, through bespoke, public or global certification training."
+                    title={heroTitle}
+                    description={heroDescription}
                     gradientClass="bg-gradient-to-br from-[#1479be] to-[#31acee]"
-                    breadcrumb="Our Services"
+                    breadcrumb={heroBreadcrumb}
                 />
 
                 {/* Introduction */}
                 <section className="py-24 container-custom">
                     <div className="max-w-4xl mx-auto text-center space-y-8">
-                        <span className="label-tag mx-auto">Knowledge is Power</span>
+                        <span className="label-tag mx-auto">{introEyebrow}</span>
                         <h2 className="text-4xl md:text-5xl font-black text-primary leading-tight tracking-tight">
-                            Build Your Team's<br />Project Capability
+                            {introHeadingLine1}<br />{introHeadingLine2}
                         </h2>
                         <p className="text-slate-600 text-xl leading-relaxed font-medium">
-                            At TheAgileNest, we’re passionate about projects. We provide the full range of project services and training to increase your team’s skills and capabilities to help you achieve your business outcomes.
+                            {introParagraph}
                         </p>
                     </div>
                 </section>
@@ -97,10 +122,10 @@ export default function TrainingPage() {
                         <div className="grid lg:grid-cols-2 gap-16 items-center">
                             <div className="space-y-8">
                                 <h2 className="text-3xl md:text-4xl font-black text-primary leading-tight">
-                                    Bespoke Solutions for Your Unique Needs
+                                    {bespokeHeading}
                                 </h2>
                                 <p className="text-slate-500 text-lg leading-relaxed">
-                                    We don't just teach theory. We help create calm across your projects by creating the momentum you need to move your organisation forward.
+                                    {bespokeParagraph}
                                 </p>
                                 <div className="space-y-6">
                                     {bespokeServices.map((service, i) => (
@@ -125,8 +150,8 @@ export default function TrainingPage() {
                                     <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent" />
                                 </div>
                                 <div className="absolute -bottom-8 -left-8 bg-primary text-white p-10 rounded-[40px] shadow-2xl">
-                                    <h4 className="text-2xl font-black mb-2">Global Training</h4>
-                                    <p className="text-blue-100/70 text-sm font-medium">Delivered to teams in 15+ countries.</p>
+                                    <h4 className="text-2xl font-black mb-2">{bespokeBadgeTitle}</h4>
+                                    <p className="text-blue-100/70 text-sm font-medium">{bespokeBadgeText}</p>
                                 </div>
                             </div>
                         </div>
@@ -138,33 +163,26 @@ export default function TrainingPage() {
                     <div className="container-custom">
                         <div className="bg-white p-12 md:p-20 rounded-[60px] border border-slate-100 shadow-sm">
                             <div className="grid md:grid-cols-3 gap-12 text-center">
-                                <div className="group space-y-4">
-                                    <div className="mx-auto bg-blue-50 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                                        <MessageSquare size={28} />
+                                {resources.map((res, i) => (
+                                    <div key={i} className="group space-y-4">
+                                        <div className={`mx-auto ${res.box} w-16 h-16 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform`}>
+                                            <res.icon size={28} />
+                                        </div>
+                                        <h4 className="text-xl font-black text-primary">{res.title}</h4>
+                                        <p className="text-slate-500 text-sm">{res.desc}</p>
                                     </div>
-                                    <h4 className="text-xl font-black text-primary">Testimonials</h4>
-                                    <p className="text-slate-500 text-sm">What our students and corporate partners are saying.</p>
-                                </div>
-                                <div className="group space-y-4">
-                                    <div className="mx-auto bg-teal-50 text-teal-600 w-16 h-16 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                                        <Search size={28} />
-                                    </div>
-                                    <h4 className="text-xl font-black text-primary">Case Studies</h4>
-                                    <p className="text-slate-500 text-sm">Explore how our training transformed organisations.</p>
-                                </div>
-                                <div className="group space-y-4">
-                                    <div className="mx-auto bg-purple-50 text-purple-600 w-16 h-16 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                                        <Files size={28} />
-                                    </div>
-                                    <h4 className="text-xl font-black text-primary">Resources</h4>
-                                    <p className="text-slate-500 text-sm">Free guides, whitepapers, and PM tools.</p>
-                                </div>
+                                ))}
                             </div>
                         </div>
                     </div>
                 </section>
             </main>
-            <TrainingSchedule />
+            <TrainingSchedule
+                eyebrow={orUndef(c.scheduleEyebrow)}
+                heading={orUndef(c.scheduleHeading)}
+                paragraph={orUndef(c.scheduleParagraph)}
+                items={scheduleItems}
+            />
             <FAQ />
             <Footer />
         </>
