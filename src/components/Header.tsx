@@ -23,44 +23,21 @@ const DROPDOWN_VARIANTS = {
   exit: { opacity: 0, y: 8, scale: 0.98, transition: { duration: 0.15 } }
 };
 
-const navCategories = [
-  {
-    title: 'Consultancy',
-    href: '/consulting',
-    items: [
-      { name: 'Project Management', desc: 'Expert delivery & recovery services.', icon: Target, href: '/project-management' },
-      { name: 'Cost Estimation & Quality Surveying', desc: 'Fast accurate estimating for projects.', icon: Briefcase, href: '/cost-estimation' },
-    ]
-  },
-  {
-    title: 'Training',
-    href: '/training',
-    items: [
-      { name: 'PMP® Certification', desc: 'Expert-led preparation for the PMP exam.', icon: GraduationCap, href: '/pmp' },
-      { name: 'CAPM® Foundation', desc: 'Core principles for aspiring PMs.', icon: ShieldCheck, href: '/capm' },
-      { name: 'PMI-CP® Construction', desc: 'Specialized construction professional.', icon: Building2, href: '/pmicp' },
-      { name: 'Corporate Workshops', desc: 'Custom training for teams.', icon: Users, href: '/training' },
-    ]
-  },
-  {
-    title: 'Blogs',
-    href: '/blog',
-    items: [
-      { name: 'Latest Blogs', desc: 'Insights and trends in PM.', icon: BookOpen, href: '/blog' },
-    ]
-  },
-  {
-    title: 'About',
-    href: '/about',
-    items: [
-      { name: 'Our Story', desc: '17 years of passion and purpose.', icon: Users, href: '/about' },
-      { name: 'Our Evolution', desc: 'Professional journey and milestones.', icon: Target, href: '/about#evolution' },
-      { name: 'Become a Partner', desc: 'Join our premium training network.', icon: Globe, href: '/partner' },
-    ]
-  }
+const NAV_ICONS = [
+  [Target, Briefcase],
+  [GraduationCap, ShieldCheck, Building2, Users],
+  [BookOpen],
+  [Users, Target, Globe],
 ];
 
-function NavLink({ category, isLight, isActive, onMouseEnter, onMouseLeave }: any) {
+function NavLink({ category, categoryIndex, isLight, isActive, onMouseEnter, onMouseLeave }: {
+  category: { title: string; href: string; items: { name: string; desc: string; href: string }[] };
+  categoryIndex: number;
+  isLight: boolean;
+  isActive: boolean;
+  onMouseEnter: (title: string) => void;
+  onMouseLeave: () => void;
+}) {
   return (
     <div
       className="relative"
@@ -95,14 +72,16 @@ function NavLink({ category, isLight, isActive, onMouseEnter, onMouseLeave }: an
           >
             <div className="w-[320px] bg-white rounded-[24px] border border-slate-200 shadow-[0_20px_50px_rgba(0,0,0,0.1)] p-2.5 overflow-hidden">
               <div className="grid gap-1">
-                {category.items.map((item: any) => (
+                {category.items.map((item, itemIndex) => {
+                  const Icon = NAV_ICONS[categoryIndex]?.[itemIndex] ?? Target;
+                  return (
                   <Link
                     key={item.name}
                     href={item.href}
                     className="flex items-start gap-4 p-3.5 rounded-[18px] hover:bg-slate-50 transition-all duration-200 group/item"
                   >
                     <div className="w-10 h-10 flex-shrink-0 bg-primary/5 rounded-xl flex items-center justify-center text-primary group-hover/item:bg-accent group-hover/item:text-primary transition-all duration-300">
-                      <item.icon size={20} strokeWidth={2} />
+                      <Icon size={20} strokeWidth={2} />
                     </div>
                     <div className="flex flex-col min-w-0 pt-0.5">
                       <span className="text-[14px] font-black text-primary leading-tight group-hover/item:translate-x-0.5 transition-transform duration-300">
@@ -113,7 +92,8 @@ function NavLink({ category, isLight, isActive, onMouseEnter, onMouseLeave }: an
                       </span>
                     </div>
                   </Link>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </motion.div>
@@ -129,7 +109,7 @@ export default function Header({ variant = "solid" }: { variant?: "solid" | "tra
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const dropdownTimeout = useRef<NodeJS.Timeout | null>(null);
   // Logo is editable via Site Settings in the CMS; fall back to the bundled logo.
-  const { logoUrl } = useSiteSettings();
+  const { logoUrl, navCategories, contactButton } = useSiteSettings();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -172,10 +152,11 @@ export default function Header({ variant = "solid" }: { variant?: "solid" | "tra
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-2">
-          {navCategories.map((category) => (
+          {navCategories.map((category, categoryIndex) => (
             <NavLink
               key={category.title}
               category={category}
+              categoryIndex={categoryIndex}
               isLight={isLight}
               isActive={activeDropdown === category.title}
               onMouseEnter={handleMouseEnter}
@@ -190,7 +171,7 @@ export default function Header({ variant = "solid" }: { variant?: "solid" | "tra
                 : 'bg-accent text-primary hover:bg-accent/90'
                 }`}
             >
-              Contact Us
+              {contactButton}
             </ContactLink>
           </div>
         </nav>
@@ -228,7 +209,9 @@ export default function Header({ variant = "solid" }: { variant?: "solid" | "tra
                         {category.title}
                       </span>
                       <div className="grid gap-2">
-                        {category.items.map((item: any, i: number) => (
+                        {category.items.map((item, i) => {
+                          const Icon = NAV_ICONS[idx]?.[i] ?? Target;
+                          return (
                           <motion.div
                             key={item.name}
                             initial={{ opacity: 0, x: 20 }}
@@ -241,14 +224,15 @@ export default function Header({ variant = "solid" }: { variant?: "solid" | "tra
                               onClick={() => setIsMobileMenuOpen(false)}
                             >
                               <div className="w-10 h-10 bg-primary/5 rounded-xl flex items-center justify-center text-primary group-hover:bg-accent group-hover:text-primary transition-colors">
-                                <item.icon size={18} strokeWidth={2} />
+                                <Icon size={18} strokeWidth={2} />
                               </div>
                               <span className="text-[15px] font-bold text-primary">
                                 {item.name}
                               </span>
                             </Link>
                           </motion.div>
-                        ))}
+                          );
+                        })}
                       </div>
                     </div>
                   ))}
@@ -259,7 +243,7 @@ export default function Header({ variant = "solid" }: { variant?: "solid" | "tra
                     className="flex items-center justify-center w-full py-4 bg-primary text-white text-base font-black rounded-2xl shadow-xl active:scale-95 transition-all"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    Contact Us
+                    {contactButton}
                   </ContactLink>
                 </div>
               </motion.div>

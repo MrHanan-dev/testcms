@@ -4,8 +4,9 @@ import Script from "next/script";
 import "./globals.css";
 import JsonLd from "@/components/JsonLd";
 import WhatsAppFAB from "@/components/WhatsAppFAB";
-import { SiteSettingsProvider, type SiteSettingsValue } from "@/components/site/SiteSettingsProvider";
+import { SiteSettingsProvider } from "@/components/site/SiteSettingsProvider";
 import { getSiteSettings } from "@/lib/payload";
+import { resolveSiteSettings } from "@/lib/resolveSiteSettings";
 
 
 const inter = Inter({
@@ -69,16 +70,7 @@ export default async function RootLayout({
     // render them. Null-safe: if Payload is unreachable, the UI falls back to
     // the existing hardcoded defaults.
     const settings = await getSiteSettings();
-    const siteSettings: SiteSettingsValue = {
-        logoUrl:
-            settings && typeof settings.logo === "object" && settings.logo
-                ? (settings.logo as { url?: string }).url ?? null
-                : null,
-        companyName: (settings?.companyName as string) ?? null,
-        phone: (settings?.phone as string) ?? null,
-        email: (settings?.email as string) ?? null,
-        whatsapp: (settings?.whatsapp as string) ?? null,
-    };
+    const siteSettings = resolveSiteSettings(settings as Record<string, unknown> | null);
 
     return (
         <html lang="en">
