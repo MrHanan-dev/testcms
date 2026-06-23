@@ -3,6 +3,7 @@ import { fileURLToPath } from "url";
 
 import { postgresAdapter } from "@payloadcms/db-postgres";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
+import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
 import { buildConfig } from "payload";
 import sharp from "sharp";
 
@@ -23,9 +24,48 @@ import { Pmp } from "./globals/Pmp";
 import { Capm } from "./globals/Capm";
 import { PmiCp } from "./globals/PmiCp";
 import { Partner } from "./globals/Partner";
+import {
+  revalidateCmsPagePaths,
+  revalidateMediaPaths,
+  revalidatePostPaths,
+} from "./lib/cmsRevalidate";
+import { withCollectionRevalidation, withGlobalRevalidation } from "./lib/withCmsHooks";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
+
+const blobPlugins = process.env.BLOB_READ_WRITE_TOKEN
+  ? [
+      vercelBlobStorage({
+        collections: { media: { prefix: "media" } },
+        token: process.env.BLOB_READ_WRITE_TOKEN,
+        clientUploads: true,
+      }),
+    ]
+  : [];
+
+const globals = withGlobalRevalidation([
+  SiteSettings,
+  Home,
+  About,
+  Consulting,
+  ProjectManagement,
+  CostEstimation,
+  ContractManagement,
+  Training,
+  Pmp,
+  Capm,
+  PmiCp,
+  Partner,
+]);
+
+const collections = [
+  withCollectionRevalidation(Pages, [revalidateCmsPagePaths]),
+  withCollectionRevalidation(Posts, [revalidatePostPaths]),
+  Leads,
+  Users,
+  withCollectionRevalidation(Media, [revalidateMediaPaths]),
+];
 
 /**
  * Payload CMS configuration — the WordPress-like admin for the whole site.
@@ -55,10 +95,11 @@ export default buildConfig({
       beforeDashboard: ["/components/payload/CrmDashboard#CrmDashboard"],
     },
   },
-  collections: [Pages, Posts, Leads, Users, Media],
-  globals: [SiteSettings, Home, About, Consulting, ProjectManagement, CostEstimation, ContractManagement, Training, Pmp, Capm, PmiCp, Partner],
+  collections,
+  globals,
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
+  plugins: blobPlugins,
   typescript: {
     outputFile: path.resolve(dirname, "payload-types.ts"),
   },
