@@ -3,8 +3,9 @@ import { publishScheduledPosts } from "@/lib/scheduledPublisher";
 
 /**
  * Cron endpoint to publish scheduled posts.
- * Call this from a cron service (e.g., Vercel Cron, GitHub Actions) every minute.
- * 
+ * Vercel Hobby allows one cron per day — see vercel.json (daily at 08:00 UTC).
+ * Pro plan can use a tighter schedule (e.g. every 5 minutes).
+ *
  * Set CRON_SECRET in your environment to secure this endpoint.
  */
 export async function GET(request: Request) {
