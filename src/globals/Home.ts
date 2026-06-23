@@ -192,6 +192,30 @@ export const Home: GlobalConfig = {
             { name: "reviewsHeading", type: "text" },
             { name: "reviewsRating", type: "text" },
             { name: "reviewsGoogleUrl", type: "text" },
+            {
+              name: "reviewItems",
+              type: "array",
+              label: "Reviews",
+              admin: { description: "The individual review cards." },
+              fields: [
+                {
+                  type: "row",
+                  fields: [
+                    { name: "name", type: "text", required: true, admin: { width: "60%" } },
+                    { name: "date", type: "text", admin: { width: "40%", description: 'e.g. "a month ago".' } },
+                  ],
+                },
+                {
+                  name: "rating",
+                  type: "number",
+                  defaultValue: 5,
+                  min: 1,
+                  max: 5,
+                  admin: { description: "Star rating 1–5." },
+                },
+                { name: "text", type: "textarea" },
+              ],
+            },
           ],
         },
         // ── Final CTA ──────────────────────────────────────────────────────

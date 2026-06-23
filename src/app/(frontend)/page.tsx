@@ -102,6 +102,7 @@ export default async function Home() {
                     heading={orUndef(h.reviewsHeading)}
                     rating={orUndef(h.reviewsRating)}
                     googleUrl={orUndef(h.reviewsGoogleUrl)}
+                    items={h.reviewItems as never}
                 />
                 <JsonLdFaq items={[
                     { question: "What is the exam success rate for TheAgileNest's students?", answer: "We are incredibly proud to maintain an exceptional first-attempt pass rate for our PMP® certification training programs. This success is not accidental; it is the result of a meticulously designed curriculum that is tailored based on actual industrial situations and includes comprehensive mock testing, personalized mentorship, and a deep-dive into the PMBOK® Guide's principles. We don't just teach you to pass; we teach you to excel." },

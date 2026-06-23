@@ -136,6 +136,13 @@ export async function GET(req: NextRequest) {
         reviewsHeading: "What Our Students Say",
         reviewsRating: "5.0",
         reviewsGoogleUrl: "https://www.google.com/maps/place/AgileNest/data=!4m2!3m1!1s0x0:0xa5b20cdb0955fd78?sa=X&ved=1t:2428&hl=en-NZ&ictx=111",
+        reviewItems: [
+          { name: "Engineer Syed", date: "a month ago", rating: 5, text: "AgileNest delivers outstanding project management and construction cost estimation services. Their expertise helped ensure accurate budgeting and smooth project execution. The team is highly professional, responsive, and committed to delivering results. Highly recommended for construction and infrastructure projects." },
+          { name: "Rabin Biswakarma", date: "2 years ago", rating: 5, text: "they have professional consultant to make your dream come true" },
+          { name: "Michelle Ann Javier", date: "a month ago", rating: 5, text: "" },
+          { name: "Adesh Aditya", date: "a month ago", rating: 5, text: "" },
+          { name: "Lourin Keat", date: "a year ago", rating: 5, text: "" },
+        ],
         ctaHeadingLead: "Ready to Elevate Your",
         ctaHeadingAccent: "Project Strategy?",
         ctaParagraph: "Join over 5,000 professionals who have transformed their careers and organizations with our elite training and consultancy.",
