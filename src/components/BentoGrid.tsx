@@ -27,7 +27,7 @@ const CONTAINER_VARIANTS = {
     }
 };
 
-const services = [
+const DEFAULT_SERVICES = [
     {
         icon: Network,
         title: "Project Management Consultancy",
@@ -61,7 +61,35 @@ const services = [
     },
 ];
 
-export default function BentoGrid() {
+type ServiceCard = { subtitle?: string; title?: string; description?: string; href?: string; buttonText?: string };
+
+type BentoGridProps = {
+    eyebrow?: string;
+    headingLead?: string;
+    headingMuted?: string;
+    cards?: ServiceCard[];
+};
+
+export default function BentoGrid({
+    eyebrow = "Our Expertise",
+    headingLead = "Our Expertise: ",
+    headingMuted = "Empowering Professionals. Transforming Projects",
+    cards,
+}: BentoGridProps = {}) {
+    // Keep icons/number/theme fixed by position; overlay editable text from the CMS.
+    const services = DEFAULT_SERVICES.map((base, i) => {
+        const c = cards?.[i];
+        return c
+            ? {
+                  ...base,
+                  subtitle: c.subtitle || base.subtitle,
+                  title: c.title || base.title,
+                  description: c.description || base.description,
+                  href: c.href || base.href,
+                  btnText: c.buttonText || base.btnText,
+              }
+            : base;
+    });
     return (
         <section id="services" className="section relative overflow-hidden py-20 md:py-48 bg-[#F8FAFC]">
             {/* Ultra-Premium Background Decoration */}
@@ -93,7 +121,7 @@ export default function BentoGrid() {
                         className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white border border-slate-200 shadow-sm mb-6 md:mb-10"
                     >
                         <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                        <span className="text-2xl md:text-3xl font-black uppercase tracking-[0.3em] text-primary">Our Expertise</span>
+                        <span className="text-2xl md:text-3xl font-black uppercase tracking-[0.3em] text-primary">{eyebrow}</span>
                     </motion.div>
                     
                     <motion.h2 
@@ -103,8 +131,8 @@ export default function BentoGrid() {
                         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                         className="text-[clamp(36px,8vw,80px)] font-black leading-[0.95] tracking-tight text-primary mb-8 md:mb-12"
                     >
-                        Our Expertise: <br />
-                        <span className="text-slate-400">Empowering Professionals. Transforming Projects</span>
+                        {headingLead}<br />
+                        <span className="text-slate-400">{headingMuted}</span>
                     </motion.h2>
                     
                     <motion.div

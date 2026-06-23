@@ -5,19 +5,32 @@ import { Star, ExternalLink } from 'lucide-react';
 
 import { GOOGLE_REVIEWS } from '@/constants/reviews';
 
-const GOOGLE_REVIEW_URL = "https://www.google.com/maps/place/AgileNest/data=!4m2!3m1!1s0x0:0xa5b20cdb0955fd78?sa=X&ved=1t:2428&hl=en-NZ&ictx=111";
+const DEFAULT_GOOGLE_REVIEW_URL = "https://www.google.com/maps/place/AgileNest/data=!4m2!3m1!1s0x0:0xa5b20cdb0955fd78?sa=X&ved=1t:2428&hl=en-NZ&ictx=111";
 
-export default function GoogleReviews() {
+type ReviewsProps = {
+    eyebrow?: string;
+    heading?: string;
+    rating?: string;
+    googleUrl?: string;
+};
+
+export default function GoogleReviews({
+    eyebrow = "Google Reviews",
+    heading = "What Our Students Say",
+    rating = "5.0",
+    googleUrl,
+}: ReviewsProps = {}) {
+    const GOOGLE_REVIEW_URL = googleUrl || DEFAULT_GOOGLE_REVIEW_URL;
     return (
         <section className="py-20 md:py-32 bg-slate-50 relative overflow-hidden">
             <div className="container-custom relative z-10">
                 <div className="text-center max-w-3xl mx-auto mb-16">
-                    <span className="label-tag mb-4 block">Google Reviews</span>
+                    <span className="label-tag mb-4 block">{eyebrow}</span>
                     <h2 className="text-4xl md:text-5xl font-black text-primary tracking-tight leading-[1.1] mb-6">
-                        What Our Students Say
+                        {heading}
                     </h2>
                     <div className="flex items-center justify-center gap-2 text-xl font-bold text-slate-600 mb-6">
-                        <span className="text-primary text-3xl">5.0</span>
+                        <span className="text-primary text-3xl">{rating}</span>
                         <div className="flex">
                             {[...Array(5)].map((_, i) => (
                                 <Star key={i} size={24} className="text-yellow-500 fill-yellow-500" />
