@@ -13,6 +13,7 @@ import { Leads } from "./collections/Leads";
 import { SiteSettings } from "./globals/SiteSettings";
 import { Home } from "./globals/Home";
 import { About } from "./globals/About";
+import { Consulting } from "./globals/Consulting";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -46,7 +47,7 @@ export default buildConfig({
     },
   },
   collections: [Pages, Leads, Users, Media],
-  globals: [SiteSettings, Home, About],
+  globals: [SiteSettings, Home, About, Consulting],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {

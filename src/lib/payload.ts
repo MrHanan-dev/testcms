@@ -30,6 +30,21 @@ export async function getAbout() {
   }
 }
 
+/**
+ * Generic, null-safe fetch for any global by slug — used by the per-page
+ * content globals (consulting, training, pmp, …). Returns {} on failure so
+ * callers can read fields with fallbacks without null checks.
+ */
+export async function getGlobal(slug: string): Promise<Record<string, unknown>> {
+  try {
+    const payload = await getPayload({ config });
+    return (await payload.findGlobal({ slug, depth: 1 })) as Record<string, unknown>;
+  } catch (err) {
+    console.error(`[payload] getGlobal(${slug}) failed:`, (err as Error).message);
+    return {};
+  }
+}
+
 /** Site-wide settings global (logo, contact, socials). Null-safe. */
 export async function getSiteSettings() {
   try {
