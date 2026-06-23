@@ -7,11 +7,14 @@ import { GOOGLE_REVIEWS } from '@/constants/reviews';
 
 const DEFAULT_GOOGLE_REVIEW_URL = "https://www.google.com/maps/place/AgileNest/data=!4m2!3m1!1s0x0:0xa5b20cdb0955fd78?sa=X&ved=1t:2428&hl=en-NZ&ictx=111";
 
+type ReviewItem = { id?: string | number; name: string; date?: string; rating?: number; text?: string };
+
 type ReviewsProps = {
     eyebrow?: string;
     heading?: string;
     rating?: string;
     googleUrl?: string;
+    items?: ReviewItem[];
 };
 
 export default function GoogleReviews({
@@ -19,8 +22,10 @@ export default function GoogleReviews({
     heading = "What Our Students Say",
     rating = "5.0",
     googleUrl,
+    items,
 }: ReviewsProps = {}) {
     const GOOGLE_REVIEW_URL = googleUrl || DEFAULT_GOOGLE_REVIEW_URL;
+    const reviews: ReviewItem[] = items && items.length > 0 ? items : GOOGLE_REVIEWS;
     return (
         <section className="py-20 md:py-32 bg-slate-50 relative overflow-hidden">
             <div className="container-custom relative z-10">
@@ -41,9 +46,9 @@ export default function GoogleReviews({
                 </div>
 
                 <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6 max-w-7xl mx-auto mb-16">
-                    {GOOGLE_REVIEWS.map((review, idx) => (
+                    {reviews.map((review, idx) => (
                         <motion.div
-                            key={review.id}
+                            key={review.id ?? idx}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
