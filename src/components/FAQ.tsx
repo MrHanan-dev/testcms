@@ -41,7 +41,27 @@ const defaultFaqs: FAQItem[] = [
     }
 ];
 
-export default function FAQ({ items, title, subtitle, description, contactPrompt = "Have a specific question or corporate requirement?", contactLinkText = "Contact us today" }: { items?: FAQItem[], title?: string, subtitle?: string, description?: string, contactPrompt?: string, contactLinkText?: string }) {
+type FAQProps = {
+    items?: FAQItem[];
+    eyebrow?: string;
+    title?: string;
+    subtitle?: string;
+    description?: string;
+    contactPrompt?: string;
+    contactLinkText?: string;
+    contactSuffix?: string;
+};
+
+export default function FAQ({ 
+    items, 
+    eyebrow = "FAQ",
+    title, 
+    subtitle, 
+    description, 
+    contactPrompt = "Have a specific question or corporate requirement?", 
+    contactLinkText = "Contact us today",
+    contactSuffix = "for a tailored solution.",
+}: FAQProps) {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
     const displayFaqs = items || defaultFaqs;
 
@@ -49,7 +69,7 @@ export default function FAQ({ items, title, subtitle, description, contactPrompt
         <section className="py-20 md:py-32 bg-white relative overflow-hidden">
             <div className="container-custom relative z-10">
                 <div className="mb-12 md:mb-20 text-center max-w-3xl mx-auto">
-                    <span className="label-tag mb-4 block mx-auto">FAQ</span>
+                    <span className="label-tag mb-4 block mx-auto">{eyebrow}</span>
                     <h2 className="text-3xl md:text-6xl font-black text-primary tracking-tight mb-6">
                         {title || "Answers to Fuel Your"} <br />
                         <span className="text-slate-400">{subtitle || "Project Journey"}</span>
@@ -93,7 +113,7 @@ export default function FAQ({ items, title, subtitle, description, contactPrompt
                             <Mail size={18} />
                         </div>
                         <span className="text-sm md:text-base font-bold text-white px-2">
-                            {contactPrompt} <ContactLink className="text-accent hover:underline ml-1">{contactLinkText}</ContactLink> for a tailored solution.
+                            {contactPrompt} <ContactLink className="text-accent hover:underline ml-1">{contactLinkText}</ContactLink> {contactSuffix}
                         </span>
                     </div>
                 </div>

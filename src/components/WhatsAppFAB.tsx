@@ -3,10 +3,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useSiteSettings } from './site/SiteSettingsProvider';
 
 export default function WhatsAppFAB() {
-    const phoneNumber = "64273537774";
-    const message = "Hello TheAgileNest, I'd like to inquire about your services.";
+    const s = useSiteSettings();
+    const phoneNumber = (s.whatsapp || "64273537774").replace(/\D/g, "");
+    const message = s.whatsappMessage;
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
     return (
@@ -53,7 +55,7 @@ export default function WhatsAppFAB() {
 
                 {/* Focused Tooltip */}
                 <span className="absolute right-full mr-6 bg-green-600 text-white text-xs font-bold px-4 py-2 rounded-full shadow-xl opacity-0 -translate-x-4 pointer-events-none transition-all group-hover:opacity-100 group-hover:translate-x-0 whitespace-nowrap">
-                    NEED HELP? CHAT NOW
+                    {s.whatsappTooltip}
                     {/* Tooltip Arrow */}
                     <span className="absolute top-1/2 -right-1 -translate-y-1/2 w-2 h-2 bg-green-600 rotate-45" />
                 </span>

@@ -7,13 +7,7 @@ import ContactForm from './ContactForm';
 import CompanyBio from './CompanyBio';
 import { useSiteSettings } from './site/SiteSettingsProvider';
 
-function ClientsSection({ heading }: { heading: string }) {
-  const clientImages = [
-    "/our_client/1.jpeg", "/our_client/2.jpeg", "/our_client/3.jpeg", "/our_client/4.jpeg",
-    "/our_client/5.jpeg", "/our_client/6.jpeg", "/our_client/7.jpeg", "/our_client/8.jpeg",
-    "/our_client/9.jpeg", "/our_client/10.jpeg", "/our_client/11.jpeg", "/our_client/12.jpeg",
-  ];
-
+function ClientsSection({ heading, logos }: { heading: string; logos: { src: string; alt: string }[] }) {
   return (
     <div className="bg-white py-12 border-t border-slate-100 overflow-hidden">
       <div className="container-custom">
@@ -22,13 +16,14 @@ function ClientsSection({ heading }: { heading: string }) {
         </div>
         <div className="relative flex overflow-x-hidden group marquee-mask">
           <div className="flex animate-marquee whitespace-nowrap py-4">
-            {[...clientImages, ...clientImages].map((src, index) => (
+            {[...logos, ...logos].map((logo, index) => (
               <div key={index} className="mx-12 w-48 h-24 relative transition-all duration-300 hover:scale-110">
                 <Image
-                  src={src}
-                  alt="Client company logo"
+                  src={logo.src}
+                  alt={logo.alt}
                   fill
                   className="object-contain"
+                  unoptimized={logo.src.startsWith('http')}
                 />
               </div>
             ))}
@@ -59,7 +54,7 @@ export default function Footer({ hideContactForm = false, hideClients = false }:
         </div>
       )}
 
-      {!hideClients && <ClientsSection heading={s.clientsHeading} />}
+      {!hideClients && <ClientsSection heading={s.clientsHeading} logos={s.clientLogos} />}
 
       <CompanyBio />
 
@@ -88,11 +83,12 @@ export default function Footer({ hideContactForm = false, hideClients = false }:
               <div className="mt-8 relative group w-64 h-64 md:w-72 md:h-72">
                 <div className="relative w-full h-full p-8 bg-white/20 backdrop-blur-md rounded-[32px] border border-white/30 shadow-2xl transition-all duration-500 group-hover:bg-white/30 group-hover:scale-[1.02] flex items-center justify-center">
                   <Image
-                    src="/2.png"
-                    alt="PMI Authorized Training Partner Premier"
+                    src={s.pmiBadgeUrl || "/2.png"}
+                    alt={s.pmiBadgeAlt}
                     width={400}
                     height={400}
                     className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
+                    unoptimized={Boolean(s.pmiBadgeUrl)}
                   />
                 </div>
               </div>
@@ -176,7 +172,12 @@ export default function Footer({ hideContactForm = false, hideClients = false }:
 
           <div className="mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-bold uppercase tracking-widest opacity-50">
             <p>© {new Date().getFullYear()} {s.copyrightText}</p>
-            <div className="flex gap-8">
+            <div className="flex flex-wrap items-center gap-6">
+              {s.socials.map((social) => (
+                <a key={social.url} href={social.url} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                  {social.platform}
+                </a>
+              ))}
               <Link href={s.privacyHref} className="hover:text-white transition-colors">{s.privacyLabel}</Link>
               <Link href={s.termsHref} className="hover:text-white transition-colors">{s.termsLabel}</Link>
             </div>

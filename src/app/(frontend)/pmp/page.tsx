@@ -14,11 +14,18 @@ import JsonLdFaq from '@/components/JsonLdFaq';
 import { RichText } from '@payloadcms/richtext-lexical/react';
 import { getGlobal } from '@/lib/payload';
 import { PMP_CONTENT } from '@/data/pmpContent';
+import { generateSeoMetadata } from '@/lib/generateSeoMetadata';
 
-export const metadata: Metadata = {
-    title: "PMP Certification Training NZ | PMI Authorised Partner",
-    description: "Join NZ's premier PMP® certification training. PMI ATP, 35 contact hours, live virtual classes, mock exams & first-attempt support. Enroll now!",
-};
+export async function generateMetadata(): Promise<Metadata> {
+    const c = await getGlobal('pmpPage');
+    return generateSeoMetadata({
+        data: c,
+        fallbackTitle: "PMP Certification Training NZ | PMI Authorised Partner",
+        fallbackDescription: "Join NZ's premier PMP® certification training. PMI ATP, 35 contact hours, live virtual classes, mock exams & first-attempt support. Enroll now!",
+        path: "/pmp",
+        keywords: ["PMP certification NZ", "PMP training", "PMI ATP", "project management professional", "PMP exam preparation"],
+    });
+}
 
 const orUndef = (v: unknown): string | undefined => (typeof v === 'string' && v.length > 0 ? v : undefined);
 const hasRich = (v: unknown): v is object => Boolean(v && typeof v === 'object' && 'root' in (v as Record<string, unknown>));
@@ -50,7 +57,12 @@ const MandatoryFallback = () => (
 
 export default async function PmpPage() {
     const c = await getGlobal('pmpPage');
+    const training = await getGlobal('trainingPage');
     const f = <T,>(key: string, fallback: T): T => (orUndef(c[key]) as T) ?? fallback;
+    const imageUrl = (key: string): string | undefined => {
+        const v = c[key];
+        return v && typeof v === 'object' && 'url' in v ? (v as { url: string }).url : undefined;
+    };
     // Generic array fallback: prefer CMS array if non-empty.
     const arr = <T,>(key: string, fallback: T[]): T[] => {
         const v = c[key] as T[] | undefined;
@@ -103,7 +115,7 @@ export default async function PmpPage() {
                     next={{ name: "PMI-CP", href: "/pmicp" }}
                     gradientClass="from-primary to-primary-700"
                     buttonColorText="text-primary"
-                    badgeImage="/certifications/pmp.webp"
+                    badgeImage={imageUrl('heroBadgeImage') ?? "/certifications/pmp.webp"}
                     downloadLink={ECO_LINK}
                 />
 
@@ -540,7 +552,12 @@ export default async function PmpPage() {
                         <div className="lg:col-span-3">
                             <BookingForm
                                 courseName="PMP® Certification"
-                                availableDates={["June 2026", "July 2026", "August 2026"]}
+                                formTitle={f('bookingFormTitle', 'Register Now')}
+                                formSubtitle={orUndef(c.bookingFormSubtitle)}
+                                submitButtonText={f('bookingSubmitButton', 'Confirm Registration')}
+                                successTitle={f('bookingSuccessTitle', 'Booking Received!')}
+                                successMessage={orUndef(c.bookingSuccessMessage)}
+                                footerNote={f('bookingFooterNote', 'No upfront payment required to register')}
                             />
                         </div>
                         <div className="lg:col-span-2 space-y-10">
@@ -570,7 +587,12 @@ export default async function PmpPage() {
                     </section>
                 </div>
             </main>
-            <TrainingSchedule />
+            <TrainingSchedule
+                eyebrow={orUndef(training?.scheduleEyebrow)}
+                heading={orUndef(training?.scheduleHeading)}
+                paragraph={orUndef(training?.scheduleParagraph)}
+                items={training?.scheduleItems as { month: string; course: string; dates: string; time: string; format: string; status: string }[] | undefined}
+            />
             <JsonLdFaq items={faqItems} />
             <FAQ
                 title={f('faqTitle', PMP_CONTENT.faqTitle)}

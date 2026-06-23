@@ -14,11 +14,18 @@ import JsonLdFaq from '@/components/JsonLdFaq';
 import { RichText } from '@payloadcms/richtext-lexical/react';
 import { getGlobal } from '@/lib/payload';
 import { PMICP_CONTENT as K } from '@/data/pmicpContent';
+import { generateSeoMetadata } from '@/lib/generateSeoMetadata';
 
-export const metadata: Metadata = {
-    title: "PMI-CP Certification NZ | Construction Management Credential",
-    description: "Earn the PMI Construction Professional (PMI-CP)® certification in NZ. 35 contact hours, construction-specific training, exam support. Enroll now!",
-};
+export async function generateMetadata(): Promise<Metadata> {
+    const c = await getGlobal('pmicpPage');
+    return generateSeoMetadata({
+        data: c,
+        fallbackTitle: "PMI-CP Certification NZ | Construction Management Credential",
+        fallbackDescription: "Earn the PMI Construction Professional (PMI-CP)® certification in NZ. 35 contact hours, construction-specific training, exam support. Enroll now!",
+        path: "/pmicp",
+        keywords: ["PMI-CP certification NZ", "construction management", "PMI construction professional", "construction PM training"],
+    });
+}
 
 const orUndef = (v: unknown): string | undefined => (typeof v === 'string' && v.length > 0 ? v : undefined);
 const hasRich = (v: unknown): v is object => Boolean(v && typeof v === 'object' && 'root' in (v as Record<string, unknown>));
@@ -40,7 +47,12 @@ const optionIcons = [Building2, Users, Globe];
 
 export default async function PmiCpPage() {
     const c = await getGlobal('pmicpPage');
+    const training = await getGlobal('trainingPage');
     const f = <T,>(key: string, fallback: T): T => (orUndef(c[key]) as T) ?? fallback;
+    const imageUrl = (key: string): string | undefined => {
+        const v = c[key];
+        return v && typeof v === 'object' && 'url' in v ? (v as { url: string }).url : undefined;
+    };
     const arr = <T,>(key: string, fallback: T[]): T[] => {
         const v = c[key] as T[] | undefined;
         return v && v.length > 0 ? v : fallback;
@@ -91,7 +103,7 @@ export default async function PmiCpPage() {
                     next={{ name: "CAPM", href: "/capm" }}
                     gradientClass="from-primary to-primary-700"
                     buttonColorText="text-primary"
-                    badgeImage="/certifications/pmi-cp.webp"
+                    badgeImage={imageUrl('heroBadgeImage') ?? "/certifications/pmi-cp.webp"}
                     downloadLink="/PMICP Exam-Content-Outline.pdf"
                 />
 
@@ -394,13 +406,18 @@ export default async function PmiCpPage() {
                         <div className="md:col-span-3">
                             <BookingForm
                                 courseName="PMI-CP® Certification"
-                                availableDates={["June 2026", "July 2026", "August 2026"]}
+                                formTitle={f('bookingFormTitle', 'Register Now')}
+                                formSubtitle={orUndef(c.bookingFormSubtitle)}
+                                submitButtonText={f('bookingSubmitButton', 'Confirm Registration')}
+                                successTitle={f('bookingSuccessTitle', 'Booking Received!')}
+                                successMessage={orUndef(c.bookingSuccessMessage)}
+                                footerNote={f('bookingFooterNote', 'No upfront payment required to register')}
                             />
                         </div>
                         <div className="md:col-span-2 space-y-8">
                             <div className="bg-slate-800 text-white p-10 rounded-[40px] shadow-2xl relative overflow-hidden group">
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-accent/20 rounded-bl-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
-                                <h3 className="text-2xl font-bold mb-6 relative z-10">Advance your<br />construction<br />career</h3>
+                                <h3 className="text-2xl font-bold mb-6 relative z-10">{f('registerCardHeading', 'Advance your construction career')}</h3>
                                 <p className="text-slate-300 mb-8 relative z-10 font-medium">{f('registerCardPara', K.registerCardPara)}</p>
                                 <ContactLink
                                     className="inline-flex items-center justify-center py-6 px-16 bg-white text-primary font-black text-xl rounded-2xl hover:scale-105 transition-all shadow-2xl"
@@ -420,7 +437,12 @@ export default async function PmiCpPage() {
 
                 </div>
             </main>
-            <TrainingSchedule />
+            <TrainingSchedule
+                eyebrow={orUndef(training?.scheduleEyebrow)}
+                heading={orUndef(training?.scheduleHeading)}
+                paragraph={orUndef(training?.scheduleParagraph)}
+                items={training?.scheduleItems as { month: string; course: string; dates: string; time: string; format: string; status: string }[] | undefined}
+            />
             <JsonLdFaq items={faqItems} />
             <FAQ
                 title={f('faqTitle', K.faqTitle)}

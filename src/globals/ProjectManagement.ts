@@ -1,4 +1,5 @@
 import type { GlobalConfig } from "payload";
+import { seoTab } from "@/lib/seoFields";
 
 /**
  * Editable Project Management page content. Every field optional with page-level
@@ -7,23 +8,28 @@ import type { GlobalConfig } from "payload";
  */
 export const ProjectManagement: GlobalConfig = {
   slug: "projectManagementPage",
-  label: "Project Management Page",
+  label: "Project Management",
   access: { read: () => true },
-  admin: { group: "Service Pages" },
+  admin: {
+    group: "💼 Service Pages",
+    description: "Edit the Project Management services page — all PM service offerings and FAQs.",
+  },
   fields: [
     {
       type: "tabs",
       tabs: [
         {
-          label: "Hero",
+          label: "🎯 Hero Section",
+          description: "The banner at the top",
           fields: [
-            { name: "heroTitle", type: "text" },
-            { name: "heroDescription", type: "textarea" },
-            { name: "heroBreadcrumb", type: "text" },
+            { name: "heroTitle", type: "text", label: "Page Title", admin: { placeholder: "e.g. Project Management" } },
+            { name: "heroDescription", type: "textarea", label: "Description" },
+            { name: "heroBreadcrumb", type: "text", label: "Breadcrumb Label" },
           ],
         },
         {
-          label: "How we help",
+          label: "🤝 How We Help",
+          description: "Main value proposition",
           fields: [
             { name: "helpEyebrow", type: "text" },
             { name: "helpHeadingLine1", type: "text" },
@@ -37,7 +43,8 @@ export const ProjectManagement: GlobalConfig = {
           ],
         },
         {
-          label: "Services grid",
+          label: "💼 Services Grid",
+          description: "All PM service offerings",
           fields: [
             { name: "gridHeading", type: "text" },
             { name: "gridSubtitle", type: "text" },
@@ -60,7 +67,8 @@ export const ProjectManagement: GlobalConfig = {
           ],
         },
         {
-          label: "Consultancy",
+          label: "📊 Consultancy",
+          description: "Additional consulting services",
           fields: [
             { name: "consEyebrow", type: "text" },
             { name: "consHeadingLine1", type: "text" },
@@ -79,7 +87,8 @@ export const ProjectManagement: GlobalConfig = {
           ],
         },
         {
-          label: "FAQ",
+          label: "❓ FAQ",
+          description: "Frequently asked questions",
           fields: [
             { name: "faqEyebrow", type: "text" },
             { name: "faqHeadingLine1", type: "text" },
@@ -95,13 +104,15 @@ export const ProjectManagement: GlobalConfig = {
           ],
         },
         {
-          label: "CTA",
+          label: "🚀 Call to Action",
+          description: "Final CTA section",
           fields: [
             { name: "ctaHeading", type: "text" },
             { name: "ctaParagraph", type: "textarea" },
             { name: "ctaButtonText", type: "text" },
           ],
         },
+        seoTab,
       ],
     },
   ],

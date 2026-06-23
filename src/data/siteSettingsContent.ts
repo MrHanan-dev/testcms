@@ -49,6 +49,21 @@ export const SITE_SETTINGS_CONTENT = {
 
   clientsHeading: "Our Clients belong to",
 
+  clientLogos: [
+    { src: "/our_client/1.jpeg", alt: "Client 1" },
+    { src: "/our_client/2.jpeg", alt: "Client 2" },
+    { src: "/our_client/3.jpeg", alt: "Client 3" },
+    { src: "/our_client/4.jpeg", alt: "Client 4" },
+    { src: "/our_client/5.jpeg", alt: "Client 5" },
+    { src: "/our_client/6.jpeg", alt: "Client 6" },
+    { src: "/our_client/7.jpeg", alt: "Client 7" },
+    { src: "/our_client/8.jpeg", alt: "Client 8" },
+    { src: "/our_client/9.jpeg", alt: "Client 9" },
+    { src: "/our_client/10.jpeg", alt: "Client 10" },
+    { src: "/our_client/11.jpeg", alt: "Client 11" },
+    { src: "/our_client/12.jpeg", alt: "Client 12" },
+  ],
+
   companyBioHeadingLead: "The Agile Nest: Your Strategic Partner in ",
   companyBioHeadingAccent: "Project Management Excellence",
   companyBioParagraphs: [
@@ -107,9 +122,9 @@ export const SITE_SETTINGS_CONTENT = {
 
   copyrightText: "TheAgileNest. All rights reserved.",
   privacyLabel: "Privacy Policy",
-  privacyHref: "#",
+  privacyHref: "/privacy",
   termsLabel: "Terms of Service",
-  termsHref: "#",
+  termsHref: "/terms",
 };
 
 export type NavItem = { name: string; desc: string; href: string };

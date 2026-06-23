@@ -2,8 +2,10 @@
 
 import { useState } from 'react';
 import { User, Mail, MessageSquare, Send, CheckCircle2 } from 'lucide-react';
+import { useSiteSettings } from './site/SiteSettingsProvider';
 
 export default function ContactForm() {
+    const s = useSiteSettings();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -45,15 +47,13 @@ export default function ContactForm() {
                 <div className="w-20 h-20 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto scale-110">
                     <CheckCircle2 size={40} />
                 </div>
-                <h3 className="text-2xl font-bold text-primary">Message Sent!</h3>
-                <p className="text-slate-600">
-                    Thank you for reaching out to <strong>TheAgileNest</strong>. Our advisors will review your message and get back to you within 24 hours.
-                </p>
+                <h3 className="text-2xl font-bold text-primary">{s.contactFormSuccessTitle}</h3>
+                <p className="text-slate-600">{s.contactFormSuccessMessage}</p>
                 <button
                     onClick={() => setIsSubmitted(false)}
                     className="text-primary font-bold hover:underline transition-all"
                 >
-                    Send another message
+                    {s.contactFormResendText}
                 </button>
             </div>
         );
@@ -65,15 +65,15 @@ export default function ContactForm() {
                 <div className="lg:col-span-2 bg-primary p-10 text-white flex flex-col justify-between relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-accent/20 rounded-bl-full blur-2xl"></div>
                     <div className="relative z-10">
-                        <h3 className="text-3xl font-bold mb-4">Get in touch</h3>
-                        <p className="text-blue-100/80 mb-8 font-medium">Have questions about our training or consultancy services? We're here to help.</p>
+                        <h3 className="text-3xl font-bold mb-4">{s.contactFormTitle}</h3>
+                        <p className="text-blue-100/80 mb-8 font-medium">{s.contactFormSubtitle}</p>
                     </div>
                     <div className="relative z-10 space-y-4">
                         <div className="flex items-center gap-3 text-sm font-bold uppercase tracking-widest text-accent">
                             <span className="w-8 h-[1px] bg-accent"></span>
-                            Advisor Support
+                            {s.contactFormSidebarLabel}
                         </div>
-                        <p className="text-xs text-blue-200/60 font-medium italic">"TheAgileNest helped us navigate complex project hurdles with ease."   Project Lead, Auckland</p>
+                        <p className="text-xs text-blue-200/60 font-medium italic">"{s.contactFormTestimonial}" — {s.contactFormTestimonialAuthor}</p>
                     </div>
                 </div>
 
@@ -81,26 +81,26 @@ export default function ContactForm() {
                     <div className="grid md:grid-cols-2 gap-6">
                         <div className="space-y-2">
                             <label className="text-sm font-bold text-slate-700 flex items-center gap-2">
-                                <User size={16} className="text-accent" /> Name
+                                <User size={16} className="text-accent" /> {s.contactFormNameLabel}
                             </label>
                             <input
                                 required
                                 name="fullName"
                                 type="text"
-                                placeholder="Your name"
+                                placeholder={s.contactFormNamePlaceholder}
                                 className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-primary/20 outline-none transition-all font-medium"
                             />
                         </div>
 
                         <div className="space-y-2">
                             <label className="text-sm font-bold text-slate-700 flex items-center gap-2">
-                                <Mail size={16} className="text-accent" /> Email
+                                <Mail size={16} className="text-accent" /> {s.contactFormEmailLabel}
                             </label>
                             <input
                                 required
                                 name="email"
                                 type="email"
-                                placeholder="your@email.com"
+                                placeholder={s.contactFormEmailPlaceholder}
                                 className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-primary/20 outline-none transition-all font-medium"
                             />
                         </div>
@@ -108,13 +108,13 @@ export default function ContactForm() {
 
                     <div className="space-y-2">
                         <label className="text-sm font-bold text-slate-700 flex items-center gap-2">
-                            <MessageSquare size={16} className="text-accent" /> Message
+                            <MessageSquare size={16} className="text-accent" /> {s.contactFormMessageLabel}
                         </label>
                         <textarea
                             required
                             name="message"
                             rows={4}
-                            placeholder="How can we help you?"
+                            placeholder={s.contactFormMessagePlaceholder}
                             className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-primary/20 outline-none transition-all font-medium resize-none"
                         ></textarea>
                     </div>
@@ -125,7 +125,7 @@ export default function ContactForm() {
                             disabled={isSubmitting}
                             className="w-full py-4 bg-primary text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:translate-y-0"
                         >
-                            {isSubmitting ? "Sending..." : "Send Message"}
+                            {isSubmitting ? s.contactFormSendingText : s.contactFormButtonText}
                             {!isSubmitting && <Send size={18} />}
                         </button>
                     </div>

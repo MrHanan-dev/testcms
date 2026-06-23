@@ -1,4 +1,5 @@
 import type { GlobalConfig } from "payload";
+import { seoTab } from "@/lib/seoFields";
 
 const list = (name: string, label?: string) => ({
   name,
@@ -16,23 +17,50 @@ const list = (name: string, label?: string) => ({
  */
 export const Pmp: GlobalConfig = {
   slug: "pmpPage",
-  label: "PMP Page",
+  label: "PMP Certification",
   access: { read: () => true },
-  admin: { group: "Certification Pages" },
+  admin: {
+    group: "🎓 Certification & Training",
+    description: "Edit the PMP certification page — eligibility, curriculum, pricing, and FAQs.",
+  },
   fields: [
     {
       type: "tabs",
       tabs: [
         {
-          label: "Hero",
+          label: "🎯 Hero Section",
+          description: "The banner at the top of the PMP page",
           fields: [
-            { name: "heroTitle", type: "text" },
-            { name: "heroSubtitle", type: "text" },
-            { name: "heroDescription", type: "textarea" },
+            {
+              name: "heroTitle",
+              type: "text",
+              label: "Page Title",
+              admin: { placeholder: "e.g. PMP® Certification" },
+            },
+            {
+              name: "heroSubtitle",
+              type: "text",
+              label: "Subtitle",
+              admin: { placeholder: "e.g. Project Management Professional" },
+            },
+            {
+              name: "heroDescription",
+              type: "textarea",
+              label: "Description",
+              admin: { placeholder: "Brief description of the certification..." },
+            },
+            {
+              name: "heroBadgeImage",
+              type: "upload",
+              relationTo: "media",
+              label: "Certification Badge",
+              admin: { description: "💡 Upload the PMP badge image" },
+            },
           ],
         },
         {
-          label: "Overview",
+          label: "📋 Overview",
+          description: "What is PMP and who is it for",
           fields: [
             { name: "descEyebrow", type: "text" },
             { name: "descHeading", type: "text" },
@@ -56,15 +84,17 @@ export const Pmp: GlobalConfig = {
           ],
         },
         {
-          label: "Eligibility",
+          label: "✅ Eligibility",
+          description: "Requirements to qualify for PMP",
           fields: [
-            { name: "eligibilityHeading", type: "text" },
-            { name: "eligibilityIntro", type: "textarea" },
+            { name: "eligibilityHeading", type: "text", label: "Section Heading" },
+            { name: "eligibilityIntro", type: "textarea", label: "Introduction" },
             {
               name: "pathways",
               type: "array",
-              label: "Pathways",
-              admin: { initCollapsed: true, description: "4 pathways. Leave rich-text empty to keep the current standardized text with its links." },
+              label: "Eligibility Pathways",
+              labels: { singular: "Pathway", plural: "Pathways" },
+              admin: { initCollapsed: true, description: "💡 4 pathways based on education level. Leave rich-text empty to keep defaults." },
               fields: [
                 { name: "label", type: "text", required: true },
                 { name: "experience", type: "text", admin: { description: 'e.g. "60 months / 5 years".' } },
@@ -75,7 +105,8 @@ export const Pmp: GlobalConfig = {
           ],
         },
         {
-          label: "Curriculum",
+          label: "📚 Curriculum",
+          description: "What we teach in the course",
           fields: [
             { name: "curriculumHeading", type: "text" },
             { name: "curriculumSubtitle", type: "text" },
@@ -93,7 +124,8 @@ export const Pmp: GlobalConfig = {
           ],
         },
         {
-          label: "Exam",
+          label: "📝 Exam Format",
+          description: "About the PMP exam",
           fields: [
             { name: "examFormatHeading", type: "text" },
             {
@@ -118,7 +150,8 @@ export const Pmp: GlobalConfig = {
           ],
         },
         {
-          label: "Why train",
+          label: "🏆 Why Train With Us",
+          description: "Benefits of our training program",
           fields: [
             { name: "whyTrainEyebrow", type: "text" },
             { name: "whyTrainHeading", type: "text" },
@@ -139,7 +172,8 @@ export const Pmp: GlobalConfig = {
           ],
         },
         {
-          label: "Why right",
+          label: "✨ Why We're Right",
+          description: "What makes us different",
           fields: [
             { name: "rightHeadingLead", type: "text" },
             { name: "rightHeadingAccent", type: "text" },
@@ -162,7 +196,8 @@ export const Pmp: GlobalConfig = {
           ],
         },
         {
-          label: "Investment",
+          label: "💰 Investment & Pricing",
+          description: "Course fees and exam costs",
           fields: [
             { name: "investEyebrow", type: "text" },
             { name: "investHeading", type: "text" },
@@ -190,33 +225,86 @@ export const Pmp: GlobalConfig = {
           ],
         },
         {
-          label: "Registration",
+          label: "📋 Registration",
+          description: "How to sign up",
           fields: [
-            { name: "corporateEyebrow", type: "text" },
-            { name: "corporateHeading", type: "text" },
-            { name: "corporatePara", type: "textarea" },
-            { name: "corporateButton", type: "text" },
-            { name: "testimonialQuote", type: "textarea" },
-            { name: "testimonialAuthor", type: "text" },
-            { name: "testimonialRole", type: "text" },
-          ],
-        },
-        {
-          label: "FAQ",
-          fields: [
-            { name: "faqTitle", type: "text" },
-            { name: "faqSubtitle", type: "text" },
-            { name: "faqDescription", type: "textarea" },
             {
-              name: "faqItems",
-              type: "array",
+              type: "collapsible",
+              label: "Booking Form",
+              admin: { initCollapsed: false },
               fields: [
-                { name: "question", type: "text", required: true },
-                { name: "answer", type: "textarea", required: true },
+                {
+                  type: "row",
+                  fields: [
+                    { name: "bookingFormTitle", type: "text", label: "Form Title", defaultValue: "Register Now", admin: { width: "50%" } },
+                    { name: "bookingFormSubtitle", type: "text", label: "Form Subtitle", admin: { width: "50%", placeholder: "e.g. Secure your spot..." } },
+                  ],
+                },
+                {
+                  type: "row",
+                  fields: [
+                    { name: "bookingSubmitButton", type: "text", label: "Submit Button", defaultValue: "Confirm Registration", admin: { width: "50%" } },
+                    { name: "bookingFooterNote", type: "text", label: "Footer Note", defaultValue: "No upfront payment required to register", admin: { width: "50%" } },
+                  ],
+                },
+                {
+                  type: "row",
+                  fields: [
+                    { name: "bookingSuccessTitle", type: "text", label: "Success Title", defaultValue: "Booking Received!", admin: { width: "50%" } },
+                    { name: "bookingSuccessMessage", type: "textarea", label: "Success Message", admin: { width: "50%", placeholder: "Custom success message..." } },
+                  ],
+                },
+              ],
+            },
+            {
+              type: "collapsible",
+              label: "Corporate Training Section",
+              admin: { initCollapsed: true },
+              fields: [
+                { name: "corporateEyebrow", type: "text" },
+                { name: "corporateHeading", type: "text" },
+                { name: "corporatePara", type: "textarea" },
+                { name: "corporateButton", type: "text" },
+              ],
+            },
+            {
+              type: "collapsible",
+              label: "Testimonial",
+              admin: { initCollapsed: true },
+              fields: [
+                { name: "testimonialQuote", type: "textarea" },
+                { name: "testimonialAuthor", type: "text" },
+                { name: "testimonialRole", type: "text" },
               ],
             },
           ],
         },
+        {
+          label: "❓ FAQ",
+          description: "Frequently asked questions",
+          fields: [
+            {
+              type: "row",
+              fields: [
+                { name: "faqTitle", type: "text", label: "Section Title", admin: { width: "50%" } },
+                { name: "faqSubtitle", type: "text", label: "Subtitle", admin: { width: "50%" } },
+              ],
+            },
+            { name: "faqDescription", type: "textarea", label: "Description" },
+            {
+              name: "faqItems",
+              type: "array",
+              label: "FAQ Items",
+              labels: { singular: "Question", plural: "Questions" },
+              admin: { initCollapsed: true },
+              fields: [
+                { name: "question", type: "text", label: "Question", required: true },
+                { name: "answer", type: "textarea", label: "Answer", required: true },
+              ],
+            },
+          ],
+        },
+        seoTab,
       ],
     },
   ],

@@ -34,7 +34,7 @@ export function Icon() {
         justifyContent: "center",
       }}
     >
-      <span style={{ color: "#55c5e7", fontWeight: 800, fontSize: 16, lineHeight: 1 }}>A</span>
+      <span style={{ color: "#55c5e7", fontWeight: 800, fontSize: 16, lineHeight: 1 }}>N</span>
     </div>
   );
 }

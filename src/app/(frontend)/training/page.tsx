@@ -7,11 +7,18 @@ import { Files, Award, Star, Laptop, Users, Globe, GraduationCap, ArrowRight, Me
 import { Metadata } from 'next';
 import { getGlobal } from '@/lib/payload';
 import { TR_CONTENT } from '@/data/trContent';
+import { generateSeoMetadata } from '@/lib/generateSeoMetadata';
 
-export const metadata: Metadata = {
-    title: "PMP & PMI Certification Training NZ | Professional Development",
-    description: "PMI Authorised Training Partner offering PMP, CAPM & PMI-CP certification training in NZ. Live online & classroom. Enroll in our next cohort!",
-};
+export async function generateMetadata(): Promise<Metadata> {
+    const c = await getGlobal('trainingPage');
+    return generateSeoMetadata({
+        data: c,
+        fallbackTitle: "PMP & PMI Certification Training NZ | Professional Development",
+        fallbackDescription: "PMI Authorised Training Partner offering PMP, CAPM & PMI-CP certification training in NZ. Live online & classroom. Enroll in our next cohort!",
+        path: "/training",
+        keywords: ["PMP training NZ", "PMI certification", "CAPM training", "PMI-CP certification", "project management training"],
+    });
+}
 
 const orUndef = (v: unknown): string | undefined => (typeof v === 'string' && v.length > 0 ? v : undefined);
 
@@ -64,6 +71,13 @@ export default async function TrainingPage() {
     }));
 
     const scheduleItems = c.scheduleItems as { month: string; course: string; dates: string; time: string; format: string; status: string }[] | undefined;
+
+    const faqTitle = orUndef(c.faqTitle);
+    const faqSubtitle = orUndef(c.faqSubtitle);
+    const faqDescription = orUndef(c.faqDescription);
+    const faqItems = (c.faqItems as { question: string; answer: string }[] | undefined)?.length
+        ? (c.faqItems as { question: string; answer: string }[])
+        : undefined;
 
     return (
         <>
@@ -183,7 +197,7 @@ export default async function TrainingPage() {
                 paragraph={orUndef(c.scheduleParagraph)}
                 items={scheduleItems}
             />
-            <FAQ />
+            <FAQ items={faqItems} title={faqTitle} subtitle={faqSubtitle} description={faqDescription} />
             <Footer />
         </>
     );

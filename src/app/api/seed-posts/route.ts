@@ -1,9 +1,11 @@
+import { join } from "node:path";
+import { existsSync } from "node:fs";
 import { NextResponse, type NextRequest } from "next/server";
 import { getPayload } from "payload";
 import config from "@payload-config";
 import { blogPostsMeta } from "@/data/blogPostsMeta";
 
-/** Seed blog posts metadata from blogPostsMeta. Dev-only, ?force=1. Body/FAQ intentionally not seeded. */
+/** Seed blog posts metadata from blogPostsMeta + upload featured images. Dev-only, ?force=1. Body/FAQ intentionally not seeded. */
 export async function GET(req: NextRequest) {
   if (process.env.NODE_ENV === "production") return new NextResponse("Disabled in production", { status: 403 });
   if (req.nextUrl.searchParams.get("secret") !== process.env.PAYLOAD_SECRET) return new NextResponse("Unauthorized", { status: 401 });
@@ -17,6 +19,16 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ skipped: true, reason: "Already seeded (use ?force=1)." });
     }
 
+    const uploadImage = async (imagePath: string, alt: string) => {
+      if (!imagePath || /^https?:\/\//i.test(imagePath)) return undefined;
+      const filename = imagePath.split("/").pop() || imagePath;
+      const filePath = join(process.cwd(), "public", imagePath.replace(/^\//, ""));
+      if (!existsSync(filePath)) return undefined;
+      const found = await payload.find({ collection: "media", where: { filename: { equals: filename } }, limit: 1 });
+      const media = found.docs[0] ?? (await payload.create({ collection: "media", data: { alt }, filePath }));
+      return media.id;
+    };
+
     let created = 0;
     let updated = 0;
 
@@ -26,6 +38,9 @@ export async function GET(req: NextRequest) {
         where: { slug: { equals: post.slug } },
         limit: 1,
       });
+
+      const featuredImage = await uploadImage(post.imageUrl, post.title);
+
       const data = {
         title: post.title,
         slug: post.slug,
@@ -34,6 +49,7 @@ export async function GET(req: NextRequest) {
         author: post.author,
         category: post.category,
         imageUrl: post.imageUrl,
+        ...(featuredImage ? { featuredImage } : {}),
         readTime: post.readTime,
       };
 

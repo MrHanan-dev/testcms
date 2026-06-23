@@ -1,6 +1,8 @@
+import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import { getHome } from '@/lib/payload';
+import { generateSeoMetadata } from '@/lib/generateSeoMetadata';
 import FeatureStrip from '@/components/FeatureStrip';
 import TrustBar from '@/components/TrustBar';
 import BentoGrid from '@/components/BentoGrid';
@@ -13,6 +15,17 @@ import FAQ from '@/components/FAQ';
 import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
 import JsonLdFaq from '@/components/JsonLdFaq';
+
+export async function generateMetadata(): Promise<Metadata> {
+    const home = await getHome();
+    return generateSeoMetadata({
+        data: home,
+        fallbackTitle: "TheAgileNest | PMP Training & Project Management Consulting NZ",
+        fallbackDescription: "Premium PMP certification training, quantity surveying, and project management consulting services in New Zealand, Australia, and Pakistan.",
+        path: "/",
+        keywords: ["PMP certification", "project management training", "CAPM", "PMI-CP", "quantity surveying", "cost estimation", "New Zealand"],
+    });
+}
 
 type HeroSlideDoc = {
     variant?: 'image' | 'infographic' | 'collage';
@@ -34,6 +47,8 @@ export default async function Home() {
     // its built-in content when the corresponding field is empty.
     const home = await getHome();
     const h = (home ?? {}) as Record<string, unknown>;
+
+    const faqItems = (h.faqItems as { question: string; answer: string }[] | undefined) ?? undefined;
 
     const heroSlides = ((h.heroSlides as HeroSlideDoc[]) ?? []).map((s) => ({
         src: s.image && typeof s.image === 'object' ? s.image.url ?? '' : '',
@@ -58,7 +73,13 @@ export default async function Home() {
         <>
             <Header variant="transparent" />
             <main>
-                <Hero slides={heroSlides} />
+                <Hero 
+                    slides={heroSlides}
+                    primaryCtaText={orUndef(h.heroPrimaryCtaText)}
+                    primaryCtaUrl={orUndef(h.heroPrimaryCtaUrl)}
+                    secondaryCtaText={orUndef(h.heroSecondaryCtaText)}
+                    secondaryCtaUrl={orUndef(h.heroSecondaryCtaUrl)}
+                />
                 <FeatureStrip items={featureItems} />
                 {/* <TrustBar /> */}
                 <BentoGrid
@@ -104,14 +125,17 @@ export default async function Home() {
                     googleUrl={orUndef(h.reviewsGoogleUrl)}
                     items={h.reviewItems as never}
                 />
-                <JsonLdFaq items={[
-                    { question: "What is the exam success rate for TheAgileNest's students?", answer: "We are incredibly proud to maintain an exceptional first-attempt pass rate for our PMP® certification training programs. This success is not accidental; it is the result of a meticulously designed curriculum that is tailored based on actual industrial situations and includes comprehensive mock testing, personalized mentorship, and a deep-dive into the PMBOK® Guide's principles. We don't just teach you to pass; we teach you to excel." },
-                    { question: "Do you offer tailored project management consulting for enterprises?", answer: "Absolutely. TheAgileNest specializes in bespoke consultancy services designed for high-stakes, large-scale projects. From helping you establish a robust Project Management Office (PMO) to providing expert masterplanning and sustainability advice, we help organizations navigate complex delivery hurdles with confidence. We work as an extension of your team, ensuring that every project activity is aligned with your broader strategic objectives." },
-                    { question: "What industries do your consultancy services cover?", answer: "While our core strength lies in large-scale infrastructure, commercial developments, and industrial construction projects, our methodologies are versatile and have been successfully applied in sectors such as energy, manufacturing, and technology. We bring a cross-disciplinary perspective to every engagement, allowing us to identify unique opportunities for efficiency and risk mitigation that others might overlook." },
-                    { question: "Can you handle remote or international projects?", answer: "Yes, our operational model is built for the global economy. We provide comprehensive digital cost estimation, remote project management consulting, and virtual training services to clients across several continents. By leveraging secure cloud-based collaboration tools and a global mindset, we ensure that our international clients receive the same level of dedicated support and expertise as our local New Zealand partners." },
-                    { question: "What is your approach to risk management?", answer: "Risk management is woven into everything we do. We utilize a proactive approach, identifying potential project risks early in the lifecycle through multi-disciplinary analysis and predictive modeling. We then develop robust, actionable mitigation strategies to safeguard your project's financial stability and scheduling success. Our goal is to transform uncertainty into manageable variables, providing you with the clarity needed to make bold project decisions." }
-                ]} />
-                <FAQ />
+                {faqItems && faqItems.length > 0 && <JsonLdFaq items={faqItems} />}
+                <FAQ 
+                    eyebrow={orUndef(h.faqEyebrow)}
+                    title={orUndef(h.faqTitle)}
+                    subtitle={orUndef(h.faqSubtitle)}
+                    description={orUndef(h.faqDescription)}
+                    items={h.faqItems as never}
+                    contactPrompt={orUndef(h.faqContactPrompt)}
+                    contactLinkText={orUndef(h.faqContactLinkText)}
+                    contactSuffix={orUndef(h.faqContactSuffix)}
+                />
                 <FinalCTA
                     headingLead={orUndef(h.ctaHeadingLead)}
                     headingAccent={orUndef(h.ctaHeadingAccent)}

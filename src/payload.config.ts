@@ -12,6 +12,20 @@ import { Media } from "./collections/Media";
 import { Pages } from "./collections/Pages";
 import { Posts } from "./collections/Posts";
 import { Leads } from "./collections/Leads";
+import { Tags } from "./collections/Tags";
+import { ActivityLog } from "./collections/ActivityLog";
+import { Comments } from "./collections/Comments";
+import { Redirects } from "./collections/Redirects";
+import { Forms } from "./collections/Forms";
+import { FormSubmissions } from "./collections/FormSubmissions";
+import { Testimonials } from "./collections/Testimonials";
+import { TeamMembers } from "./collections/TeamMembers";
+import { Galleries } from "./collections/Galleries";
+import { Faqs } from "./collections/Faqs";
+import { Popups } from "./collections/Popups";
+import { Sliders } from "./collections/Sliders";
+import { PricingPlans } from "./collections/PricingPlans";
+import { Menus } from "./collections/Menus";
 import { SiteSettings } from "./globals/SiteSettings";
 import { Home } from "./globals/Home";
 import { About } from "./globals/About";
@@ -24,6 +38,11 @@ import { Pmp } from "./globals/Pmp";
 import { Capm } from "./globals/Capm";
 import { PmiCp } from "./globals/PmiCp";
 import { Partner } from "./globals/Partner";
+import { Privacy } from "./globals/Privacy";
+import { Terms } from "./globals/Terms";
+import { Appearance } from "./globals/Appearance";
+import { CustomCode } from "./globals/CustomCode";
+import { ReadingSettings } from "./globals/ReadingSettings";
 import {
   revalidateCmsPagePaths,
   revalidateMediaPaths,
@@ -46,6 +65,9 @@ const blobPlugins = process.env.BLOB_READ_WRITE_TOKEN
 
 const globals = withGlobalRevalidation([
   SiteSettings,
+  Appearance,
+  CustomCode,
+  ReadingSettings,
   Home,
   About,
   Consulting,
@@ -57,13 +79,29 @@ const globals = withGlobalRevalidation([
   Capm,
   PmiCp,
   Partner,
+  Privacy,
+  Terms,
 ]);
 
 const collections = [
   withCollectionRevalidation(Pages, [revalidateCmsPagePaths]),
   withCollectionRevalidation(Posts, [revalidatePostPaths]),
+  Tags,
+  Comments,
+  Redirects,
+  Forms,
+  FormSubmissions,
+  Testimonials,
+  TeamMembers,
+  Galleries,
+  Faqs,
+  Popups,
+  Sliders,
+  PricingPlans,
+  Menus,
   Leads,
   Users,
+  ActivityLog,
   withCollectionRevalidation(Media, [revalidateMediaPaths]),
 ];
 
@@ -104,8 +142,13 @@ export default buildConfig({
     outputFile: path.resolve(dirname, "payload-types.ts"),
   },
   db: postgresAdapter({
+    // Schema is already synced — avoid slow Drizzle push on every dev server boot (Neon).
+    push: process.env.PAYLOAD_DB_PUSH === "true",
     pool: {
       connectionString: process.env.DATABASE_URI || "",
+      max: 10,
+      idleTimeoutMillis: 20_000,
+      connectionTimeoutMillis: 15_000,
     },
   }),
   // Sharp powers image resizing for the media library.

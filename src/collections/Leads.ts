@@ -1,4 +1,6 @@
 import type { CollectionConfig } from "payload";
+import { logCollectionChange, logCollectionDelete } from "@/lib/activityLogger";
+import { notifyNewLead } from "@/lib/emailNotifications";
 
 /**
  * CRM Leads — every website enquiry (contact, booking, cost-estimation forms)
@@ -11,16 +13,19 @@ export const Leads: CollectionConfig = {
   slug: "leads",
   labels: { singular: "Lead", plural: "Leads" },
   admin: {
-    group: "CRM",
+    group: "📬 CRM",
+    description: "Manage enquiries from website forms — track status, add notes, assign to team.",
     useAsTitle: "name",
-    // Show the message preview right in the list so the team can triage at a glance.
     defaultColumns: ["name", "email", "message", "status", "formType", "createdAt"],
-    // Search across the things you'd actually search a CRM by.
     listSearchableFields: ["name", "email", "phone", "company", "subject", "message"],
     pagination: { defaultLimit: 25 },
   },
   // Newest enquiries first in the list.
   defaultSort: "-createdAt",
+  hooks: {
+    afterChange: [logCollectionChange, notifyNewLead],
+    afterDelete: [logCollectionDelete],
+  },
   access: {
     read: ({ req: { user } }) => Boolean(user),
     create: ({ req: { user } }) => Boolean(user), // server persists via overrideAccess
