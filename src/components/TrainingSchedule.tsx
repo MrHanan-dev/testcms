@@ -34,46 +34,29 @@ const CARD_VARIANTS = {
     }
 };
 
-const schedules = [
-    {
-        month: "June 2026",
-        course: "PMP® Certification Bootcamp",
-        dates: "June 13, 14, 20, 21",
-        time: "9:00 AM - 5:00 PM (NZST)",
-        format: "Live Virtual",
-        status: "Filling Fast",
-        link: "#register"
-    },
-    {
-        month: "June 2026",
-        course: "CAPM® Foundation Course",
-        dates: "June 27, 28",
-        time: "9:00 AM - 5:00 PM (NZST)",
-        format: "Live Virtual",
-        status: "Open",
-        link: "#register"
-    },
-    {
-        month: "July 2026",
-        course: "PMP® Certification Bootcamp",
-        dates: "July 11, 12, 18, 19",
-        time: "9:00 AM - 5:00 PM (NZST)",
-        format: "Live Virtual",
-        status: "Open",
-        link: "#register"
-    },
-    {
-        month: "July 2026",
-        course: "PMI-CP® Certification Bootcamp",
-        dates: "July 25, 26",
-        time: "9:00 AM - 5:00 PM (NZST)",
-        format: "Live Virtual",
-        status: "Open",
-        link: "#register"
-    }
+type Schedule = { month: string; course: string; dates: string; time: string; format: string; status: string };
+
+const DEFAULT_SCHEDULES: Schedule[] = [
+    { month: "June 2026", course: "PMP® Certification Bootcamp", dates: "June 13, 14, 20, 21", time: "9:00 AM - 5:00 PM (NZST)", format: "Live Virtual", status: "Filling Fast" },
+    { month: "June 2026", course: "CAPM® Foundation Course", dates: "June 27, 28", time: "9:00 AM - 5:00 PM (NZST)", format: "Live Virtual", status: "Open" },
+    { month: "July 2026", course: "PMP® Certification Bootcamp", dates: "July 11, 12, 18, 19", time: "9:00 AM - 5:00 PM (NZST)", format: "Live Virtual", status: "Open" },
+    { month: "July 2026", course: "PMI-CP® Certification Bootcamp", dates: "July 25, 26", time: "9:00 AM - 5:00 PM (NZST)", format: "Live Virtual", status: "Open" }
 ];
 
-export default function TrainingSchedule() {
+interface TrainingScheduleProps {
+    eyebrow?: string;
+    heading?: string;
+    paragraph?: string;
+    items?: Schedule[];
+}
+
+export default function TrainingSchedule({
+    eyebrow = "Upcoming Batches",
+    heading = "Monthly Training Schedule",
+    paragraph = "Secure your spot in our upcoming certification cohorts. Our live virtual weekends are designed for working professionals to balance career growth with existing commitments.",
+    items,
+}: TrainingScheduleProps = {}) {
+    const schedules = items && items.length > 0 ? items : DEFAULT_SCHEDULES;
     return (
         <section className="py-24 bg-slate-50 border-t border-slate-100 shadow-xl">
             <div className="container-custom">
@@ -84,12 +67,12 @@ export default function TrainingSchedule() {
                     variants={FADE_IN_UP}
                     className="max-w-3xl mb-16"
                 >
-                    <span className="text-accent font-extrabold tracking-[0.2em] uppercase text-2xl md:text-3xl mb-6 block">Upcoming Batches</span>
+                    <span className="text-accent font-extrabold tracking-[0.2em] uppercase text-2xl md:text-3xl mb-6 block">{eyebrow}</span>
                     <h2 className="text-4xl md:text-5xl font-black text-primary leading-tight">
-                        Monthly Training Schedule
+                        {heading}
                     </h2>
                     <p className="text-slate-600 text-lg mt-6 max-w-2xl font-medium">
-                        Secure your spot in our upcoming certification cohorts. Our live virtual weekends are designed for working professionals to balance career growth with existing commitments.
+                        {paragraph}
                     </p>
                 </motion.div>
 
