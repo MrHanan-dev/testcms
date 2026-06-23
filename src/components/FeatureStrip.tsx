@@ -3,14 +3,15 @@
 import { CheckCircle2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const features = [
+const DEFAULT_FEATURES = [
   "Project Management Experts",
   "PMP® Training Specialists",
   "Cost & Contract Experts",
   "Results Focused Delivery"
 ];
 
-export default function FeatureStrip() {
+export default function FeatureStrip({ items }: { items?: string[] } = {}) {
+  const features = items && items.length > 0 ? items : DEFAULT_FEATURES;
   return (
     <div className="bg-white border-b border-slate-100 py-10 md:py-14 relative z-20">
       {/* Subtle background glow */}

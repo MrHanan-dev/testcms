@@ -3,7 +3,9 @@
 import { motion } from 'framer-motion';
 import { Quote } from 'lucide-react';
 
-const testimonials = [
+type Testimonial = { quote: string; author?: string; role?: string; company?: string };
+
+const DEFAULT_TESTIMONIALS: Testimonial[] = [
     {
         quote: "TheAgileNest's PMP training was a game-changer. Their practical approach made complex concepts easy to grasp and apply immediately.",
         author: "Sarah Johnson",
@@ -24,14 +26,27 @@ const testimonials = [
     }
 ];
 
-export default function Testimonials() {
+type TestimonialsProps = {
+    eyebrow?: string;
+    headingLead?: string;
+    headingMuted?: string;
+    items?: Testimonial[];
+};
+
+export default function Testimonials({
+    eyebrow = "Testimonials",
+    headingLead = "Voice of ",
+    headingMuted = "Excellence",
+    items,
+}: TestimonialsProps = {}) {
+    const testimonials = items && items.length > 0 ? items : DEFAULT_TESTIMONIALS;
     return (
         <section className="py-20 md:py-32 bg-slate-50 relative overflow-hidden">
             <div className="container-custom">
                 <div className="mb-12 md:mb-20 text-center">
-                    <span className="label-tag mb-4 block">Testimonials</span>
+                    <span className="label-tag mb-4 block">{eyebrow}</span>
                     <h2 className="text-3xl md:text-6xl font-black text-primary tracking-tight">
-                        Voice of <span className="text-slate-400">Excellence</span>
+                        {headingLead}<span className="text-slate-400">{headingMuted}</span>
                     </h2>
                 </div>
 

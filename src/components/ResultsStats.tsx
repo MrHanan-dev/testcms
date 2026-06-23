@@ -2,14 +2,17 @@
 
 import { motion } from 'framer-motion';
 
-const stats = [
+type Stat = { value: string; label: string; suffix?: string };
+
+const DEFAULT_STATS: Stat[] = [
     { value: "98%", label: "Pass Rate", suffix: "" },
     { value: "17+", label: "Years Experience", suffix: "" },
     { value: "5000", label: "Professionals Trained", suffix: "+" },
     { value: "100", label: "Project Success", suffix: "%" },
 ];
 
-export default function ResultsStats() {
+export default function ResultsStats({ items }: { items?: Stat[] } = {}) {
+    const stats = items && items.length > 0 ? items : DEFAULT_STATS;
     return (
         <section className="py-16 md:py-24 bg-primary relative overflow-hidden">
             {/* Background design */}

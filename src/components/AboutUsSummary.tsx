@@ -46,7 +46,57 @@ const differentiators = [
     }
 ];
 
-export default function AboutUsSummary() {
+const WHY_DEFAULTS = [
+    { title: "Proven real-world project delivery experience", description: "Our consultants have decades of hands-on experience leading and recovering high-stakes projects across multiple industries.", icon: Target },
+    { title: "Strong commercial and contractual expertise", description: "We provide meticulous cost management and quantity surveying to ensure your projects remain profitable and contractually secure.", icon: Briefcase },
+    { title: "Clear reporting, governance, and accountability", description: "We implement robust frameworks that provide total transparency, enabling informed decision-making at every project stage.", icon: ShieldCheck },
+    { title: "Practical training built on industry experience", description: "Our certification programs move beyond theory, teaching practical applications that build capable, high-performing teams.", icon: GraduationCap },
+    { title: "Trusted support with a client-first approach", description: "We partner closely with you, aligning our strategies directly with your organizational goals to ensure mutual success.", icon: Users },
+    { title: "Focused on measurable outcomes and value", description: "Every methodology we apply is designed to deliver tangible ROI, optimize efficiency, and drive sustainable growth.", icon: Rocket },
+];
+
+const COL1_DEFAULTS = ["PMP® Certification", "CAPM® Certification", "PMI-CP® Construction"];
+
+type AboutProps = {
+    headingLead?: string;
+    headingMuted?: string;
+    identityTitle?: string;
+    paragraphs?: { text: string }[];
+    col1Title?: string;
+    col1Items?: string[];
+    col2Title?: string;
+    col2Text?: string;
+    whyHeading?: string;
+    whyItems?: { title?: string; description?: string }[];
+    heritageEyebrow?: string;
+    heritageHeading?: string;
+    heritageText?: string;
+    heritageLinkText?: string;
+    heritageLinkHref?: string;
+};
+
+export default function AboutUsSummary({
+    headingLead = "Your Strategic Partner in ",
+    headingMuted = "Project Excellence",
+    identityTitle = "Our Identity",
+    paragraphs,
+    col1Title = "Certification Training",
+    col1Items,
+    col2Title = "Tailored Consultancy",
+    col2Text = "PMO Setup • Project Controls • Cost Estimation • Commercial Advisory • Contract Management",
+    whyHeading = "Why Clients Choose The Agile Nest",
+    whyItems: whyItemsProp,
+    heritageEyebrow = "Our Heritage",
+    heritageHeading = "A 17-Year Journey",
+    heritageText = "From PMBOK 3rd to 8th Edition. Evolving passion with purpose and technological foresight.",
+    heritageLinkText = "View the Interactive Timeline",
+    heritageLinkHref = "/about#evolution",
+}: AboutProps = {}) {
+    const whyItems = WHY_DEFAULTS.map((base, i) => {
+        const c = whyItemsProp?.[i];
+        return c ? { ...base, title: c.title || base.title, description: c.description || base.description } : base;
+    });
+    const col1 = col1Items && col1Items.length > 0 ? col1Items : COL1_DEFAULTS;
     return (
         <section className="py-16 md:py-24 bg-white relative overflow-hidden">
             {/* Background elements */}
@@ -63,29 +113,35 @@ export default function AboutUsSummary() {
                 >
                     <span className="label-tag mx-auto block mb-6 uppercase tracking-widest">WHO WE ARE</span>
                     <h2 className="text-[clamp(32px,8vw,64px)] font-black text-primary tracking-tighter leading-[1.1] mb-8 md:mb-12 w-full">
-                        Your Strategic Partner in <br />
-                        <span className="text-slate-400">Project Excellence</span>
+                        {headingLead}<br />
+                        <span className="text-slate-400">{headingMuted}</span>
                     </h2>
 
                     <div className="bg-slate-50/50 backdrop-blur-md p-6 sm:p-10 md:p-14 rounded-[32px] md:rounded-[48px] border border-slate-100 text-left relative overflow-hidden group shadow-sm hover:shadow-xl transition-all duration-500">
                         <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-1000" />
                         <h3 className="text-2xl font-black text-primary mb-6 flex items-center gap-3">
-                            <Rocket className="text-accent" /> Our Identity
+                            <Rocket className="text-accent" /> {identityTitle}
                         </h3>
                         <div className="space-y-6 text-base sm:text-lg md:text-xl text-slate-700 leading-relaxed font-medium max-w-4xl">
-                            <p>
-                                Built on the principles of precision, performance, and continuous value delivery, <span className="text-primary font-black">The Agile Nest</span> is a trusted provider of professional project management training and consultancy services. We bridge the gap between theory and the practical realities of today’s fast-moving industries.
-                            </p>
-                            <p>
-                                Whether you are managing complex construction projects, leading business transformations, or building your career, we provide the knowledge and expert support needed to perform at the highest level.
-                            </p>
+                            {paragraphs && paragraphs.length > 0 ? (
+                                paragraphs.map((p, i) => <p key={i}>{p.text}</p>)
+                            ) : (
+                                <>
+                                    <p>
+                                        Built on the principles of precision, performance, and continuous value delivery, <span className="text-primary font-black">The Agile Nest</span> is a trusted provider of professional project management training and consultancy services. We bridge the gap between theory and the practical realities of today’s fast-moving industries.
+                                    </p>
+                                    <p>
+                                        Whether you are managing complex construction projects, leading business transformations, or building your career, we provide the knowledge and expert support needed to perform at the highest level.
+                                    </p>
+                                </>
+                            )}
                         </div>
                         
                         <div className="mt-8 md:mt-10 pt-8 md:pt-10 border-t border-slate-200/60 grid md:grid-cols-2 gap-8 md:gap-10">
                             <div>
-                                <h4 className="text-primary font-black uppercase tracking-widest text-base mb-4">Certification Training</h4>
+                                <h4 className="text-primary font-black uppercase tracking-widest text-base mb-4">{col1Title}</h4>
                                 <div className="space-y-3">
-                                    {["PMP® Certification", "CAPM® Certification", "PMI-CP® Construction"].map((c, i) => (
+                                    {col1.map((c, i) => (
                                         <div key={i} className="flex items-center gap-2 text-sm font-bold text-slate-600">
                                             <div className="w-1.5 h-1.5 rounded-full bg-accent"></div> {c}
                                         </div>
@@ -93,9 +149,9 @@ export default function AboutUsSummary() {
                                 </div>
                             </div>
                             <div>
-                                <h4 className="text-primary font-black uppercase tracking-widest text-base mb-4">Tailored Consultancy</h4>
+                                <h4 className="text-primary font-black uppercase tracking-widest text-base mb-4">{col2Title}</h4>
                                 <div className="space-y-3 text-sm font-bold text-slate-600">
-                                    <p>PMO Setup • Project Controls • Cost Estimation • Commercial Advisory • Contract Management</p>
+                                    <p>{col2Text}</p>
                                 </div>
                             </div>
                         </div>
@@ -112,44 +168,13 @@ export default function AboutUsSummary() {
                         className="text-center mb-16"
                     >
                         <h3 className="text-3xl md:text-5xl font-black text-primary tracking-tighter mb-6">
-                            Why Clients Choose The Agile Nest
+                            {whyHeading}
                         </h3>
                         <div className="w-20 h-1.5 bg-accent mx-auto rounded-full" />
                     </motion.div>
 
                     <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
-                        {[
-                            { 
-                                title: "Proven real-world project delivery experience", 
-                                description: "Our consultants have decades of hands-on experience leading and recovering high-stakes projects across multiple industries.",
-                                icon: Target 
-                            },
-                            { 
-                                title: "Strong commercial and contractual expertise", 
-                                description: "We provide meticulous cost management and quantity surveying to ensure your projects remain profitable and contractually secure.",
-                                icon: Briefcase 
-                            },
-                            { 
-                                title: "Clear reporting, governance, and accountability", 
-                                description: "We implement robust frameworks that provide total transparency, enabling informed decision-making at every project stage.",
-                                icon: ShieldCheck 
-                            },
-                            { 
-                                title: "Practical training built on industry experience", 
-                                description: "Our certification programs move beyond theory, teaching practical applications that build capable, high-performing teams.",
-                                icon: GraduationCap 
-                            },
-                            { 
-                                title: "Trusted support with a client-first approach", 
-                                description: "We partner closely with you, aligning our strategies directly with your organizational goals to ensure mutual success.",
-                                icon: Users 
-                            },
-                            { 
-                                title: "Focused on measurable outcomes and value", 
-                                description: "Every methodology we apply is designed to deliver tangible ROI, optimize efficiency, and drive sustainable growth.",
-                                icon: Rocket 
-                            },
-                        ].map((item, idx) => (
+                        {whyItems.map((item, idx) => (
                             <motion.div
                                 key={idx}
                                 initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
@@ -185,13 +210,13 @@ export default function AboutUsSummary() {
                     <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5" />
                     <div className="relative z-10 text-center mb-16">
                         <span className="label-tag mb-6 block">
-                            Our Heritage
+                            {heritageEyebrow}
                         </span>
                         <h3 className="text-3xl md:text-6xl font-black text-white mb-6 md:mb-8 tracking-tighter">
-                            A 17-Year Journey
+                            {heritageHeading}
                         </h3>
                         <p className="text-lg md:text-xl text-blue-100/70 max-w-3xl mx-auto font-medium">
-                            From PMBOK 3rd to 8th Edition. Evolving passion with purpose and technological foresight.
+                            {heritageText}
                         </p>
                     </div>
 
@@ -199,10 +224,10 @@ export default function AboutUsSummary() {
 
                     <div className="text-center mt-12">
                         <Link
-                            href="/about#evolution"
+                            href={heritageLinkHref}
                             className="text-accent font-bold hover:text-white transition-colors flex items-center justify-center gap-2 group"
                         >
-                            View the Interactive Timeline
+                            {heritageLinkText}
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </div>

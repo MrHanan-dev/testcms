@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Award, Briefcase, HardHat, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const certifications = [
+const DEFAULT_CERTS = [
     {
         name: "PMP",
         title: "Project Management Professional",
@@ -35,7 +35,33 @@ const certifications = [
     }
 ];
 
-export default function CertificationLogos() {
+type CertItem = { name?: string; title?: string; href?: string; image?: string };
+
+type CertProps = {
+    eyebrow?: string;
+    headingLead?: string;
+    headingMuted?: string;
+    items?: CertItem[];
+};
+
+export default function CertificationLogos({
+    eyebrow = "Elite Credentials",
+    headingLead = "Global Benchmarks",
+    headingMuted = "for Project Leaders",
+    items,
+}: CertProps = {}) {
+    const certifications = DEFAULT_CERTS.map((base, i) => {
+        const c = items?.[i];
+        return c
+            ? {
+                  ...base,
+                  name: c.name || base.name,
+                  title: c.title || base.title,
+                  href: c.href || base.href,
+                  image: c.image || base.image,
+              }
+            : base;
+    });
     return (
         <section className="py-32 md:py-48 bg-white relative overflow-hidden">
             {/* Subtle elite background */}
@@ -52,11 +78,11 @@ export default function CertificationLogos() {
                         viewport={{ once: true }}
                         className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-primary/5 text-2xl md:text-3xl font-black uppercase tracking-[0.4em] text-primary mb-8"
                     >
-                        Elite Credentials
+                        {eyebrow}
                     </motion.div>
                     <h2 className="text-[clamp(32px,5vw,56px)] font-black text-primary leading-[1.05] tracking-tight mb-8">
-                        Global Benchmarks <br />
-                        <span className="text-slate-400">for Project Leaders</span>
+                        {headingLead} <br />
+                        <span className="text-slate-400">{headingMuted}</span>
                     </h2>
                     <div className="w-20 h-1 bg-accent mx-auto mb-10 rounded-full" />
                 </div>

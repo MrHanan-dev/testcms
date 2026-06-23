@@ -23,10 +23,19 @@ type HeroSlideDoc = {
     description?: string;
 };
 
+/** Empty string -> undefined so a component's built-in default takes over. */
+const orUndef = (v: unknown): string | undefined => (typeof v === 'string' && v.length > 0 ? v : undefined);
+/** Resolve a Payload upload field to its URL string. */
+const mediaUrl = (v: unknown): string | undefined =>
+    v && typeof v === 'object' && 'url' in v ? ((v as { url?: string }).url ?? undefined) : undefined;
+
 export default async function Home() {
-    // Editable hero slides from the CMS; Hero falls back to its defaults if empty.
+    // Every section reads from the CMS Home global; each component falls back to
+    // its built-in content when the corresponding field is empty.
     const home = await getHome();
-    const heroSlides = ((home?.heroSlides as HeroSlideDoc[]) ?? []).map((s) => ({
+    const h = (home ?? {}) as Record<string, unknown>;
+
+    const heroSlides = ((h.heroSlides as HeroSlideDoc[]) ?? []).map((s) => ({
         src: s.image && typeof s.image === 'object' ? s.image.url ?? '' : '',
         alt: s.alt ?? '',
         tag: s.tag ?? '',
@@ -36,19 +45,64 @@ export default async function Home() {
         isCollage: s.variant === 'collage',
     }));
 
+    const featureItems = (h.featureItems as { text: string }[] | undefined)?.map((f) => f.text);
+    const certItems = (h.certItems as Record<string, unknown>[] | undefined)?.map((c) => ({
+        name: c.name as string,
+        title: c.title as string,
+        href: c.href as string,
+        image: mediaUrl(c.image),
+    }));
+    const col1Items = (h.aboutCol1Items as { text: string }[] | undefined)?.map((x) => x.text);
+
     return (
         <>
             <Header variant="transparent" />
             <main>
                 <Hero slides={heroSlides} />
-                <FeatureStrip />
+                <FeatureStrip items={featureItems} />
                 {/* <TrustBar /> */}
-                <BentoGrid />
-                <CertificationLogos />
-                <AboutUsSummary />
-                <ResultsStats />
-                <Testimonials />
-                <GoogleReviews />
+                <BentoGrid
+                    eyebrow={orUndef(h.expertiseEyebrow)}
+                    headingLead={orUndef(h.expertiseHeadingLead)}
+                    headingMuted={orUndef(h.expertiseHeadingMuted)}
+                    cards={h.expertiseCards as never}
+                />
+                <CertificationLogos
+                    eyebrow={orUndef(h.certEyebrow)}
+                    headingLead={orUndef(h.certHeadingLead)}
+                    headingMuted={orUndef(h.certHeadingMuted)}
+                    items={certItems}
+                />
+                <AboutUsSummary
+                    headingLead={orUndef(h.aboutHeadingLead)}
+                    headingMuted={orUndef(h.aboutHeadingMuted)}
+                    identityTitle={orUndef(h.aboutIdentityTitle)}
+                    paragraphs={h.aboutParagraphs as never}
+                    col1Title={orUndef(h.aboutCol1Title)}
+                    col1Items={col1Items}
+                    col2Title={orUndef(h.aboutCol2Title)}
+                    col2Text={orUndef(h.aboutCol2Text)}
+                    whyHeading={orUndef(h.whyHeading)}
+                    whyItems={h.whyItems as never}
+                    heritageEyebrow={orUndef(h.heritageEyebrow)}
+                    heritageHeading={orUndef(h.heritageHeading)}
+                    heritageText={orUndef(h.heritageText)}
+                    heritageLinkText={orUndef(h.heritageLinkText)}
+                    heritageLinkHref={orUndef(h.heritageLinkHref)}
+                />
+                <ResultsStats items={h.stats as never} />
+                <Testimonials
+                    eyebrow={orUndef(h.testimonialsEyebrow)}
+                    headingLead={orUndef(h.testimonialsHeadingLead)}
+                    headingMuted={orUndef(h.testimonialsHeadingMuted)}
+                    items={h.testimonials as never}
+                />
+                <GoogleReviews
+                    eyebrow={orUndef(h.reviewsEyebrow)}
+                    heading={orUndef(h.reviewsHeading)}
+                    rating={orUndef(h.reviewsRating)}
+                    googleUrl={orUndef(h.reviewsGoogleUrl)}
+                />
                 <JsonLdFaq items={[
                     { question: "What is the exam success rate for TheAgileNest's students?", answer: "We are incredibly proud to maintain an exceptional first-attempt pass rate for our PMP® certification training programs. This success is not accidental; it is the result of a meticulously designed curriculum that is tailored based on actual industrial situations and includes comprehensive mock testing, personalized mentorship, and a deep-dive into the PMBOK® Guide's principles. We don't just teach you to pass; we teach you to excel." },
                     { question: "Do you offer tailored project management consulting for enterprises?", answer: "Absolutely. TheAgileNest specializes in bespoke consultancy services designed for high-stakes, large-scale projects. From helping you establish a robust Project Management Office (PMO) to providing expert masterplanning and sustainability advice, we help organizations navigate complex delivery hurdles with confidence. We work as an extension of your team, ensuring that every project activity is aligned with your broader strategic objectives." },
@@ -57,7 +111,13 @@ export default async function Home() {
                     { question: "What is your approach to risk management?", answer: "Risk management is woven into everything we do. We utilize a proactive approach, identifying potential project risks early in the lifecycle through multi-disciplinary analysis and predictive modeling. We then develop robust, actionable mitigation strategies to safeguard your project's financial stability and scheduling success. Our goal is to transform uncertainty into manageable variables, providing you with the clarity needed to make bold project decisions." }
                 ]} />
                 <FAQ />
-                <FinalCTA />
+                <FinalCTA
+                    headingLead={orUndef(h.ctaHeadingLead)}
+                    headingAccent={orUndef(h.ctaHeadingAccent)}
+                    paragraph={orUndef(h.ctaParagraph)}
+                    primaryText={orUndef(h.ctaPrimaryText)}
+                    secondaryText={orUndef(h.ctaSecondaryText)}
+                />
             </main>
             <Footer />
         </>
