@@ -1,21 +1,15 @@
 "use client";
 
 import { createContext, useContext } from "react";
+import type { ResolvedSiteSettings } from "@/lib/resolveSiteSettings";
 
 /**
- * Makes the editable site-wide settings (logo, contact, socials) available to
- * client components like the Header/Footer, which are rendered per-page. The
- * server layout fetches the values once and provides them here.
+ * Makes editable site-wide settings (logo, nav, footer) available to client
+ * components like Header/Footer. The server layout fetches once and provides here.
  */
-export type SiteSettingsValue = {
-  logoUrl?: string | null;
-  companyName?: string | null;
-  phone?: string | null;
-  email?: string | null;
-  whatsapp?: string | null;
-};
+export type SiteSettingsValue = ResolvedSiteSettings;
 
-const SiteSettingsContext = createContext<SiteSettingsValue>({});
+const SiteSettingsContext = createContext<SiteSettingsValue | null>(null);
 
 export function SiteSettingsProvider({
   value,
@@ -27,4 +21,10 @@ export function SiteSettingsProvider({
   return <SiteSettingsContext.Provider value={value}>{children}</SiteSettingsContext.Provider>;
 }
 
-export const useSiteSettings = () => useContext(SiteSettingsContext);
+export const useSiteSettings = (): SiteSettingsValue => {
+  const ctx = useContext(SiteSettingsContext);
+  if (!ctx) {
+    throw new Error("useSiteSettings must be used within SiteSettingsProvider");
+  }
+  return ctx;
+};
