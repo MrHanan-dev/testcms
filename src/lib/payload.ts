@@ -19,6 +19,17 @@ export async function getHome() {
   }
 }
 
+/** Editable About page content. Null-safe. */
+export async function getAbout() {
+  try {
+    const payload = await getPayload({ config });
+    return await payload.findGlobal({ slug: "about", depth: 1 });
+  } catch (err) {
+    console.error("[payload] getAbout failed:", (err as Error).message);
+    return null;
+  }
+}
+
 /** Site-wide settings global (logo, contact, socials). Null-safe. */
 export async function getSiteSettings() {
   try {
