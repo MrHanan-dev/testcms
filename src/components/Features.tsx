@@ -1,9 +1,24 @@
-"use client";
+﻿"use client";
 
 import { ShieldCheck, Zap, TrendingUp, Users, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 
-const features = [
+type FeatureCard = { title?: string; description?: string };
+
+type FeaturesProps = {
+  eyebrow?: string;
+  titlePrefix?: string;
+  highlightedName?: string;
+  titleSuffix?: string;
+  description?: string;
+  cards?: FeatureCard[];
+  imageSrc?: string;
+  imageAlt?: string;
+  badgeValue?: string;
+  badgeLabel?: string;
+};
+
+const DEFAULT_FEATURES = [
   {
     icon: <ShieldCheck size={28} />,
     title: "Global Accreditation",
@@ -26,15 +41,24 @@ const features = [
   }
 ];
 
-interface FeaturesProps {
-  titleSuffix?: string;
-  descriptionSuffix?: string;
-}
-
 export default function Features({
+  eyebrow = "The Advantage",
+  titlePrefix = "Why choose",
+  highlightedName = "TheAgileNest",
   titleSuffix = "PMP® Journey",
-  descriptionSuffix = "PMP® training programs"
+  description = "At TheAgileNest, we deliver one of New Zealand’s, Australia’s and Asia's most comprehensive and industry-ready PMP® training programs, designed to help you pass on your first attempt and excel in real-world project environments.",
+  cards,
+  imageSrc = "/images/TheAgileNest_hero_main_1771222013046.png",
+  imageAlt = "TheAgileNest Professional Excellence",
+  badgeValue = "Proven",
+  badgeLabel = "Exam Success\nOn First Attempt",
 }: FeaturesProps) {
+  // Icons stay fixed by position so the section keeps the exact same visual system.
+  const features = DEFAULT_FEATURES.map((base, i) => {
+    const c = cards?.[i];
+    return c ? { ...base, title: c.title || base.title, description: c.description || base.description } : base;
+  });
+
   return (
     <section id="why-choose-us" className="section bg-slate-50 relative overflow-hidden">
       {/* Dynamic Background Elements */}
@@ -43,12 +67,12 @@ export default function Features({
 
       <div className="container-custom relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <span className="text-accent font-extrabold tracking-[0.2em] uppercase text-xs mb-4 block">The Advantage</span>
+          <span className="text-accent font-extrabold tracking-[0.2em] uppercase text-xs mb-4 block">{eyebrow}</span>
           <h2 className="text-4xl md:text-5xl font-black text-primary mb-6 leading-tight">
-            Why choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-amber-600">TheAgileNest</span> for Your {titleSuffix}?
+            {titlePrefix} <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-amber-600">{highlightedName}</span> for Your {titleSuffix}?
           </h2>
           <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium max-w-2xl mx-auto">
-            At TheAgileNest, we deliver one of New Zealand’s, Australia’s and Asia's most comprehensive and industry-ready {descriptionSuffix}, designed to help you pass on your first attempt and excel in real-world project environments.
+            {description}
           </p>
         </div>
 
@@ -81,10 +105,11 @@ export default function Features({
           <div className="lg:col-span-5 relative h-[600px] lg:h-[700px] w-full rounded-[40px] overflow-hidden group shadow-2xl">
             <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-700 z-10" />
             <Image
-              src="/images/TheAgileNest_hero_main_1771222013046.png"
-              alt="TheAgileNest Professional Excellence"
+              src={imageSrc}
+              alt={imageAlt}
               fill
               className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-1000 origin-center"
+              unoptimized={imageSrc.startsWith('/api/media/')}
             />
 
             <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent z-10" />
@@ -94,9 +119,13 @@ export default function Features({
                 <div className="absolute top-0 -left-[100%] w-1/2 h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg] group-hover:left-[200%] transition-all duration-1000 ease-in-out" />
 
                 <div className="flex items-center gap-6">
-                  <div className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-br from-accent to-amber-300 drop-shadow-sm">Proven</div>
+                  <div className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-br from-accent to-amber-300 drop-shadow-sm">{badgeValue}</div>
                   <div className="w-px h-12 bg-white/20"></div>
-                  <div className="text-xs text-white/90 font-bold uppercase tracking-[0.2em] leading-relaxed">Exam Success<br />On First Attempt</div>
+                  <div className="text-xs text-white/90 font-bold uppercase tracking-[0.2em] leading-relaxed">
+                    {badgeLabel.split('\n').map((line, i) => (
+                      <span key={line}>{line}{i < badgeLabel.split('\n').length - 1 ? <br /> : null}</span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>

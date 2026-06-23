@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from 'react';
 import { ChevronDown, Mail } from 'lucide-react';
@@ -16,12 +16,12 @@ const defaultFaqs: FAQItem[] = [
         answer: "We provide project management consultancy, cost advisory, quantity surveying, PMO support, project controls, and professional training solutions designed to improve delivery performance and build capability."
     },
     {
-        question: "2. Do you provide PMP® training?",
-        answer: "Yes. We deliver practical PMP® preparation programs supported by real-world project examples, structured learning, mock exams, and expert guidance to help participants succeed with confidence."
+        question: "2. Do you provide PMPÂ® training?",
+        answer: "Yes. We deliver practical PMPÂ® preparation programs supported by real-world project examples, structured learning, mock exams, and expert guidance to help participants succeed with confidence."
     },
     {
-        question: "3. We are a corporate organisation and want PMP® training at our site. Is this possible?",
-        answer: "Absolutely. We deliver customised on-site corporate PMP® and project management training programs across New Zealand, Australia, the USA, and the UAE, subject to scheduling and demand. We can tailor delivery to your team’s goals and availability."
+        question: "3. We are a corporate organisation and want PMPÂ® training at our site. Is this possible?",
+        answer: "Absolutely. We deliver customised on-site corporate PMPÂ® and project management training programs across New Zealand, Australia, the USA, and the UAE, subject to scheduling and demand. We can tailor delivery to your teamâ€™s goals and availability."
     },
     {
         question: "4. Who do you work with?",
@@ -37,11 +37,11 @@ const defaultFaqs: FAQItem[] = [
     },
     {
         question: "7. Why choose The Agile Nest?",
-        answer: "Clients choose us for our real-world experience, strong commercial expertise, practical training approach, and focus on measurable outcomes. We don’t just provide advice—we help deliver results."
+        answer: "Clients choose us for our real-world experience, strong commercial expertise, practical training approach, and focus on measurable outcomes. We donâ€™t just provide adviceâ€”we help deliver results."
     }
 ];
 
-export default function FAQ({ items, title, subtitle, description }: { items?: FAQItem[], title?: string, subtitle?: string, description?: string }) {
+export default function FAQ({ items, title, subtitle, description, contactPrompt = "Have a specific question or corporate requirement?", contactLinkText = "Contact us today" }: { items?: FAQItem[], title?: string, subtitle?: string, description?: string, contactPrompt?: string, contactLinkText?: string }) {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
     const displayFaqs = items || defaultFaqs;
 
@@ -93,7 +93,7 @@ export default function FAQ({ items, title, subtitle, description }: { items?: F
                             <Mail size={18} />
                         </div>
                         <span className="text-sm md:text-base font-bold text-white px-2">
-                            Have a specific question or corporate requirement? <ContactLink className="text-accent hover:underline ml-1">Contact us today</ContactLink> for a tailored solution.
+                            {contactPrompt} <ContactLink className="text-accent hover:underline ml-1">{contactLinkText}</ContactLink> for a tailored solution.
                         </span>
                     </div>
                 </div>
@@ -101,3 +101,4 @@ export default function FAQ({ items, title, subtitle, description }: { items?: F
         </section>
     );
 }
+
