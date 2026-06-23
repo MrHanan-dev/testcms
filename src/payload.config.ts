@@ -21,6 +21,7 @@ import { Training } from "./globals/Training";
 import { Pmp } from "./globals/Pmp";
 import { Capm } from "./globals/Capm";
 import { PmiCp } from "./globals/PmiCp";
+import { Partner } from "./globals/Partner";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -54,7 +55,7 @@ export default buildConfig({
     },
   },
   collections: [Pages, Leads, Users, Media],
-  globals: [SiteSettings, Home, About, Consulting, ProjectManagement, CostEstimation, ContractManagement, Training, Pmp, Capm, PmiCp],
+  globals: [SiteSettings, Home, About, Consulting, ProjectManagement, CostEstimation, ContractManagement, Training, Pmp, Capm, PmiCp, Partner],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {
