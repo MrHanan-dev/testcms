@@ -1,6 +1,7 @@
 "use client";
 
 import Link from 'next/link';
+import { resolveMediaUrl } from '@/lib/resolveMediaUrl';
 import Image from 'next/image';
 import { Award, Briefcase, HardHat, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -58,7 +59,7 @@ export default function CertificationLogos({
                   name: c.name || base.name,
                   title: c.title || base.title,
                   href: c.href || base.href,
-                  image: c.image || base.image,
+                  image: resolveMediaUrl(c.image, base.image) ?? base.image,
               }
             : base;
     });
