@@ -6,7 +6,26 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: path.join(process.cwd()),
   },
+  serverExternalPackages: ["pino", "pino-pretty", "thread-stream"],
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        "@payloadcms/plugin-cloud-storage/utilities": path.join(
+          process.cwd(),
+          "src/lib/cloudStorageClientUtilities.ts",
+        ),
+      };
+    }
+    return config;
+  },
   images: {
+    localPatterns: [
+      {
+        pathname: "/api/media/file/**",
+        search: "?prefix=media",
+      },
+    ],
     remotePatterns: [
       {
         protocol: 'https',

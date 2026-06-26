@@ -132,11 +132,12 @@ export async function runPageSeedRoute(
   if (force) url.searchParams.set("force", "1");
 
   const res = await fetch(url.toString(), { method: "GET" });
+  const text = await res.text();
   let body: unknown;
   try {
-    body = await res.json();
+    body = JSON.parse(text);
   } catch {
-    body = { message: await res.text() };
+    body = { message: text };
   }
   return { route, status: res.status, body };
 }

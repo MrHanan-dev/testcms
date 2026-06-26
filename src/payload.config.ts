@@ -145,7 +145,11 @@ export default buildConfig({
     // Schema is already synced — avoid slow Drizzle push on every dev server boot (Neon).
     push: process.env.PAYLOAD_DB_PUSH === "true",
     pool: {
-      connectionString: process.env.DATABASE_URI || "",
+      // pg v9 treats sslmode=require as verify-full today; set explicitly to avoid Node warning.
+      connectionString: (process.env.DATABASE_URI || "").replace(
+        /\bsslmode=(require|prefer|verify-ca)\b/,
+        "sslmode=verify-full",
+      ),
       max: 10,
       idleTimeoutMillis: 20_000,
       connectionTimeoutMillis: 15_000,

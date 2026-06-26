@@ -6,6 +6,7 @@ import {
   runPageSeedRoute,
   seedOriginalCollections,
 } from "@/lib/seedCollections";
+import { seedAllMedia } from "@/lib/seedMedia";
 
 /**
  * Seed ALL original site content into Payload (globals + collections).
@@ -32,6 +33,9 @@ export async function GET(req: NextRequest) {
     const payload = await getPayload({ config });
     const pageResults: Record<string, unknown> = {};
     let collectionResults: Record<string, unknown> | undefined;
+    let mediaResults: Record<string, unknown> | undefined;
+
+    mediaResults = await seedAllMedia(payload, force);
 
     if (!collectionsOnly) {
       for (const route of PAGE_SEED_ROUTES) {
@@ -48,6 +52,7 @@ export async function GET(req: NextRequest) {
       success: true,
       message: "Original site content seeded (from src/data/*, not sample placeholders).",
       force,
+      media: mediaResults,
       pages: collectionsOnly ? undefined : pageResults,
       collections: pagesOnly ? undefined : collectionResults,
     });

@@ -1,5 +1,3 @@
-import { join } from "node:path";
-import { existsSync } from "node:fs";
 import { NextResponse, type NextRequest } from "next/server";
 import { getPayload } from "payload";
 import config from "@payload-config";
@@ -11,6 +9,7 @@ import {
   HOME_HERO_SLIDES,
   HOME_TESTIMONIALS,
 } from "@/data/homeContent";
+import { mediaIdFor } from "@/lib/seedMedia";
 
 /**
  * One-time seed: populate the Home global with the site's CURRENT content (and
@@ -46,12 +45,9 @@ export async function GET(req: NextRequest) {
     const upload = async (dir: string, file: string, alt: string): Promise<string | number | undefined> => {
       const key = `${dir}/${file}`;
       if (uploaded.has(key)) return uploaded.get(key);
-      const filePath = join(process.cwd(), "public", dir, file);
-      if (!existsSync(filePath)) return undefined;
-      const found = await payload.find({ collection: "media", where: { filename: { equals: file } }, limit: 1 });
-      const media = found.docs[0] ?? (await payload.create({ collection: "media", data: { alt }, filePath }));
-      uploaded.set(key, media.id);
-      return media.id;
+      const id = await mediaIdFor(payload, file, alt, uploaded, force);
+      if (id != null) uploaded.set(key, id);
+      return id;
     };
 
     const heroSlides = [];

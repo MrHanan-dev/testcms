@@ -1,6 +1,4 @@
 import Link from "next/link";
-import { getPayload } from "payload";
-import config from "@payload-config";
 
 /**
  * WordPress-style admin dashboard with widgets, stats, and quick actions.
@@ -53,6 +51,8 @@ export async function CrmDashboard() {
   const counts: Record<string, number> = { new: 0, contacted: 0, qualified: 0, won: 0, lost: 0 };
 
   try {
+    const { getPayload } = await import("payload");
+    const config = (await import("@payload-config")).default;
     const payload = await getPayload({ config });
     dbConnected = true;
 
