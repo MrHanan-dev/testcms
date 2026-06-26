@@ -1,11 +1,15 @@
 import type { GlobalConfig } from "payload";
 import { seoTab } from "@/lib/seoFields";
+import { logGlobalChange } from "../lib/activityLogger";
 
 /** Editable Contract Management page (same structure as Consulting). */
 export const ContractManagement: GlobalConfig = {
   slug: "contractManagementPage",
   label: "Contract Management",
   access: { read: () => true },
+  hooks: {
+    afterChange: [logGlobalChange],
+  },
   admin: {
     group: "💼 Service Pages",
     description: "Edit the Contract Management page — service cards and outcome section.",

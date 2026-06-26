@@ -15,12 +15,11 @@ export const ActivityLog: CollectionConfig = {
   },
   defaultSort: "-createdAt",
   access: {
-    read: ({ req: { user } }) => Boolean(user),
-    // Only system (via overrideAccess) or authenticated users can create logs
-    // This prevents public API spam of fake audit entries
-    create: ({ req: { user } }) => Boolean(user),
-    update: () => false, // No editing allowed
-    delete: ({ req: { user } }) => user?.role === "admin",
+    read: ({ req: { user } }) => user?.role === 'admin',
+    // Only admins can create logs directly; system calls use overrideAccess from hooks
+    create: ({ req: { user } }) => user?.role === 'admin',
+    update: () => false, // Audit logs should be immutable
+    delete: ({ req: { user } }) => user?.role === 'admin',
   },
   fields: [
     {

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { User, Mail, Phone, Send, CheckCircle2 } from 'lucide-react';
+import { User, Mail, Phone, Send, CheckCircle2, AlertCircle } from 'lucide-react';
 
 interface BookingFormProps {
     courseName: string;
@@ -25,6 +25,7 @@ export default function BookingForm({
 }: BookingFormProps) {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [submitError, setSubmitError] = useState<string | null>(null);
     
     const defaultSubtitle = `Secure your spot for the ${courseName} certification training.`;
     const defaultSuccessMessage = `Thank you for registering for the ${courseName} training. Our team will contact you shortly with further details and payment instructions.`;
@@ -32,6 +33,7 @@ export default function BookingForm({
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsSubmitting(true);
+        setSubmitError(null);
 
         const formData = new FormData(e.currentTarget);
         const data = {
@@ -54,11 +56,11 @@ export default function BookingForm({
             if (response.ok) {
                 setIsSubmitted(true);
             } else {
-                alert('Something went wrong. Please try again.');
+                setSubmitError('Something went wrong. Please try again.');
             }
         } catch (error) {
             console.error('Submission error:', error);
-            alert('Failed to send request. Check your connection.');
+            setSubmitError('Failed to send request. Please check your connection and try again.');
         } finally {
             setIsSubmitting(false);
         }
@@ -157,6 +159,16 @@ export default function BookingForm({
                         </label>
                     </div>
                 </div>
+
+                {submitError && (
+                    <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 flex items-start gap-3">
+                        <AlertCircle size={20} className="shrink-0 mt-0.5" />
+                        <div>
+                            <p className="font-semibold text-sm">Registration failed</p>
+                            <p className="text-sm mt-1">{submitError}</p>
+                        </div>
+                    </div>
+                )}
 
                 <div className="pt-4">
                     <button

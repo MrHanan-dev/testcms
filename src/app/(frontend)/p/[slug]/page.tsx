@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { RenderBlocks } from "@/components/blocks/RenderBlocks";
 import { getPageBySlug } from "@/lib/payload";
+import { enrichPageBlocks } from "@/lib/enrichPageBlocks";
 
 /**
  * Preview/renderer for Payload-managed pages, at /p/<slug>.
@@ -53,6 +54,7 @@ export default async function CmsPage({ params }: Props) {
   const page = await getPageBySlug(slug);
   if (!page) notFound();
   const p = page as unknown as PageDoc;
+  const layout = await enrichPageBlocks(p.layout);
 
   const showHeader = p.showHeader !== false;
   const showFooter = p.showFooter !== false;
@@ -62,7 +64,7 @@ export default async function CmsPage({ params }: Props) {
       {p.customCss && <style dangerouslySetInnerHTML={{ __html: p.customCss }} />}
       {showHeader && <Header />}
       <main>
-        <RenderBlocks blocks={p.layout} />
+        <RenderBlocks blocks={layout} />
       </main>
       {showFooter && <Footer hideContactForm={p.hideContactForm} />}
     </div>

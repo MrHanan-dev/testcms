@@ -83,9 +83,10 @@ export function resolveBlogPost(cmsDoc: Record<string, unknown> | null | undefin
 
   // Extract SEO fields from CMS
   const ogImg = doc.ogImage;
-  const ogImageUrl = ogImg && typeof ogImg === "object" && (ogImg as { url?: string }).url
+  const rawOgImageUrl = ogImg && typeof ogImg === "object" && (ogImg as { url?: string }).url
     ? (ogImg as { url: string }).url
     : undefined;
+  const ogImageUrl = resolveMediaUrl(rawOgImageUrl);
 
   return {
     ...meta,

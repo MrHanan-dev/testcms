@@ -196,7 +196,7 @@ export default async function CapmPage() {
                                 <div className="text-slate-600 font-medium text-sm leading-relaxed"><RichText data={calloutRich as never} /></div>
                             ) : (
                                 <p className="text-slate-600 font-medium text-sm leading-relaxed">
-                                    <strong className="text-primary">{f('eligibilityCalloutLead', K.eligibilityCalloutLead)}</strong> Our CAPM training course fulfils the <strong className="text-primary">23 contact hours</strong> requirement. No experience required   you can apply straight from study or a career change.
+                                    <strong className="text-primary">{f('eligibilityCalloutLead', K.eligibilityCalloutLead)}</strong> {f('eligibilityCalloutBody', K.eligibilityCalloutBody)}
                                 </p>
                             )}
                         </div>

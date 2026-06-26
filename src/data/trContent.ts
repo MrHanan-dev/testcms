@@ -1,3 +1,5 @@
+import { globalFaqs } from "@/lib/faqData";
+
 /**
  * Single source of truth for the Training page's default content (incl. the
  * monthly schedule). Imported by the page (fallbacks) and the seed route.
@@ -15,9 +17,32 @@ export const TR_CONTENT = {
     "At TheAgileNest, we’re passionate about projects. We provide the full range of project services and training to increase your team’s skills and capabilities to help you achieve your business outcomes.",
 
   categories: [
-    { title: "Course Catalogue", desc: "Comprehensive project management courses available across New Zealand and Australia, tailored for local market needs.", links: ["NZ Course Catalogue", "Australia Course Catalogue"] },
-    { title: "PMI Certification", desc: "The gold standard in project credentials. Full preparation for PMP®, CAPM®, and industry-specific certifications.", links: ["PMP® Prep", "CAPM® Entry", "PMI-CP® Construction"] },
-    { title: "Professional Development", desc: "Advance your career with targeted skills in leadership, risk management, and strategic project delivery.", links: ["Leadership Workshops", "Risk Management", "TheAgileNest Methodologies"] },
+    {
+      title: "Course Catalogue",
+      desc: "Comprehensive project management courses available across New Zealand and Australia, tailored for local market needs.",
+      links: [
+        { text: "NZ Course Catalogue", href: "/training#schedule" },
+        { text: "Australia Course Catalogue", href: "/training#schedule" },
+      ],
+    },
+    {
+      title: "PMI Certification",
+      desc: "The gold standard in project credentials. Full preparation for PMP®, CAPM®, and industry-specific certifications.",
+      links: [
+        { text: "PMP® Prep", href: "/pmp" },
+        { text: "CAPM® Entry", href: "/capm" },
+        { text: "PMI-CP® Construction", href: "/pmicp" },
+      ],
+    },
+    {
+      title: "Professional Development",
+      desc: "Advance your career with targeted skills in leadership, risk management, and strategic project delivery.",
+      links: [
+        { text: "Leadership Workshops", href: "/training#bespoke" },
+        { text: "Risk Management", href: "/training#bespoke" },
+        { text: "TheAgileNest Methodologies", href: "/about" },
+      ],
+    },
   ],
 
   bespokeHeading: "Bespoke Solutions for Your Unique Needs",
@@ -46,4 +71,9 @@ export const TR_CONTENT = {
     { month: "July 2026", course: "PMP® Certification Bootcamp", dates: "July 11, 12, 18, 19", time: "9:00 AM - 5:00 PM (NZST)", format: "Live Virtual", status: "Open" },
     { month: "July 2026", course: "PMI-CP® Certification Bootcamp", dates: "July 25, 26", time: "9:00 AM - 5:00 PM (NZST)", format: "Live Virtual", status: "Open" },
   ],
+
+  faqTitle: "Training FAQs",
+  faqSubtitle: "Certification Journey",
+  faqDescription: "Everything you need to know about our training programs, schedules, and certification preparation.",
+  faqItems: globalFaqs.training,
 };

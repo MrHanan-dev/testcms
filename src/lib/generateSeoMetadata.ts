@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { resolveMediaUrl } from "./resolveMediaUrl";
 
 type SeoFields = {
   metaTitle?: string;
@@ -40,7 +41,8 @@ export function generateSeoMetadata({
   
   const title = seo.metaTitle || fallbackTitle;
   const description = seo.metaDescription || fallbackDescription;
-  const ogImageUrl = seo.ogImage?.url || `${SITE_URL}/og-image.png`;
+  const rawOgImage = seo.ogImage?.url;
+  const ogImageUrl = resolveMediaUrl(rawOgImage, `${SITE_URL}/og-image.png`) ?? `${SITE_URL}/og-image.png`;
   const canonicalUrl = seo.canonicalUrl || `${SITE_URL}${path}`;
   
   const robots: string[] = [];

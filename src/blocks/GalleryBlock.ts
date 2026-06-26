@@ -21,8 +21,37 @@ export const GalleryBlock: Block = {
       ],
     },
     {
+      name: "source",
+      type: "select",
+      defaultValue: "custom",
+      options: [
+        { label: "From Galleries Collection", value: "collection" },
+        { label: "Custom images (below)", value: "custom" },
+      ],
+    },
+    {
+      name: "gallery",
+      type: "relationship",
+      relationTo: "galleries",
+      admin: {
+        condition: (_, siblingData) => siblingData?.source === "collection",
+        description: "Select a gallery from the Galleries collection",
+      },
+    },
+    {
+      name: "gallerySlug",
+      type: "text",
+      admin: {
+        condition: (_, siblingData) => siblingData?.source === "collection",
+        description: "Or enter gallery slug if not using relationship picker",
+      },
+    },
+    {
       name: "images",
       type: "array",
+      admin: {
+        condition: (_, siblingData) => siblingData?.source !== "collection",
+      },
       minRows: 1,
       fields: [
         { name: "image", type: "upload", relationTo: "media", required: true },

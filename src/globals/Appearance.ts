@@ -7,14 +7,14 @@ import { logGlobalChange } from "@/lib/activityLogger";
  */
 export const Appearance: GlobalConfig = {
   slug: "appearance",
-  label: "Appearance",
+  label: "Appearance (Deprecated)",
   access: { read: () => true },
   hooks: {
     afterChange: [logGlobalChange],
   },
   admin: {
     group: "⚙️ Settings",
-    description: "Customize your website's visual identity — colors, fonts, logo, and branding.",
+    description: "Theme colors — applied as CSS variables on the live site. Use Site Settings for logo/branding.",
   },
   fields: [
     {

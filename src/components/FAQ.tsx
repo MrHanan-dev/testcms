@@ -4,42 +4,14 @@ import { useState } from 'react';
 import { ChevronDown, Mail } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ContactLink from '@/components/ContactLink';
+import { HOME_FAQ_ITEMS, HOME_FAQ_META } from '@/data/homeContent';
 
 interface FAQItem {
     question: string;
     answer: string;
 }
 
-const defaultFaqs: FAQItem[] = [
-    {
-        question: "1. What services does The Agile Nest provide?",
-        answer: "We provide project management consultancy, cost advisory, quantity surveying, PMO support, project controls, and professional training solutions designed to improve delivery performance and build capability."
-    },
-    {
-        question: "2. Do you provide PMPÂ® training?",
-        answer: "Yes. We deliver practical PMPÂ® preparation programs supported by real-world project examples, structured learning, mock exams, and expert guidance to help participants succeed with confidence."
-    },
-    {
-        question: "3. We are a corporate organisation and want PMPÂ® training at our site. Is this possible?",
-        answer: "Absolutely. We deliver customised on-site corporate PMPÂ® and project management training programs across New Zealand, Australia, the USA, and the UAE, subject to scheduling and demand. We can tailor delivery to your teamâ€™s goals and availability."
-    },
-    {
-        question: "4. Who do you work with?",
-        answer: "We work with corporates, government agencies, contractors, developers, consultants, and professionals across construction, infrastructure, commercial, energy, and technology sectors."
-    },
-    {
-        question: "5. Can you help delayed or underperforming projects?",
-        answer: "Yes. We support organisations with recovery planning, scheduling, governance, reporting, commercial controls, and practical strategies to bring projects back on track."
-    },
-    {
-        question: "6. Do you offer online and international services?",
-        answer: "Yes. We provide online training, remote consultancy, and virtual project support for clients in New Zealand and internationally, using secure digital collaboration tools."
-    },
-    {
-        question: "7. Why choose The Agile Nest?",
-        answer: "Clients choose us for our real-world experience, strong commercial expertise, practical training approach, and focus on measurable outcomes. We donâ€™t just provide adviceâ€”we help deliver results."
-    }
-];
+const defaultFaqs: FAQItem[] = [...HOME_FAQ_ITEMS];
 
 type FAQProps = {
     items?: FAQItem[];
@@ -54,13 +26,13 @@ type FAQProps = {
 
 export default function FAQ({ 
     items, 
-    eyebrow = "FAQ",
-    title, 
-    subtitle, 
-    description, 
-    contactPrompt = "Have a specific question or corporate requirement?", 
-    contactLinkText = "Contact us today",
-    contactSuffix = "for a tailored solution.",
+    eyebrow = HOME_FAQ_META.faqEyebrow,
+    title = HOME_FAQ_META.faqTitle, 
+    subtitle = HOME_FAQ_META.faqSubtitle, 
+    description = HOME_FAQ_META.faqDescription, 
+    contactPrompt = HOME_FAQ_META.faqContactPrompt, 
+    contactLinkText = HOME_FAQ_META.faqContactLinkText,
+    contactSuffix = HOME_FAQ_META.faqContactSuffix,
 }: FAQProps) {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
     const displayFaqs = items || defaultFaqs;
@@ -71,11 +43,11 @@ export default function FAQ({
                 <div className="mb-12 md:mb-20 text-center max-w-3xl mx-auto">
                     <span className="label-tag mb-4 block mx-auto">{eyebrow}</span>
                     <h2 className="text-3xl md:text-6xl font-black text-primary tracking-tight mb-6">
-                        {title || "Answers to Fuel Your"} <br />
-                        <span className="text-slate-400">{subtitle || "Project Journey"}</span>
+                        {title} <br />
+                        <span className="text-slate-400">{subtitle}</span>
                     </h2>
                     <p className="text-base sm:text-lg text-slate-500 font-medium leading-relaxed">
-                        {description || (items ? "Clear answers to common questions about this service." : "Clear answers to common questions about our consultancy and training services.")}
+                        {description || (items ? "Clear answers to common questions about this service." : HOME_FAQ_META.faqDescription)}
                     </p>
                 </div>
 

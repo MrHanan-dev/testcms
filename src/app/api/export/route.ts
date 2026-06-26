@@ -17,10 +17,20 @@ export async function GET(request: Request) {
     const payload = await getPayload({ config });
     const url = new URL(request.url);
     
-    // Check authentication via cookie or header
+    // Check authentication via secret token
     const authHeader = request.headers.get("authorization");
     const exportSecret = process.env.EXPORT_SECRET;
-    
+    const isProduction = process.env.NODE_ENV === "production" || process.env.VERCEL;
+
+    // In production, EXPORT_SECRET is required (fail closed)
+    if (isProduction && !exportSecret) {
+      return NextResponse.json(
+        { error: "EXPORT_SECRET environment variable is required in production" },
+        { status: 500 }
+      );
+    }
+
+    // If secret is set, validate it
     if (exportSecret && authHeader !== `Bearer ${exportSecret}`) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }

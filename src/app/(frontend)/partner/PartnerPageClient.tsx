@@ -17,6 +17,7 @@ import {
   User,
   Mail,
   MessageSquare,
+  AlertCircle,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -58,10 +59,12 @@ const BENEFIT_ICONS = [LifeBuoy, Award, Percent, FileCheck];
 export default function PartnerPageClient({ content: c }: { content: PartnerPageContent }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError(null);
 
     const formData = new FormData(e.currentTarget);
     const data = {
@@ -83,11 +86,11 @@ export default function PartnerPageClient({ content: c }: { content: PartnerPage
       if (response.ok) {
         setIsSubmitted(true);
       } else {
-        alert("Something went wrong. Please try again.");
+        setSubmitError("Something went wrong. Please try again.");
       }
     } catch (error) {
       console.error("Submission error:", error);
-      alert("Failed to send application. Check your connection.");
+      setSubmitError("Failed to send application. Please check your connection and try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -306,6 +309,16 @@ export default function PartnerPageClient({ content: c }: { content: PartnerPage
                         className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-all text-sm font-medium resize-none shadow-sm"
                       ></textarea>
                     </div>
+
+                    {submitError && (
+                      <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 flex items-start gap-3">
+                        <AlertCircle size={20} className="shrink-0 mt-0.5" />
+                        <div>
+                          <p className="font-semibold text-sm">Application failed</p>
+                          <p className="text-sm mt-1">{submitError}</p>
+                        </div>
+                      </div>
+                    )}
 
                     <button
                       type="submit"

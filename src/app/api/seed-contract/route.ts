@@ -1,8 +1,9 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { getPayload } from "payload";
 import config from "@payload-config";
+import { CONTRACT_CONTENT } from "@/data/contractContent";
 
-/** Seed the Contract Management page global. Dev-only, secret-guarded, ?force=1. */
+/** Seed the Contract Management page global from CONTRACT_CONTENT. Dev-only, ?force=1. */
 export async function GET(req: NextRequest) {
   if (process.env.NODE_ENV === "production") return new NextResponse("Disabled in production", { status: 403 });
   if (req.nextUrl.searchParams.get("secret") !== process.env.PAYLOAD_SECRET) return new NextResponse("Unauthorized", { status: 401 });
@@ -15,35 +16,24 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ skipped: true, reason: "Already seeded (use ?force=1)." });
     }
 
+    const k = CONTRACT_CONTENT;
     await payload.updateGlobal({
       slug: "contractManagementPage",
       data: {
-        heroTitle: "Construction Contracts",
-        heroDescription: "Expert contract management, formulation, and dispute resolution. We safeguard your commercial interests through rigorous administration and strategic advisory.",
-        heroBreadcrumb: "Our Services",
-        introEyebrow: "Commercial Protection",
-        introHeadingLine1: "Securing Your",
-        introHeadingLine2: "Agreements",
-        introParagraph: "Robust contracts are the foundation of successful projects. Our experts ensure your agreements are clear, equitable, and structured to mitigate unforeseen risks.",
-        serviceCards: [
-          { title: "Contract Formulation", desc: "Drafting, reviewing, and negotiating robust contracts tailored to your specific project needs and risks." },
-          { title: "Risk Mitigation", desc: "Identifying potential contractual loopholes and structuring agreements to protect your commercial interests." },
-          { title: "Dispute Resolution", desc: "Expert guidance in mediation, arbitration, and resolving claims efficiently to avoid costly litigation." },
-          { title: "Claims Management", desc: "Preparation, defense, and negotiation of extension of time (EOT) and disruption claims." },
-          { title: "Advisory Services", desc: "Ongoing strategic advice on contract administration and compliance throughout the project lifecycle." },
-          { title: "Contract Audits", desc: "Independent reviews to ensure obligations are being met and commercial performance is maximized." },
-        ],
-        outcomeBadgeHeading: "Legal Clarity",
-        outcomeBadgeText: "Providing robust frameworks to prevent disputes before they arise.",
-        outcomeHeading: "Expert Contract Administration",
-        outcomeParagraph: "We support both contractors and clients with rigorous contract management to ensure obligations are met and rights are protected throughout the project journey.",
-        outcomeChecklist: [
-          { text: "Clear allocation of risk" },
-          { text: "Streamlined variation processes" },
-          { text: "Compliance monitoring" },
-          { text: "Defensible claims strategy" },
-        ],
-        outcomeButtonText: "Enquire Now",
+        heroTitle: k.heroTitle,
+        heroDescription: k.heroDescription,
+        heroBreadcrumb: k.heroBreadcrumb,
+        introEyebrow: k.introEyebrow,
+        introHeadingLine1: k.introHeadingLine1,
+        introHeadingLine2: k.introHeadingLine2,
+        introParagraph: k.introParagraph,
+        serviceCards: k.serviceCards,
+        outcomeBadgeHeading: k.outcomeBadgeHeading,
+        outcomeBadgeText: k.outcomeBadgeText,
+        outcomeHeading: k.outcomeHeading,
+        outcomeParagraph: k.outcomeParagraph,
+        outcomeChecklist: k.outcomeChecklist.map((text) => ({ text })),
+        outcomeButtonText: k.outcomeButtonText,
       } as never,
     });
 

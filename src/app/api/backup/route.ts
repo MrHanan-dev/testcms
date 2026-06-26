@@ -154,7 +154,10 @@ export async function GET(request: Request) {
 
 /**
  * POST /api/backup — Restore from backup
+ * Uses upsert logic to prevent duplicates on re-import.
  */
+const BACKUP_VERSION = "1.0";
+
 export async function POST(request: Request) {
   try {
     // Authentication REQUIRED in production
@@ -184,28 +187,66 @@ export async function POST(request: Request) {
       );
     }
 
-    const payload = await getPayload({ config });
-    const results: Record<string, { success: number; failed: number }> = {};
+    // Validate backup version
+    if (backup.meta.version !== BACKUP_VERSION) {
+      return NextResponse.json(
+        {
+          error: "Incompatible backup version",
+          expected: BACKUP_VERSION,
+          received: backup.meta.version,
+        },
+        { status: 400 }
+      );
+    }
 
-    // Restore collections
+    const payload = await getPayload({ config });
+    const results: Record<string, { created: number; updated: number; errors: number }> = {};
+
+    // Restore collections with upsert logic
     for (const [slug, data] of Object.entries(backup.collections)) {
       const collectionData = data as any;
       if (!collectionData.docs || collectionData.error) continue;
 
-      results[slug] = { success: 0, failed: 0 };
+      results[slug] = { created: 0, updated: 0, errors: 0 };
 
       for (const doc of collectionData.docs) {
         try {
-          // Remove system fields
-          const { id, createdAt, updatedAt, ...docData } = doc;
-          
-          await payload.create({
-            collection: slug as any,
-            data: docData,
-          });
-          results[slug].success++;
-        } catch {
-          results[slug].failed++;
+          // Remove system fields that shouldn't be restored
+          const { createdAt, updatedAt, ...docData } = doc;
+          const docId = doc.id;
+
+          // Check if document already exists
+          const existing = await payload
+            .findByID({
+              collection: slug as any,
+              id: docId,
+              depth: 0,
+            })
+            .catch(() => null);
+
+          if (existing) {
+            // Update existing document
+            await payload.update({
+              collection: slug as any,
+              id: docId,
+              data: docData,
+              overrideAccess: true,
+              context: { disableActivityLog: true },
+            });
+            results[slug].updated++;
+          } else {
+            // Create new document (preserving original ID if possible)
+            await payload.create({
+              collection: slug as any,
+              data: docData,
+              overrideAccess: true,
+              context: { disableActivityLog: true },
+            });
+            results[slug].created++;
+          }
+        } catch (err) {
+          results[slug].errors++;
+          console.error(`Failed to restore ${slug}/${doc.id}:`, err);
         }
       }
     }
@@ -219,16 +260,29 @@ export async function POST(request: Request) {
         await payload.updateGlobal({
           slug: slug as any,
           data: globalData,
+          overrideAccess: true,
         });
-        results[`global:${slug}`] = { success: 1, failed: 0 };
-      } catch {
-        results[`global:${slug}`] = { success: 0, failed: 1 };
+        results[`global:${slug}`] = { created: 0, updated: 1, errors: 0 };
+      } catch (err) {
+        results[`global:${slug}`] = { created: 0, updated: 0, errors: 1 };
+        console.error(`Failed to restore global ${slug}:`, err);
       }
     }
 
+    // Calculate totals
+    const totals = Object.values(results).reduce(
+      (acc, r) => ({
+        created: acc.created + r.created,
+        updated: acc.updated + r.updated,
+        errors: acc.errors + r.errors,
+      }),
+      { created: 0, updated: 0, errors: 0 }
+    );
+
     return NextResponse.json({
       success: true,
-      message: "Restore completed",
+      message: `Restore completed: ${totals.created} created, ${totals.updated} updated, ${totals.errors} errors`,
+      totals,
       results,
     });
   } catch (error) {

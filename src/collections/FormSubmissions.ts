@@ -1,4 +1,5 @@
 import type { CollectionConfig, CollectionBeforeChangeHook } from "payload";
+import { logCollectionChange, logCollectionDelete } from "../lib/activityLogger";
 
 /**
  * Force "new" status on public submissions to prevent status manipulation via API.
@@ -25,6 +26,8 @@ export const FormSubmissions: CollectionConfig = {
   },
   hooks: {
     beforeChange: [forceNewStatus],
+    afterChange: [logCollectionChange],
+    afterDelete: [logCollectionDelete],
   },
   access: {
     read: ({ req: { user } }) => Boolean(user),

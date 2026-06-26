@@ -3,6 +3,44 @@ import nodemailer from 'nodemailer';
 import { getPayload } from 'payload';
 import config from '@payload-config';
 
+/**
+ * Escape HTML special characters to prevent HTML injection in email templates.
+ */
+function escapeHtml(text: string | undefined | null): string {
+  if (!text) return '';
+  return String(text)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+/**
+ * Simple in-memory rate limiter (resets on cold start).
+ * For production at scale, consider Vercel KV or similar.
+ */
+const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
+const RATE_LIMIT = 5; // requests
+const RATE_WINDOW = 60 * 1000; // per minute
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const record = rateLimitMap.get(ip);
+
+  if (!record || record.resetAt < now) {
+    rateLimitMap.set(ip, { count: 1, resetAt: now + RATE_WINDOW });
+    return true;
+  }
+
+  if (record.count >= RATE_LIMIT) {
+    return false;
+  }
+
+  record.count++;
+  return true;
+}
+
 // Configure the Gmail SMTP transporter with more robust settings
 const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
@@ -15,12 +53,58 @@ const transporter = nodemailer.createTransport({
 });
 
 export async function POST(req: Request) {
+    // Rate limiting: Get client IP
+    const ip = req.headers.get('x-forwarded-for')?.split(',')[0] ||
+               req.headers.get('x-real-ip') ||
+               'unknown';
+
+    if (!checkRateLimit(ip)) {
+        return NextResponse.json(
+            { success: false, message: 'Too many requests. Please try again later.' },
+            { status: 429 }
+        );
+    }
+
     try {
         const data = await req.json();
 
-        // Log submission to terminal for dev visibility
-        console.log('--- NEW FORM SUBMISSION ---', data.formType);
-        console.log('Submission Data:', JSON.stringify(data, null, 2));
+        // Input validation: email format
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (data.email && !emailRegex.test(data.email)) {
+            return NextResponse.json(
+                { success: false, message: 'Invalid email format' },
+                { status: 400 }
+            );
+        }
+
+        // Validate required fields based on form type
+        const requiredFields: Record<string, string[]> = {
+            contact: ['name', 'email', 'message'],
+            booking: ['name', 'email', 'preferredDate'],
+            partner: ['companyName', 'email'],
+            training: ['email'],
+            general: ['email'],
+        };
+
+        const required = requiredFields[data.formType] || ['email'];
+        const missing = required.filter(
+            (field) => !data[field] && !data.fullName && !data.firstName
+        );
+
+        if (missing.length > 0 && !data.email) {
+            return NextResponse.json(
+                { success: false, message: `Missing required fields: ${missing.join(', ')}` },
+                { status: 400 }
+            );
+        }
+
+        // Conditional logging: full data only in development
+        if (process.env.NODE_ENV !== 'production') {
+            console.log('--- NEW FORM SUBMISSION ---', data.formType);
+            console.log('Submission Data:', JSON.stringify(data, null, 2));
+        } else {
+            console.log(`Form submission received: ${data.formType} from ${data.email ? '[email provided]' : '[no email]'}`);
+        }
 
         const gmailUser = process.env.GMAIL_USER;
         const gmailPass = process.env.GMAIL_APP_PASSWORD;
@@ -81,14 +165,14 @@ export async function POST(req: Request) {
 
             const formatFieldName = (key: string) => mapping[key];
 
-            // Generate HTML rows only for mapped fields
+            // Generate HTML rows only for mapped fields (with HTML escaping)
             const dataRows = Object.entries(data)
                 .filter(([key]) => mapping[key]) // Only include fields that have a mapping
                 .map(([key, value]) => `
                     <tr>
                         <td style="padding: 12px 0; border-bottom: 1px solid #f0f0f0;">
-                            <strong style="color: #666; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px;">${mapping[key]}</strong>
-                            <div style="color: #333; font-size: 16px; margin-top: 4px; font-weight: 500; white-space: pre-wrap;">${value || 'Not provided'}</div>
+                            <strong style="color: #666; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px;">${escapeHtml(mapping[key])}</strong>
+                            <div style="color: #333; font-size: 16px; margin-top: 4px; font-weight: 500; white-space: pre-wrap;">${escapeHtml(String(value)) || 'Not provided'}</div>
                         </td>
                     </tr>
                 `).join('');
@@ -102,7 +186,7 @@ export async function POST(req: Request) {
             const mailOptions: any = {
                 from: `"TheAgileNest Support" <${gmailUser}>`,
                 to: process.env.NOTIFICATION_EMAIL || 'agilenestconsultants@gmail.com',
-                subject: `[${data.formType}] Lead from ${data.fullName || data.firstName || 'New Inquiry'}`,
+                subject: `[${escapeHtml(data.formType)}] Lead from ${escapeHtml(data.fullName || data.firstName) || 'New Inquiry'}`,
                 text: textVersion,
                 attachments: data.files?.map((file: any) => ({
                     filename: file.name,
@@ -115,7 +199,7 @@ export async function POST(req: Request) {
                         <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
                             <div style="background: #002D5B; padding: 32px; text-align: center;">
                                 <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 800; letter-spacing: -0.5px;">NEW INQUIRY</h1>
-                                <p style="color: #93c5fd; margin: 8px 0 0 0; text-transform: uppercase; font-size: 12px; font-weight: 700; letter-spacing: 1px;">${data.formType}</p>
+                                <p style="color: #93c5fd; margin: 8px 0 0 0; text-transform: uppercase; font-size: 12px; font-weight: 700; letter-spacing: 1px;">${escapeHtml(data.formType)}</p>
                             </div>
                             
                             <div style="padding: 40px;">
@@ -129,7 +213,7 @@ export async function POST(req: Request) {
                                     <ul style="margin: 0; padding: 0; list-style: none;">
                                         ${data.files.map((f: any) => `
                                             <li style="font-size: 14px; color: #1e293b; padding: 4px 0; display: flex; align-items: center;">
-                                                <span style="color: #3b82f6; margin-right: 8px;">📎</span> ${f.name}
+                                                <span style="color: #3b82f6; margin-right: 8px;">📎</span> ${escapeHtml(f.name)}
                                             </li>
                                         `).join('')}
                                     </ul>

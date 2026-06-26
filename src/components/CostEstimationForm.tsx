@@ -1,11 +1,12 @@
 "use client";
 
 import { useState, useRef } from 'react';
-import { User, Mail, Building2, FileText, Upload, Send, CheckCircle2, X } from 'lucide-react';
+import { User, Mail, Building2, FileText, Upload, Send, CheckCircle2, X, AlertCircle } from 'lucide-react';
 
 export default function CostEstimationForm() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [submitError, setSubmitError] = useState<string | null>(null);
     const [files, setFiles] = useState<File[]>([]);
     const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -23,6 +24,7 @@ export default function CostEstimationForm() {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsSubmitting(true);
+        setSubmitError(null);
 
         const formData = new FormData(e.currentTarget);
 
@@ -49,7 +51,7 @@ export default function CostEstimationForm() {
             // Check total size (Vercel/Next.js limit is ~4.5MB for the whole request)
             const totalSize = files.reduce((acc, f) => acc + f.size, 0);
             if (totalSize > 4 * 1024 * 1024) {
-                alert('Total file size exceeds 4MB limit for direct upload. Please reduce file size or contact us directly.');
+                setSubmitError('Total file size exceeds 4MB limit for direct upload. Please reduce file size or contact us directly.');
                 setIsSubmitting(false);
                 return;
             }
@@ -72,11 +74,11 @@ export default function CostEstimationForm() {
             if (response.ok) {
                 setIsSubmitted(true);
             } else {
-                alert('Something went wrong. Please try again.');
+                setSubmitError('Something went wrong. Please try again.');
             }
         } catch (error) {
             console.error('Submission error:', error);
-            alert('Failed to send request. Check your connection.');
+            setSubmitError('Failed to send request. Please check your connection and try again.');
         } finally {
             setIsSubmitting(false);
         }
@@ -218,6 +220,16 @@ export default function CostEstimationForm() {
                         </div>
                     )}
                 </div>
+
+                {submitError && (
+                    <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 flex items-start gap-3">
+                        <AlertCircle size={20} className="shrink-0 mt-0.5" />
+                        <div>
+                            <p className="font-semibold text-sm">Submission failed</p>
+                            <p className="text-sm mt-1">{submitError}</p>
+                        </div>
+                    </div>
+                )}
 
                 <div className="pt-4">
                     <button

@@ -8,10 +8,30 @@ import config from "@payload-config";
  * 
  * POST /api/posts/duplicate
  * Body: { "id": "post-id" }
+ * 
+ * Requires authentication with admin or editor role.
  */
 export async function POST(request: Request) {
   try {
     const payload = await getPayload({ config });
+
+    // Require authentication
+    const { user } = await payload.auth({ headers: request.headers });
+    if (!user) {
+      return NextResponse.json(
+        { error: "Unauthorized — login required" },
+        { status: 401 }
+      );
+    }
+
+    // Require admin or editor role
+    if (user.role !== "admin" && user.role !== "editor") {
+      return NextResponse.json(
+        { error: "Forbidden — admin or editor role required" },
+        { status: 403 }
+      );
+    }
+
     const body = await request.json();
     const { id } = body;
 
@@ -42,6 +62,7 @@ export async function POST(request: Request) {
         status: "draft",
         publishDate: null,
       },
+      overrideAccess: false,
     });
 
     return NextResponse.json({

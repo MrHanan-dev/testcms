@@ -39,6 +39,9 @@ export const Pages: CollectionConfig = {
       if (user) return true;
       return { _status: { equals: "published" } };
     },
+    create: ({ req: { user } }) => Boolean(user) && user?.role !== 'viewer',
+    update: ({ req: { user } }) => Boolean(user) && user?.role !== 'viewer',
+    delete: ({ req: { user } }) => user?.role === 'admin' || user?.role === 'editor',
   },
   versions: {
     drafts: {

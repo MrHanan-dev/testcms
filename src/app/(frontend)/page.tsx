@@ -3,6 +3,9 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import { getHome } from '@/lib/payload';
 import { generateSeoMetadata } from '@/lib/generateSeoMetadata';
+import { getFeaturedTestimonials, getSliderByLocation, mapTestimonialDoc } from '@/lib/cmsCollections';
+import CmsSlider from '@/components/cms/CmsSlider';
+import { resolveMediaUrl } from '@/lib/resolveMediaUrl';
 import FeatureStrip from '@/components/FeatureStrip';
 import TrustBar from '@/components/TrustBar';
 import BentoGrid from '@/components/BentoGrid';
@@ -15,6 +18,7 @@ import FAQ from '@/components/FAQ';
 import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
 import JsonLdFaq from '@/components/JsonLdFaq';
+import { HOME_FAQ_ITEMS } from '@/data/homeContent';
 import { payloadUploadUrlWithFallback } from '@/lib/resolveMediaUrl';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -44,12 +48,16 @@ const mediaUrl = (v: unknown, fallback?: string): string | undefined =>
     payloadUploadUrlWithFallback(v, fallback);
 
 export default async function Home() {
-    // Every section reads from the CMS Home global; each component falls back to
-    // its built-in content when the corresponding field is empty.
-    const home = await getHome();
+    const [home, cmsSlider, featuredTestimonials] = await Promise.all([
+        getHome(),
+        getSliderByLocation('homepage-hero'),
+        getFeaturedTestimonials(3),
+    ]);
     const h = (home ?? {}) as Record<string, unknown>;
 
     const faqItems = (h.faqItems as { question: string; answer: string }[] | undefined) ?? undefined;
+    const resolvedFaqItems =
+        faqItems && faqItems.length > 0 ? faqItems : [...HOME_FAQ_ITEMS];
 
     const heroSlides = ((h.heroSlides as HeroSlideDoc[]) ?? []).map((s) => {
         const rawUrl = s.image && typeof s.image === 'object' ? s.image.url ?? '' : '';
@@ -74,10 +82,48 @@ export default async function Home() {
     }));
     const col1Items = (h.aboutCol1Items as { text: string }[] | undefined)?.map((x) => x.text);
 
+    const sliderSlides = cmsSlider
+        ? ((cmsSlider.slides as Record<string, unknown>[]) ?? []).map((s) => {
+              const image = s.image as { url?: string } | undefined;
+              return {
+                  id: s.id as string | undefined,
+                  headline: s.heading as string | undefined,
+                  subheadline: s.subheading as string | undefined,
+                  description: s.description as string | undefined,
+                  imageUrl: image?.url ? resolveMediaUrl(image.url) : undefined,
+                  buttonText: s.buttonText as string | undefined,
+                  buttonUrl: s.buttonUrl as string | undefined,
+                  secondButtonText: s.secondButtonText as string | undefined,
+                  secondButtonUrl: s.secondButtonUrl as string | undefined,
+              };
+          })
+        : [];
+
+    const homeTestimonials = (h.testimonials as { quote: string; author?: string; role?: string; company?: string }[] | undefined);
+    const testimonialItems =
+        homeTestimonials && homeTestimonials.length > 0
+            ? homeTestimonials
+            : featuredTestimonials.map((t) => {
+                  const mapped = mapTestimonialDoc(t as Record<string, unknown>);
+                  return {
+                      quote: mapped.quote,
+                      author: mapped.author,
+                      role: mapped.role,
+                      company: mapped.company,
+                  };
+              });
+
     return (
         <>
             <Header variant="transparent" />
             <main>
+                {sliderSlides.length > 0 ? (
+                    <CmsSlider
+                        slides={sliderSlides}
+                        autoplay={cmsSlider?.autoplay !== false}
+                        autoplaySpeed={Number(cmsSlider?.autoplaySpeed) || 5000}
+                    />
+                ) : (
                 <Hero 
                     slides={heroSlides}
                     primaryCtaText={orUndef(h.heroPrimaryCtaText)}
@@ -85,6 +131,7 @@ export default async function Home() {
                     secondaryCtaText={orUndef(h.heroSecondaryCtaText)}
                     secondaryCtaUrl={orUndef(h.heroSecondaryCtaUrl)}
                 />
+                )}
                 <FeatureStrip items={featureItems} />
                 {/* <TrustBar /> */}
                 <BentoGrid
@@ -121,7 +168,7 @@ export default async function Home() {
                     eyebrow={orUndef(h.testimonialsEyebrow)}
                     headingLead={orUndef(h.testimonialsHeadingLead)}
                     headingMuted={orUndef(h.testimonialsHeadingMuted)}
-                    items={h.testimonials as never}
+                    items={testimonialItems}
                 />
                 <GoogleReviews
                     eyebrow={orUndef(h.reviewsEyebrow)}
@@ -130,13 +177,13 @@ export default async function Home() {
                     googleUrl={orUndef(h.reviewsGoogleUrl)}
                     items={h.reviewItems as never}
                 />
-                {faqItems && faqItems.length > 0 && <JsonLdFaq items={faqItems} />}
+                <JsonLdFaq items={resolvedFaqItems} />
                 <FAQ 
                     eyebrow={orUndef(h.faqEyebrow)}
                     title={orUndef(h.faqTitle)}
                     subtitle={orUndef(h.faqSubtitle)}
                     description={orUndef(h.faqDescription)}
-                    items={h.faqItems as never}
+                    items={resolvedFaqItems as never}
                     contactPrompt={orUndef(h.faqContactPrompt)}
                     contactLinkText={orUndef(h.faqContactLinkText)}
                     contactSuffix={orUndef(h.faqContactSuffix)}

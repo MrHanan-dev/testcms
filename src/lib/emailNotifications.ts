@@ -5,6 +5,19 @@ import type { CollectionAfterChangeHook } from "payload";
  * WordPress-style email alerts for new leads and comments.
  */
 
+/**
+ * Escape HTML special characters to prevent HTML injection in email templates.
+ */
+function escapeHtml(text: string | undefined | null): string {
+  if (!text) return '';
+  return String(text)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
 interface EmailPayload {
   to: string[];
   subject: string;
@@ -82,7 +95,7 @@ export const notifyNewLead: CollectionAfterChangeHook = async ({
       const recipients = await getNotificationEmails(payload);
       await sendEmail({
         to: recipients,
-        subject: `🔔 New Enquiry from ${doc.name || "Website Visitor"}`,
+        subject: `🔔 New Enquiry from ${escapeHtml(doc.name) || "Website Visitor"}`,
         html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <div style="background: linear-gradient(135deg, #0B3C5D 0%, #1a5a7a 100%); padding: 20px; border-radius: 8px 8px 0 0;">
@@ -92,29 +105,29 @@ export const notifyNewLead: CollectionAfterChangeHook = async ({
             <table style="width: 100%; border-collapse: collapse;">
               <tr>
                 <td style="padding: 8px 0; color: #64748b; width: 100px;">Name:</td>
-                <td style="padding: 8px 0; font-weight: 600;">${doc.name || "N/A"}</td>
+                <td style="padding: 8px 0; font-weight: 600;">${escapeHtml(doc.name) || "N/A"}</td>
               </tr>
               <tr>
                 <td style="padding: 8px 0; color: #64748b;">Email:</td>
-                <td style="padding: 8px 0;"><a href="mailto:${doc.email}" style="color: #0B3C5D;">${doc.email || "N/A"}</a></td>
+                <td style="padding: 8px 0;"><a href="mailto:${escapeHtml(doc.email)}" style="color: #0B3C5D;">${escapeHtml(doc.email) || "N/A"}</a></td>
               </tr>
               <tr>
                 <td style="padding: 8px 0; color: #64748b;">Phone:</td>
-                <td style="padding: 8px 0;">${doc.phone || "N/A"}</td>
+                <td style="padding: 8px 0;">${escapeHtml(doc.phone) || "N/A"}</td>
               </tr>
               <tr>
                 <td style="padding: 8px 0; color: #64748b;">Subject:</td>
-                <td style="padding: 8px 0;">${doc.subject || "N/A"}</td>
+                <td style="padding: 8px 0;">${escapeHtml(doc.subject) || "N/A"}</td>
               </tr>
               <tr>
                 <td style="padding: 8px 0; color: #64748b;">Source:</td>
-                <td style="padding: 8px 0;">${doc.source || "Website"}</td>
+                <td style="padding: 8px 0;">${escapeHtml(doc.source) || "Website"}</td>
               </tr>
             </table>
             ${doc.message ? `
               <div style="margin-top: 16px; padding: 16px; background: white; border-radius: 8px; border: 1px solid #e2e8f0;">
                 <p style="color: #64748b; margin: 0 0 8px 0; font-size: 12px;">MESSAGE:</p>
-                <p style="margin: 0; white-space: pre-wrap;">${doc.message}</p>
+                <p style="margin: 0; white-space: pre-wrap;">${escapeHtml(doc.message)}</p>
               </div>
             ` : ""}
             <div style="margin-top: 24px; text-align: center;">
@@ -166,7 +179,7 @@ export const notifyNewComment: CollectionAfterChangeHook = async ({
 
       await sendEmail({
         to: recipients,
-        subject: `💬 New Comment on "${postTitle}"`,
+        subject: `💬 New Comment on "${escapeHtml(postTitle)}"`,
         html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <div style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); padding: 20px; border-radius: 8px 8px 0 0;">
@@ -174,11 +187,11 @@ export const notifyNewComment: CollectionAfterChangeHook = async ({
           </div>
           <div style="background: #f8fafc; padding: 24px; border: 1px solid #e2e8f0; border-radius: 0 0 8px 8px;">
             <p style="margin: 0 0 8px 0; color: #64748b;">On article:</p>
-            <p style="margin: 0 0 16px 0; font-weight: 600; font-size: 18px;">${postTitle}</p>
+            <p style="margin: 0 0 16px 0; font-weight: 600; font-size: 18px;">${escapeHtml(postTitle)}</p>
             
             <div style="padding: 16px; background: white; border-radius: 8px; border: 1px solid #e2e8f0;">
-              <p style="margin: 0 0 8px 0;"><strong>${doc.author}</strong> <span style="color: #64748b;">(${doc.email})</span></p>
-              <p style="margin: 0; white-space: pre-wrap;">${doc.content}</p>
+              <p style="margin: 0 0 8px 0;"><strong>${escapeHtml(doc.author)}</strong> <span style="color: #64748b;">(${escapeHtml(doc.email)})</span></p>
+              <p style="margin: 0; white-space: pre-wrap;">${escapeHtml(doc.content)}</p>
             </div>
             
             <div style="margin-top: 24px; text-align: center;">

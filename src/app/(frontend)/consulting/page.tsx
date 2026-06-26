@@ -6,6 +6,7 @@ import { Check, ShieldCheck, BarChart3, Search, FileSearch, ListChecks } from 'l
 import { Metadata } from 'next';
 import { getGlobal } from '@/lib/payload';
 import { generateSeoMetadata } from '@/lib/generateSeoMetadata';
+import { CONSULTING_CONTENT } from '@/data/consultingContent';
 
 export async function generateMetadata(): Promise<Metadata> {
     const c = await getGlobal('consultingPage');
@@ -22,29 +23,24 @@ const orUndef = (v: unknown): string | undefined => (typeof v === 'string' && v.
 
 // Icons/colours are part of the design; the CMS overlays title/desc by position.
 const DEFAULT_SERVICES = [
-    { title: "Business Analysis", desc: "Bridging the gap between business needs and project delivery through stakeholder engagement and requirements engineering.", icon: Search, color: "text-blue-600", bgColor: "bg-blue-50" },
-    { title: "Quality Assurance & Testing", desc: "Independent validation of project outputs to ensure they meet quality standards and user requirements.", icon: ShieldCheck, color: "text-emerald-600", bgColor: "bg-emerald-50" },
-    { title: "Post Implementation Review", desc: "External, independent PIRs to capture lessons learned and validate that business cases were actually achieved.", icon: FileSearch, color: "text-orange-600", bgColor: "bg-orange-50" },
-    { title: "Governance Frameworks", desc: "Designing and implementing robust decision-making models to de-risk portfolios and satisfy audit requirements.", icon: ListChecks, color: "text-teal-600", bgColor: "bg-teal-50" },
+    { title: CONSULTING_CONTENT.serviceCards[0].title, desc: CONSULTING_CONTENT.serviceCards[0].desc, icon: Search, color: "text-blue-600", bgColor: "bg-blue-50" },
+    { title: CONSULTING_CONTENT.serviceCards[1].title, desc: CONSULTING_CONTENT.serviceCards[1].desc, icon: ShieldCheck, color: "text-emerald-600", bgColor: "bg-emerald-50" },
+    { title: CONSULTING_CONTENT.serviceCards[2].title, desc: CONSULTING_CONTENT.serviceCards[2].desc, icon: FileSearch, color: "text-orange-600", bgColor: "bg-orange-50" },
+    { title: CONSULTING_CONTENT.serviceCards[3].title, desc: CONSULTING_CONTENT.serviceCards[3].desc, icon: ListChecks, color: "text-teal-600", bgColor: "bg-teal-50" },
 ];
 
-const DEFAULT_CHECKLIST = [
-    "Objective, independent reviews",
-    "Tailored governance frameworks",
-    "On-demand specialized talent",
-    "Clear roadmap for maturity",
-];
+const DEFAULT_CHECKLIST = CONSULTING_CONTENT.outcomeChecklist;
 
 export default async function ConsultingPage() {
     const c = await getGlobal('consultingPage');
 
-    const heroTitle = orUndef(c.heroTitle) ?? "Consulting";
-    const heroDescription = orUndef(c.heroDescription) ?? "Improving client project management maturity through consulting to create appropriate structure around project delivery, governance, process and tools.";
-    const heroBreadcrumb = orUndef(c.heroBreadcrumb) ?? "Our Services";
-    const introEyebrow = orUndef(c.introEyebrow) ?? "Project Maturity";
-    const introHeadingLine1 = orUndef(c.introHeadingLine1) ?? "Creating Calm Across";
-    const introHeadingLine2 = orUndef(c.introHeadingLine2) ?? "Your Projects";
-    const introParagraph = orUndef(c.introParagraph) ?? "No matter the breadth and complexity, we help create the momentum you need to move your organisation forward.";
+    const heroTitle = orUndef(c.heroTitle) ?? CONSULTING_CONTENT.heroTitle;
+    const heroDescription = orUndef(c.heroDescription) ?? CONSULTING_CONTENT.heroDescription;
+    const heroBreadcrumb = orUndef(c.heroBreadcrumb) ?? CONSULTING_CONTENT.heroBreadcrumb;
+    const introEyebrow = orUndef(c.introEyebrow) ?? CONSULTING_CONTENT.introEyebrow;
+    const introHeadingLine1 = orUndef(c.introHeadingLine1) ?? CONSULTING_CONTENT.introHeadingLine1;
+    const introHeadingLine2 = orUndef(c.introHeadingLine2) ?? CONSULTING_CONTENT.introHeadingLine2;
+    const introParagraph = orUndef(c.introParagraph) ?? CONSULTING_CONTENT.introParagraph;
 
     const cmsCards = c.serviceCards as { title?: string; desc?: string }[] | undefined;
     const mainServices = DEFAULT_SERVICES.map((base, i) => {
@@ -52,21 +48,21 @@ export default async function ConsultingPage() {
         return card ? { ...base, title: card.title || base.title, desc: card.desc || base.desc } : base;
     });
 
-    const outcomeBadgeHeading = orUndef(c.outcomeBadgeHeading) ?? "Strategic Value";
-    const outcomeBadgeText = orUndef(c.outcomeBadgeText) ?? "We bridge the gap between technical delivery and executive expectations.";
-    const outcomeHeading = orUndef(c.outcomeHeading) ?? "Delivering Exceptional Results";
-    const outcomeParagraph = orUndef(c.outcomeParagraph) ?? "Our consulting services are designed to address the root causes of project failure, ensuring your organisation’s project management maturity grows with every initiative.";
+    const outcomeBadgeHeading = orUndef(c.outcomeBadgeHeading) ?? CONSULTING_CONTENT.outcomeBadgeHeading;
+    const outcomeBadgeText = orUndef(c.outcomeBadgeText) ?? CONSULTING_CONTENT.outcomeBadgeText;
+    const outcomeHeading = orUndef(c.outcomeHeading) ?? CONSULTING_CONTENT.outcomeHeading;
+    const outcomeParagraph = orUndef(c.outcomeParagraph) ?? CONSULTING_CONTENT.outcomeParagraph;
     const outcomeChecklist = (c.outcomeChecklist as { text: string }[] | undefined)?.length
         ? (c.outcomeChecklist as { text: string }[]).map((x) => x.text)
-        : DEFAULT_CHECKLIST;
-    const outcomeButtonText = orUndef(c.outcomeButtonText) ?? "Discuss Your Roadmap";
+        : CONSULTING_CONTENT.outcomeChecklist;
+    const outcomeButtonText = orUndef(c.outcomeButtonText) ?? CONSULTING_CONTENT.outcomeButtonText;
 
-    const faqTitle = orUndef(c.faqTitle);
-    const faqSubtitle = orUndef(c.faqSubtitle);
-    const faqDescription = orUndef(c.faqDescription);
+    const faqTitle = orUndef(c.faqTitle) ?? CONSULTING_CONTENT.faqTitle;
+    const faqSubtitle = orUndef(c.faqSubtitle) ?? CONSULTING_CONTENT.faqSubtitle;
+    const faqDescription = orUndef(c.faqDescription) ?? CONSULTING_CONTENT.faqDescription;
     const faqItems = (c.faqItems as { question: string; answer: string }[] | undefined)?.length
         ? (c.faqItems as { question: string; answer: string }[])
-        : undefined;
+        : CONSULTING_CONTENT.faqItems;
 
     return (
         <>

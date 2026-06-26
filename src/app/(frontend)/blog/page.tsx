@@ -1,23 +1,30 @@
 import { Metadata } from "next";
-import { getPosts } from "@/lib/payload";
+import { getPosts, getGlobal } from "@/lib/payload";
 import { resolveBlogPostsList } from "@/lib/resolveBlogPost";
 import BlogPageClient from "./BlogPageClient";
 
-export const metadata: Metadata = {
-  title: "Blog & Resources | TheAgileNest",
-  description:
-    "Expert insights on project management, PMP certification, construction cost estimation, and PMO governance. Stay updated with the latest industry trends and best practices.",
-  openGraph: {
-    title: "Blog & Resources | TheAgileNest",
-    description:
-      "Expert insights on project management, PMP certification, construction cost estimation, and PMO governance.",
-    type: "website",
-    url: "https://theagilenest.com/blog",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const reading = await getGlobal("readingSettings");
+  const title = typeof reading.postsPage === "string" && reading.postsPage
+    ? `Blog | TheAgileNest`
+    : "Blog | TheAgileNest";
+  return {
+    title,
+    description: "Expert insights on project management, PMP certification, and professional development.",
+  };
+}
 
 export default async function BlogPage() {
-  const cmsDocs = await getPosts();
+  const [cmsDocs, reading] = await Promise.all([getPosts(), getGlobal("readingSettings")]);
   const posts = resolveBlogPostsList(cmsDocs);
-  return <BlogPageClient posts={posts} />;
+
+  return (
+    <BlogPageClient
+      posts={posts}
+      postsPerPage={Number(reading.postsPerPage) || 10}
+      showAuthor={reading.showAuthor !== false}
+      showDate={reading.showDate !== false}
+      showCategories={reading.showCategories !== false}
+    />
+  );
 }

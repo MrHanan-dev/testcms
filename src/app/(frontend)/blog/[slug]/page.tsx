@@ -8,8 +8,10 @@ import { notFound } from "next/navigation";
 import JsonLdArticle from "@/components/JsonLdArticle";
 import JsonLdFaq from "@/components/JsonLdFaq";
 import { RichText } from "@payloadcms/richtext-lexical/react";
-import { getPostBySlug } from "@/lib/payload";
+import { getPostBySlug, getGlobal } from "@/lib/payload";
 import { allBlogSlugs, resolveBlogPost } from "@/lib/resolveBlogPost";
+import BlogComments from "@/components/cms/BlogComments";
+import { getCommentsForPost } from "@/lib/cmsCollections";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -48,9 +50,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
-  const cmsDoc = await getPostBySlug(slug);
+  const [cmsDoc, reading] = await Promise.all([getPostBySlug(slug), getGlobal("readingSettings")]);
   const post = resolveBlogPost(cmsDoc, slug);
   if (!post) notFound();
+
+  const postId = cmsDoc?.id ? String(cmsDoc.id) : undefined;
+  const comments = postId ? await getCommentsForPost(postId, Number(reading.commentsPerPage) || 20) : [];
+  const commentsEnabled = reading.commentsEnabled !== false;
+  const showAuthor = reading.showAuthor !== false;
+  const showDate = reading.showDate !== false;
 
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900">
@@ -79,18 +87,31 @@ export default async function BlogPostPage({ params }: Props) {
           </Link>
 
           <div className="flex items-center gap-3 flex-wrap mb-5">
-            <span className="px-2.5 py-1 bg-primary/8 text-primary text-xs font-black rounded-md inline-flex items-center gap-1">
-              <Tag size={11} className="text-accent" />
-              {post.category}
-            </span>
-            <span className="text-slate-400 text-xs font-semibold flex items-center gap-1">
-              <Calendar size={12} />
-              {post.date}
-            </span>
-            <span className="text-slate-400 text-xs font-semibold flex items-center gap-1">
-              <User size={12} />
-              {post.author}
-            </span>
+            {showAuthor || showDate ? (
+              <>
+                <span className="px-2.5 py-1 bg-primary/8 text-primary text-xs font-black rounded-md inline-flex items-center gap-1">
+                  <Tag size={11} className="text-accent" />
+                  {post.category}
+                </span>
+                {showDate && (
+                  <span className="text-slate-400 text-xs font-semibold flex items-center gap-1">
+                    <Calendar size={12} />
+                    {post.date}
+                  </span>
+                )}
+                {showAuthor && (
+                  <span className="text-slate-400 text-xs font-semibold flex items-center gap-1">
+                    <User size={12} />
+                    {post.author}
+                  </span>
+                )}
+              </>
+            ) : (
+              <span className="px-2.5 py-1 bg-primary/8 text-primary text-xs font-black rounded-md inline-flex items-center gap-1">
+                <Tag size={11} className="text-accent" />
+                {post.category}
+              </span>
+            )}
           </div>
 
           <h1 className="text-4xl md:text-5xl font-black text-primary leading-tight mb-5">{post.title}</h1>
@@ -138,6 +159,21 @@ export default async function BlogPostPage({ params }: Props) {
                 ))}
               </div>
             </div>
+          )}
+          {postId && (
+            <BlogComments
+              postId={postId}
+              enabled={commentsEnabled}
+              requireName={reading.requireName !== false}
+              requireEmail={reading.requireEmail !== false}
+              initialComments={comments.map((c) => ({
+                id: String(c.id),
+                author: c.author as string | undefined,
+                content: c.content as string | undefined,
+                createdAt: c.createdAt as string | undefined,
+                adminReply: c.adminReply as string | undefined,
+              }))}
+            />
           )}
         </article>
       </main>

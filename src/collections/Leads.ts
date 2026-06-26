@@ -16,7 +16,7 @@ export const Leads: CollectionConfig = {
     group: "📬 CRM",
     description: "Manage enquiries from website forms — track status, add notes, assign to team.",
     useAsTitle: "name",
-    defaultColumns: ["name", "email", "message", "status", "source", "createdAt"],
+    defaultColumns: ["name", "email", "formType", "status", "createdAt"],
     listSearchableFields: ["name", "email", "phone", "company", "subject", "message"],
     pagination: { defaultLimit: 25 },
   },
@@ -28,9 +28,9 @@ export const Leads: CollectionConfig = {
   },
   access: {
     read: ({ req: { user } }) => Boolean(user),
-    create: ({ req: { user } }) => Boolean(user), // server persists via overrideAccess
-    update: ({ req: { user } }) => Boolean(user),
-    delete: ({ req: { user } }) => Boolean(user),
+    create: () => true, // Public form submissions create leads
+    update: ({ req: { user } }) => user?.role === 'admin' || user?.role === 'editor',
+    delete: ({ req: { user } }) => user?.role === 'admin' || user?.role === 'editor',
   },
   fields: [
     // ── Main column: who they are + what they said ──────────────────────────

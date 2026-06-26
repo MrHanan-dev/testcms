@@ -1,5 +1,6 @@
 import type { GlobalConfig } from "payload";
 import { seoTab } from "@/lib/seoFields";
+import { logGlobalChange } from "../lib/activityLogger";
 
 /**
  * Editable Cost Estimation page. Every field optional with page-level fallbacks
@@ -10,6 +11,9 @@ export const CostEstimation: GlobalConfig = {
   slug: "costEstimationPage",
   label: "Cost Estimation",
   access: { read: () => true },
+  hooks: {
+    afterChange: [logGlobalChange],
+  },
   admin: {
     group: "💼 Service Pages",
     description: "Edit the Cost Estimation page — services, industries, testimonials, and quote form.",

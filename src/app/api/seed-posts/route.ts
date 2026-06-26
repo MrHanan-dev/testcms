@@ -1,11 +1,10 @@
-import { join } from "node:path";
-import { existsSync } from "node:fs";
 import { NextResponse, type NextRequest } from "next/server";
 import { getPayload } from "payload";
 import config from "@payload-config";
 import { blogPostsMeta } from "@/data/blogPostsMeta";
+import { blogFaqs } from "@/lib/faqData";
 
-/** Seed blog posts metadata from blogPostsMeta + upload featured images. Dev-only, ?force=1. Body/FAQ intentionally not seeded. */
+/** Seed blog posts from blogPostsMeta + per-post FAQs. Sets status published so CMS edits appear on site. */
 export async function GET(req: NextRequest) {
   if (process.env.NODE_ENV === "production") return new NextResponse("Disabled in production", { status: 403 });
   if (req.nextUrl.searchParams.get("secret") !== process.env.PAYLOAD_SECRET) return new NextResponse("Unauthorized", { status: 401 });
@@ -21,6 +20,8 @@ export async function GET(req: NextRequest) {
 
     const uploadImage = async (imagePath: string, alt: string) => {
       if (!imagePath || /^https?:\/\//i.test(imagePath)) return undefined;
+      const { join } = await import("node:path");
+      const { existsSync } = await import("node:fs");
       const filename = imagePath.split("/").pop() || imagePath;
       const filePath = join(process.cwd(), "public", imagePath.replace(/^\//, ""));
       if (!existsSync(filePath)) return undefined;
@@ -40,6 +41,7 @@ export async function GET(req: NextRequest) {
       });
 
       const featuredImage = await uploadImage(post.imageUrl, post.title);
+      const faqItems = blogFaqs[post.slug] ?? [];
 
       const data = {
         title: post.title,
@@ -51,14 +53,15 @@ export async function GET(req: NextRequest) {
         imageUrl: post.imageUrl,
         ...(featuredImage ? { featuredImage } : {}),
         readTime: post.readTime,
+        status: "published",
+        publishDate: post.date,
+        faqItems,
+        metaTitle: `${post.title} | TheAgileNest`,
+        metaDescription: post.abstract,
       };
 
       if (found.docs[0]) {
-        await payload.update({
-          collection: "posts",
-          id: found.docs[0].id,
-          data: data as never,
-        });
+        await payload.update({ collection: "posts", id: found.docs[0].id, data: data as never });
         updated++;
       } else {
         await payload.create({ collection: "posts", data: data as never });
@@ -66,7 +69,7 @@ export async function GET(req: NextRequest) {
       }
     }
 
-    return NextResponse.json({ seeded: true, created, updated });
+    return NextResponse.json({ seeded: true, created, updated, published: blogPostsMeta.length });
   } catch (err) {
     console.error("[seed-posts] failed:", (err as Error).message);
     return new NextResponse((err as Error).message, { status: 500 });

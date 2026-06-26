@@ -64,6 +64,7 @@ export async function getPageBySlug(slug: string, draft = false) {
       where: { slug: { equals: slug } },
       draft,
       limit: 1,
+      depth: 2,
       overrideAccess: draft,
     });
     return result.docs[0] ?? null;
@@ -103,6 +104,26 @@ export async function getPostBySlug(slug: string) {
     return (result.docs[0] as Record<string, unknown> | undefined) ?? null;
   } catch (err) {
     console.error("[payload] getPostBySlug failed:", (err as Error).message);
+    return null;
+  }
+}
+
+/** Fetch menu by location from Menus collection. Null-safe. */
+export async function getMenuByLocation(location: string) {
+  try {
+    const payload = await getPayload({ config });
+    const result = await payload.find({
+      collection: "menus",
+      where: {
+        location: { equals: location },
+        isActive: { equals: true },
+      },
+      depth: 2,
+      limit: 1,
+    });
+    return result.docs[0] || null;
+  } catch (err) {
+    console.error(`[payload] getMenuByLocation(${location}) failed:`, (err as Error).message);
     return null;
   }
 }

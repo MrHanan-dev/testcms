@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Star, ExternalLink } from 'lucide-react';
 
-import { GOOGLE_REVIEWS } from '@/constants/reviews';
+import { HOME_GOOGLE_REVIEWS } from '@/data/homeContent';
 
 const DEFAULT_GOOGLE_REVIEW_URL = "https://www.google.com/maps/place/AgileNest/data=!4m2!3m1!1s0x0:0xa5b20cdb0955fd78?sa=X&ved=1t:2428&hl=en-NZ&ictx=111";
 
@@ -25,7 +25,7 @@ export default function GoogleReviews({
     items,
 }: ReviewsProps = {}) {
     const GOOGLE_REVIEW_URL = googleUrl || DEFAULT_GOOGLE_REVIEW_URL;
-    const reviews: ReviewItem[] = items && items.length > 0 ? items : GOOGLE_REVIEWS;
+    const reviews: ReviewItem[] = items && items.length > 0 ? items : [...HOME_GOOGLE_REVIEWS];
     return (
         <section className="py-20 md:py-32 bg-slate-50 relative overflow-hidden">
             <div className="container-custom relative z-10">

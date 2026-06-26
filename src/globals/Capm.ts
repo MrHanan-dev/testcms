@@ -1,5 +1,6 @@
 import type { GlobalConfig } from "payload";
 import { seoTab } from "@/lib/seoFields";
+import { logGlobalChange } from "../lib/activityLogger";
 
 const list = (name: string, label?: string) => ({
   name,
@@ -18,6 +19,9 @@ export const Capm: GlobalConfig = {
   slug: "capmPage",
   label: "CAPM Certification",
   access: { read: () => true },
+  hooks: {
+    afterChange: [logGlobalChange],
+  },
   admin: {
     group: "🎓 Certification & Training",
     description: "Edit the CAPM certification page — eligibility, curriculum, pricing, and FAQs.",

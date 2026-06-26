@@ -9,7 +9,7 @@ export const CustomCode: GlobalConfig = {
   slug: "customCode",
   label: "Custom Code",
   access: {
-    read: () => true,
+    read: ({ req: { user } }) => Boolean(user),
     update: ({ req: { user } }) => user?.role === "admin",
   },
   hooks: {

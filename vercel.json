@@ -4,7 +4,10 @@
   "crons": [
     {
       "path": "/api/cron/publish-scheduled",
-      "schedule": "0 8 * * *"
+      "schedule": "0 */6 * * *"
     }
-  ]
+  ],
+  "env": {
+    "PAYLOAD_CONFIG_PATH": "src/payload.config.ts"
+  }
 }

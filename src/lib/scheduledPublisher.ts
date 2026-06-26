@@ -1,72 +1,87 @@
-import { getPayload } from "payload";
+import { getPayload, Payload } from "payload";
 import config from "@payload-config";
+import { revalidatePath } from "next/cache";
 
 /**
  * Scheduled Publisher — Checks for posts that need to be published
  * and automatically publishes them when their scheduled time arrives.
+ * 
+ * Uses efficient DB-level filtering instead of JS filtering.
  */
 
-export async function publishScheduledPosts() {
+export async function publishScheduledPosts(payloadInstance?: Payload) {
   try {
-    const payload = await getPayload({ config });
+    const payload = payloadInstance || (await getPayload({ config }));
     const now = new Date();
 
-    // Find all posts and filter for scheduled ones
-    // This approach is more robust for development environments
-    let scheduledPosts: any[] = [];
+    // Query only posts that need publishing (efficient DB-level filter)
+    const result = await payload.find({
+      collection: "posts",
+      where: {
+        and: [
+          { status: { equals: "scheduled" } },
+          { publishDate: { less_than_equal: now.toISOString() } },
+        ],
+      },
+      limit: 100, // Process in batches
+      depth: 0,
+      overrideAccess: true,
+    });
+
+    const postsToPublish = result.docs;
     
-    try {
-      // Try direct query first
-      const result = await payload.find({
-        collection: "posts",
-        limit: 500,
-        depth: 0,
-      });
-      
-      // Filter for scheduled posts with past publish dates
-      scheduledPosts = result.docs.filter((post: any) => {
-        if (post.status !== "scheduled") return false;
-        if (!post.publishDate) return false;
-        return new Date(post.publishDate) <= now;
-      });
-    } catch (queryError) {
-      console.error("Scheduled publisher query error:", queryError);
-      return { published: 0, message: "Query error - schema may need migration" };
+    if (postsToPublish.length === 0) {
+      return { published: 0, errors: 0, message: "No scheduled posts to publish" };
     }
 
-    if (scheduledPosts.length === 0) {
-      return { published: 0, message: "No scheduled posts to publish" };
-    }
+    let published = 0;
+    let errors = 0;
+    const results: Array<{ id: string; title: string; success: boolean; error?: string }> = [];
 
-    // Publish each post
-    const results = await Promise.all(
-      scheduledPosts.map(async (post: any) => {
-        try {
-          await payload.update({
-            collection: "posts",
-            id: post.id,
-            data: {
-              status: "published",
-            },
-            overrideAccess: true,
-            context: { disableActivityLog: true },
-          });
-          return { id: post.id, title: post.title, success: true };
-        } catch (error) {
-          return { id: post.id, title: post.title, success: false, error };
+    // Publish each post sequentially to avoid race conditions
+    for (const post of postsToPublish) {
+      try {
+        await payload.update({
+          collection: "posts",
+          id: post.id,
+          data: { status: "published" },
+          overrideAccess: true,
+          context: { disableActivityLog: true },
+        });
+
+        // Revalidate the post's page
+        if (post.slug) {
+          revalidatePath(`/blog/${post.slug}`);
         }
-      })
-    );
+        
+        published++;
+        results.push({ id: String(post.id), title: String(post.title || "Untitled"), success: true });
+      } catch (err) {
+        console.error(`Failed to publish post ${post.id}:`, err);
+        errors++;
+        results.push({
+          id: String(post.id),
+          title: String(post.title || "Untitled"),
+          success: false,
+          error: String(err),
+        });
+      }
+    }
 
-    const successCount = results.filter((r) => r.success).length;
+    // Revalidate blog listing if any posts were published
+    if (published > 0) {
+      revalidatePath("/blog");
+    }
+
     return {
-      published: successCount,
-      total: scheduledPosts.length,
+      published,
+      errors,
+      total: postsToPublish.length,
       results,
-      message: `Published ${successCount} of ${scheduledPosts.length} scheduled posts`,
+      message: `Published ${published} of ${postsToPublish.length} scheduled posts`,
     };
   } catch (error) {
     console.error("Error publishing scheduled posts:", error);
-    return { published: 0, error: String(error) };
+    return { published: 0, errors: 1, error: String(error) };
   }
 }

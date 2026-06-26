@@ -6,6 +6,7 @@ import { Metadata } from 'next';
 import ContactLink from '@/components/ContactLink';
 import { getGlobal } from '@/lib/payload';
 import { generateSeoMetadata } from '@/lib/generateSeoMetadata';
+import { CONTRACT_CONTENT } from '@/data/contractContent';
 
 export async function generateMetadata(): Promise<Metadata> {
     const c = await getGlobal('contractManagementPage');
@@ -20,31 +21,26 @@ export async function generateMetadata(): Promise<Metadata> {
 const orUndef = (v: unknown): string | undefined => (typeof v === 'string' && v.length > 0 ? v : undefined);
 
 const DEFAULT_SERVICES = [
-    { title: "Contract Formulation", desc: "Drafting, reviewing, and negotiating robust contracts tailored to your specific project needs and risks.", icon: FileText, color: "text-blue-600", bgColor: "bg-blue-50" },
-    { title: "Risk Mitigation", desc: "Identifying potential contractual loopholes and structuring agreements to protect your commercial interests.", icon: ShieldCheck, color: "text-emerald-600", bgColor: "bg-emerald-50" },
-    { title: "Dispute Resolution", desc: "Expert guidance in mediation, arbitration, and resolving claims efficiently to avoid costly litigation.", icon: Scale, color: "text-orange-600", bgColor: "bg-orange-50" },
-    { title: "Claims Management", desc: "Preparation, defense, and negotiation of extension of time (EOT) and disruption claims.", icon: FileSearch, color: "text-purple-600", bgColor: "bg-purple-50" },
-    { title: "Advisory Services", desc: "Ongoing strategic advice on contract administration and compliance throughout the project lifecycle.", icon: Briefcase, color: "text-teal-600", bgColor: "bg-teal-50" },
-    { title: "Contract Audits", desc: "Independent reviews to ensure obligations are being met and commercial performance is maximized.", icon: HelpCircle, color: "text-blue-600", bgColor: "bg-blue-50" },
+    { title: CONTRACT_CONTENT.serviceCards[0].title, desc: CONTRACT_CONTENT.serviceCards[0].desc, icon: FileText, color: "text-blue-600", bgColor: "bg-blue-50" },
+    { title: CONTRACT_CONTENT.serviceCards[1].title, desc: CONTRACT_CONTENT.serviceCards[1].desc, icon: ShieldCheck, color: "text-emerald-600", bgColor: "bg-emerald-50" },
+    { title: CONTRACT_CONTENT.serviceCards[2].title, desc: CONTRACT_CONTENT.serviceCards[2].desc, icon: Scale, color: "text-orange-600", bgColor: "bg-orange-50" },
+    { title: CONTRACT_CONTENT.serviceCards[3].title, desc: CONTRACT_CONTENT.serviceCards[3].desc, icon: FileSearch, color: "text-purple-600", bgColor: "bg-purple-50" },
+    { title: CONTRACT_CONTENT.serviceCards[4].title, desc: CONTRACT_CONTENT.serviceCards[4].desc, icon: Briefcase, color: "text-teal-600", bgColor: "bg-teal-50" },
+    { title: CONTRACT_CONTENT.serviceCards[5].title, desc: CONTRACT_CONTENT.serviceCards[5].desc, icon: HelpCircle, color: "text-blue-600", bgColor: "bg-blue-50" },
 ];
 
-const DEFAULT_CHECKLIST = [
-    "Clear allocation of risk",
-    "Streamlined variation processes",
-    "Compliance monitoring",
-    "Defensible claims strategy",
-];
+const DEFAULT_CHECKLIST = CONTRACT_CONTENT.outcomeChecklist;
 
 export default async function ContractManagementPage() {
     const c = await getGlobal('contractManagementPage');
 
-    const heroTitle = orUndef(c.heroTitle) ?? "Construction Contracts";
-    const heroDescription = orUndef(c.heroDescription) ?? "Expert contract management, formulation, and dispute resolution. We safeguard your commercial interests through rigorous administration and strategic advisory.";
-    const heroBreadcrumb = orUndef(c.heroBreadcrumb) ?? "Our Services";
-    const introEyebrow = orUndef(c.introEyebrow) ?? "Commercial Protection";
-    const introHeadingLine1 = orUndef(c.introHeadingLine1) ?? "Securing Your";
-    const introHeadingLine2 = orUndef(c.introHeadingLine2) ?? "Agreements";
-    const introParagraph = orUndef(c.introParagraph) ?? "Robust contracts are the foundation of successful projects. Our experts ensure your agreements are clear, equitable, and structured to mitigate unforeseen risks.";
+    const heroTitle = orUndef(c.heroTitle) ?? CONTRACT_CONTENT.heroTitle;
+    const heroDescription = orUndef(c.heroDescription) ?? CONTRACT_CONTENT.heroDescription;
+    const heroBreadcrumb = orUndef(c.heroBreadcrumb) ?? CONTRACT_CONTENT.heroBreadcrumb;
+    const introEyebrow = orUndef(c.introEyebrow) ?? CONTRACT_CONTENT.introEyebrow;
+    const introHeadingLine1 = orUndef(c.introHeadingLine1) ?? CONTRACT_CONTENT.introHeadingLine1;
+    const introHeadingLine2 = orUndef(c.introHeadingLine2) ?? CONTRACT_CONTENT.introHeadingLine2;
+    const introParagraph = orUndef(c.introParagraph) ?? CONTRACT_CONTENT.introParagraph;
 
     const cmsCards = c.serviceCards as { title?: string; desc?: string }[] | undefined;
     const mainServices = DEFAULT_SERVICES.map((base, i) => {
@@ -52,14 +48,14 @@ export default async function ContractManagementPage() {
         return card ? { ...base, title: card.title || base.title, desc: card.desc || base.desc } : base;
     });
 
-    const outcomeBadgeHeading = orUndef(c.outcomeBadgeHeading) ?? "Legal Clarity";
-    const outcomeBadgeText = orUndef(c.outcomeBadgeText) ?? "Providing robust frameworks to prevent disputes before they arise.";
-    const outcomeHeading = orUndef(c.outcomeHeading) ?? "Expert Contract Administration";
-    const outcomeParagraph = orUndef(c.outcomeParagraph) ?? "We support both contractors and clients with rigorous contract management to ensure obligations are met and rights are protected throughout the project journey.";
+    const outcomeBadgeHeading = orUndef(c.outcomeBadgeHeading) ?? CONTRACT_CONTENT.outcomeBadgeHeading;
+    const outcomeBadgeText = orUndef(c.outcomeBadgeText) ?? CONTRACT_CONTENT.outcomeBadgeText;
+    const outcomeHeading = orUndef(c.outcomeHeading) ?? CONTRACT_CONTENT.outcomeHeading;
+    const outcomeParagraph = orUndef(c.outcomeParagraph) ?? CONTRACT_CONTENT.outcomeParagraph;
     const outcomeChecklist = (c.outcomeChecklist as { text: string }[] | undefined)?.length
         ? (c.outcomeChecklist as { text: string }[]).map((x) => x.text)
         : DEFAULT_CHECKLIST;
-    const outcomeButtonText = orUndef(c.outcomeButtonText) ?? "Enquire Now";
+    const outcomeButtonText = orUndef(c.outcomeButtonText) ?? CONTRACT_CONTENT.outcomeButtonText;
 
     return (
         <>

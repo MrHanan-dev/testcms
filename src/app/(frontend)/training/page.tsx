@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Header from '@/components/Header';
 import FAQ from '@/components/FAQ';
 import TrainingSchedule from '@/components/TrainingSchedule';
@@ -44,11 +45,15 @@ export default async function TrainingPage() {
     const cmsCats = c.categories as { title?: string; desc?: string; links?: { text: string }[] }[] | undefined;
     const categories = TR_CONTENT.categories.map((base, i) => {
         const s = cmsCats?.[i];
+        const cmsLinks = s?.links && s.links.length > 0 ? s.links : null;
         return {
             icon: CATEGORY_ICONS[i],
             title: s?.title || base.title,
             desc: s?.desc || base.desc,
-            links: s?.links && s.links.length > 0 ? s.links.map((l) => l.text) : base.links,
+            links: base.links.map((fallback, j) => ({
+                text: cmsLinks?.[j]?.text || fallback.text,
+                href: fallback.href,
+            })),
         };
     });
 
@@ -72,12 +77,12 @@ export default async function TrainingPage() {
 
     const scheduleItems = c.scheduleItems as { month: string; course: string; dates: string; time: string; format: string; status: string }[] | undefined;
 
-    const faqTitle = orUndef(c.faqTitle);
-    const faqSubtitle = orUndef(c.faqSubtitle);
-    const faqDescription = orUndef(c.faqDescription);
+    const faqTitle = orUndef(c.faqTitle) ?? TR_CONTENT.faqTitle;
+    const faqSubtitle = orUndef(c.faqSubtitle) ?? TR_CONTENT.faqSubtitle;
+    const faqDescription = orUndef(c.faqDescription) ?? TR_CONTENT.faqDescription;
     const faqItems = (c.faqItems as { question: string; answer: string }[] | undefined)?.length
         ? (c.faqItems as { question: string; answer: string }[])
-        : undefined;
+        : TR_CONTENT.faqItems;
 
     return (
         <>
@@ -104,7 +109,7 @@ export default async function TrainingPage() {
                 </section>
 
                 {/* Categories Grid */}
-                <section className="py-24 bg-slate-50">
+                <section id="schedule" className="py-24 bg-slate-50">
                     <div className="container-custom">
                         <div className="grid lg:grid-cols-3 gap-8">
                             {categories.map((cat, i) => (
@@ -118,9 +123,11 @@ export default async function TrainingPage() {
                                     </p>
                                     <ul className="space-y-3">
                                         {cat.links.map((link, j) => (
-                                            <li key={j} className="flex items-center gap-3 text-primary font-bold hover:text-blue-600 transition-colors cursor-pointer group/link">
-                                                <ArrowRight size={16} className="text-blue-500 group-hover/link:translate-x-1 transition-transform" />
-                                                {link}
+                                            <li key={j}>
+                                                <Link href={link.href || '#'} className="flex items-center gap-3 text-primary font-bold hover:text-accent transition-colors">
+                                                    <ArrowRight size={16} className="text-blue-500" />
+                                                    {link.text}
+                                                </Link>
                                             </li>
                                         ))}
                                     </ul>
@@ -131,7 +138,7 @@ export default async function TrainingPage() {
                 </section>
 
                 {/* Bespoke Solutions */}
-                <section className="py-32 bg-white">
+                <section id="bespoke" className="py-32 bg-white">
                     <div className="container-custom">
                         <div className="grid lg:grid-cols-2 gap-16 items-center">
                             <div className="space-y-8">

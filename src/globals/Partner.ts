@@ -1,5 +1,6 @@
 import type { GlobalConfig } from "payload";
 import { seoTab } from "@/lib/seoFields";
+import { logGlobalChange } from "../lib/activityLogger";
 
 const list = (name: string, label?: string) => ({
   name,
@@ -16,6 +17,9 @@ export const Partner: GlobalConfig = {
   slug: "partnerPage",
   label: "Partner Program",
   access: { read: () => true },
+  hooks: {
+    afterChange: [logGlobalChange],
+  },
   admin: {
     group: "🏠 Main Pages",
     description: "Edit the Training Partner application page — benefits, requirements, and form text.",

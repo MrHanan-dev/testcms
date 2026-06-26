@@ -77,7 +77,9 @@ export default async function ProjectManagementPage() {
         desc: cmsCons?.[i]?.desc || base.desc,
     }));
 
-    const faqItems = (c.faqItems as { question: string; answer: string }[] | undefined);
+    const faqItems = (c.faqItems as { question: string; answer: string }[] | undefined)?.length
+        ? (c.faqItems as { question: string; answer: string }[])
+        : PM_CONTENT.faqItems;
     const ctaHeading = orUndef(c.ctaHeading) ?? PM_CONTENT.ctaHeading;
     const ctaParagraph = orUndef(c.ctaParagraph) ?? PM_CONTENT.ctaParagraph;
     const ctaButtonText = orUndef(c.ctaButtonText) ?? PM_CONTENT.ctaButtonText;

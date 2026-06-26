@@ -189,7 +189,7 @@ export default async function PmiCpPage() {
                                 <div className="text-slate-600 font-medium text-sm leading-relaxed"><RichText data={calloutRich as never} /></div>
                             ) : (
                                 <p className="text-slate-600 font-medium text-sm leading-relaxed">
-                                    <strong className="text-primary">{f('eligibilityCalloutLead', K.eligibilityCalloutLead)}</strong> Our PMI-CP training course fulfils the <strong className="text-primary">35 contact hours</strong> requirement for both tracks. Construction experience must be documented in your PMI application.
+                                    <strong className="text-primary">{f('eligibilityCalloutLead', K.eligibilityCalloutLead)}</strong> {f('eligibilityCalloutBody', K.eligibilityCalloutBody)}
                                 </p>
                             )}
                         </div>

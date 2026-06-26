@@ -29,7 +29,7 @@ export async function GET(req: NextRequest) {
         categories: TR_CONTENT.categories.map((cat) => ({
           title: cat.title,
           desc: cat.desc,
-          links: cat.links.map((text) => ({ text })),
+          links: cat.links.map((link) => ({ text: link.text })),
         })),
         bespokeHeading: TR_CONTENT.bespokeHeading,
         bespokeParagraph: TR_CONTENT.bespokeParagraph,
@@ -41,6 +41,10 @@ export async function GET(req: NextRequest) {
         scheduleHeading: TR_CONTENT.scheduleHeading,
         scheduleParagraph: TR_CONTENT.scheduleParagraph,
         scheduleItems: TR_CONTENT.scheduleItems,
+        faqTitle: TR_CONTENT.faqTitle,
+        faqSubtitle: TR_CONTENT.faqSubtitle,
+        faqDescription: TR_CONTENT.faqDescription,
+        faqItems: TR_CONTENT.faqItems,
       } as never,
     });
 

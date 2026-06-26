@@ -18,6 +18,17 @@ export async function POST(request: Request) {
 
     // Verify admin access via secret
     const cacheSecret = process.env.CACHE_SECRET;
+    const isProduction = process.env.NODE_ENV === "production" || process.env.VERCEL;
+
+    // In production, CACHE_SECRET is required (fail closed)
+    if (isProduction && !cacheSecret) {
+      return NextResponse.json(
+        { error: "CACHE_SECRET environment variable is required in production" },
+        { status: 500 }
+      );
+    }
+
+    // If secret is set, validate it
     if (cacheSecret) {
       const authHeader = request.headers.get("authorization");
       if (authHeader !== `Bearer ${cacheSecret}`) {

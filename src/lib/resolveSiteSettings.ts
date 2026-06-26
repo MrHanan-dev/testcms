@@ -4,6 +4,21 @@ import {
   type NavCategory,
   type Office,
 } from "@/data/siteSettingsContent";
+import { resolveMediaUrl } from "./resolveMediaUrl";
+
+/** Type for menu item from Menus collection */
+type MenuItem = {
+  label?: string;
+  url?: string;
+  description?: string;
+  type?: "link" | "dropdown" | "divider" | "heading";
+  children?: { label?: string; url?: string; description?: string }[];
+};
+
+/** Type for the fetched menu from Menus collection */
+type MenuData = {
+  items?: MenuItem[];
+} | null;
 
 const orUndef = (v: unknown): string | undefined => (typeof v === "string" && v.length > 0 ? v : undefined);
 
@@ -50,6 +65,45 @@ const officeArr = (raw: Record<string, unknown>): Office[] => {
   return v && v.length > 0 ? v : K.offices;
 };
 
+/**
+ * Transform Menus collection data to navCategories format.
+ * Menus use dropdown items with children; navCategories uses a flat structure.
+ */
+const transformMenuToNavCategories = (menu: MenuData): NavCategory[] | null => {
+  if (!menu?.items || menu.items.length === 0) return null;
+
+  return menu.items
+    .filter((item) => item.type === "dropdown" || item.type === "link" || !item.type)
+    .map((item) => {
+      const children = item.children || [];
+      return {
+        title: item.label || "",
+        href: item.url || "#",
+        items: children.map((child) => ({
+          name: child.label || "",
+          desc: child.description || "",
+          href: child.url || "#",
+        })),
+      };
+    })
+    .filter((cat) => cat.title);
+};
+
+/**
+ * Transform Menus collection data to footer links format.
+ */
+const transformMenuToFooterLinks = (menu: MenuData): FooterLink[] | null => {
+  if (!menu?.items || menu.items.length === 0) return null;
+
+  return menu.items
+    .filter((item) => item.type === "link" || !item.type)
+    .map((item) => ({
+      label: item.label || "",
+      href: item.url || "#",
+    }))
+    .filter((link) => link.label);
+};
+
 type ClientLogo = { image?: { url?: string }; name?: string };
 
 const clientLogosArr = (raw: Record<string, unknown>): { src: string; alt: string }[] => {
@@ -58,19 +112,49 @@ const clientLogosArr = (raw: Record<string, unknown>): { src: string; alt: strin
     return v
       .filter((c) => c.image?.url)
       .map((c) => ({
-        src: c.image!.url!,
+        src: resolveMediaUrl(c.image!.url!) ?? c.image!.url!,
         alt: c.name || "Client logo",
       }));
   }
   return K.clientLogos;
 };
 
-const imageUrl = (obj: unknown): string | null =>
-  typeof obj === "object" && obj ? ((obj as { url?: string }).url ?? null) : null;
+const imageUrl = (obj: unknown): string | null => {
+  if (typeof obj !== "object" || !obj) return null;
+  const rawUrl = (obj as { url?: string }).url;
+  if (!rawUrl) return null;
+  return resolveMediaUrl(rawUrl) ?? rawUrl;
+};
 
-/** Merge a raw Payload siteSettings global with built-in fallbacks. */
-export function resolveSiteSettings(raw: Record<string, unknown> | null | undefined) {
+/** Options for menu overrides from the Menus collection */
+export type MenuOverrides = {
+  headerMenu?: MenuData | unknown;
+  footerServicesMenu?: MenuData | unknown;
+  footerTrainingMenu?: MenuData | unknown;
+  footerResourcesMenu?: MenuData | unknown;
+};
+
+/** Merge a raw Payload siteSettings global with built-in fallbacks and optional menu overrides. */
+export function resolveSiteSettings(
+  raw: Record<string, unknown> | null | undefined,
+  menus?: MenuOverrides
+) {
   const s = raw ?? {};
+
+  // Transform menu data if available
+  const headerNavFromMenu = menus?.headerMenu
+    ? transformMenuToNavCategories(menus.headerMenu as MenuData)
+    : null;
+  const footerServicesFromMenu = menus?.footerServicesMenu
+    ? transformMenuToFooterLinks(menus.footerServicesMenu as MenuData)
+    : null;
+  const footerTrainingFromMenu = menus?.footerTrainingMenu
+    ? transformMenuToFooterLinks(menus.footerTrainingMenu as MenuData)
+    : null;
+  const footerResourcesFromMenu = menus?.footerResourcesMenu
+    ? transformMenuToFooterLinks(menus.footerResourcesMenu as MenuData)
+    : null;
+
   return {
     logoUrl: imageUrl(s.logo),
     logoLightUrl: imageUrl(s.logoLight),
@@ -89,7 +173,7 @@ export function resolveSiteSettings(raw: Record<string, unknown> | null | undefi
       return v && v.length > 0 ? v.filter((x) => x.url) : [{ platform: "LinkedIn", url: "https://www.linkedin.com/company/theagilenest" }];
     })(),
     contactButton: str(s, "contactButton", K.contactButton),
-    navCategories: navArr(s),
+    navCategories: headerNavFromMenu?.length ? headerNavFromMenu : navArr(s),
     contactEyebrow: str(s, "contactEyebrow", K.contactEyebrow),
     contactHeading: str(s, "contactHeading", K.contactHeading),
     contactIntro: str(s, "contactIntro", K.contactIntro),
@@ -102,11 +186,11 @@ export function resolveSiteSettings(raw: Record<string, unknown> | null | undefi
     footerTagline: str(s, "footerTagline", K.footerTagline),
     footerBrandPara2: str(s, "footerBrandPara2", K.footerBrandPara2),
     footerOurServicesHeading: str(s, "footerOurServicesHeading", K.footerOurServicesHeading),
-    footerOurServices: linkArr(s, "footerOurServices", K.footerOurServices),
+    footerOurServices: footerServicesFromMenu?.length ? footerServicesFromMenu : linkArr(s, "footerOurServices", K.footerOurServices),
     footerTrainingHeading: str(s, "footerTrainingHeading", K.footerTrainingHeading),
-    footerTraining: linkArr(s, "footerTraining", K.footerTraining),
+    footerTraining: footerTrainingFromMenu?.length ? footerTrainingFromMenu : linkArr(s, "footerTraining", K.footerTraining),
     footerResourcesHeading: str(s, "footerResourcesHeading", K.footerResourcesHeading),
-    footerResources: linkArr(s, "footerResources", K.footerResources),
+    footerResources: footerResourcesFromMenu?.length ? footerResourcesFromMenu : linkArr(s, "footerResources", K.footerResources),
     footerContactHeading: str(s, "footerContactHeading", K.footerContactHeading),
     offices: officeArr(s),
     footerPhones: textList(s, "footerPhones", K.footerPhones),

@@ -1,5 +1,6 @@
 import type { GlobalConfig } from "payload";
 import { seoTab } from "@/lib/seoFields";
+import { logGlobalChange } from "../lib/activityLogger";
 
 /**
  * Editable Project Management page content. Every field optional with page-level
@@ -10,6 +11,9 @@ export const ProjectManagement: GlobalConfig = {
   slug: "projectManagementPage",
   label: "Project Management",
   access: { read: () => true },
+  hooks: {
+    afterChange: [logGlobalChange],
+  },
   admin: {
     group: "💼 Service Pages",
     description: "Edit the Project Management services page — all PM service offerings and FAQs.",

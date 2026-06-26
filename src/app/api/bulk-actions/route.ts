@@ -2,6 +2,9 @@ import { NextResponse } from "next/server";
 import { getPayload } from "payload";
 import config from "@payload-config";
 
+// Collections that support bulk actions
+const ALLOWED_COLLECTIONS = ['posts', 'pages', 'comments', 'leads', 'media', 'testimonials'];
+
 /**
  * Bulk Actions API — WordPress-style bulk operations.
  * Perform actions on multiple items at once.
@@ -38,6 +41,14 @@ export async function POST(request: Request) {
 
     const body = await request.json();
     const { collection, action, ids } = body;
+
+    // Validate collection is allowed for bulk operations
+    if (!ALLOWED_COLLECTIONS.includes(collection)) {
+      return NextResponse.json(
+        { error: `Bulk actions not allowed on collection: ${collection}` },
+        { status: 403 }
+      );
+    }
 
     if (!collection || !action || !ids || !Array.isArray(ids)) {
       return NextResponse.json(

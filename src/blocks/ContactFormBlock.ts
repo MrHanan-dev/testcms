@@ -36,5 +36,14 @@ export const ContactFormBlock: Block = {
     { name: "submitButtonText", type: "text", defaultValue: "Send Message" },
     { name: "successTitle", type: "text", defaultValue: "Message Sent!" },
     { name: "successMessage", type: "textarea", defaultValue: "Thank you for reaching out. We'll get back to you within 24 hours." },
+    {
+      name: "form",
+      type: "relationship",
+      relationTo: "forms",
+      label: "CMS Form (optional)",
+      admin: {
+        description: "Link a form from the Forms collection to capture submissions in Form Submissions",
+      },
+    },
   ],
 };

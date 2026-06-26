@@ -41,7 +41,7 @@ export const SiteSettings: GlobalConfig = {
         // ── Branding ────────────────────────────────────────────────────────
         {
           label: "🎨 Branding",
-          description: "Logo, badges, and company identity",
+          description: "Logo, badges, and company identity — PRIMARY location for all branding settings",
           fields: [
             {
               name: "logo",
@@ -242,7 +242,8 @@ export const SiteSettings: GlobalConfig = {
               label: "Navigation Menu",
               labels: { singular: "Menu Item", plural: "Menu Items" },
               admin: {
-                description: "💡 Main navigation dropdowns. Icons are set automatically.",
+                description:
+                  "⚠️ Legacy navigation (fallback). For more control, use the Menus collection with location 'Header (Primary)' instead. Icons are set automatically.",
                 initCollapsed: true,
               },
               fields: [
@@ -433,7 +434,11 @@ export const SiteSettings: GlobalConfig = {
             {
               type: "collapsible",
               label: "🔗 Footer Link Columns",
-              admin: { initCollapsed: true },
+              admin: {
+                initCollapsed: true,
+                description:
+                  "⚠️ Legacy footer links (fallback). For more control, use the Menus collection with Footer locations instead.",
+              },
               fields: [
                 {
                   name: "footerOurServicesHeading",
@@ -756,6 +761,9 @@ export const SiteSettings: GlobalConfig = {
                   name: "recaptchaSecretKey",
                   type: "text",
                   label: "reCAPTCHA Secret Key",
+                  access: {
+                    read: ({ req: { user } }) => Boolean(user),
+                  },
                   admin: {
                     placeholder: "e.g. 6Le...",
                     description: "Keep this secret! Used server-side",

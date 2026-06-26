@@ -1,5 +1,6 @@
 import type { GlobalConfig } from "payload";
 import { seoFields } from "@/lib/seoFields";
+import { logGlobalChange } from "../lib/activityLogger";
 
 /**
  * Terms of Service — Legal page content.
@@ -8,6 +9,9 @@ export const Terms: GlobalConfig = {
   slug: "termsPage",
   label: "Terms of Service",
   access: { read: () => true },
+  hooks: {
+    afterChange: [logGlobalChange],
+  },
   admin: {
     group: "📋 Legal Pages",
     description: "Edit the Terms of Service page content.",

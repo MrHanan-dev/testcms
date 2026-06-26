@@ -10,9 +10,10 @@ export const Menus: CollectionConfig = {
   labels: { singular: "Menu", plural: "Menus" },
   admin: {
     group: "⚙️ Settings",
-    description: "Create and manage navigation menus for your website.",
+    description:
+      "Create and manage navigation menus for your website. Menus defined here will override the default navigation in Site Settings when active.",
     useAsTitle: "name",
-    defaultColumns: ["name", "location", "itemCount"],
+    defaultColumns: ["name", "location", "isActive", "itemCount"],
   },
   hooks: {
     afterChange: [logCollectionChange],

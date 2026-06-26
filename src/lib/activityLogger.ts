@@ -54,6 +54,7 @@ export async function logActivity({
         user: user?.id || null,
         changes: changes || null,
       },
+      overrideAccess: true,
     });
   } catch (error) {
     // Silently fail - don't break the main operation

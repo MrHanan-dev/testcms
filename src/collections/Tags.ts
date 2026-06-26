@@ -1,4 +1,5 @@
 import type { CollectionConfig } from "payload";
+import { logCollectionChange, logCollectionDelete } from "../lib/activityLogger";
 
 /**
  * Tags — WordPress-style tags for organizing blog content.
@@ -11,6 +12,10 @@ export const Tags: CollectionConfig = {
     description: "Create tags to organize and categorize blog posts.",
     useAsTitle: "name",
     defaultColumns: ["name", "slug", "color"],
+  },
+  hooks: {
+    afterChange: [logCollectionChange],
+    afterDelete: [logCollectionDelete],
   },
   access: {
     read: () => true,

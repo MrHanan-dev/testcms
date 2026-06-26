@@ -7,6 +7,7 @@ import type { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical
 import { Check, Star, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { resolveMediaUrl } from "@/lib/resolveMediaUrl";
+import DynamicForm from "@/components/cms/DynamicForm";
 
 /**
  * Renders a Payload page `layout` array into on-brand React sections. Each
@@ -277,6 +278,16 @@ function TeamSection({ block }: { block: Block }) {
 }
 
 function ContactFormSection({ block }: { block: Block }) {
+  const formDoc = block.formDoc as {
+    id?: string;
+    title?: string;
+    fields?: unknown[];
+    submitButtonText?: string;
+    successTitle?: string;
+    successMessage?: string;
+    confirmationMessage?: string;
+  } | undefined;
+
   return (
     <section className="py-24 bg-slate-50">
       <div className="container-custom max-w-2xl">
@@ -284,14 +295,36 @@ function ContactFormSection({ block }: { block: Block }) {
           <h2 className="text-3xl md:text-4xl font-black text-primary">{String(block.heading)}</h2>
           {isStr(block.description) && <p className="text-slate-500 mt-4">{String(block.description)}</p>}
         </div>
-        <form className="bg-white p-8 rounded-3xl shadow-lg space-y-6">
-          <div className="grid md:grid-cols-2 gap-6">
-            <input type="text" placeholder="Your Name" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-primary/20 outline-none" required />
-            <input type="email" placeholder="Your Email" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-primary/20 outline-none" required />
+        {formDoc?.id ? (
+          <div className="bg-white p-8 rounded-3xl shadow-lg">
+            <DynamicForm
+              formId={String(formDoc.id)}
+              formDoc={{
+                id: String(formDoc.id),
+                title: formDoc.title,
+                fields: formDoc.fields as never,
+                submitButtonText: formDoc.submitButtonText,
+                successTitle: formDoc.successTitle ?? String(block.successTitle ?? "Message Sent!"),
+                successMessage:
+                  formDoc.confirmationMessage ??
+                  formDoc.successMessage ??
+                  String(block.successMessage ?? "Thank you for reaching out."),
+              }}
+              submitButtonText={String(block.submitButtonText || "Send Message")}
+              successTitle={String(block.successTitle || "Message Sent!")}
+              successMessage={String(block.successMessage || "Thank you for reaching out.")}
+            />
           </div>
-          <textarea placeholder="Your Message" rows={4} className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-primary/20 outline-none resize-none" required />
-          <button type="submit" className="w-full btn-primary py-4">{String(block.submitButtonText || "Send Message")}</button>
-        </form>
+        ) : (
+          <form className="bg-white p-8 rounded-3xl shadow-lg space-y-6">
+            <div className="grid md:grid-cols-2 gap-6">
+              <input type="text" placeholder="Your Name" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-primary/20 outline-none" required />
+              <input type="email" placeholder="Your Email" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-primary/20 outline-none" required />
+            </div>
+            <textarea placeholder="Your Message" rows={4} className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-primary/20 outline-none resize-none" required />
+            <button type="submit" className="w-full btn-primary py-4">{String(block.submitButtonText || "Send Message")}</button>
+          </form>
+        )}
       </div>
     </section>
   );

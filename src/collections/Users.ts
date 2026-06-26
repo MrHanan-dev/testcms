@@ -51,6 +51,15 @@ export const Users: CollectionConfig = {
   hooks: {
     afterLogin: [afterLogin],
     afterDelete: [logCollectionDelete],
+    beforeChange: [
+      ({ data, req, operation }) => {
+        // Prevent non-admins from changing roles (safety net)
+        if (operation === 'update' && req.user && req.user.role !== 'admin') {
+          delete data.role;
+        }
+        return data;
+      },
+    ],
   },
   access: {
     // Admins can do everything, others can only read and update themselves
@@ -92,6 +101,10 @@ export const Users: CollectionConfig = {
             { label: "📝 Author — Can only manage their own posts", value: "author" },
             { label: "👀 Viewer — Read-only access", value: "viewer" },
           ],
+          access: {
+            // Only admins can change roles
+            update: ({ req: { user } }) => user?.role === 'admin',
+          },
         },
       ],
     },

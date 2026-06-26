@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { ReactNode } from 'react';
+import { notFound } from 'next/navigation';
 
 const navItems = [
     { label: 'Overview', href: '/design-system' },
@@ -11,6 +12,11 @@ const navItems = [
 ];
 
 export default function DesignSystemLayout({ children }: { children: ReactNode }) {
+    // Hide design system in production unless explicitly enabled
+    if (process.env.NODE_ENV === 'production' && !process.env.SHOW_DESIGN_SYSTEM) {
+        notFound();
+    }
+
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col md:flex-row font-sans text-gray-900">
             {/* Sidebar Navigation */}

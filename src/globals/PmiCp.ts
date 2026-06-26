@@ -1,5 +1,6 @@
 import type { GlobalConfig } from "payload";
 import { seoTab } from "@/lib/seoFields";
+import { logGlobalChange } from "../lib/activityLogger";
 
 const list = (name: string, label?: string) => ({
   name,
@@ -18,6 +19,9 @@ export const PmiCp: GlobalConfig = {
   slug: "pmicpPage",
   label: "PMI-CP Certification",
   access: { read: () => true },
+  hooks: {
+    afterChange: [logGlobalChange],
+  },
   admin: {
     group: "🎓 Certification & Training",
     description: "Edit the PMI-CP (Construction Professional) page — eligibility, curriculum, and pricing.",

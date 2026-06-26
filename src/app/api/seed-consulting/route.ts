@@ -1,12 +1,9 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { getPayload } from "payload";
 import config from "@payload-config";
+import { CONSULTING_CONTENT } from "@/data/consultingContent";
 
-/**
- * One-time seed for the Consulting page global with the page's CURRENT content.
- * Dev-only, secret-guarded, idempotent (?force=1).
- * /api/seed-consulting?secret=<PAYLOAD_SECRET>[&force=1]
- */
+/** Seed the Consulting page global from CONSULTING_CONTENT. Dev-only, ?force=1. */
 export async function GET(req: NextRequest) {
   if (process.env.NODE_ENV === "production") {
     return new NextResponse("Disabled in production", { status: 403 });
@@ -23,36 +20,28 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ skipped: true, reason: "Already seeded (use ?force=1)." });
     }
 
+    const k = CONSULTING_CONTENT;
     await payload.updateGlobal({
       slug: "consultingPage",
       data: {
-        heroTitle: "Consulting",
-        heroDescription:
-          "Improving client project management maturity through consulting to create appropriate structure around project delivery, governance, process and tools.",
-        heroBreadcrumb: "Our Services",
-        introEyebrow: "Project Maturity",
-        introHeadingLine1: "Creating Calm Across",
-        introHeadingLine2: "Your Projects",
-        introParagraph:
-          "No matter the breadth and complexity, we help create the momentum you need to move your organisation forward.",
-        serviceCards: [
-          { title: "Business Analysis", desc: "Bridging the gap between business needs and project delivery through stakeholder engagement and requirements engineering." },
-          { title: "Quality Assurance & Testing", desc: "Independent validation of project outputs to ensure they meet quality standards and user requirements." },
-          { title: "Post Implementation Review", desc: "External, independent PIRs to capture lessons learned and validate that business cases were actually achieved." },
-          { title: "Governance Frameworks", desc: "Designing and implementing robust decision-making models to de-risk portfolios and satisfy audit requirements." },
-        ],
-        outcomeBadgeHeading: "Strategic Value",
-        outcomeBadgeText: "We bridge the gap between technical delivery and executive expectations.",
-        outcomeHeading: "Delivering Exceptional Results",
-        outcomeParagraph:
-          "Our consulting services are designed to address the root causes of project failure, ensuring your organisation’s project management maturity grows with every initiative.",
-        outcomeChecklist: [
-          { text: "Objective, independent reviews" },
-          { text: "Tailored governance frameworks" },
-          { text: "On-demand specialized talent" },
-          { text: "Clear roadmap for maturity" },
-        ],
-        outcomeButtonText: "Discuss Your Roadmap",
+        heroTitle: k.heroTitle,
+        heroDescription: k.heroDescription,
+        heroBreadcrumb: k.heroBreadcrumb,
+        introEyebrow: k.introEyebrow,
+        introHeadingLine1: k.introHeadingLine1,
+        introHeadingLine2: k.introHeadingLine2,
+        introParagraph: k.introParagraph,
+        serviceCards: k.serviceCards,
+        outcomeBadgeHeading: k.outcomeBadgeHeading,
+        outcomeBadgeText: k.outcomeBadgeText,
+        outcomeHeading: k.outcomeHeading,
+        outcomeParagraph: k.outcomeParagraph,
+        outcomeChecklist: k.outcomeChecklist.map((text) => ({ text })),
+        outcomeButtonText: k.outcomeButtonText,
+        faqTitle: k.faqTitle,
+        faqSubtitle: k.faqSubtitle,
+        faqDescription: k.faqDescription,
+        faqItems: k.faqItems,
       } as never,
     });
 

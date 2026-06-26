@@ -120,6 +120,7 @@ export default function CertificationHero({
                                     sizes="(max-width: 1024px) 100vw, 50vw"
                                     className="object-contain"
                                     priority
+                                    unoptimized={badgeImage?.includes('/api/media/')}
                                 />
                             </div>
                         </div>

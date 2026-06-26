@@ -3,6 +3,14 @@ import { existsSync } from "node:fs";
 import { NextResponse, type NextRequest } from "next/server";
 import { getPayload } from "payload";
 import config from "@payload-config";
+import {
+  HOME_CERTS,
+  HOME_FAQ_ITEMS,
+  HOME_FAQ_META,
+  HOME_GOOGLE_REVIEWS,
+  HOME_HERO_SLIDES,
+  HOME_TESTIMONIALS,
+} from "@/data/homeContent";
 
 /**
  * One-time seed: populate the Home global with the site's CURRENT content (and
@@ -16,20 +24,6 @@ import config from "@payload-config";
  * the component's built-in fallback (so output stays identical); everything else
  * is seeded. Heading lead/muted strings preserve exact spacing.
  */
-const HERO_SLIDES = [
-  { file: "TheAgileNest_hero_main_1771222013046.png", variant: "image", tag: "Project Management", headline: "Strategic Planning.\nPrecision Delivery. Total Control.", description: "From inception to completion, we provide the leadership and expertise required to navigate high-stakes projects and achieve outstanding business outcomes.", alt: "Expert Project Management Consulting" },
-  { file: "TheAgileNest_pmp_training_1771222055265.png", variant: "image", tag: "Professional Training", headline: "Hands On Training.\nReal Results. Certified Success.", description: "Gain practical, hands-on experience with TheAgileNest’s expert-led project management courses. Our proven methods ensure you not only pass your exams but also excel in real-world projects.", alt: "Professional training session backdrop from TheAgileNest" },
-  { file: "Totalqsconsultant.jpeg", variant: "infographic", tag: "Trusted Partner", headline: "Simple. Transparent.\nStress-Free Estimation.", description: "Helping builders, developers, and renovators complete their projects on time and within budget with expert cost management.", alt: "TheAgileNest Consultant Overview" },
-  { file: "pmbok_evolution.jpeg", variant: "infographic", tag: "Quantity Surveying", headline: "Bid More. Win More.\nBuild Better with TheAgileNest Estimation services", description: "Your reliable partner in Quantity Surveying, Cost Management, and successful project delivery.\n\nAt TheAgileNest Estimation services, we make construction estimating and cost management simple, transparent, and stress-free. We act as your trusted partner in New Zealand's construction industry, helping builders, developers, and renovators complete their projects on time and within budget.", alt: "TheAgileNest Estimation services. Bid More. Win More." },
-  { file: null, variant: "collage", tag: "Certifications", headline: "Globally Recognized\nCredentials.", description: "Elevate your career with industry leading certifications. We provide comprehensive preparation for PMP®, CAPM®, and PMI-CP® exams.", alt: "Globally Recognized Certifications: PMP, CAPM, PMI-CP" },
-] as const;
-
-const CERTS = [
-  { name: "PMP", title: "Project Management Professional", href: "/pmp", dir: "certifications", file: "pmp.webp" },
-  { name: "CAPM", title: "Certified Associate in Project Management", href: "/capm", dir: "certifications", file: "capm.webp" },
-  { name: "PMI-CP", title: "PMI Construction Professional", href: "/pmicp", dir: "certifications", file: "pmi-cp.webp" },
-] as const;
-
 export async function GET(req: NextRequest) {
   if (process.env.NODE_ENV === "production") {
     return new NextResponse("Disabled in production", { status: 403 });
@@ -48,7 +42,6 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ skipped: true, reason: "Already seeded (use ?force=1)." });
     }
 
-    // Upload an image from /public into Media, reusing it if already present.
     const uploaded = new Map<string, string | number>();
     const upload = async (dir: string, file: string, alt: string): Promise<string | number | undefined> => {
       const key = `${dir}/${file}`;
@@ -61,16 +54,14 @@ export async function GET(req: NextRequest) {
       return media.id;
     };
 
-    // Hero slides
     const heroSlides = [];
-    for (const s of HERO_SLIDES) {
+    for (const s of HOME_HERO_SLIDES) {
       const image = s.file ? await upload("images", s.file, s.alt) : undefined;
       heroSlides.push({ variant: s.variant, ...(image ? { image } : {}), tag: s.tag, headline: s.headline, description: s.description, alt: s.alt });
     }
 
-    // Certification cards
     const certItems = [];
-    for (const c of CERTS) {
+    for (const c of HOME_CERTS) {
       const image = await upload(c.dir, c.file, `${c.name} Badge`);
       certItems.push({ name: c.name, title: c.title, href: c.href, ...(image ? { image } : {}) });
     }
@@ -127,22 +118,14 @@ export async function GET(req: NextRequest) {
         testimonialsEyebrow: "Testimonials",
         testimonialsHeadingLead: "Voice of ",
         testimonialsHeadingMuted: "Excellence",
-        testimonials: [
-          { quote: "TheAgileNest's PMP training was a game-changer. Their practical approach made complex concepts easy to grasp and apply immediately.", author: "Sarah Johnson", role: "Senior Project Manager", company: "Infrastructure Global" },
-          { quote: "Working with their consultants on our PMO recovery saved us months of delays. Their expertise in cost estimation is unparalleled.", author: "Mark Thompson", role: "Operations Director", company: "BuildRight NZ" },
-          { quote: "The most professional training experience I've had in 15 years. They don't just teach the book; they teach the reality of the industry.", author: "David Chen", role: "Construction Lead", company: "Urban Developers" },
-        ],
+        testimonials: [...HOME_TESTIMONIALS],
         reviewsEyebrow: "Google Reviews",
         reviewsHeading: "What Our Students Say",
         reviewsRating: "5.0",
         reviewsGoogleUrl: "https://www.google.com/maps/place/AgileNest/data=!4m2!3m1!1s0x0:0xa5b20cdb0955fd78?sa=X&ved=1t:2428&hl=en-NZ&ictx=111",
-        reviewItems: [
-          { name: "Engineer Syed", date: "a month ago", rating: 5, text: "AgileNest delivers outstanding project management and construction cost estimation services. Their expertise helped ensure accurate budgeting and smooth project execution. The team is highly professional, responsive, and committed to delivering results. Highly recommended for construction and infrastructure projects." },
-          { name: "Rabin Biswakarma", date: "2 years ago", rating: 5, text: "they have professional consultant to make your dream come true" },
-          { name: "Michelle Ann Javier", date: "a month ago", rating: 5, text: "" },
-          { name: "Adesh Aditya", date: "a month ago", rating: 5, text: "" },
-          { name: "Lourin Keat", date: "a year ago", rating: 5, text: "" },
-        ],
+        reviewItems: [...HOME_GOOGLE_REVIEWS],
+        ...HOME_FAQ_META,
+        faqItems: [...HOME_FAQ_ITEMS],
         ctaHeadingLead: "Ready to Elevate Your",
         ctaHeadingAccent: "Project Strategy?",
         ctaParagraph: "Join over 5,000 professionals who have transformed their careers and organizations with our elite training and consultancy.",
@@ -151,7 +134,7 @@ export async function GET(req: NextRequest) {
       } as never,
     });
 
-    return NextResponse.json({ seeded: true, sections: 9 });
+    return NextResponse.json({ seeded: true, sections: 10 });
   } catch (err) {
     console.error("[seed-home] failed:", (err as Error).message);
     return new NextResponse((err as Error).message, { status: 500 });

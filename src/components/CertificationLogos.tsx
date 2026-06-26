@@ -117,6 +117,7 @@ export default function CertificationLogos({
                                         alt={`${cert.name} Badge`}
                                         fill
                                         className="object-contain relative z-10 drop-shadow-[0_30px_60px_rgba(0,0,0,0.15)]"
+                                        unoptimized={cert.image?.includes('/api/media/')}
                                     />
                                 </div>
 

@@ -22,8 +22,29 @@ export const TestimonialsBlock: Block = {
       ],
     },
     {
+      name: "source",
+      type: "select",
+      defaultValue: "custom",
+      options: [
+        { label: "From Testimonials Collection", value: "collection" },
+        { label: "Custom (define below)", value: "custom" },
+      ],
+    },
+    {
+      name: "limit",
+      type: "number",
+      defaultValue: 6,
+      admin: {
+        condition: (_, siblingData) => siblingData?.source === "collection",
+        description: "Number of testimonials to show from the collection",
+      },
+    },
+    {
       name: "testimonials",
       type: "array",
+      admin: {
+        condition: (_, siblingData) => siblingData?.source === "custom",
+      },
       minRows: 1,
       fields: [
         { name: "quote", type: "textarea", required: true },

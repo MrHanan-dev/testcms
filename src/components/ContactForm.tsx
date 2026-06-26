@@ -1,17 +1,19 @@
 "use client";
 
 import { useState } from 'react';
-import { User, Mail, MessageSquare, Send, CheckCircle2 } from 'lucide-react';
+import { User, Mail, MessageSquare, Send, CheckCircle2, AlertCircle } from 'lucide-react';
 import { useSiteSettings } from './site/SiteSettingsProvider';
 
 export default function ContactForm() {
     const s = useSiteSettings();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [submitError, setSubmitError] = useState<string | null>(null);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsSubmitting(true);
+        setSubmitError(null);
 
         const formData = new FormData(e.currentTarget);
         const data = {
@@ -31,11 +33,11 @@ export default function ContactForm() {
             if (response.ok) {
                 setIsSubmitted(true);
             } else {
-                alert('Something went wrong. Please try again.');
+                setSubmitError('Something went wrong. Please try again.');
             }
         } catch (error) {
             console.error('Submission error:', error);
-            alert('Failed to send message. Check your connection.');
+            setSubmitError('Failed to send message. Please check your connection and try again.');
         } finally {
             setIsSubmitting(false);
         }
@@ -118,6 +120,16 @@ export default function ContactForm() {
                             className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-primary/20 outline-none transition-all font-medium resize-none"
                         ></textarea>
                     </div>
+
+                    {submitError && (
+                        <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 flex items-start gap-3">
+                            <AlertCircle size={20} className="shrink-0 mt-0.5" />
+                            <div>
+                                <p className="font-semibold text-sm">Unable to send message</p>
+                                <p className="text-sm mt-1">{submitError}</p>
+                            </div>
+                        </div>
+                    )}
 
                     <div className="pt-2">
                         <button

@@ -1,4 +1,5 @@
 import type { CollectionConfig } from "payload";
+import { logCollectionChange, logCollectionDelete } from "../lib/activityLogger";
 
 /**
  * Media Library — WordPress-style media management with folders and metadata.
@@ -10,6 +11,10 @@ export const Media: CollectionConfig = {
     group: "📝 Content",
     description: "Upload and manage images, documents, and other files.",
     defaultColumns: ["filename", "alt", "folder", "mimeType", "filesize", "updatedAt"],
+  },
+  hooks: {
+    afterChange: [logCollectionChange],
+    afterDelete: [logCollectionDelete],
   },
   access: {
     read: () => true,

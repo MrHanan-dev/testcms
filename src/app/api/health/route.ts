@@ -14,7 +14,20 @@ interface HealthCheck {
   value?: string | number;
 }
 
-export async function GET() {
+export async function GET(request: Request) {
+  // Check for HEALTH_SECRET authentication
+  const healthSecret = process.env.HEALTH_SECRET;
+  const authHeader = request.headers.get("authorization");
+
+  if (healthSecret && authHeader !== `Bearer ${healthSecret}`) {
+    // Return minimal public health check for unauthenticated requests
+    return NextResponse.json({
+      status: "ok",
+      timestamp: new Date().toISOString(),
+    });
+  }
+
+  // Full health check for authenticated requests
   const checks: HealthCheck[] = [];
   let overallStatus: "good" | "warning" | "critical" = "good";
 

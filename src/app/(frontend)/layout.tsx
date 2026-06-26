@@ -6,8 +6,11 @@ import JsonLd from "@/components/JsonLd";
 import WhatsAppFAB from "@/components/WhatsAppFAB";
 import { SiteSettingsProvider } from "@/components/site/SiteSettingsProvider";
 import { CustomCodeHead, CustomCodeBodyStart, CustomCodeFooter } from "@/components/CustomCodeInjector";
-import { getSiteSettings, getGlobal } from "@/lib/payload";
+import { getSiteSettings, getGlobal, getMenuByLocation } from "@/lib/payload";
 import { resolveSiteSettings } from "@/lib/resolveSiteSettings";
+import { getActivePopups, getAppearanceCss } from "@/lib/cmsCollections";
+import { serializePopups } from "@/lib/serializeCmsUi";
+import CmsUiLayer from "@/components/cms/CmsUiLayer";
 
 
 const inter = Inter({
@@ -70,13 +73,31 @@ export default async function RootLayout({
     // Pull editable site-wide settings (logo, contact) so the Header/Footer can
     // render them. Null-safe: if Payload is unreachable, the UI falls back to
     // the existing hardcoded defaults.
-    const settings = await getSiteSettings();
-    const siteSettings = resolveSiteSettings(settings as Record<string, unknown> | null);
-    const customCode = await getGlobal("customCode") as Record<string, unknown> | null;
+    const [settings, customCode, headerMenu, footerServicesMenu, footerTrainingMenu, footerResourcesMenu, popups, appearanceCss] =
+        await Promise.all([
+            getSiteSettings(),
+            getGlobal("customCode") as Promise<Record<string, unknown> | null>,
+            getMenuByLocation("header-primary"),
+            getMenuByLocation("footer-1"),
+            getMenuByLocation("footer-2"),
+            getMenuByLocation("footer-3"),
+            getActivePopups(),
+            getAppearanceCss(),
+        ]);
+
+    const siteSettings = resolveSiteSettings(settings as Record<string, unknown> | null, {
+        headerMenu: headerMenu as unknown,
+        footerServicesMenu: footerServicesMenu as unknown,
+        footerTrainingMenu: footerTrainingMenu as unknown,
+        footerResourcesMenu: footerResourcesMenu as unknown,
+    });
+
+    const popupData = serializePopups(popups as Record<string, unknown>[]);
 
     return (
         <html lang="en">
             <head>
+                {appearanceCss ? <style dangerouslySetInnerHTML={{ __html: appearanceCss }} /> : null}
                 <CustomCodeHead data={customCode} />
                 <Script src="https://analytics.ahrefs.com/analytics.js" data-key="C3Lwx1SjSRD/434Thq3gkw" strategy="afterInteractive" />
             </head>
@@ -107,6 +128,7 @@ export default async function RootLayout({
                         socialLinks={siteSettings.socials.map((x) => x.url!).filter(Boolean)}
                     />
                     {children}
+                    <CmsUiLayer popups={popupData} />
                     <WhatsAppFAB />
                 </SiteSettingsProvider>
                 <CustomCodeFooter data={customCode} />

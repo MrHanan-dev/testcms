@@ -1,5 +1,6 @@
 import type { GlobalConfig } from "payload";
 import { seoTab } from "@/lib/seoFields";
+import { logGlobalChange } from "../lib/activityLogger";
 
 const list = (name: string, label?: string) => ({
   name,
@@ -19,6 +20,9 @@ export const Pmp: GlobalConfig = {
   slug: "pmpPage",
   label: "PMP Certification",
   access: { read: () => true },
+  hooks: {
+    afterChange: [logGlobalChange],
+  },
   admin: {
     group: "🎓 Certification & Training",
     description: "Edit the PMP certification page — eligibility, curriculum, pricing, and FAQs.",

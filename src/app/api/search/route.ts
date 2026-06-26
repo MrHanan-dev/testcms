@@ -38,6 +38,18 @@ export async function GET(request: Request) {
       );
     }
 
+    // Require authentication for CRM/sensitive searches
+    const sensitiveTypes = ["leads", "users", "comments", "activity-log", "form-submissions"];
+    if (sensitiveTypes.includes(type) || type === "all") {
+      const { user } = await payload.auth({ headers: request.headers });
+      if (!user) {
+        return NextResponse.json(
+          { error: "Authentication required for this search type" },
+          { status: 401 }
+        );
+      }
+    }
+
     const results: SearchResult[] = [];
 
     // Search Posts
@@ -54,6 +66,7 @@ export async function GET(request: Request) {
           },
           limit,
           depth: 0,
+          overrideAccess: false,
         });
 
         for (const post of posts.docs) {
@@ -83,6 +96,7 @@ export async function GET(request: Request) {
           },
           limit,
           depth: 0,
+          overrideAccess: false,
         });
 
         for (const page of pages.docs) {
@@ -110,6 +124,7 @@ export async function GET(request: Request) {
           },
           limit,
           depth: 0,
+          overrideAccess: false,
         });
 
         for (const file of media.docs) {
@@ -138,6 +153,7 @@ export async function GET(request: Request) {
           },
           limit,
           depth: 0,
+          overrideAccess: false,
         });
 
         for (const lead of leads.docs) {
@@ -166,6 +182,7 @@ export async function GET(request: Request) {
           },
           limit,
           depth: 0,
+          overrideAccess: false,
         });
 
         for (const comment of comments.docs) {

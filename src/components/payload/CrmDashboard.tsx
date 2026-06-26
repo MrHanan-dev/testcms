@@ -17,7 +17,7 @@ const STAGES: { key: string; label: string; color: string; icon: string }[] = [
 const QUICK_ACTIONS = [
   { label: "New Blog Post", href: "/admin/collections/posts/create", icon: "✍️", desc: "Write an article", color: "#6366f1" },
   { label: "Upload Media", href: "/admin/collections/media/create", icon: "🖼️", desc: "Add images/files", color: "#16a34a" },
-  { label: "Appearance", href: "/admin/globals/appearance", icon: "🎨", desc: "Colors, fonts, logo", color: "#ec4899" },
+  { label: "Branding", href: "/admin/globals/siteSettings", icon: "🎨", desc: "Logo & identity", color: "#ec4899" },
   { label: "View Leads", href: "/admin/collections/leads", icon: "📬", desc: "Customer enquiries", color: "#ef4444" },
   { label: "Testimonials", href: "/admin/collections/testimonials", icon: "⭐", desc: "Client reviews", color: "#f59e0b" },
   { label: "Team Members", href: "/admin/collections/team-members", icon: "👥", desc: "Staff directory", color: "#8b5cf6" },
@@ -472,9 +472,9 @@ export async function CrmDashboard() {
             <h2 style={{ fontSize: 16, fontWeight: 700, color: "#0B3C5D", margin: 0 }}>
               🏥 Site Health
             </h2>
-            <Link href="/api/health" style={{ fontSize: 12, color: "#6366f1", textDecoration: "none", fontWeight: 600 }}>
-              Full Report →
-            </Link>
+            <span style={{ fontSize: 11, color: "#94a3b8" }}>
+              Live status
+            </span>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             {dbConnected ? (
@@ -600,13 +600,33 @@ export async function CrmDashboard() {
           marginTop: 8,
         }}
       >
-        <Link href="/admin/globals/appearance" style={{ fontSize: 13, color: "#64748b", textDecoration: "none" }}>🎨 Appearance</Link>
+        <Link href="/admin/globals/siteSettings" style={{ fontSize: 13, color: "#64748b", textDecoration: "none" }}>🎨 Branding</Link>
         <Link href="/admin/globals/customCode" style={{ fontSize: 13, color: "#64748b", textDecoration: "none" }}>💻 Custom Code</Link>
         <Link href="/admin/globals/readingSettings" style={{ fontSize: 13, color: "#64748b", textDecoration: "none" }}>📖 Reading</Link>
         <Link href="/admin/globals/siteSettings" style={{ fontSize: 13, color: "#64748b", textDecoration: "none" }}>⚙️ Settings</Link>
         <Link href="/admin/collections/activity-log" style={{ fontSize: 13, color: "#64748b", textDecoration: "none" }}>📋 Activity</Link>
-        <Link href="/api/backup" style={{ fontSize: 13, color: "#64748b", textDecoration: "none" }}>💾 Backup</Link>
-        <Link href="/api/health" style={{ fontSize: 13, color: "#64748b", textDecoration: "none" }}>🏥 Health</Link>
+      </div>
+
+      {/* System Tools Info */}
+      <div
+        style={{
+          padding: "16px 20px",
+          background: "var(--theme-elevation-50)",
+          border: "1px solid var(--theme-elevation-100)",
+          borderRadius: 12,
+          marginTop: 8,
+        }}
+      >
+        <p style={{ fontSize: 12, color: "#64748b", margin: 0, marginBottom: 8, fontWeight: 600 }}>
+          🔐 System Tools (require authentication)
+        </p>
+        <ul style={{ fontSize: 11, color: "#94a3b8", margin: 0, paddingLeft: 16, lineHeight: 1.8 }}>
+          <li>Health Check: <code style={{ background: "var(--theme-elevation-100)", padding: "2px 6px", borderRadius: 4 }}>GET /api/health</code> (requires HEALTH_SECRET header)</li>
+          <li>Backup/Export: <code style={{ background: "var(--theme-elevation-100)", padding: "2px 6px", borderRadius: 4 }}>GET /api/backup</code> (requires BACKUP_SECRET header)</li>
+        </ul>
+        <p style={{ fontSize: 10, color: "#94a3b8", margin: 0, marginTop: 8 }}>
+          Contact your developer for backup operations.
+        </p>
       </div>
     </div>
   );

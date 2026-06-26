@@ -1,5 +1,6 @@
 import type { GlobalConfig } from "payload";
 import { seoFields } from "@/lib/seoFields";
+import { logGlobalChange } from "../lib/activityLogger";
 
 /**
  * Privacy Policy — Legal page content.
@@ -8,6 +9,9 @@ export const Privacy: GlobalConfig = {
   slug: "privacyPage",
   label: "Privacy Policy",
   access: { read: () => true },
+  hooks: {
+    afterChange: [logGlobalChange],
+  },
   admin: {
     group: "📋 Legal Pages",
     description: "Edit the Privacy Policy page content.",

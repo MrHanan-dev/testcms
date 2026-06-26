@@ -2,29 +2,11 @@
 
 import { motion } from 'framer-motion';
 import { Quote } from 'lucide-react';
+import { HOME_TESTIMONIALS } from '@/data/homeContent';
 
 type Testimonial = { quote: string; author?: string; role?: string; company?: string };
 
-const DEFAULT_TESTIMONIALS: Testimonial[] = [
-    {
-        quote: "TheAgileNest's PMP training was a game-changer. Their practical approach made complex concepts easy to grasp and apply immediately.",
-        author: "Sarah Johnson",
-        role: "Senior Project Manager",
-        company: "Infrastructure Global"
-    },
-    {
-        quote: "Working with their consultants on our PMO recovery saved us months of delays. Their expertise in cost estimation is unparalleled.",
-        author: "Mark Thompson",
-        role: "Operations Director",
-        company: "BuildRight NZ"
-    },
-    {
-        quote: "The most professional training experience I've had in 15 years. They don't just teach the book; they teach the reality of the industry.",
-        author: "David Chen",
-        role: "Construction Lead",
-        company: "Urban Developers"
-    }
-];
+const DEFAULT_TESTIMONIALS: Testimonial[] = [...HOME_TESTIMONIALS];
 
 type TestimonialsProps = {
     eyebrow?: string;
