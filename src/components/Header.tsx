@@ -11,6 +11,7 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 import ContactLink from './ContactLink';
 import { useSiteSettings } from './site/SiteSettingsProvider';
+import { DEFAULT_LOGO_SRC } from '@/lib/siteAssets';
 
 const HEADER_VARIANTS = {
   hidden: { y: -20, opacity: 0 },
@@ -140,7 +141,7 @@ export default function Header({ variant = "solid" }: { variant?: "solid" | "tra
         <Link href="/" className="relative z-50 flex items-center group">
           <div className="relative flex-shrink-0 flex items-center justify-center">
             <Image
-              src={logoUrl || "/1.png"}
+              src={logoUrl || DEFAULT_LOGO_SRC}
               alt="TheAgileNest Logo"
               width={180}
               height={56}

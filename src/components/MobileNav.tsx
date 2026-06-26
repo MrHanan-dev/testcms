@@ -6,6 +6,7 @@ import { GraduationCap, Calculator, Briefcase, Menu, X, Phone, Mail, ArrowRight 
 import Link from 'next/link';
 import Image from 'next/image';
 import { useSiteSettings } from './site/SiteSettingsProvider';
+import { DEFAULT_LOGO_SRC } from '@/lib/siteAssets';
 
 const tabs = [
     { label: "Training", icon: GraduationCap, href: "/training" },
@@ -63,7 +64,7 @@ export default function MobileNav() {
 
                             <div className="mb-10">
                                 <Image
-                                    src={s.logoLightUrl || s.logoUrl || "/1.png"}
+                                    src={s.logoLightUrl || s.logoUrl || DEFAULT_LOGO_SRC}
                                     alt={s.companyName || "TheAgileNest Logo"}
                                     width={160}
                                     height={50}

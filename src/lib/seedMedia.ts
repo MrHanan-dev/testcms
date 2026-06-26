@@ -7,6 +7,7 @@ const IMAGE_EXT = new Set([".png", ".jpg", ".jpeg", ".webp", ".gif", ".svg"]);
 /** Resolve a seed filename from public/ and legacy media/ folders. */
 export function resolveSeedFilePath(filename: string): string | undefined {
   const candidates = [
+    join(process.cwd(), "public", filename),
     join(process.cwd(), "public", "images", filename),
     join(process.cwd(), "public", "images", "blog", filename),
     join(process.cwd(), "public", "certifications", filename),
@@ -101,21 +102,27 @@ export async function seedAllMedia(payload: Payload, force = false): Promise<See
     join(process.cwd(), "media"),
   ];
 
-  const seen = new Set<string>();
-  for (const root of scanRoots) {
-    for (const filePath of walkImages(root)) {
-      const filename = filePath.split(/[/\\]/).pop()!;
-      if (seen.has(filename)) continue;
-      seen.add(filename);
+  const brandAssetPaths = ["1.png", "2.png", "favicon.png"].map((name) =>
+    join(process.cwd(), "public", name),
+  );
 
-      const alt = filename.replace(/\.[^.]+$/, "").replace(/[-_]/g, " ");
-      try {
-        const outcome = await upsertSeedMediaFile(payload, filename, alt, force);
-        if (outcome === "missing") result.missing.push(filename);
-        else result[outcome]++;
-      } catch (e) {
-        result.errors.push(`${filename}: ${String(e)}`);
-      }
+  const seen = new Set<string>();
+  const filePaths = [
+    ...brandAssetPaths.filter((p) => existsSync(p)),
+    ...scanRoots.flatMap((root) => walkImages(root)),
+  ];
+  for (const filePath of filePaths) {
+    const filename = filePath.split(/[/\\]/).pop()!;
+    if (seen.has(filename)) continue;
+    seen.add(filename);
+
+    const alt = filename.replace(/\.[^.]+$/, "").replace(/[-_]/g, " ");
+    try {
+      const outcome = await upsertSeedMediaFile(payload, filename, alt, force);
+      if (outcome === "missing") result.missing.push(filename);
+      else result[outcome]++;
+    } catch (e) {
+      result.errors.push(`${filename}: ${String(e)}`);
     }
   }
 

@@ -25,6 +25,12 @@ const nextConfig: NextConfig = {
         pathname: "/api/media/file/**",
         search: "?prefix=media",
       },
+      { pathname: "/1.png" },
+      { pathname: "/2.png" },
+      { pathname: "/favicon.png" },
+      { pathname: "/certifications/**" },
+      { pathname: "/images/**" },
+      { pathname: "/our_client/**" },
     ],
     remotePatterns: [
       {

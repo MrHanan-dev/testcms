@@ -9,6 +9,11 @@ const CERT_STATIC: Record<string, string> = {
   "pmi-cp.webp": "/certifications/pmi-cp.webp",
 };
 
+/** Misnamed legacy file in media library — always serve the real site logo. */
+const LEGACY_LOGO_ALIASES: Record<string, string> = {
+  "theagilenest_logo.png": "/1.png",
+};
+
 export function resolveMediaUrl(
   url: string | undefined | null,
   fallback?: string,
@@ -25,8 +30,12 @@ export function resolveMediaUrl(
   if (trimmed.includes("/api/media/file/")) {
     const name = trimmed.split("/").pop()?.split("?")[0]?.toLowerCase();
     if (name && CERT_STATIC[name]) return CERT_STATIC[name];
-    return fallback ?? trimmed;
+    if (name && LEGACY_LOGO_ALIASES[name]) return LEGACY_LOGO_ALIASES[name];
+    return trimmed;
   }
+
+  const basename = trimmed.split("/").pop()?.split("?")[0]?.toLowerCase();
+  if (basename && LEGACY_LOGO_ALIASES[basename]) return LEGACY_LOGO_ALIASES[basename];
 
   return trimmed;
 }

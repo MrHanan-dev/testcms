@@ -2,6 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import { getPayload } from "payload";
 import config from "@payload-config";
 import { SITE_SETTINGS_CONTENT } from "@/data/siteSettingsContent";
+import { mediaIdFor } from "@/lib/seedMedia";
 
 /** Seed siteSettings nav/footer fields from SITE_SETTINGS_CONTENT. Dev-only, ?force=1. */
 export async function GET(req: NextRequest) {
@@ -18,10 +19,17 @@ export async function GET(req: NextRequest) {
 
     const k = SITE_SETTINGS_CONTENT;
     const textList = (arr: readonly string[]) => arr.map((text) => ({ text }));
+    const mediaCache = new Map<string, string | number>();
+    const logoId = await mediaIdFor(payload, "1.png", "TheAgileNest Logo", mediaCache, force);
+    const faviconId = await mediaIdFor(payload, "favicon.png", "TheAgileNest Favicon", mediaCache, force);
+    const pmiBadgeId = await mediaIdFor(payload, "2.png", "PMI Authorized Training Partner Premier", mediaCache, force);
 
     await payload.updateGlobal({
       slug: "siteSettings",
       data: {
+        ...(logoId != null ? { logo: logoId } : {}),
+        ...(faviconId != null ? { favicon: faviconId } : {}),
+        ...(pmiBadgeId != null ? { pmiBadge: pmiBadgeId } : {}),
         contactButton: k.contactButton,
         navCategories: k.navCategories,
         contactEyebrow: k.contactEyebrow,

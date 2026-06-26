@@ -6,6 +6,7 @@ import { Mail, MapPin, Phone } from 'lucide-react';
 import ContactForm from './ContactForm';
 import CompanyBio from './CompanyBio';
 import { useSiteSettings } from './site/SiteSettingsProvider';
+import { DEFAULT_LOGO_SRC, DEFAULT_PMI_BADGE_SRC } from '@/lib/siteAssets';
 
 function ClientsSection({ heading, logos }: { heading: string; logos: { src: string; alt: string }[] }) {
   return (
@@ -65,7 +66,7 @@ export default function Footer({ hideContactForm = false, hideClients = false }:
               <div className="space-y-6">
                 <Link href="/" className="inline-block group">
                   <Image
-                    src={s.logoUrl || "/1.png"}
+                    src={s.logoUrl || DEFAULT_LOGO_SRC}
                     alt="TheAgileNest Logo"
                     width={200}
                     height={70}
@@ -83,7 +84,7 @@ export default function Footer({ hideContactForm = false, hideClients = false }:
               <div className="mt-8 relative group w-64 h-64 md:w-72 md:h-72">
                 <div className="relative w-full h-full p-8 bg-white/20 backdrop-blur-md rounded-[32px] border border-white/30 shadow-2xl transition-all duration-500 group-hover:bg-white/30 group-hover:scale-[1.02] flex items-center justify-center">
                   <Image
-                    src={s.pmiBadgeUrl || "/2.png"}
+                    src={s.pmiBadgeUrl || DEFAULT_PMI_BADGE_SRC}
                     alt={s.pmiBadgeAlt}
                     width={400}
                     height={400}
