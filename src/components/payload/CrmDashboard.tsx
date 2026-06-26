@@ -113,8 +113,43 @@ export async function CrmDashboard() {
     }
   };
 
+  const isVercel = process.env.VERCEL === "1" || !!process.env.VERCEL_ENV;
+  const hasBlobStorage = !!process.env.BLOB_READ_WRITE_TOKEN;
+
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+      {/* Critical Warning: Blob Storage Missing on Vercel */}
+      {isVercel && !hasBlobStorage && (
+        <div
+          style={{
+            background: "linear-gradient(135deg, #fee2e2 0%, #fecaca 100%)",
+            borderRadius: 16,
+            padding: "20px 24px",
+            border: "2px solid #ef4444",
+            display: "flex",
+            alignItems: "flex-start",
+            gap: 16,
+          }}
+        >
+          <span style={{ fontSize: 32 }}>🚨</span>
+          <div>
+            <h3 style={{ fontSize: 16, fontWeight: 800, color: "#dc2626", margin: 0, marginBottom: 8 }}>
+              Image Uploads Disabled — Vercel Blob Storage Required
+            </h3>
+            <p style={{ fontSize: 14, color: "#991b1b", margin: 0, marginBottom: 12, lineHeight: 1.5 }}>
+              Image uploads will fail until Vercel Blob storage is configured. To fix this:
+            </p>
+            <ol style={{ fontSize: 13, color: "#7f1d1d", margin: 0, paddingLeft: 20, lineHeight: 1.8 }}>
+              <li>Go to <strong>Vercel Dashboard → your project → Storage tab</strong></li>
+              <li>Click <strong>"Create Database"</strong> → select <strong>"Blob"</strong></li>
+              <li>Follow the prompts to create and link a Blob store</li>
+              <li>This auto-sets the <code style={{ background: "#fef2f2", padding: "2px 6px", borderRadius: 4 }}>BLOB_READ_WRITE_TOKEN</code> environment variable</li>
+              <li><strong>Redeploy</strong> the project for changes to take effect</li>
+            </ol>
+          </div>
+        </div>
+      )}
+
       {/* Welcome Banner */}
       <div
         style={{

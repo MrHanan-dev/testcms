@@ -218,18 +218,26 @@ export async function GET() {
       });
     }
 
-    // Blob Storage
+    // Blob Storage — CRITICAL for Vercel deployment
+    const isVercel = process.env.VERCEL === "1" || process.env.VERCEL_ENV;
     if (process.env.BLOB_READ_WRITE_TOKEN) {
       checks.push({
         name: "Media Storage",
         status: "good",
-        message: "Vercel Blob storage configured",
+        message: "Vercel Blob storage configured — image uploads enabled",
       });
+    } else if (isVercel) {
+      checks.push({
+        name: "Media Storage",
+        status: "critical",
+        message: "BLOB_READ_WRITE_TOKEN missing — IMAGE UPLOADS WILL FAIL! Add Blob storage in Vercel Dashboard → Storage",
+      });
+      overallStatus = "critical";
     } else {
       checks.push({
         name: "Media Storage",
         status: "warning",
-        message: "Using local storage (not recommended for production)",
+        message: "Using local storage (OK for dev, but set up Vercel Blob for production)",
       });
       if (overallStatus === "good") overallStatus = "warning";
     }
