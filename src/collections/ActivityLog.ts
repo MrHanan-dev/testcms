@@ -16,7 +16,9 @@ export const ActivityLog: CollectionConfig = {
   defaultSort: "-createdAt",
   access: {
     read: ({ req: { user } }) => Boolean(user),
-    create: () => true, // System creates these
+    // Only system (via overrideAccess) or authenticated users can create logs
+    // This prevents public API spam of fake audit entries
+    create: ({ req: { user } }) => Boolean(user),
     update: () => false, // No editing allowed
     delete: ({ req: { user } }) => user?.role === "admin",
   },

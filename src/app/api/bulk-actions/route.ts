@@ -6,6 +6,8 @@ import config from "@payload-config";
  * Bulk Actions API — WordPress-style bulk operations.
  * Perform actions on multiple items at once.
  * 
+ * REQUIRES AUTHENTICATION — only logged-in CMS users can perform bulk actions.
+ * 
  * POST /api/bulk-actions
  * Body: {
  *   "collection": "posts",
@@ -16,6 +18,24 @@ import config from "@payload-config";
 export async function POST(request: Request) {
   try {
     const payload = await getPayload({ config });
+
+    // Authentication check — require logged-in user
+    const { user } = await payload.auth({ headers: request.headers });
+    if (!user) {
+      return NextResponse.json(
+        { error: "Unauthorized — login required" },
+        { status: 401 }
+      );
+    }
+
+    // Only admin/editor can perform bulk actions
+    if (user.role !== "admin" && user.role !== "editor") {
+      return NextResponse.json(
+        { error: "Forbidden — admin or editor role required" },
+        { status: 403 }
+      );
+    }
+
     const body = await request.json();
     const { collection, action, ids } = body;
 

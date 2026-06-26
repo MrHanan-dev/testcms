@@ -35,9 +35,10 @@ export const Posts: CollectionConfig = {
   access: {
     read: ({ req: { user } }) => {
       if (user) return true;
-      // Public can only see published posts
+      // Public can only see published, non-deleted posts
       return {
         status: { equals: "published" },
+        isDeleted: { not_equals: true },
       };
     },
     create: ({ req: { user } }) => Boolean(user),

@@ -9,8 +9,17 @@ import { publishScheduledPosts } from "@/lib/scheduledPublisher";
  * Set CRON_SECRET in your environment to secure this endpoint.
  */
 export async function GET(request: Request) {
-  // Verify cron secret if set
+  // Verify cron secret — REQUIRED in production
   const cronSecret = process.env.CRON_SECRET;
+  const isProduction = process.env.NODE_ENV === "production" || process.env.VERCEL;
+
+  if (isProduction && !cronSecret) {
+    return NextResponse.json(
+      { error: "CRON_SECRET must be set in production" },
+      { status: 500 }
+    );
+  }
+
   if (cronSecret) {
     const authHeader = request.headers.get("authorization");
     if (authHeader !== `Bearer ${cronSecret}`) {

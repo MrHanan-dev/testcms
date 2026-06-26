@@ -24,9 +24,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const cmsDoc = await getPostBySlug(slug);
   const post = resolveBlogPost(cmsDoc, slug);
   if (!post) return { title: "Post Not Found | TheAgileNest" };
+
+  // Use CMS SEO fields if available, fall back to post title/abstract
+  const title = post.metaTitle || `${post.title} | TheAgileNest Blog`;
+  const description = post.metaDescription || post.abstract;
+  const ogImage = post.ogImage || post.imageUrl;
+
   return {
-    title: post.title,
-    description: post.abstract,
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: "article",
+      url: `https://theagilenest.com/blog/${post.slug}`,
+      images: ogImage ? [{ url: ogImage }] : undefined,
+      publishedTime: post.date,
+      authors: post.author ? [post.author] : undefined,
+    },
+    robots: post.noIndex ? { index: false, follow: true } : undefined,
   };
 }
 

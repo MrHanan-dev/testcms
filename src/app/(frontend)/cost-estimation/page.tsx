@@ -12,6 +12,7 @@ import type { Metadata } from 'next';
 import { getGlobal } from '@/lib/payload';
 import { CE_CONTENT } from '@/data/ceContent';
 import { generateSeoMetadata } from '@/lib/generateSeoMetadata';
+import { resolveMediaUrl } from '@/lib/resolveMediaUrl';
 
 export async function generateMetadata(): Promise<Metadata> {
     const c = await getGlobal('costEstimationPage');
@@ -24,7 +25,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const orUndef = (v: unknown): string | undefined => (typeof v === 'string' && v.length > 0 ? v : undefined);
-const mediaUrl = (v: unknown): string | undefined => (v && typeof v === 'object' && 'url' in v ? (v as { url?: string }).url ?? undefined : undefined);
+const mediaUrl = (v: unknown, fallback?: string): string | undefined => {
+    const rawUrl = v && typeof v === 'object' && 'url' in v ? (v as { url?: string }).url : undefined;
+    return resolveMediaUrl(rawUrl, fallback);
+};
 
 const INDUSTRY_ICONS = [Building2, Building2, LayoutDashboard, ShoppingBag, HardHat, Hammer, Factory, School];
 

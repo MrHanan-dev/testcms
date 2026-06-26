@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { blogPostsMeta, type BlogPostMeta } from "@/data/blogPostsMeta";
 import { blogPosts } from "@/data/blogPosts";
 import { blogFaqs, type FAQItem } from "@/lib/faqData";
+import { resolveMediaUrl } from "@/lib/resolveMediaUrl";
 
 const orUndef = (v: unknown): string | undefined => (typeof v === "string" && v.length > 0 ? v : undefined);
 
@@ -11,7 +12,9 @@ export const hasRich = (v: unknown): v is object =>
 const postImage = (doc: Record<string, unknown>, fallback: string): string => {
   const img = doc.featuredImage;
   if (img && typeof img === "object" && (img as { url?: string }).url) {
-    return (img as { url: string }).url;
+    const rawUrl = (img as { url: string }).url;
+    // Use resolveMediaUrl to handle Vercel deployment
+    return resolveMediaUrl(rawUrl, fallback) ?? fallback;
   }
   return orUndef(doc.imageUrl) ?? fallback;
 };
@@ -48,6 +51,11 @@ export type ResolvedBlogPost = BlogPostMeta & {
   bodyRich: object | null;
   content: ReactNode | null;
   faqItems: FAQItem[];
+  // SEO fields from CMS
+  metaTitle?: string;
+  metaDescription?: string;
+  ogImage?: string;
+  noIndex?: boolean;
 };
 
 /** Detail view: merge CMS fields with built-in JSX body and FAQ fallbacks. */
@@ -73,11 +81,22 @@ export function resolveBlogPost(cmsDoc: Record<string, unknown> | null | undefin
   const cmsFaqs = doc.faqItems as FAQItem[] | undefined;
   const faqItems = cmsFaqs && cmsFaqs.length > 0 ? cmsFaqs : blogFaqs[slug] ?? [];
 
+  // Extract SEO fields from CMS
+  const ogImg = doc.ogImage;
+  const ogImageUrl = ogImg && typeof ogImg === "object" && (ogImg as { url?: string }).url
+    ? (ogImg as { url: string }).url
+    : undefined;
+
   return {
     ...meta,
     bodyRich,
     content: bodyRich ? null : fbPost?.content ?? null,
     faqItems,
+    // SEO fields
+    metaTitle: orUndef(doc.metaTitle),
+    metaDescription: orUndef(doc.metaDescription),
+    ogImage: ogImageUrl,
+    noIndex: doc.noIndex === true,
   };
 }
 

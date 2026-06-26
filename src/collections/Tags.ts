@@ -10,7 +10,7 @@ export const Tags: CollectionConfig = {
     group: "📝 Content",
     description: "Create tags to organize and categorize blog posts.",
     useAsTitle: "name",
-    defaultColumns: ["name", "slug", "postCount"],
+    defaultColumns: ["name", "slug", "color"],
   },
   access: {
     read: () => true,

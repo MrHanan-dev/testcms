@@ -8,6 +8,7 @@ import Features from '@/components/Features';
 import CourseSuccessQuotes from '@/components/CourseSuccessQuotes';
 import { getAbout } from '@/lib/payload';
 import { generateSeoMetadata } from '@/lib/generateSeoMetadata';
+import { resolveMediaUrl } from '@/lib/resolveMediaUrl';
 
 export async function generateMetadata(): Promise<Metadata> {
     const about = await getAbout();
@@ -39,8 +40,8 @@ export default async function AboutPage() {
     const storyEyebrow = orUndef(a.storyEyebrow) ?? "Our Founder's Story";
     const storyHeading = orUndef(a.storyHeading) ?? "Passion, Purpose, and 17 Years of Delivery";
     const storyParagraphs = a.storyParagraphs as { text: string }[] | undefined;
-    const founderImage = a.founderImage && typeof a.founderImage === 'object' ? (a.founderImage as { url?: string }).url : undefined;
-    const founderSrc = founderImage ?? "/images/founder_amjad.webp";
+    const founderImageRaw = a.founderImage && typeof a.founderImage === 'object' ? (a.founderImage as { url?: string }).url : undefined;
+    const founderSrc = resolveMediaUrl(founderImageRaw, "/images/founder_amjad.webp") ?? "/images/founder_amjad.webp";
     const founderName = orUndef(a.founderName) ?? "Engr. Syed Amjad Iqbal";
     const founderTitle = orUndef(a.founderTitle) ?? "CEO & Certified Trainer";
     const whyEyebrow = orUndef(a.whyEyebrow) ?? "Who We Are";
@@ -54,7 +55,8 @@ export default async function AboutPage() {
     const evoHeading = orUndef(a.evoHeading) ?? "A 17-Year Journey in Project Management";
     const evoSubtitle = orUndef(a.evoSubtitle) ?? "From PMBOK 3rd to 8th Edition. Embracing Passion, Purpose, and Technology.";
     const evoMilestones = (a.evoMilestones as { year: string; title: string; description: string; color?: string }[] | undefined) ?? undefined;
-    const featuresImage = a.featuresImage && typeof a.featuresImage === 'object' ? (a.featuresImage as { url?: string }).url : undefined;
+    const featuresImageRaw = a.featuresImage && typeof a.featuresImage === 'object' ? (a.featuresImage as { url?: string }).url : undefined;
+    const featuresImage = resolveMediaUrl(featuresImageRaw) ?? undefined;
     const featuresCards = (a.featuresCards as { title?: string; description?: string }[] | undefined) ?? undefined;
     const quoteCards = (a.quoteCards as { quote: string; subtitle?: string }[] | undefined) ?? undefined;
     const faqItems = (a.faqItems as { question: string; answer: string }[] | undefined) ?? undefined;
@@ -118,7 +120,7 @@ export default async function AboutPage() {
                                         alt={`${founderName}, ${founderTitle}`}
                                         fill
                                         className="object-cover group-hover:scale-105 transition-transform duration-700"
-                                        unoptimized={Boolean(founderImage)}
+                                        unoptimized={founderSrc.includes('/api/media/')}
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                                     <div className="absolute bottom-10 left-10 text-white">

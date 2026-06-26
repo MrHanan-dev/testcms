@@ -43,13 +43,13 @@ const GLOBALS = [
   "trainingPage",
   "pmpPage",
   "capmPage",
-  "pmiCpPage",
+  "pmicpPage",
   "partnerPage",
   "privacyPage",
   "termsPage",
-  "projectManagement",
-  "costEstimation",
-  "contractManagement",
+  "projectManagementPage",
+  "costEstimationPage",
+  "contractManagementPage",
 ];
 
 export async function GET(request: Request) {
@@ -57,8 +57,17 @@ export async function GET(request: Request) {
     const url = new URL(request.url);
     const backupType = url.searchParams.get("type") || "full";
 
-    // Check authentication
+    // Authentication REQUIRED in production
     const backupSecret = process.env.BACKUP_SECRET;
+    const isProduction = process.env.NODE_ENV === "production" || process.env.VERCEL;
+
+    if (isProduction && !backupSecret) {
+      return NextResponse.json(
+        { error: "BACKUP_SECRET must be set in production" },
+        { status: 500 }
+      );
+    }
+
     if (backupSecret) {
       const authHeader = request.headers.get("authorization");
       if (authHeader !== `Bearer ${backupSecret}`) {
@@ -87,6 +96,7 @@ export async function GET(request: Request) {
             collection: slug as any,
             limit: 10000,
             depth: 0,
+            overrideAccess: true,
           });
           backup.collections[slug] = {
             count: result.totalDocs,
@@ -147,8 +157,17 @@ export async function GET(request: Request) {
  */
 export async function POST(request: Request) {
   try {
-    // Check authentication
+    // Authentication REQUIRED in production
     const backupSecret = process.env.BACKUP_SECRET;
+    const isProduction = process.env.NODE_ENV === "production" || process.env.VERCEL;
+
+    if (isProduction && !backupSecret) {
+      return NextResponse.json(
+        { error: "BACKUP_SECRET must be set in production" },
+        { status: 500 }
+      );
+    }
+
     if (backupSecret) {
       const authHeader = request.headers.get("authorization");
       if (authHeader !== `Bearer ${backupSecret}`) {

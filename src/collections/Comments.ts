@@ -1,6 +1,23 @@
-import type { CollectionConfig } from "payload";
+import type { CollectionConfig, CollectionBeforeChangeHook } from "payload";
 import { logCollectionChange, logCollectionDelete } from "@/lib/activityLogger";
 import { notifyNewComment } from "@/lib/emailNotifications";
+
+/**
+ * Force pending status on public (unauthenticated) comment submissions
+ * to prevent self-approval via API.
+ */
+const forceModeration: CollectionBeforeChangeHook = ({ data, req, operation }) => {
+  if (operation === "create" && !req.user) {
+    return { ...data, status: "pending" };
+  }
+  // Only admin/editor can change status
+  if (operation === "update" && req.user) {
+    if (req.user.role !== "admin" && req.user.role !== "editor") {
+      delete data.status;
+    }
+  }
+  return data;
+};
 
 /**
  * Comments — WordPress-style comment system for blog posts.
@@ -16,6 +33,7 @@ export const Comments: CollectionConfig = {
     defaultColumns: ["author", "post", "status", "createdAt"],
   },
   hooks: {
+    beforeChange: [forceModeration],
     afterChange: [logCollectionChange, notifyNewComment],
     afterDelete: [logCollectionDelete],
   },
@@ -26,7 +44,7 @@ export const Comments: CollectionConfig = {
       return { status: { equals: "approved" } };
     },
     create: () => true, // Anyone can submit a comment
-    update: ({ req: { user } }) => Boolean(user), // Only admins can moderate
+    update: ({ req: { user } }) => user?.role === "admin" || user?.role === "editor", // Only admin/editor can moderate
     delete: ({ req: { user } }) => user?.role === "admin",
   },
   defaultSort: "-createdAt",

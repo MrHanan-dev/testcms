@@ -51,15 +51,18 @@ export default async function Home() {
 
     const faqItems = (h.faqItems as { question: string; answer: string }[] | undefined) ?? undefined;
 
-    const heroSlides = ((h.heroSlides as HeroSlideDoc[]) ?? []).map((s) => ({
-        src: s.image && typeof s.image === 'object' ? s.image.url ?? '' : '',
-        alt: s.alt ?? '',
-        tag: s.tag ?? '',
-        headline: s.headline ?? '',
-        description: s.description ?? '',
-        isInfographic: s.variant === 'infographic',
-        isCollage: s.variant === 'collage',
-    }));
+    const heroSlides = ((h.heroSlides as HeroSlideDoc[]) ?? []).map((s) => {
+        const rawUrl = s.image && typeof s.image === 'object' ? s.image.url ?? '' : '';
+        return {
+            src: mediaUrl({ url: rawUrl }) ?? rawUrl,
+            alt: s.alt ?? '',
+            tag: s.tag ?? '',
+            headline: s.headline ?? '',
+            description: s.description ?? '',
+            isInfographic: s.variant === 'infographic',
+            isCollage: s.variant === 'collage',
+        };
+    });
 
     const featureItems = (h.featureItems as { text: string }[] | undefined)?.map((f) => f.text);
     const certDefaults = ['/certifications/pmp.webp', '/certifications/capm.webp', '/certifications/pmi-cp.webp'];

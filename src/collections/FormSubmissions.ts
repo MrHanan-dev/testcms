@@ -1,4 +1,14 @@
-import type { CollectionConfig } from "payload";
+import type { CollectionConfig, CollectionBeforeChangeHook } from "payload";
+
+/**
+ * Force "new" status on public submissions to prevent status manipulation via API.
+ */
+const forceNewStatus: CollectionBeforeChangeHook = ({ data, req, operation }) => {
+  if (operation === "create" && !req.user) {
+    return { ...data, status: "new" };
+  }
+  return data;
+};
 
 /**
  * Form Submissions — Store all form submissions.
@@ -12,6 +22,9 @@ export const FormSubmissions: CollectionConfig = {
     description: "View and manage all form submissions from your website.",
     useAsTitle: "id",
     defaultColumns: ["form", "data", "status", "createdAt"],
+  },
+  hooks: {
+    beforeChange: [forceNewStatus],
   },
   access: {
     read: ({ req: { user } }) => Boolean(user),

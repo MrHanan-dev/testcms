@@ -6,6 +6,7 @@ import { RichText } from "@payloadcms/richtext-lexical/react";
 import type { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
 import { Check, Star, ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { resolveMediaUrl } from "@/lib/resolveMediaUrl";
 
 /**
  * Renders a Payload page `layout` array into on-brand React sections. Each
@@ -16,6 +17,12 @@ type Block = { blockType: string; [key: string]: unknown };
 type MediaField = { url?: string; alt?: string } | null;
 
 const isStr = (v: unknown): v is string => typeof v === "string" && v.length > 0;
+
+/** Resolve media URL with fallback handling for Vercel deployment */
+const getImageUrl = (media: MediaField | undefined, fallback?: string): string | undefined => {
+  if (!media?.url) return fallback;
+  return resolveMediaUrl(media.url, fallback);
+};
 
 function HeroBlock({ block }: { block: Block }) {
   return (
@@ -95,17 +102,19 @@ function CTASection({ block }: { block: Block }) {
 
 function ImageSection({ block }: { block: Block }) {
   const image = block.image as MediaField;
-  if (!image?.url) return null;
+  const imageUrl = getImageUrl(image);
+  if (!imageUrl) return null;
   const sizeClass = block.size === "small" ? "max-w-lg" : block.size === "full" ? "max-w-full" : "max-w-3xl";
   
   const img = (
     <div className={`mx-auto ${sizeClass}`}>
       <Image
-        src={image.url}
-        alt={String(block.alt || image.alt || "")}
+        src={imageUrl}
+        alt={String(block.alt || image?.alt || "")}
         width={1200}
         height={800}
         className="rounded-3xl shadow-lg w-full h-auto"
+        unoptimized={imageUrl.includes("/api/media/")}
       />
       {isStr(block.caption) && (
         <p className="text-center text-slate-500 mt-4 text-sm">{String(block.caption)}</p>
@@ -143,8 +152,8 @@ function TestimonialsSection({ block }: { block: Block }) {
               )}
               <p className="text-slate-600 leading-relaxed mb-6 italic">"{t.quote}"</p>
               <div className="flex items-center gap-4">
-                {t.photo?.url && (
-                  <Image src={t.photo.url} alt={t.author} width={48} height={48} className="w-12 h-12 rounded-full object-cover" />
+                {getImageUrl(t.photo) && (
+                  <Image src={getImageUrl(t.photo)!} alt={t.author} width={48} height={48} className="w-12 h-12 rounded-full object-cover" unoptimized={getImageUrl(t.photo)!.includes("/api/media/")} />
                 )}
                 <div>
                   <p className="font-bold text-primary">{t.author}</p>
@@ -253,8 +262,8 @@ function TeamSection({ block }: { block: Block }) {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {members.map((member, i) => (
             <div key={member.id ?? i} className="text-center">
-              {member.photo?.url && (
-                <Image src={member.photo.url} alt={member.name} width={200} height={200} className="w-40 h-40 rounded-full mx-auto mb-4 object-cover" />
+              {getImageUrl(member.photo) && (
+                <Image src={getImageUrl(member.photo)!} alt={member.name} width={200} height={200} className="w-40 h-40 rounded-full mx-auto mb-4 object-cover" unoptimized={getImageUrl(member.photo)!.includes("/api/media/")} />
               )}
               <h4 className="font-bold text-xl text-primary">{member.name}</h4>
               <p className="text-accent font-medium">{member.position}</p>
@@ -302,12 +311,15 @@ function GallerySection({ block }: { block: Block }) {
           </div>
         )}
         <div className={cols}>
-          {images.map((img, i) => img.image?.url && (
-            <div key={img.id ?? i} className={block.layout === "masonry" ? "mb-4 break-inside-avoid" : ""}>
-              <Image src={img.image.url} alt={img.caption || ""} width={400} height={300} className="w-full rounded-2xl" />
-              {img.caption && <p className="text-slate-500 text-sm mt-2">{img.caption}</p>}
-            </div>
-          ))}
+          {images.map((img, i) => {
+            const imgUrl = getImageUrl(img.image);
+            return imgUrl && (
+              <div key={img.id ?? i} className={block.layout === "masonry" ? "mb-4 break-inside-avoid" : ""}>
+                <Image src={imgUrl} alt={img.caption || ""} width={400} height={300} className="w-full rounded-2xl" unoptimized={imgUrl.includes("/api/media/")} />
+                {img.caption && <p className="text-slate-500 text-sm mt-2">{img.caption}</p>}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -323,10 +335,11 @@ function BannerSection({ block }: { block: Block }) {
     gradient: "bg-gradient-to-r from-primary to-[#1479be] text-white",
   };
   
+  const bgImageUrl = getImageUrl(bgImage);
   return (
     <section className={`py-20 relative overflow-hidden ${styleClasses[String(block.style)] || styleClasses.primary}`}>
-      {bgImage?.url && (
-        <Image src={bgImage.url} alt="" fill className="object-cover opacity-20" />
+      {bgImageUrl && (
+        <Image src={bgImageUrl} alt="" fill className="object-cover opacity-20" unoptimized={bgImageUrl.includes("/api/media/")} />
       )}
       <div className="container-custom relative z-10 text-center">
         <h2 className="text-3xl md:text-5xl font-black mb-4">{String(block.heading)}</h2>
@@ -361,10 +374,12 @@ function ServicesGridSection({ block }: { block: Block }) {
           {isStr(block.description) && <p className="text-slate-500 text-xl max-w-3xl mx-auto">{String(block.description)}</p>}
         </div>
         <div className={`grid ${cols} gap-8`}>
-          {services.map((service, i) => (
+          {services.map((service, i) => {
+            const serviceImgUrl = getImageUrl(service.image);
+            return (
             <div key={service.id ?? i} className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all">
-              {service.image?.url && (
-                <Image src={service.image.url} alt={service.title} width={400} height={250} className="w-full h-48 object-cover" />
+              {serviceImgUrl && (
+                <Image src={serviceImgUrl} alt={service.title} width={400} height={250} className="w-full h-48 object-cover" unoptimized={serviceImgUrl.includes("/api/media/")} />
               )}
               <div className="p-8">
                 <h4 className="text-xl font-black text-primary mb-3">{service.title}</h4>
@@ -376,7 +391,8 @@ function ServicesGridSection({ block }: { block: Block }) {
                 )}
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

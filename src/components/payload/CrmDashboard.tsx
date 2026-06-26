@@ -11,6 +11,7 @@ const STAGES: { key: string; label: string; color: string; icon: string }[] = [
   { key: "contacted", label: "Contacted", color: "#f59e0b", icon: "📞" },
   { key: "qualified", label: "Qualified", color: "#6366f1", icon: "✅" },
   { key: "won", label: "Won", color: "#16a34a", icon: "🎉" },
+  { key: "lost", label: "Lost", color: "#9ca3af", icon: "❌" },
 ];
 
 const QUICK_ACTIONS = [
@@ -48,20 +49,20 @@ export async function CrmDashboard() {
   let publishedCount = 0;
   let recentPosts: PostDoc[] = [];
   let recentActivity: ActivityDoc[] = [];
-  const counts: Record<string, number> = { new: 0, contacted: 0, qualified: 0, won: 0 };
+  let dbConnected = false;
+  const counts: Record<string, number> = { new: 0, contacted: 0, qualified: 0, won: 0, lost: 0 };
 
   try {
     const payload = await getPayload({ config });
-    const stageCounts = await Promise.all(
-      STAGES.map((s) =>
-        payload.count({ collection: "leads", where: { status: { equals: s.key } } }),
-      ),
-    );
-    STAGES.forEach((s, i) => {
-      counts[s.key] = stageCounts[i].totalDocs;
-    });
+    dbConnected = true;
 
-    const [allLeads, allPosts, allMedia, drafts, published, recent, activity] = await Promise.all([
+    // Fetch all stats in parallel for better performance
+    const [stageCounts, allLeads, allPosts, allMedia, drafts, published, recent, activity] = await Promise.all([
+      Promise.all(
+        STAGES.map((s) =>
+          payload.count({ collection: "leads", where: { status: { equals: s.key } } }),
+        ),
+      ),
       payload.count({ collection: "leads" }),
       payload.count({ collection: "posts" }),
       payload.count({ collection: "media" }),
@@ -70,6 +71,10 @@ export async function CrmDashboard() {
       payload.find({ collection: "posts", limit: 5, sort: "-updatedAt", depth: 0 }),
       payload.find({ collection: "activity-log", limit: 8, sort: "-createdAt", depth: 1 }),
     ]);
+
+    STAGES.forEach((s, i) => {
+      counts[s.key] = stageCounts[i].totalDocs;
+    });
     total = allLeads.totalDocs;
     postsCount = allPosts.totalDocs;
     mediaCount = allMedia.totalDocs;
@@ -78,7 +83,7 @@ export async function CrmDashboard() {
     recentPosts = recent.docs as PostDoc[];
     recentActivity = activity.docs as ActivityDoc[];
   } catch {
-    /* keep zeros */
+    dbConnected = false;
   }
 
   const formatDate = (dateStr?: string) => {
@@ -472,21 +477,40 @@ export async function CrmDashboard() {
             </Link>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+            {dbConnected ? (
+              <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 12px", background: "#f0fdf4", borderRadius: 8, border: "1px solid #bbf7d0" }}>
+                <span style={{ fontSize: 16 }}>✅</span>
+                <span style={{ fontSize: 13, color: "#166534" }}>Database connected</span>
+              </div>
+            ) : (
+              <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 12px", background: "#fef2f2", borderRadius: 8, border: "1px solid #fecaca" }}>
+                <span style={{ fontSize: 16 }}>❌</span>
+                <span style={{ fontSize: 13, color: "#dc2626" }}>Database connection failed</span>
+              </div>
+            )}
+            <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 12px", background: dbConnected ? "#f0fdf4" : "#fef2f2", borderRadius: 8, border: dbConnected ? "1px solid #bbf7d0" : "1px solid #fecaca" }}>
+              <span style={{ fontSize: 16 }}>{dbConnected ? "✅" : "⚠️"}</span>
+              <span style={{ fontSize: 13, color: dbConnected ? "#166534" : "#dc2626" }}>{postsCount} posts, {mediaCount} media files</span>
+            </div>
+            {hasBlobStorage ? (
+              <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 12px", background: "#f0fdf4", borderRadius: 8, border: "1px solid #bbf7d0" }}>
+                <span style={{ fontSize: 16 }}>✅</span>
+                <span style={{ fontSize: 13, color: "#166534" }}>Media storage configured</span>
+              </div>
+            ) : isVercel ? (
+              <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 12px", background: "#fef2f2", borderRadius: 8, border: "1px solid #fecaca" }}>
+                <span style={{ fontSize: 16 }}>❌</span>
+                <span style={{ fontSize: 13, color: "#dc2626" }}>Blob storage missing — uploads will fail</span>
+              </div>
+            ) : (
+              <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 12px", background: "#fffbeb", borderRadius: 8, border: "1px solid #fde68a" }}>
+                <span style={{ fontSize: 16 }}>⚠️</span>
+                <span style={{ fontSize: 13, color: "#92400e" }}>Local storage (set up Blob for Vercel)</span>
+              </div>
+            )}
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 12px", background: "#f0fdf4", borderRadius: 8, border: "1px solid #bbf7d0" }}>
               <span style={{ fontSize: 16 }}>✅</span>
-              <span style={{ fontSize: 13, color: "#166534" }}>Database connected</span>
-            </div>
-            <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 12px", background: "#f0fdf4", borderRadius: 8, border: "1px solid #bbf7d0" }}>
-              <span style={{ fontSize: 16 }}>✅</span>
-              <span style={{ fontSize: 13, color: "#166534" }}>{postsCount} posts, {mediaCount} media files</span>
-            </div>
-            <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 12px", background: "#f0fdf4", borderRadius: 8, border: "1px solid #bbf7d0" }}>
-              <span style={{ fontSize: 16 }}>✅</span>
-              <span style={{ fontSize: 13, color: "#166534" }}>Auto-save enabled</span>
-            </div>
-            <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 12px", background: "#fffbeb", borderRadius: 8, border: "1px solid #fde68a" }}>
-              <span style={{ fontSize: 16 }}>💡</span>
-              <span style={{ fontSize: 13, color: "#92400e" }}>Tip: Add SEO fields to boost rankings</span>
+              <span style={{ fontSize: 13, color: "#166534" }}>Auto-save enabled (30s)</span>
             </div>
           </div>
         </div>
