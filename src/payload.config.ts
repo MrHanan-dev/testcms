@@ -59,11 +59,13 @@ const blobPlugins = process.env.BLOB_READ_WRITE_TOKEN
         collections: {
           media: {
             prefix: "media",
-            // Serve images directly from Vercel Blob CDN rather than proxying
-            // through /api/media/file/. Hostinger cannot reach blob.vercel-storage.com
-            // (the SDK's management API), so the proxy handler always times out.
-            // With this flag the afterRead hook returns the public CDN URL directly.
-            disablePayloadAccessControl: true,
+            // disablePayloadAccessControl is intentionally NOT set here.
+            // Hostinger's server cannot reach blob.vercel-storage.com (the Vercel
+            // Blob management API), so the built-in /api/media/file/ proxy would
+            // time out on every request.
+            // Fix: middleware.ts intercepts /api/media/file/* BEFORE Payload's
+            // route handler and redirects the browser straight to the public
+            // Vercel Blob CDN — no SDK head() / list() calls needed.
           },
         },
         token: process.env.BLOB_READ_WRITE_TOKEN,
@@ -151,19 +153,4 @@ export default buildConfig({
     outputFile: path.resolve(dirname, "payload-types.ts"),
   },
   db: postgresAdapter({
-    // Schema is already synced — avoid slow Drizzle push on every dev server boot (Neon).
-    push: process.env.PAYLOAD_DB_PUSH === "true",
-    pool: {
-      // pg v9 treats sslmode=require as verify-full today; set explicitly to avoid Node warning.
-      connectionString: (process.env.DATABASE_URI || "").replace(
-        /\bsslmode=(require|prefer|verify-ca)\b/,
-        "sslmode=verify-full",
-      ),
-      max: 10,
-      idleTimeoutMillis: 20_000,
-      connectionTimeoutMillis: 15_000,
-    },
-  }),
-  // Sharp powers image resizing for the media library.
-  sharp,
-});
+    // Schema is already 

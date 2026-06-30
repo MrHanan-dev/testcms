@@ -2,102 +2,66 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 /**
- * Middleware — Handle redirects and maintenance mode.
- * WordPress-style URL redirects and site-wide maintenance.
+ * Middleware — Vercel Blob CDN redirect + WordPress-style URL redirects.
+ *
+ * WHY THE BLOB REDIRECT EXISTS
+ * Payload's built-in /api/media/file/ proxy calls head() from the @vercel/blob
+ * SDK. That SDK call goes to blob.vercel-storage.com (the management API), which
+ * Hostinger's server cannot reach — every request hangs and Hostinger kills it
+ * with 504. The public CDN (*.public.blob.vercel-storage.com) IS reachable from
+ * browsers, so we skip the proxy entirely: intercept /api/media/file/* here and
+ * redirect straight to the CDN. Zero SDK calls, zero timeouts.
  */
 
-// Cache redirects in memory (refreshed on deploy)
+// ─── Vercel Blob CDN redirect ─────────────────────────────────────────────────
+
+function blobCdnRedirect(request: NextRequest): NextResponse | null {
+  const { pathname } = request.nextUrl;
+  if (!pathname.startsWith("/api/media/file/")) return null;
+
+  const token = process.env.BLOB_READ_WRITE_TOKEN;
+  if (!token) return null;
+
+  // Extract storeId from the token: vercel_blob_rw_<storeId>_<secret>
+  const storeId = token.match(/^vercel_blob_rw_([a-z\d]+)_/i)?.[1]?.toLowerCase();
+  if (!storeId) return null;
+
+  // filename is everything after /api/media/file/
+  const filename = pathname.slice("/api/media/file/".length);
+  if (!filename) return null;
+
+  // prefix query param is set by Payload's afterRead hook (defaults to "media")
+  const prefix = request.nextUrl.searchParams.get("prefix") || "media";
+
+  const cdnUrl = `https://${storeId}.public.blob.vercel-storage.com/${prefix}/${filename}`;
+  return NextResponse.redirect(cdnUrl, { status: 302 });
+}
+
+// ─── CMS redirects ────────────────────────────────────────────────────────────
+
 let redirectsCache: Map<string, { to: string; type: string }> | null = null;
 let cacheTimestamp = 0;
-const CACHE_TTL = 60000; // 1 minute
+const CACHE_TTL = 60_000; // 1 minute
 
 async function getRedirects(): Promise<Map<string, { to: string; type: string }>> {
   const now = Date.now();
-  
-  // Return cached if still valid
+
   if (redirectsCache && now - cacheTimestamp < CACHE_TTL) {
     return redirectsCache;
   }
 
   try {
-    // Fetch redirects from API
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
     const response = await fetch(`${baseUrl}/api/redirects?depth=0&limit=1000`, {
       headers: { "Content-Type": "application/json" },
       next: { revalidate: 60 },
     });
 
-    if (!response.ok) {
-      return redirectsCache || new Map();
-    }
+    if (!response.ok) return redirectsCache || new Map();
 
     const data = await response.json();
     const map = new Map<string, { to: string; type: string }>();
 
     for (const redirect of data.docs || []) {
       if (redirect.isActive && redirect.from && redirect.to) {
-        // Check expiry
-        if (redirect.expiresAt && new Date(redirect.expiresAt) < new Date()) {
-          continue;
-        }
-        map.set(redirect.from.toLowerCase(), {
-          to: redirect.to,
-          type: redirect.type || "301",
-        });
-      }
-    }
-
-    redirectsCache = map;
-    cacheTimestamp = now;
-    return map;
-  } catch {
-    return redirectsCache || new Map();
-  }
-}
-
-export async function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
-
-  // Skip internal paths
-  if (
-    pathname.startsWith("/_next") ||
-    pathname.startsWith("/api") ||
-    pathname.startsWith("/admin") ||
-    pathname.includes(".")
-  ) {
-    return NextResponse.next();
-  }
-
-  // Check for redirects
-  try {
-    const redirects = await getRedirects();
-    const redirect = redirects.get(pathname.toLowerCase());
-
-    if (redirect) {
-      const statusCode = parseInt(redirect.type, 10);
-      const destination = redirect.to.startsWith("http")
-        ? redirect.to
-        : new URL(redirect.to, request.url).toString();
-
-      // Increment hit counter (fire and forget)
-      fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/redirects/hit`, {
-        method: "POST",
-        body: JSON.stringify({ from: pathname }),
-        headers: { "Content-Type": "application/json" },
-      }).catch(() => {});
-
-      return NextResponse.redirect(destination, statusCode);
-    }
-  } catch {
-    // Continue on error
-  }
-
-  return NextResponse.next();
-}
-
-export const config = {
-  matcher: [
-    // Match all paths except static files and API routes
-    "/((?!_next/static|_next/image|favicon.ico|.*\\.).*)",
-  ],
-};
+        if (redirect.expiresAt && new Date(redirect.expiresAt) <
