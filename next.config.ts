@@ -3,6 +3,10 @@ import path from "path";
 import { withPayload } from "@payloadcms/next/withPayload";
 
 const nextConfig: NextConfig = {
+  // Standalone output bundles only what is needed to run the server,
+  // dramatically reducing the in-memory footprint on Hostinger shared hosting
+  // (the full .next directory is ~450 MB; standalone trims this considerably).
+  output: "standalone",
   turbopack: {
     root: path.join(process.cwd()),
   },
