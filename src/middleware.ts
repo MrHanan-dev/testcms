@@ -2,18 +2,18 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 /**
- * Middleware — Vercel Blob CDN redirect + WordPress-style URL redirects.
+ * Middleware - Vercel Blob CDN redirect + WordPress-style URL redirects.
  *
  * WHY THE BLOB REDIRECT EXISTS
  * Payload's built-in /api/media/file/ proxy calls head() from the @vercel/blob
  * SDK. That SDK call goes to blob.vercel-storage.com (the management API), which
- * Hostinger's server cannot reach — every request hangs and Hostinger kills it
+ * Hostinger's server cannot reach - every request hangs and Hostinger kills it
  * with 504. The public CDN (*.public.blob.vercel-storage.com) IS reachable from
  * browsers, so we skip the proxy entirely: intercept /api/media/file/* here and
  * redirect straight to the CDN. Zero SDK calls, zero timeouts.
  */
 
-// ─── Vercel Blob CDN redirect ─────────────────────────────────────────────────
+// === Vercel Blob CDN redirect ===
 
 function blobCdnRedirect(request: NextRequest): NextResponse | null {
   const { pathname } = request.nextUrl;
@@ -37,7 +37,7 @@ function blobCdnRedirect(request: NextRequest): NextResponse | null {
   return NextResponse.redirect(cdnUrl, { status: 302 });
 }
 
-// ─── CMS redirects ────────────────────────────────────────────────────────────
+// === CMS redirects ===
 
 let redirectsCache: Map<string, { to: string; type: string }> | null = null;
 let cacheTimestamp = 0;
@@ -64,4 +64,76 @@ async function getRedirects(): Promise<Map<string, { to: string; type: string }>
 
     for (const redirect of data.docs || []) {
       if (redirect.isActive && redirect.from && redirect.to) {
-        if (redirect.expiresAt && new Date(redirect.expiresAt) <
+        if (redirect.expiresAt && new Date(redirect.expiresAt) < new Date()) continue;
+        map.set(redirect.from.toLowerCase(), {
+          to: redirect.to,
+          type: redirect.type || "301",
+        });
+      }
+    }
+
+    redirectsCache = map;
+    cacheTimestamp = now;
+    return map;
+  } catch {
+    return redirectsCache || new Map();
+  }
+}
+
+// === Main middleware ===
+
+export async function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+
+  // 1. Vercel Blob CDN redirect - must run BEFORE the /api early-return below
+  //    because image filenames contain dots (e.g. .jpeg) which would otherwise
+  //    be skipped by the matcher / early-return logic.
+  const blobRedirect = blobCdnRedirect(request);
+  if (blobRedirect) return blobRedirect;
+
+  // 2. Skip remaining logic for internal / API / admin paths and static assets
+  if (
+    pathname.startsWith("/_next") ||
+    pathname.startsWith("/api") ||
+    pathname.startsWith("/admin") ||
+    pathname.includes(".")
+  ) {
+    return NextResponse.next();
+  }
+
+  // 3. CMS-managed URL redirects
+  try {
+    const redirects = await getRedirects();
+    const redirect = redirects.get(pathname.toLowerCase());
+
+    if (redirect) {
+      const statusCode = parseInt(redirect.type, 10);
+      const destination = redirect.to.startsWith("http")
+        ? redirect.to
+        : new URL(redirect.to, request.url).toString();
+
+      // Fire-and-forget hit counter
+      fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/redirects/hit`, {
+        method: "POST",
+        body: JSON.stringify({ from: pathname }),
+        headers: { "Content-Type": "application/json" },
+      }).catch(() => {});
+
+      return NextResponse.redirect(destination, statusCode);
+    }
+  } catch {
+    // Continue on error
+  }
+
+  return NextResponse.next();
+}
+
+export const config = {
+  matcher: [
+    // Explicitly include /api/media/file/* so filenames with dots (images)
+    // reach the middleware - the catch-all below excludes dotted paths.
+    "/api/media/file/:path*",
+    // All other paths except Next.js internals, static assets, and dotted files
+    "/((?!_next/static|_next/image|favicon.ico|.*\\.).*)",
+  ],
+};

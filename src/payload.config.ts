@@ -65,7 +65,7 @@ const blobPlugins = process.env.BLOB_READ_WRITE_TOKEN
             // time out on every request.
             // Fix: middleware.ts intercepts /api/media/file/* BEFORE Payload's
             // route handler and redirects the browser straight to the public
-            // Vercel Blob CDN — no SDK head() / list() calls needed.
+            // Vercel Blob CDN - no SDK head() / list() calls needed.
           },
         },
         token: process.env.BLOB_READ_WRITE_TOKEN,
@@ -117,7 +117,7 @@ const collections = [
 ];
 
 /**
- * Payload CMS configuration — the WordPress-like admin for the whole site.
+ * Payload CMS configuration - the WordPress-like admin for the whole site.
  *
  * Phase 0 (this commit) stands up the foundation: Postgres (Neon) connection,
  * authentication (Users), and a Media library, with the admin served at /admin
@@ -153,4 +153,19 @@ export default buildConfig({
     outputFile: path.resolve(dirname, "payload-types.ts"),
   },
   db: postgresAdapter({
-    // Schema is already 
+    // Schema is already synced - avoid slow Drizzle push on every dev server boot (Neon).
+    push: process.env.PAYLOAD_DB_PUSH === "true",
+    pool: {
+      // pg v9 treats sslmode=require as verify-full today; set explicitly to avoid Node warning.
+      connectionString: (process.env.DATABASE_URI || "").replace(
+        /\bsslmode=(require|prefer|verify-ca)\b/,
+        "sslmode=verify-full",
+      ),
+      max: 10,
+      idleTimeoutMillis: 20_000,
+      connectionTimeoutMillis: 15_000,
+    },
+  }),
+  // Sharp powers image resizing for the media library.
+  sharp,
+});
