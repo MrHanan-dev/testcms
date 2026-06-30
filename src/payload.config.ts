@@ -56,7 +56,16 @@ const dirname = path.dirname(filename);
 const blobPlugins = process.env.BLOB_READ_WRITE_TOKEN
   ? [
       vercelBlobStorage({
-        collections: { media: { prefix: "media" } },
+        collections: {
+          media: {
+            prefix: "media",
+            // Serve images directly from Vercel Blob CDN rather than proxying
+            // through /api/media/file/. Hostinger cannot reach blob.vercel-storage.com
+            // (the SDK's management API), so the proxy handler always times out.
+            // With this flag the afterRead hook returns the public CDN URL directly.
+            disablePayloadAccessControl: true,
+          },
+        },
         token: process.env.BLOB_READ_WRITE_TOKEN,
         clientUploads: true,
       }),
